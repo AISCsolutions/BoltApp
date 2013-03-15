@@ -11,8 +11,26 @@
   <script>
     $(function() {
       $('.type div span:first').css('text-decoration', 'underline')
+
+      setTimeout(function() {
+        var headerHeight = $('#nuts-and-washers [data-role="header"]').height()
+        var footerHeight = $('#nuts-and-washers [data-role="footer"]').height()
+        var windowHeight = $(this).height()
+        var contentPadding = parseInt($('#nuts-and-washers [data-role="content"]').css("padding-top"), 10)
+        var pagePadding = parseInt($('#nuts-and-washers').css("padding-top"), 10)
+        console.log(contentPadding, pagePadding)
+        $('#nuts-and-washers .split').css('height', windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2)
+      }, 0)
     })
   </script>
+
+  <style>
+    figure { margin: 0;}
+    .split .half {height: 45%; width: 100%; margin-top: 1em;}
+    .split .nuts {border-bottom: solid black 1px; }
+    .split img {float: left; height: 80%; margin-right: 1em;}
+    .split legend {float:right; width: 40%;}
+  </style>
 </head>
 <body>
 
@@ -96,8 +114,22 @@
   </div><!-- header -->
 
   <div data-role="content">
-    <h2>Nuts</h2>
-    <h2>Washers</h2>
+    <div class="split">
+      <figure class="half nuts">
+        <img src="images/nut-DH.png">
+        <legend>
+          <h3>DH</h3>
+          <p>Galvanized and Lubricated</p>
+        </legend>
+      </figure>
+      <figure class="half washers">
+        <img src="images/F436-1.png">
+        <legend>
+          <h3>1</h3>
+          <p>Plain</p>
+        </legend>
+      </figure>
+    </div>
   </div><!-- content -->
 
   <div data-role="footer" data-position="fixed" data-id="main-naviation">
