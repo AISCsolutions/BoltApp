@@ -8,6 +8,11 @@
   <link rel="stylesheet"  href="style/jquery.mobile.theme-1.3.0.css">
   <script src="script/jquery.js"></script>
   <script src="script/jquery.mobile-1.3.0.js"></script>
+  <script>
+    $(function() {
+      $('.type div span:first').css('text-decoration', 'underline')
+    })()
+  </script>
 </head>
 <body>
 
@@ -18,10 +23,21 @@
   </div><!-- header -->
 
   <div data-role="content">
-    <h2>Select Grade</h2>
-    <h2>Select Type</h2>
-    <h2>Select Finish</h2>
-    <h2>Select Manufacturer</h2>
+    <form>
+      <label>Select Grade</label>
+      <a href="#grade" data-role="button">A325</a>
+      <fieldset class="type">
+        <label for="type">Is it Underlined?</label>
+        <select name="type" id="type" data-role="slider">
+          <option value="type-1">Type 1</option>
+          <option value="type-3">Type 3</option>
+        </select>
+      </fieldset>
+      <label>Select Finish</label>
+      <a href="#finish" data-role="button">Plain</a>
+      <label>Select Manufacturer</label>
+      <a href="#manufacturer" data-role="button">Unytite</a>
+    </form>
   </div><!-- content -->
 
   <div data-role="footer" data-position="fixed" data-id="main-naviation">
