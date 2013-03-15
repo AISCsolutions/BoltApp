@@ -60,9 +60,20 @@
   </div><!-- header -->
 
   <div data-role="content">
-    <h2>Which</h2>
-    <h2>Diagram</h2>
-    <h2>Diameter</h2>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#bolt-diagram">Bolt</a></li>
+        <li><a href="#nut-diagram">Nut</a></li>
+        <li><a href="#washer-diagram">Washers</a></li>
+      </ul>
+    </div>
+    <div class="diagram">
+      <img src="images/bolt-dimensions-320.png" width="100%">
+    </div>
+    <form>
+      <label for="diameter">Diameter:</label>
+      <input type="range" name="diameter" id="diameter" min=".5" max="1.5" step="0.125" value="1">
+    </form>
   </div><!-- content -->
 
   <div data-role="footer" data-position="fixed" data-id="main-naviation">
