@@ -18,7 +18,6 @@
         var windowHeight = $(this).height()
         var contentPadding = parseInt($('#nuts-and-washers [data-role="content"]').css("padding-top"), 10)
         var pagePadding = parseInt($('#nuts-and-washers').css("padding-top"), 10)
-        console.log(contentPadding, pagePadding)
         $('#nuts-and-washers .split').css('height', windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2)
       }, 0)
     })
@@ -152,6 +151,18 @@
   </div><!-- header -->
 
   <div data-role="content">
+    <ul data-role="listview">
+      <li><a href="#">
+        <img src="images/mfg-lejeune.png">
+        <h2>Le Jeune Bolt Co.</h2>
+        <p>Lakeville MN</p>
+      </a></li>
+      <li><a href="#">
+        <img src="images/mfg-unytite.png">
+        <h2>Unytite, Inc</h2>
+        <p>Peru IL</p>
+      </a></li>
+    </ul>
   </div><!-- content -->
 
   <div data-role="footer" data-position="fixed" data-id="main-naviation">
