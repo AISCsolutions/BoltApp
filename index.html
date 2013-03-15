@@ -12,23 +12,29 @@
     $(function() {
       $('.type div span:first').css('text-decoration', 'underline')
 
-      setTimeout(function() {
-        var headerHeight = $('#nuts-and-washers [data-role="header"]').height()
-        var footerHeight = $('#nuts-and-washers [data-role="footer"]').height()
+      var fixNW = function() {
+        console.log('fixing N&W')
+        var headerHeight = $.mobile.activePage.find('[data-role="header"]').height()
+        var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height()
         var windowHeight = $(this).height()
-        var contentPadding = parseInt($('#nuts-and-washers [data-role="content"]').css("padding-top"), 10)
-        var pagePadding = parseInt($('#nuts-and-washers').css("padding-top"), 10)
+        var contentPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
+        var pagePadding = parseInt($.mobile.activePage.css("padding-top"), 10)
         $('#nuts-and-washers .split').css('height', windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2)
-      }, 0)
+      }
+
+      $(window).on('navigate', fixNW)
     })
   </script>
 
   <style>
     figure { margin: 0;}
-    .split .half {height: 45%; width: 100%; margin-top: 1em;}
+    .split .half {height: 48%; width: 100%; margin-top: 1em;}
     .split .nuts {border-bottom: solid black 1px; }
     .split img {float: left; height: 80%; margin-right: 1em;}
     .split legend {float:right; width: 40%;}
+    .ui-content {
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -156,11 +162,19 @@
         <img src="images/mfg-lejeune.png">
         <h2>Le Jeune Bolt Co.</h2>
         <p>Lakeville MN</p>
+        <a href="http://www.lejeunebolt.com/">Webpage</a>
       </a></li>
       <li><a href="#">
-        <img src="images/mfg-unytite.png">
+        <img src="images/mfg-unytite-a.png">
         <h2>Unytite, Inc</h2>
         <p>Peru IL</p>
+        <a href="http://www.unytiteusa.com/">Webpage</a>
+      </a></li>
+      <li><a href="#">
+        <img src="images/mfg-unytite-b.png">
+        <h2>Unytite, Inc</h2>
+        <p>Peru IL</p>
+        <a href="http://www.unytiteusa.com/">Webpage</a>
       </a></li>
     </ul>
   </div><!-- content -->
