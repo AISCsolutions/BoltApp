@@ -88,13 +88,20 @@
   </div><!-- header -->
 
   <div data-role="content">
-    <div data-role="navbar">
-      <ul>
-        <li><a href="#bolt-diagram">Bolt</a></li>
-        <li><a href="#nut-diagram">Nut</a></li>
-        <li><a href="#washer-diagram">Washers</a></li>
-      </ul>
-    </div>
+    <form>
+      <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Diagram</legend>
+
+        <input type="radio" name="diagram" id="bolt-diagram" value="on" checked="checked">
+        <label for="bolt-diagram"><img src="images/bolt-icon.png" height="30" alt="Bolt"><br>Bolt</label>
+
+        <input type="radio" name="diagram" id="nut-diagram">
+        <label for="nut-diagram"><img src="images/nut-icon.png" height="30" alt="Nut"><br>Nut</label>
+
+        <input type="radio" name="diagram" id="washers-diagram">
+        <label for="washers-diagram"><img src="images/washer-icon.png" height="30" alt="Washers"><br>Washer</label>
+      </fieldset>
+    </form>
     <div class="diagram">
       <img src="images/bolt-dimensions-320.png" width="100%">
     </div>
