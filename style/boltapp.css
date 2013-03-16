@@ -1,6 +1,11 @@
 /* Bolt ID */
 .type div span:first-child {text-decoration: underline !important;}
 
+/* Dimmensions */
+#dimensions fieldset legend {display: none;}
+.diagrams {margin: 0px; padding: 0px; list-style-type: none;}
+.diagrams li {display: none;}
+
 /* Nuts Washers */
 figure { margin: 0;}
 .split .half {height: 48%; width: 100%; margin-top: 1em;}

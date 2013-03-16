@@ -1,4 +1,24 @@
 $(function() {
+  /* Dimensions */
+  $('#bolt-select').on('change', function() {
+    $('#bolt-diagram').show()
+    $('#nut-diagram').hide()
+    $('#washer-diagram').hide()
+  })
+  $('#nut-select').on('change', function() {
+    $('#bolt-diagram').hide()
+    $('#nut-diagram').show()
+    $('#washer-diagram').hide()
+  })
+  $('#washer-select').on('change', function() {
+    $('#bolt-diagram').hide()
+    $('#nut-diagram').hide()
+    $('#washer-diagram').show()
+  })
+
+  $('#dimensions input[value="on"]').change()
+
+  /* Nuts and Washers */
   var fixNW = function() {
     console.log('fixing NW')
     var headerHeight = $.mobile.activePage.find('[data-role="header"]').height()

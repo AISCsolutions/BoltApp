@@ -9,7 +9,7 @@
   <script src="script/jquery.js"></script>
   <script src="script/jquery.mobile-1.3.0.js"></script>
   <link rel="stylesheet"  href="style/boltapp.css">
-  <script src="script/boltapp"></script>
+  <script src="script/boltapp.js"></script>
 </head>
 <body>
 
@@ -61,19 +61,21 @@
       <fieldset data-role="controlgroup" data-type="horizontal">
         <legend>Diagram</legend>
 
-        <input type="radio" name="diagram" id="bolt-diagram" value="on" checked="checked">
-        <label for="bolt-diagram"><img src="images/icons/bolt.png" height="30" alt="Bolt"><br>Bolt</label>
+        <input type="radio" name="diagram" id="bolt-select" value="on" checked="checked">
+        <label for="bolt-select"><img src="images/icons/bolt.png" height="30" alt="Bolt"><br>Bolt</label>
 
-        <input type="radio" name="diagram" id="nut-diagram">
-        <label for="nut-diagram"><img src="images/icons/nut.png" height="30" alt="Nut"><br>Nut</label>
+        <input type="radio" name="diagram" id="nut-select">
+        <label for="nut-select"><img src="images/icons/nut.png" height="30" alt="Nut"><br>Nut</label>
 
-        <input type="radio" name="diagram" id="washers-diagram">
-        <label for="washers-diagram"><img src="images/icons/washer.png" height="30" alt="Washers"><br>Washer</label>
+        <input type="radio" name="diagram" id="washer-select">
+        <label for="washer-select"><img src="images/icons/washer.png" height="30" alt="Washers"><br>Washer</label>
       </fieldset>
     </form>
-    <div class="diagram">
-      <img src="images/dimensions/bolt-320.png" width="100%">
-    </div>
+    <ul class="diagrams">
+      <li id="bolt-diagram"><img src="images/dimensions/bolt-320.png" width="100%"></li>
+      <li id="nut-diagram"><img src="images/dimensions/nut-186.png" width="100%"></li>
+      <li id="washer-diagram"><img src="images/dimensions/washer-186.png" width="100%"></li>
+    </ul>
     <form>
       <label for="diameter">Diameter:</label>
       <input type="range" name="diameter" id="diameter" min=".5" max="1.5" step="0.125" value="1">
@@ -242,7 +244,7 @@
         <h2>Mechanically Galvanized</h2>
       </a></li>
       <li><a href="#bolt-id">
-        <img src="images/finishs/mock.png">
+        <img src="images/finishes/mock.png">
         <h2>Zn/Al Inorganic</h2>
         <p>per ASTM F1136 Grade 3</p>
       </a></li>
