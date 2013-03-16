@@ -20,25 +20,26 @@
         $('#nuts-and-washers .split').css('height', windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2)
       }
 
-      var fixID = function() {
-        console.log('fixing Type')
-        $('.type div span:first').css('text-decoration', 'underline')
-      }
-
       $(window).on('navigate', fixNW)
-      $(window).on('pageshow', fixID)
     })
   </script>
 
   <style>
+    /* Bolt ID */
+    .type div span:first-child {text-decoration: underline !important;}
+
+    /* Nuts Washers */
     figure { margin: 0;}
     .split .half {height: 48%; width: 100%; margin-top: 1em;}
     .split .nuts {border-bottom: solid black 1px; }
     .split img {float: left; height: 80%; margin-right: 1em;}
     .split legend {float:right; width: 40%;}
-    .ui-content {
-      overflow: hidden;
-    }
+
+    /* Manfufacturer */
+    .ui-content { overflow: hidden; }
+
+    /* Finish */
+    .ui-li-desc, .ui-li-heading {overflow: visible;}
   </style>
 </head>
 <body>
@@ -221,6 +222,53 @@
       <li><a href="#bolt-id">
         <h2>F2280</h2>
         <p class="ui-li-aside">Group B</p>
+      </a></li>
+    </ul>
+  </div><!-- content -->
+
+  <div data-role="footer" data-position="fixed" data-id="main-naviation">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#bolt-id" class="ui-btn-active ui-state-persist">Bolt</a></li>
+        <li><a href="#dimensions">Dim</a></li>
+        <li><a href="#nuts-and-washers">N&amp;W</a></li>
+        <li><a href="#manufacturer">Mfg</a></li>
+      </ul>
+    </div>
+  </div><!-- footer -->
+
+</div><!-- page -->
+
+<div data-role="page" id="finish">
+
+  <div data-role="header" data-position="fixed" data-id="main-header">
+    <a href="#bolt-id" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true">Back</a>
+    <h1>Select Bolt Finish</h1>
+  </div><!-- header -->
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <li><a href="#bolt-id">
+        <img src="images/finish-mock.png">
+        <h2>Plain</h2>
+      </a></li>
+      <li><a href="#bolt-id">
+        <img src="images/finish-mock.png">
+        <h2>Plain</h2>
+        <p>Uncoated</p>
+      </a></li>
+      <li><a href="#bolt-id">
+        <img src="images/finish-mock.png">
+        <h2>Galvanized</h2>
+      </a></li>
+      <li><a href="#bolt-id">
+        <img src="images/finish-mock.png">
+        <h2>Mechanically Galvanized</h2>
+      </a></li>
+      <li><a href="#bolt-id">
+        <img src="images/finish-mock.png">
+        <h2>Zn/Al Inorganic</h2>
+        <p>per ASTM F1136 Grade 3</p>
       </a></li>
     </ul>
   </div><!-- content -->
