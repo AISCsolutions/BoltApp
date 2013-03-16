@@ -1,0 +1,15 @@
+/* Bolt ID */
+.type div span:first-child {text-decoration: underline !important;}
+
+/* Nuts Washers */
+figure { margin: 0;}
+.split .half {height: 48%; width: 100%; margin-top: 1em;}
+.split .nuts {border-bottom: solid black 1px; }
+.split img {float: left; height: 80%; margin-right: 1em;}
+.split legend {float:right; width: 40%;}
+
+/* Manfufacturer */
+.ui-content { overflow: hidden; }
+
+/* Finish */
+.ui-li-desc, .ui-li-heading {overflow: visible;}
