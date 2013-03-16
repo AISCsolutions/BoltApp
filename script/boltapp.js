@@ -1,5 +1,5 @@
 $(function() {
-  /* Dimensions */
+  /* Dimensions - diagram */
   $('#bolt-select').on('change', function() {
     $('#bolt-diagram').show()
     $('#nut-diagram').hide()
@@ -17,6 +17,28 @@ $(function() {
   })
 
   $('#dimensions input[checked="checked"]').change()
+
+  /* Dimensions - diameter */
+
+  var diameterInches = {
+    '0.5': '1/2',
+    '0.625': '5/8',
+    '0.75': '3/4',
+    '0.875': '7/8',
+    '1': '1',
+    '1.125': '1 1/8',
+    '1.25': '1 2/4',
+    '1.375': '1 3/8',
+    '1.5': '1 1/2',
+  }
+
+  var wireDiameter = function() {
+    $('#diameter').on('change', function() {
+      $('#diameter-inches span').html(diameterInches[$(this).val().toString()])
+    })
+  }
+
+  $('#dimensions').on('pageshow', wireDiameter)
 
   /* Nuts and Washers */
   var fixNW = function() {

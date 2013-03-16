@@ -13,6 +13,8 @@
 .diagrams li { display: none; }
 .diagrams img { max-width: 100%; max-height: 12em; }
 
+#diameter-inches {position: absolute; width: 100%; text-align: center; margin-top: -0.5em; font-size: 200%;}
+
 /* Nuts Washers */
 figure { margin: 0;}
 .split .half {height: 48%; width: 100%; margin-top: 1em;}
