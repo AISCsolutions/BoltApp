@@ -3,8 +3,15 @@
 
 /* Dimmensions */
 #dimensions fieldset legend {display: none;}
-.diagrams {margin: 0px; padding: 0px; list-style-type: none;}
-.diagrams li {display: none;}
+.diagrams {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  height: 12em;
+  text-align: center;
+}
+.diagrams li { display: none; }
+.diagrams img { max-width: 100%; max-height: 12em; }
 
 /* Nuts Washers */
 figure { margin: 0;}

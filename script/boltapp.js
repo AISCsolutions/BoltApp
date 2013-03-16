@@ -16,7 +16,7 @@ $(function() {
     $('#washer-diagram').show()
   })
 
-  $('#dimensions input[value="on"]').change()
+  $('#dimensions input[checked="checked"]').change()
 
   /* Nuts and Washers */
   var fixNW = function() {
