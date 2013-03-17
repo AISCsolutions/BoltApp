@@ -38,8 +38,51 @@ $(function() {
     })
   }
 
+  var placeMeasurements = function(measurements, dx, dy) {
+    var bolt = $('#bolt-diagram')
+    var bo = bolt.offset()
+
+    var diagram = $('#bolt-diagram img')
+    var so = diagram.offset()
+    var sx = so.left - bo.left
+    var sy = so.top - bo.top
+    var sw = diagram.prop('width')
+    var sh = diagram.prop('height')
+    var iw = diagram.prop('naturalWidth')
+    var ih = diagram.prop('naturalHeight')
+
+    var m = $('.measurement')
+    var mw = m.width() / 2
+    var mh = m.height() / 2
+    var mx = parseInt(m.data('x'), 10) / 100.0
+    var my = parseInt(m.data('y'), 10) / 100.0
+
+    var px = function(x) {
+      return ((x*sw) - mw + sx).toString() + 'px'
+    }
+    var py = function(y) {
+      return ((y*sh) - mh + sy).toString() + 'px'
+    }
+
+    if (dx) {
+      mx = dx/sw
+      my = dy/sh
+      console.log(mx, my)
+    }
+
+    m.css('left', px(mx))
+    m.css('top', py(my))
+  }
+
+  $(document).on('mousemove', function(e) {
+    var offset = $('.diagrams li img').offset()
+    window.mousex = e.pageX - offset.left
+    window.mousey = e.pageY - offset.top
+    placeMeasurements(measurements, mousex, mousey)
+  })
+
   var setupDimenions = function() {
-    loadMeasurements()
+    loadMeasurements(placeMeasurements)
     wireDiameter()
   }
 

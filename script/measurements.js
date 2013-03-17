@@ -1,6 +1,7 @@
-var loadMeasurements = function() {
+var loadMeasurements = function(callback) {
   loadCsv('data/measurements.csv', function(data) {
     window.measurements = parseMeasurements(data)
+    callback(window.measurements)
   })
 }
 
