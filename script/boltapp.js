@@ -17,17 +17,18 @@ $(function() {
   })
 
   /* Dimensions - diagram */
-  var boltDiagram = Diagram.clone('#bolt-diagram', 'Bolt')
-  var nutDiagram = Diagram.clone('#nut-diagram', 'Nut')
-  var washerDiagram = Diagram.clone('#washer-diagram', 'Circular Washer')
+  var boltDiagram = Diagram.clone('#bolt-diagram')
+  var nutDiagram = Diagram.clone('#nut-diagram')
+  var washerDiagram = Diagram.clone('#washer-diagram')
 
-  //washerDiagram.interactivePlace('Min Edge Distance')
+  //washerDiagram.interactivePlace('Inside Diameter')
 
   var placeMeasurements = function(measurements) {
     window.measurements = measurements
-    boltDiagram.update(measurements[4])
-    nutDiagram.update(measurements[4])
-    washerDiagram.update(measurements[4])
+    boltDiagram.update(measurements[4]['Bolt'])
+    nutDiagram.update(measurements[4]['Nut'])
+    washerDiagram.update(measurements[4]['Circular Washer'])
+    washerDiagram.update(measurements[4]['Square Washer'])
   }
 
   /* Dimensions - diameter */

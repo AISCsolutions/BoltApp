@@ -1,8 +1,7 @@
 var Diagram = {
-  clone: function(selector, which) {
+  clone: function(selector) {
     var my = Object.create(this)
     my.selector = selector
-    my.which = which
     return my
   },
   $: function(selector) {
@@ -36,8 +35,7 @@ var Diagram = {
 
     this.placements()
   },
-  update: function(measurements) {
-    measures = measurements[this.which]
+  update: function(measures) {
     for (var name in measures) {
       this.$measure(name).html(measures[name])
     }
