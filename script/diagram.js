@@ -8,6 +8,9 @@ var Diagram = {
   $: function(selector) {
     return $(this.selector).find(selector)
   },
+  $el: function() {
+    return $(this.selector)
+  },
   $measure: function(name) {
     return this.$('[title="'+name+'"]')
   },
@@ -84,7 +87,7 @@ var Diagram = {
   interactivePlace: function(measurement) {
     var diagram = this
     $(document).on('mousemove', function(e) {
-      var offset = $('.diagrams li').offset()
+      var offset = diagram.$el().offset()
       var mousex = e.pageX - offset.left
       var mousey = e.pageY - offset.top
       diagram.placeAt(diagram.$measure(measurement), mousex, mousey)

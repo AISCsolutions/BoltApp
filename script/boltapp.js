@@ -19,9 +19,9 @@ $(function() {
   /* Dimensions - diagram */
   var boltDiagram = Diagram.clone('#bolt-diagram', 'Bolt')
   var nutDiagram = Diagram.clone('#nut-diagram', 'Nut')
-  var washerDiagram = Diagram.clone('#washer-diagram', 'Square Washer')
+  var washerDiagram = Diagram.clone('#washer-diagram', 'Circular Washer')
 
-  //boltDiagram.interactivePlace('Length Extras')
+  //washerDiagram.interactivePlace('Min Edge Distance')
 
   var placeMeasurements = function(measurements) {
     window.measurements = measurements
