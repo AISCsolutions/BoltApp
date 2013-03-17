@@ -1,32 +1,33 @@
 $(function() {
   /* Dimensions - diagram select */
   $('#bolt-select').on('change', function() {
-    $('#bolt-diagram').show()
-    $('#nut-diagram').hide()
-    $('#washer-diagram').hide()
+    boltDiagram.show()
+    nutDiagram.hide()
+    washerDiagram.hide()
   })
   $('#nut-select').on('change', function() {
-    $('#bolt-diagram').hide()
-    $('#nut-diagram').show()
-    $('#washer-diagram').hide()
+    boltDiagram.hide()
+    nutDiagram.show()
+    washerDiagram.hide()
   })
   $('#washer-select').on('change', function() {
-    $('#bolt-diagram').hide()
-    $('#nut-diagram').hide()
-    $('#washer-diagram').show()
+    boltDiagram.hide()
+    nutDiagram.hide()
+    washerDiagram.show()
   })
 
   /* Dimensions - diagram */
-  $('#dimensions input[checked="checked"]').change()
+  var boltDiagram = Diagram.clone('#bolt-diagram', 'Bolt')
+  var nutDiagram = Diagram.clone('#nut-diagram', 'Nut')
+  var washerDiagram = Diagram.clone('#washer-diagram', 'Square Washer')
 
-  var bolt = Diagram.clone('#bolt-diagram', 'Bolt')
-
-  //bolt.interactivePlace('Width Across Flats')
+  //boltDiagram.interactivePlace('Width Across Flats')
 
   var placeMeasurements = function(measurements) {
     window.measurements = measurements
-    bolt.update(measurements[4])
-    bolt.placements()
+    boltDiagram.update(measurements[4])
+    nutDiagram.update(measurements[4])
+    washerDiagram.update(measurements[4])
   }
 
   /* Dimensions - diameter */
@@ -50,7 +51,11 @@ $(function() {
 
   /* Dimensions */
   var setupDimenions = function() {
-    bolt.ready()
+    $('#dimensions input[type="radio"]').each(function() {
+      if (this.checked) {
+        $(this).change()
+      }
+    })
     loadMeasurements(placeMeasurements)
     wireDiameter()
   }

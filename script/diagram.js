@@ -11,6 +11,13 @@ var Diagram = {
   $measure: function(name) {
     return this.$('[title="'+name+'"]')
   },
+  show: function() {
+    $(this.selector).show()
+    this.ready()
+  },
+  hide: function() {
+    $(this.selector).hide()
+  },
   ready: function(debugx, debugy) {
     var $diagram = $(this.selector)
     var bo = $diagram.offset()
@@ -30,6 +37,7 @@ var Diagram = {
     for (var name in measures) {
       this.$measure(name).find('.value').html(measures[name])
     }
+    this.placements()
   },
   placements: function() {
     var my = this
