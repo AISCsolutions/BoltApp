@@ -65,7 +65,7 @@ $(function() {
 
   /* Nuts and Washers */
   var fixNW = function() {
-    console.log('fixing NW')
+    //console.log('fixing NW')
     var headerHeight = $.mobile.activePage.find('[data-role="header"]').height()
     var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height()
     var windowHeight = $(this).height()
