@@ -1,10 +1,12 @@
 var BoltApp = define([
   'jquery',
-  'measurements'
-], function(/*
+  'measurements',
+  'diagram'
+], function(
   $,
-  measurements
-*/) {
+  measurements,
+  Diagram
+) {
   /* Dimensions - diagram select */
   var wireDiagramSelect = function() {
     $('#bolt-select').on('change', function() {
@@ -62,7 +64,7 @@ var BoltApp = define([
   }
 
   /* Dimensions */
-  var setupDimenions = function() {
+  var setupDimensions = function() {
     measurements.load(placeMeasurements)
     wireDiagramSelect()
     wireDiameter()
@@ -84,7 +86,7 @@ var BoltApp = define([
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
     ready: function() {
-      $('#dimensions').on('pageshow', setupDimenions)
+      $('#dimensions').on('pageshow', setupDimensions)
       $(window).on('navigate', fixNW)
     }
   }

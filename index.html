@@ -6,27 +6,8 @@
   <title>Bolt App</title>
   <link rel="stylesheet"  href="style/jquery.mobile.structure-1.3.0.css">
   <link rel="stylesheet"  href="style/jquery.mobile.theme-1.3.0.css">
-  <script src="script/jquery.js"></script>
-  <script src="script/jquery.mobile-1.3.0.js"></script>
   <link rel="stylesheet"  href="style/boltapp.css">
-  <script>
-    var define = function(deps, f) {
-      if (!f) {f = deps}
-
-      return f()
-    }
-    var require = function(deps, f) {
-      if (!f) {f = deps}
-
-      return f(BoltApp, $)
-    }
-    require.config = function() {}
-  </script>
-  <script src="script/csv.js"></script>
-  <script src="script/measurements.js"></script>
-  <script src="script/diagram.js"></script>
-  <script src="script/boltapp.js"></script>
-  <script src="script/bootstrap.js"></script>
+  <script src="script/require.js" data-main="script/bootstrap"></script>
 </head>
 <body>
 

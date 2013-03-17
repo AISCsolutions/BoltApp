@@ -1,4 +1,4 @@
-var Diagram = define(['jquery'], function(/*$*/) {
+var Diagram = define(['jquery'], function($) {
   return {
     clone: function(selector) {
       var my = Object.create(this)
