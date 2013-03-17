@@ -1,5 +1,5 @@
 $(function() {
-  /* Dimensions - diagram */
+  /* Dimensions - diagram select */
   $('#bolt-select').on('change', function() {
     $('#bolt-diagram').show()
     $('#nut-diagram').hide()
@@ -16,10 +16,20 @@ $(function() {
     $('#washer-diagram').show()
   })
 
+  /* Dimensions - diagram */
   $('#dimensions input[checked="checked"]').change()
 
-  /* Dimensions - diameter */
+  var bolt = Diagram.clone('#bolt-diagram', 'Bolt')
 
+  //bolt.interactivePlace('Width Across Flats')
+
+  var placeMeasurements = function(measurements) {
+    window.measurements = measurements
+    bolt.update(measurements[4])
+    bolt.placements()
+  }
+
+  /* Dimensions - diameter */
   var diameterInches = {
     '0.5': '1/2',
     '0.625': '5/8',
@@ -38,17 +48,9 @@ $(function() {
     })
   }
 
-  var bolt = Diagram.clone('#bolt-diagram', 'Bolt')
-  bolt.interactivePlace('Base Length')
-
-  var placeMeasurements = function(measurements) {
-    window.measurements = measurements
-    bolt.update(measurements[4])
-  }
-
+  /* Dimensions */
   var setupDimenions = function() {
     bolt.ready()
-    bolt.placements()
     loadMeasurements(placeMeasurements)
     wireDiameter()
   }
