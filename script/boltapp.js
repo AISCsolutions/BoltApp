@@ -1,4 +1,10 @@
-var BoltApp = (function() {
+var BoltApp = define([
+  'jquery',
+  'measurements'
+], function(/*
+  $,
+  measurements
+*/) {
   /* Dimensions - diagram select */
   var wireDiagramSelect = function() {
     $('#bolt-select').on('change', function() {
@@ -82,9 +88,4 @@ var BoltApp = (function() {
       $(window).on('navigate', fixNW)
     }
   }
-})()
-
-$(function() {
-  BoltApp.ready()
-  //BoltApp.washerDiagram.interactivePlace('Inside Diameter')
 })

@@ -1,4 +1,4 @@
-var measurements = (function() {
+var measurements = define(['csv'], function(/*csv*/) {
   var parseMeasurements = function(table) {
     var dims = []
     var kind = ''
@@ -34,4 +34,4 @@ var measurements = (function() {
       })
     }
   }
-})()
+})

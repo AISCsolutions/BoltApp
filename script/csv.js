@@ -1,4 +1,4 @@
-var csv = (function() {
+var csv = define(['jquery'], function(/*$*/) {
   var parseCsv = function(contents) {
     var lines = contents.split("\n")
     var rows = lines.map(function(row) {
@@ -19,4 +19,4 @@ var csv = (function() {
       });
     }
   }
-})()
+})
