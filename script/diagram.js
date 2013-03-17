@@ -76,8 +76,8 @@ var Diagram = {
       return n.toString() + 'px'
     }
 
-    var mw = $m.width() / 2
-    var mh = $m.height() / 2
+    var mw = $m.outerWidth() / 2
+    var mh = $m.outerHeight() / 2
     $m.css('left', px(x - mw))
     $m.css('top', px(y - mh))
   },
