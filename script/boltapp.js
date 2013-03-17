@@ -38,7 +38,12 @@ $(function() {
     })
   }
 
-  $('#dimensions').on('pageshow', wireDiameter)
+  var setupDimenions = function() {
+    wireDiameter()
+    loadCsv('data/dimensions.csv', function(data) {console.log(data)})
+  }
+
+  $('#dimensions').on('pageshow', setupDimenions)
 
   /* Nuts and Washers */
   var fixNW = function() {

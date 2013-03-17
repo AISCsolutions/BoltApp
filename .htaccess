@@ -1,3 +1,3 @@
 AddType text/cache-manifest .manifest
 AddType application/x-web-app-manifest+json .webapp
-
+Header set Access-Control-Allow-Origin “*”
