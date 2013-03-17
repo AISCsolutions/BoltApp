@@ -13,7 +13,8 @@ var Diagram = {
   },
   show: function() {
     $(this.selector).show()
-    this.ready()
+    var my = this
+    setTimeout(function() {my.ready()}, 0)
   },
   hide: function() {
     $(this.selector).hide()
@@ -35,7 +36,7 @@ var Diagram = {
   update: function(measurements) {
     measures = measurements[this.which]
     for (var name in measures) {
-      this.$measure(name).find('.value').html(measures[name])
+      this.$measure(name).html(measures[name])
     }
     this.placements()
   },

@@ -12,7 +12,8 @@
 }
 .diagrams li { display: none; position: relative; }
 .diagrams img { max-width: 100%; max-height: 12em; }
-.diagrams .measurement {position: absolute; margin: 0px; background-color: white; border: solid #aaa 1px}
+.diagrams .measurement {position: absolute; margin: 0px; background-color: white; border: solid #aaa 1px;}
+.diagrams .measurement[title="Length Extras"] {font-size: 0.75em; border: none;}
 
 #diameter-inches {position: absolute; width: 100%; text-align: center; margin-top: -0.5em; font-size: 200%;}
 

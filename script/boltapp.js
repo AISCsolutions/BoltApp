@@ -21,7 +21,7 @@ $(function() {
   var nutDiagram = Diagram.clone('#nut-diagram', 'Nut')
   var washerDiagram = Diagram.clone('#washer-diagram', 'Square Washer')
 
-  //boltDiagram.interactivePlace('Width Across Flats')
+  //boltDiagram.interactivePlace('Length Extras')
 
   var placeMeasurements = function(measurements) {
     window.measurements = measurements
