@@ -1,30 +1,35 @@
-$(function() {
+var BoltApp = (function() {
   /* Dimensions - diagram select */
-  $('#bolt-select').on('change', function() {
-    boltDiagram.show()
-    nutDiagram.hide()
-    washerDiagram.hide()
-  })
-  $('#nut-select').on('change', function() {
-    boltDiagram.hide()
-    nutDiagram.show()
-    washerDiagram.hide()
-  })
-  $('#washer-select').on('change', function() {
-    boltDiagram.hide()
-    nutDiagram.hide()
-    washerDiagram.show()
-  })
+  var wireDiagramSelect = function() {
+    $('#bolt-select').on('change', function() {
+      boltDiagram.show()
+      nutDiagram.hide()
+      washerDiagram.hide()
+    })
+    $('#nut-select').on('change', function() {
+      boltDiagram.hide()
+      nutDiagram.show()
+      washerDiagram.hide()
+    })
+    $('#washer-select').on('change', function() {
+      boltDiagram.hide()
+      nutDiagram.hide()
+      washerDiagram.show()
+    })
+
+    $('#dimensions input[type="radio"]').each(function() {
+      if (this.checked) {
+        $(this).change()
+      }
+    })
+  }
 
   /* Dimensions - diagram */
   var boltDiagram = Diagram.clone('#bolt-diagram')
   var nutDiagram = Diagram.clone('#nut-diagram')
   var washerDiagram = Diagram.clone('#washer-diagram')
 
-  //washerDiagram.interactivePlace('Inside Diameter')
-
   var placeMeasurements = function(measurements) {
-    window.measurements = measurements
     boltDiagram.update(measurements[4]['Bolt'])
     nutDiagram.update(measurements[4]['Nut'])
     washerDiagram.update(measurements[4]['Circular Washer'])
@@ -52,16 +57,10 @@ $(function() {
 
   /* Dimensions */
   var setupDimenions = function() {
-    $('#dimensions input[type="radio"]').each(function() {
-      if (this.checked) {
-        $(this).change()
-      }
-    })
-    loadMeasurements(placeMeasurements)
+    measurements.load(placeMeasurements)
+    wireDiagramSelect()
     wireDiameter()
   }
-
-  $('#dimensions').on('pageshow', setupDimenions)
 
   /* Nuts and Washers */
   var fixNW = function() {
@@ -74,5 +73,18 @@ $(function() {
     $('#nuts-and-washers .split').css('height', windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2)
   }
 
-  $(window).on('navigate', fixNW)
+  return {
+    boltDiagram: boltDiagram,
+    nutDiagram: nutDiagram,
+    washerDiagram: washerDiagram,
+    ready: function() {
+      $('#dimensions').on('pageshow', setupDimenions)
+      $(window).on('navigate', fixNW)
+    }
+  }
+})()
+
+$(function() {
+  BoltApp.ready()
+  //BoltApp.washerDiagram.interactivePlace('Inside Diameter')
 })
