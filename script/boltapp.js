@@ -38,9 +38,35 @@ $(function() {
     })
   }
 
+  var parseDimensions = function(table) {
+    var dims = []
+    var kind = ''
+    var property = ''
+
+    table.forEach(function(row) {
+      if (row[0] != '') {
+        kind = row[0]
+      }
+
+      property = row[1]
+
+      row.slice(3).forEach(function(d, i) {
+        if (!dims[i]) {
+          dims[i] = {}
+        }
+        if (!dims[i][kind]) {
+          dims[i][kind] = {}
+        }
+        dims[i][kind][property] = d
+      })
+    })
+
+    return dims
+  }
+
   var setupDimenions = function() {
     wireDiameter()
-    loadCsv('data/dimensions.csv', function(data) {console.log(data)})
+    loadCsv('data/dimensions.csv', function(data) { window.dimensions = parseDimensions(data)})
   }
 
   $('#dimensions').on('pageshow', setupDimenions)
