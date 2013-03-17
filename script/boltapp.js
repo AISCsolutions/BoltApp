@@ -1,4 +1,4 @@
-var BoltApp = define([
+define([
   'jquery',
   'measurements',
   'diagram'
