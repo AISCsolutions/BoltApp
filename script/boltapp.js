@@ -38,50 +38,91 @@ $(function() {
     })
   }
 
-  var placeMeasurements = function(measurements, dx, dy) {
-    var bolt = $('#bolt-diagram')
-    var bo = bolt.offset()
+  var Diagram = {
+    clone: function(selector, which) {
+      var my = Object.create(this)
+      my.selector = selector
+      my.which = which
+      return my
+    },
+    ready: function(debugx, debugy) {
+      var $diagram = $(this.selector)
+      var bo = $diagram.offset()
 
-    var diagram = $('#bolt-diagram img')
-    var so = diagram.offset()
-    var sx = so.left - bo.left
-    var sy = so.top - bo.top
-    var sw = diagram.prop('width')
-    var sh = diagram.prop('height')
-    var iw = diagram.prop('naturalWidth')
-    var ih = diagram.prop('naturalHeight')
+      var image = $diagram.find('img')
+      var so = image.offset()
 
-    var m = $('.measurement')
-    var mw = m.width() / 2
-    var mh = m.height() / 2
-    var mx = parseInt(m.data('x'), 10) / 100.0
-    var my = parseInt(m.data('y'), 10) / 100.0
+      this.sx = so.left - bo.left
+      this.sy = so.top - bo.top
+      this.sw = image.prop('width')
+      this.sh = image.prop('height')
 
-    var px = function(x) {
-      return ((x*sw) - mw + sx).toString() + 'px'
+      this.placements()
+    },
+    placements: function() {
+      var my = this
+      $(this.selector).find('.measurement').each(function() {
+        my.place($(this))
+      })
+    },
+    x: function(x) {
+      return (x*this.sw) + this.sx
+    },
+    y: function(y) {
+      return (y*this.sh) + this.sy
+    },
+    ux: function(x) {
+      return (x - this.sx) / this.sw
+    },
+    uy: function(y) {
+      return (y - this.sy) / this.sh
+    },
+    place: function($m) {
+      if ($m.length == 0) {
+        return
+      }
+      var mx = parseInt($m.data('x'), 10) / 100.0
+      var my = parseInt($m.data('y'), 10) / 100.0
+
+      this.placeAt($m, this.x(mx), this.y(my))
+    },
+    placeAt: function($m, x, y) {
+      if ($m.length == 0) {
+        return
+      }
+
+      var px = function(n) {
+        return n.toString() + 'px'
+      }
+
+      var mw = $m.width() / 2
+      var mh = $m.height() / 2
+      $m.css('left', px(x - mw))
+      $m.css('top', px(y - mh))
     }
-    var py = function(y) {
-      return ((y*sh) - mh + sy).toString() + 'px'
-    }
-
-    if (dx) {
-      mx = dx/sw
-      my = dy/sh
-      console.log(mx, my)
-    }
-
-    m.css('left', px(mx))
-    m.css('top', py(my))
   }
 
-  $(document).on('mousemove', function(e) {
-    var offset = $('.diagrams li img').offset()
-    window.mousex = e.pageX - offset.left
-    window.mousey = e.pageY - offset.top
-    placeMeasurements(measurements, mousex, mousey)
-  })
+  var bolt = Diagram.clone('#bolt-diagram', 'Bolt')
+
+  var placeMeasurements = function(measurements) {
+    window.measurements = measurements
+  }
+
+  var place = function(diagram, measurement) {
+    $(document).on('mousemove', function(e) {
+      var offset = $('.diagrams li').offset()
+      var mousex = e.pageX - offset.left
+      var mousey = e.pageY - offset.top
+      diagram.placeAt($('[title="'+measurement+'"]'), mousex, mousey)
+      console.log(diagram.ux(mousex), diagram.uy(mousey))
+    })
+  }
+
+  place(bolt, 'Base Length')
 
   var setupDimenions = function() {
+    bolt.ready()
+    bolt.placements()
     loadMeasurements(placeMeasurements)
     wireDiameter()
   }
