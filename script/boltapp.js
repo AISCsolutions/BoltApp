@@ -38,7 +38,7 @@ $(function() {
     })
   }
 
-  var parseDimensions = function(table) {
+  var parseMeasurements = function(table) {
     var dims = []
     var kind = ''
     var property = ''
@@ -66,7 +66,7 @@ $(function() {
 
   var setupDimenions = function() {
     wireDiameter()
-    loadCsv('data/dimensions.csv', function(data) { window.dimensions = parseDimensions(data)})
+    loadCsv('data/measurements.csv', function(data) { window.measurements = parseMeasurements(data)})
   }
 
   $('#dimensions').on('pageshow', setupDimenions)
