@@ -43,6 +43,7 @@ $(function() {
 
   var placeMeasurements = function(measurements) {
     window.measurements = measurements
+    bolt.update(measurements[4])
   }
 
   var setupDimenions = function() {

@@ -5,6 +5,12 @@ var Diagram = {
     my.which = which
     return my
   },
+  $: function(selector) {
+    return $(this.selector).find(selector)
+  },
+  $measure: function(name) {
+    return this.$('[title="'+name+'"]')
+  },
   ready: function(debugx, debugy) {
     var $diagram = $(this.selector)
     var bo = $diagram.offset()
@@ -19,9 +25,15 @@ var Diagram = {
 
     this.placements()
   },
+  update: function(measurements) {
+    measures = measurements[this.which]
+    for (var name in measures) {
+      this.$measure(name).find('.value').html(measures[name])
+    }
+  },
   placements: function() {
     var my = this
-    $(this.selector).find('.measurement').each(function() {
+    this.$('.measurement').each(function() {
       my.place($(this))
     })
   },
@@ -66,7 +78,7 @@ var Diagram = {
       var offset = $('.diagrams li').offset()
       var mousex = e.pageX - offset.left
       var mousey = e.pageY - offset.top
-      diagram.placeAt($('[title="'+measurement+'"]'), mousex, mousey)
+      diagram.placeAt(diagram.$measure(measurement), mousex, mousey)
       console.log(diagram.ux(mousex), diagram.uy(mousey))
     })
   }
