@@ -69,6 +69,7 @@ define([
 
   var updateMeasurements = function() {
     measures = currentMeasures()
+    boltDiagram.update({Grade: state.bolt.grade})
     boltDiagram.update(measures['Bolt'])
     nutDiagram.update(measures['Nut'])
     washerDiagram.update(measures['Circular Washer'])
