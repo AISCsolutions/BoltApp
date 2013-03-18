@@ -5,11 +5,15 @@ define([
   'diagram'
 ], function(
   $,
-  state,
+  appstate,
   ments,
   Diagram
 ) {
   /* Global */
+
+  var state = appstate.load()
+  console.log(state)
+
   var setGlobalClasses = function() {
     $body = $('body')
     if (state.bolt.type == 'Type 3') {
@@ -45,6 +49,7 @@ define([
     }
     $('.type input[type="radio"]').on('change', function() {
       state.bolt.type = $(this).val()
+      appstate.save()
       setGlobalClasses()
     })
   }
@@ -53,18 +58,21 @@ define([
   var wireDiagramSelect = function() {
     $('#bolt-select').on('change', function() {
       state.diagram = 'bolt'
+      appstate.save()
       boltDiagram.show()
       nutDiagram.hide()
       washerDiagram.hide()
     })
     $('#nut-select').on('change', function() {
       state.diagram = 'nut'
+      appstate.save()
       boltDiagram.hide()
       nutDiagram.show()
       washerDiagram.hide()
     })
     $('#washer-select').on('change', function() {
       state.diagram = 'washer'
+      appstate.save()
       boltDiagram.hide()
       nutDiagram.hide()
       washerDiagram.show()
@@ -118,16 +126,22 @@ define([
     '1.5': '1 1/2',
   }
 
+  var diameterDisplay = function() {
+    $('#diameter-inches span').html(diameterInches[state.bolt.diameter.toString()])
+  }
+
   var wireDiameter = function() {
     $('#diameter').on('change', function() {
       var value = $(this).val()
       if (state.bolt.diameter != value) {
         state.bolt.diameter = value
-        $('#diameter-inches span').html(diameterInches[value.toString()])
+        appstate.save()
+        diameterDisplay()
         updateMeasurements()
       }
     })
     $('#diameter').val(state.bolt.diameter).change()
+    diameterDisplay()
   }
 
   /* Dimensions */
@@ -152,6 +166,7 @@ define([
   var wireGrade = function() {
     $('#grade li a').on('click', function() {
       state.bolt.grade = $(this).find('h2').text()
+      appstate.save()
     })
   }
 
@@ -159,6 +174,7 @@ define([
   var wireFinish = function() {
     $('#finish li a').on('click', function() {
       state.bolt.finish = $(this).find('h2').text()
+      appstate.save()
     })
   }
 
@@ -172,6 +188,7 @@ define([
         bolt: $(this).find('.bolt').attr('src'),
         website: $(this).parent().parent().parent().find('.website').attr('href')
       }
+      appstate.save()
     })
   }
 
