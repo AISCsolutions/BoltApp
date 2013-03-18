@@ -15,6 +15,9 @@ define([
     $('#finish-select .ui-btn-text').html(state.bolt.finish)
     $('#manufacturer-select .ui-btn-text').html(state.bolt.manufacturer)
     $('#type-select').val(state.bolt.type).change()
+    $('#type-select').on('change', function() {
+      state.bolt.type = $(this).val()
+    })
   }
 
   /* Dimensions - diagram select */
