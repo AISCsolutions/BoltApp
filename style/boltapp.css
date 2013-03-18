@@ -2,7 +2,9 @@
 .type-3 .grade-designator {text-decoration: underline;}
 
 /* Bolt ID */
-.type div span:first-child {text-decoration: underline !important;}
+.type-code {font-size: 75%;}
+.type .ui-controlgroup-controls {display: block; width: 100%;}
+.type .ui-radio {display: block; width: 50%;}
 
 /* Dimmensions */
 #dimensions fieldset legend {display: none;}

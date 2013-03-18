@@ -21,11 +21,17 @@ define([
 
   /* Bolt ID */
   var setupBoltID = function() {
-    $('#grade-select .ui-btn-text').html(state.bolt.grade)
+    $('.current-grade .ui-btn-text').html(state.bolt.grade)
+    $('.ui-btn-text .current-grade').html(state.bolt.grade)
     $('#finish-select .ui-btn-text').html(state.bolt.finish)
     $('#manufacturer-select .ui-btn-text').html(state.bolt.manufacturer)
-    $('#type-select').val(state.bolt.type).change()
-    $('#type-select').on('change', function() {
+
+    if (state.bolt.type == 'Type 3') {
+      $('label[for="type-3"]').click()
+    } else {
+      $('label[for="type-1"]').click()
+    }
+    $('.type input[type="radio"]').on('change', function() {
       state.bolt.type = $(this).val()
       setGlobalClasses()
     })

@@ -20,13 +20,15 @@
   <div data-role="content">
     <form>
       <label>Select Grade</label>
-      <a href="#grade" data-role="button" id="grade-select" class="grade-designator">grade</a>
-      <fieldset class="type">
-        <label for="type-select">Is it Underlined?</label>
-        <select name="type" id="type-select" data-role="slider">
-          <option value="Type 1">Type 1</option>
-          <option value="Type 3">Type 3</option>
-        </select>
+      <a href="#grade" data-role="button" id="grade-select" class="current-grade grade-designator">grade</a>
+      <fieldset data-role="controlgroup" data-type="horizontal" class="type">
+        <legend>Is it Underlined?</legend>
+
+        <input type="radio" name="type" id="type-1" value="Type 1" checked="checked">
+        <label for="type-1"><span class="type-1 current-grade">grade</span><br><span class="type-code">Type 1<span></label>
+
+        <input type="radio" name="type" id="type-3" value="Type 3">
+        <label for="type-3"><u><span class="type-3 current-grade">grade</span><br><span class="type-code">Type 3<span></u></label>
       </fieldset>
       <label>Select Finish</label>
       <a href="#finish" data-role="button" id="finish-select">finish</a>
@@ -72,7 +74,7 @@
     <ul class="diagrams">
       <li id="bolt-diagram">
         <img src="images/dimensions/bolt-320.png">
-        <p class="measurement grade-designator" data-x="15%" data-y="43%" title="Grade">Grade</p>
+        <p class="measurement grade-designator current-grade" data-x="15%" data-y="43%" title="Grade">Grade</p>
         <p class="measurement" data-x="15%" data-y="88%" title="Width Across Flats">F</p>
         <p class="measurement" data-x="36%" data-y="88%" title="Height">H</p>
         <p class="measurement" data-x="82%" data-y="19%" title="Thread Length">Thread Length</p>
