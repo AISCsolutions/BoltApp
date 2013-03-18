@@ -20,12 +20,24 @@ define([
   }
 
   /* Bolt ID */
-  var setupBoltID = function() {
+  var setupBoltId = function() {
     $('.current-grade .ui-btn-text').html(state.bolt.grade)
     $('.ui-btn-text .current-grade').html(state.bolt.grade)
     $('#finish-select .ui-btn-text').html(state.bolt.finish)
-    $('#manufacturer-select .ui-btn-text').html(state.bolt.manufacturer)
+    setupBoltIdManufacturer()
+    setupBoltIdType()
+  }
 
+  var setupBoltIdManufacturer = function() {
+    mfg = state.bolt.manufacturer
+    $mfg = $('#manufacturer-select')
+    $mfg.find('.name').html(mfg.name)
+    $mfg.find('.location').html(mfg.location)
+    $mfg.find('.website').attr('href', mfg.website)
+    $mfg.find('.bolt').attr('src', mfg.bolt)
+  }
+
+  var setupBoltIdType = function() {
     if (state.bolt.type == 'Type 3') {
       $('label[for="type-3"]').click()
     } else {
@@ -153,7 +165,13 @@ define([
   /* Manufacturer Select */
   var wireManufacturer = function() {
     $('#manufacturer li a[href="#bolt-id"]').on('click', function() {
-      state.bolt.manufacturer = $(this).find('h2').html()
+      console.log(this)
+      state.bolt.manufacturer = {
+        name: $(this).find('.name').html(),
+        location: $(this).find('.location').html(),
+        bolt: $(this).find('.bolt').attr('src'),
+        website: $(this).parent().parent().parent().find('.website').attr('href')
+      }
     })
   }
 
@@ -163,8 +181,8 @@ define([
     washerDiagram: washerDiagram,
     ready: function() {
       setGlobalClasses()
-      setupBoltID()
-      $('#bolt-id').on('pagebeforeshow', setupBoltID)
+      setupBoltId()
+      $('#bolt-id').on('pagebeforeshow', setupBoltId)
       $('#dimensions').on('pageshow', setupDimensions)
       $(window).on('navigate', fixNW)
       $('#grade').on('pagebeforeshow', wireGrade)
