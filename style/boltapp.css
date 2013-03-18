@@ -1,3 +1,6 @@
+/* Global */
+.type-3 .grade-designator {text-decoration: underline;}
+
 /* Bolt ID */
 .type div span:first-child {text-decoration: underline !important;}
 

@@ -9,6 +9,16 @@ define([
   ments,
   Diagram
 ) {
+  /* Global */
+  var setGlobalClasses = function() {
+    $body = $('body')
+    if (state.bolt.type == 'Type 3') {
+      $body.addClass('type-3')
+    } else {
+      $body.removeClass('type-3')
+    }
+  }
+
   /* Bolt ID */
   var setupBoltID = function() {
     $('#grade-select .ui-btn-text').html(state.bolt.grade)
@@ -17,6 +27,7 @@ define([
     $('#type-select').val(state.bolt.type).change()
     $('#type-select').on('change', function() {
       state.bolt.type = $(this).val()
+      setGlobalClasses()
     })
   }
 
@@ -145,6 +156,7 @@ define([
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
     ready: function() {
+      setGlobalClasses()
       setupBoltID()
       $('#bolt-id').on('pagebeforeshow', setupBoltID)
       $('#dimensions').on('pageshow', setupDimensions)
