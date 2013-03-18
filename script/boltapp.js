@@ -6,7 +6,7 @@ define([
 ], function(
   $,
   state,
-  measurements,
+  ments,
   Diagram
 ) {
   /* Bolt ID */
@@ -49,11 +49,30 @@ define([
   var nutDiagram = Diagram.clone('#nut-diagram')
   var washerDiagram = Diagram.clone('#washer-diagram')
 
-  var placeMeasurements = function(measurements) {
-    boltDiagram.update(measurements[4]['Bolt'])
-    nutDiagram.update(measurements[4]['Nut'])
-    washerDiagram.update(measurements[4]['Circular Washer'])
-    washerDiagram.update(measurements[4]['Square Washer'])
+  var measurements = []
+
+  var receiveMeasurements = function(data) {
+    console.log(data)
+    measurements = data
+    updateMeasurements()
+  }
+
+  var currentMeasures = function() {
+    var fraction = diameterInches[state.bolt.diameter.toString()]
+    for (var i in measurements) {
+      if (measurements[i].Bolt.Diameter == fraction) {
+        return measurements[i]
+      }
+    }
+    throw "Measurement not found for "+state.bolt.diameter
+  }
+
+  var updateMeasurements = function() {
+    measures = currentMeasures()
+    boltDiagram.update(measures['Bolt'])
+    nutDiagram.update(measures['Nut'])
+    washerDiagram.update(measures['Circular Washer'])
+    washerDiagram.update(measures['Square Washer'])
   }
 
   /* Dimensions - diameter */
@@ -71,14 +90,19 @@ define([
 
   var wireDiameter = function() {
     $('#diameter').on('change', function() {
-      $('#diameter-inches span').html(diameterInches[$(this).val().toString()])
+      var value = $(this).val()
+      if (state.bolt.diameter != value) {
+        state.bolt.diameter = value
+        $('#diameter-inches span').html(diameterInches[value.toString()])
+        updateMeasurements()
+      }
     })
     $('#diameter').val(state.bolt.diameter).change()
   }
 
   /* Dimensions */
   var setupDimensions = function() {
-    measurements.load(placeMeasurements)
+    ments.load(receiveMeasurements)
     wireDiagramSelect()
     wireDiameter()
   }
