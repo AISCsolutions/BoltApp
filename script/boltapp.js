@@ -17,6 +17,13 @@ define([
     $('#type-select').val(state.bolt.type).change()
   }
 
+  /* Grade Select */
+  var wireGrade = function() {
+    $('#grade li a').on('click', function() {
+      state.bolt.grade = $(this).find('h2').text()
+    })
+  }
+
   /* Dimensions - diagram select */
   var wireDiagramSelect = function() {
     $('#bolt-select').on('change', function() {
@@ -98,6 +105,7 @@ define([
     ready: function() {
       setupBoltID()
       $('#bolt-id').on('pagebeforeshow', setupBoltID)
+      $('#grade').on('pagebeforeshow', wireGrade)
       $('#dimensions').on('pageshow', setupDimensions)
       $(window).on('navigate', fixNW)
     }
