@@ -12,7 +12,6 @@ define([
   /* Global */
 
   var state = appstate.load()
-  console.log(state)
 
   var setGlobalClasses = function() {
     $body = $('body')
@@ -89,7 +88,6 @@ define([
   var measurements = []
 
   var receiveMeasurements = function(data) {
-    console.log(data)
     measurements = data
     updateMeasurements()
   }
@@ -164,6 +162,13 @@ define([
 
   /* Grade Select */
   var wireGrade = function() {
+    console.log($('#grade li h2'))
+    $('#grade li h2').each(function() {
+      var $el = $(this)
+      var name = $el.html()
+      $('<p class="on-bolt grade-designator">'+name+'</p>').insertBefore($el)
+    })
+
     $('#grade li a').on('click', function() {
       state.bolt.grade = $(this).find('h2').text()
       appstate.save()
@@ -181,7 +186,6 @@ define([
   /* Manufacturer Select */
   var wireManufacturer = function() {
     $('#manufacturer li a[href="#bolt-id"]').on('click', function() {
-      console.log(this)
       state.bolt.manufacturer = {
         name: $(this).find('.name').html(),
         location: $(this).find('.location').html(),

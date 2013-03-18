@@ -42,3 +42,6 @@ figure { margin: 0;}
 
 /* Finish */
 .ui-li-desc, .ui-li-heading {overflow: visible;}
+
+/* Grade */
+.on-bolt {position: absolute; font-size: 11px; left: 25px; top: 0px;}
