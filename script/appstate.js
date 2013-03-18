@@ -4,7 +4,7 @@ define(function() {
       grade: 'A325',
       type: 'Type 1',
       finish: 'Plain',
-      manufacturer: 'Unytite',
+      manufacturer: 'Unytite, Inc',
       diameter: 1
     },
     diagram: 'bolt'

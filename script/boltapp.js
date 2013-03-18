@@ -17,13 +17,6 @@ define([
     $('#type-select').val(state.bolt.type).change()
   }
 
-  /* Grade Select */
-  var wireGrade = function() {
-    $('#grade li a').on('click', function() {
-      state.bolt.grade = $(this).find('h2').text()
-    })
-  }
-
   /* Dimensions - diagram select */
   var wireDiagramSelect = function() {
     $('#bolt-select').on('change', function() {
@@ -98,6 +91,20 @@ define([
     $('#nuts-and-washers .split').css('height', windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2)
   }
 
+  /* Grade Select */
+  var wireGrade = function() {
+    $('#grade li a').on('click', function() {
+      state.bolt.grade = $(this).find('h2').text()
+    })
+  }
+
+  /* Manufacturer Select */
+  var wireManufacturer = function() {
+    $('#manufacturer li a[href="#bolt-id"]').on('click', function() {
+      state.bolt.manufacturer = $(this).find('h2').html()
+    })
+  }
+
   return {
     boltDiagram: boltDiagram,
     nutDiagram: nutDiagram,
@@ -105,9 +112,10 @@ define([
     ready: function() {
       setupBoltID()
       $('#bolt-id').on('pagebeforeshow', setupBoltID)
-      $('#grade').on('pagebeforeshow', wireGrade)
       $('#dimensions').on('pageshow', setupDimensions)
       $(window).on('navigate', fixNW)
+      $('#grade').on('pagebeforeshow', wireGrade)
+      $('#manufacturer').on('pagebeforeshow', wireManufacturer)
     }
   }
 })
