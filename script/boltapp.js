@@ -1,35 +1,44 @@
 define([
   'jquery',
+  'appstate',
   'measurements',
   'diagram'
 ], function(
   $,
+  state,
   measurements,
   Diagram
 ) {
+  /* Bolt ID */
+  var setupBoltID = function() {
+    $('#grade-select .ui-btn-text').html(state.bolt.grade)
+    $('#finish-select .ui-btn-text').html(state.bolt.finish)
+    $('#manufacturer-select .ui-btn-text').html(state.bolt.manufacturer)
+    $('#type-select').val(state.bolt.type).change()
+  }
+
   /* Dimensions - diagram select */
   var wireDiagramSelect = function() {
     $('#bolt-select').on('change', function() {
+      state.diagram = 'bolt'
       boltDiagram.show()
       nutDiagram.hide()
       washerDiagram.hide()
     })
     $('#nut-select').on('change', function() {
+      state.diagram = 'nut'
       boltDiagram.hide()
       nutDiagram.show()
       washerDiagram.hide()
     })
     $('#washer-select').on('change', function() {
+      state.diagram = 'washer'
       boltDiagram.hide()
       nutDiagram.hide()
       washerDiagram.show()
     })
 
-    $('#dimensions input[type="radio"]').each(function() {
-      if (this.checked) {
-        $(this).change()
-      }
-    })
+    $('label[for="'+state.diagram+'-select"]').click()
   }
 
   /* Dimensions - diagram */
@@ -61,6 +70,7 @@ define([
     $('#diameter').on('change', function() {
       $('#diameter-inches span').html(diameterInches[$(this).val().toString()])
     })
+    $('#diameter').val(state.bolt.diameter).change()
   }
 
   /* Dimensions */
@@ -86,6 +96,8 @@ define([
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
     ready: function() {
+      setupBoltID()
+      $('#bolt-id').on('pagebeforeshow', setupBoltID)
       $('#dimensions').on('pageshow', setupDimensions)
       $(window).on('navigate', fixNW)
     }
