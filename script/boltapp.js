@@ -98,6 +98,13 @@ define([
     })
   }
 
+  /* Finish Select */
+  var wireFinish = function() {
+    $('#finish li a').on('click', function() {
+      state.bolt.finish = $(this).find('h2').text()
+    })
+  }
+
   /* Manufacturer Select */
   var wireManufacturer = function() {
     $('#manufacturer li a[href="#bolt-id"]').on('click', function() {
@@ -115,6 +122,7 @@ define([
       $('#dimensions').on('pageshow', setupDimensions)
       $(window).on('navigate', fixNW)
       $('#grade').on('pagebeforeshow', wireGrade)
+      $('#finish').on('pagebeforeshow', wireFinish)
       $('#manufacturer').on('pagebeforeshow', wireManufacturer)
     }
   }
