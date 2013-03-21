@@ -1,10 +1,53 @@
 define(['jquery'], function($) {
-  var parseCsv = function(contents) {
-    var lines = contents.split("\n")
-    var rows = lines.map(function(row) {
-      return row.split(',').map(function(d) {return d.replace(/^"|"$/g, '')})
-    })
-    return rows
+  // Schrotie http://schrotie.de/
+  // https://purbayubudi.wordpress.com/2008/11/09/csv-parser-using-javascript/#comment-67
+  var parseCsv = function(txt) {
+    var rows = [];
+    var value = "";
+    var line = [];
+    var mode = "std";
+    for(var i = 0; i < txt.length; i++) {
+      switch(mode) {
+        case "std":
+        switch(txt[i]) {
+          case "'":
+          case '"':
+            mode = txt[i];
+            continue;
+          case ",":
+           line.push(value);
+           value = "";
+           continue;
+          case "\n":
+          case "\r":
+           line.push(value);
+           value = "";
+           rows.push(line);
+           line = [];
+           continue;
+          default:
+           value += txt[i];
+           continue;
+        }
+        case "'":
+        case '"':
+          if(txt[i] == mode) {
+            if(txt[i + 1] == txt[i]) {
+              value += txt[i];
+              i += 1;
+              continue;
+            }
+            mode = "std";
+            continue;
+          }
+          value += txt[i];
+      }
+    }
+    if(i) {
+      line.push(value);
+      rows.push(line);
+    }
+    return rows;
   }
 
   return {
@@ -20,3 +63,5 @@ define(['jquery'], function($) {
     }
   }
 })
+
+
