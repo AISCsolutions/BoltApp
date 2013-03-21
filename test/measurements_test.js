@@ -14,7 +14,7 @@ define(['measurements', 'csv'], function(measurements, csv) {
   })
 
   test('data received', function() {
-    equal(data.length, 17)
+    equal(data.length, 16)
   })
 
   test('parse measurements', function() {

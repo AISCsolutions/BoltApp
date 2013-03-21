@@ -1,4 +1,4 @@
-define(['grade-type-finish', 'csv'], function(gtv, csv) {
+define(['grade_type_finish', 'csv'], function(gtv, csv) {
   QUnit.config.testTimeout = 1000;
 
   var data = []
@@ -14,10 +14,10 @@ define(['grade-type-finish', 'csv'], function(gtv, csv) {
   })
 
   test('data received', function() {
-    equal(data.length, 16)
+    equal(data.length, 15)
   })
 
   test('parse data', function() {
-    equal(gtv.parse(data).length, 14)
+    equal(gtv.parse(data).length, 13)
   })
 })

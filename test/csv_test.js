@@ -23,19 +23,21 @@ define(['csv'], function(csv) {
   })
 
   asyncTest('ajax loading measurements',  function() {
-    expect(1)
+    expect(2)
     csv.load('../data/measurements.csv', function(data) {
       //console.log(data)
       ok(data)
+      equal(data.length, 16)
       start()
     })
   })
 
   asyncTest('ajax loading grade-type-finish', function() {
-    expect(1)
+    expect(2)
     csv.load('../data/grade-type-finish-table-2-1.csv', function(data) {
       //console.log(data)
       ok(data)
+      equal(data.length, 15)
       start()
     })
   })

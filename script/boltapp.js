@@ -2,12 +2,16 @@ define([
   'jquery',
   'appstate',
   'measurements',
-  'diagram'
+  'grade_type_finish',
+  'diagram',
+  'nuts_and_washers'
 ], function(
   $,
   appstate,
   ments,
-  Diagram
+  gradeTypeFinish,
+  Diagram,
+  NutsAndWashers
 ) {
   /* Global */
 
@@ -15,7 +19,7 @@ define([
 
   var setGlobalClasses = function() {
     $body = $('body')
-    if (state.bolt.type == 'Type 3') {
+    if (state.bolt.type == '3') {
       $body.addClass('type-3')
     } else {
       $body.removeClass('type-3')
@@ -41,11 +45,7 @@ define([
   }
 
   var setupBoltIdType = function() {
-    if (state.bolt.type == 'Type 3') {
-      $('label[for="type-3"]').click()
-    } else {
-      $('label[for="type-1"]').click()
-    }
+    $('label[for="type-'+state.bolt.type+'"]').click()
     $('.type input[type="radio"]').on('change', function() {
       state.bolt.type = $(this).val()
       appstate.save()
@@ -150,21 +150,37 @@ define([
   }
 
   /* Nuts and Washers */
-  var fixNW = function(e) {
-    var headerHeight = parseInt($.mobile.activePage.css("padding-top"), 10)
-    var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height() + 2
-    var windowHeight = $('body').height()
-    var topPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
-    var bottomPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
-    var height = windowHeight - headerHeight - footerHeight - topPadding - bottomPadding;
-    console.log('fixNW', e.type, height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding)
-    $('#nuts-and-washers .split').css('height', height)
-    //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
+  var gtv = []
+
+  var receiveGTV = function(data) {
+    gtv = data
+    updateGTV()
+  }
+
+  var currentGTV = function() {
+    var current = []
+    for (var i in gtv) {
+      if (gtv[i]['ASTM Desig.'] == state.bolt.grade
+       && gtv[i]['Bolt Type'] == state.bolt.type
+       && gtv[i]['Bolt Finish'] == state.bolt.finish) {
+         return gtv[i]
+       }
+     }
+
+     throw "Bolt grade/type/finish combination not found " + state.bolt.grade + " " + state.bolt.type + " " + state.bolt.finish
+  }
+
+  var updateGTV = function() {
+    var nw = currentGTV()
+    NutsAndWashers.update(nw)
+  }
+
+  var setupNutsAndWashers = function() {
+    gradeTypeFinish.load(receiveGTV)
   }
 
   /* Grade Select */
   var wireGrade = function() {
-    console.log($('#grade li h2'))
     $('#grade li h2').each(function() {
       var $el = $(this)
       var name = $el.html()
@@ -207,8 +223,9 @@ define([
       setupBoltId()
       $('#bolt-id').on('pagebeforeshow', setupBoltId)
       $('#dimensions').on('pageshow', setupDimensions)
-      $('#nuts-and-washers').on('pageshow', fixNW)
-      $(window).on('navigate', fixNW)
+      $('#nuts-and-washers').on('pagebeforeshow', setupNutsAndWashers)
+      $('#nuts-and-washers').on('pageshow', NutsAndWashers.setContentHeight)
+      $(window).on('navigate', NutsAndWashers.setContentHeight)
       $('#grade').on('pagebeforeshow', wireGrade)
       $('#finish').on('pagebeforeshow', wireFinish)
       $('#manufacturer').on('pagebeforeshow', wireManufacturer)

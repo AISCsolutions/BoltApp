@@ -11,14 +11,13 @@ define(['csv'], function(csv) {
       records.push(gtv)
     })
 
-    console.log(records)
     return records
   }
 
   return {
     parse: parse,
     load: function(callback) {
-      csv.load('data/grade-type-finish.csv', function(data) {
+      csv.load('data/grade-type-finish-table-2-1.csv', function(data) {
         callback(parse(data))
       })
     }

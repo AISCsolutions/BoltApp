@@ -2,7 +2,7 @@ define(['store'], function(Store) {
   var defaultState = {
     bolt: {
       grade: 'A325',
-      type: 'Type 1',
+      type: '3',
       finish: 'Plain',
       manufacturer: {
         name: 'Unytite, Inc',

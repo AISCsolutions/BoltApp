@@ -43,7 +43,7 @@ define(['jquery'], function($) {
           value += txt[i];
       }
     }
-    if(i) {
+    if(i && value != '') {
       line.push(value);
       rows.push(line);
     }
