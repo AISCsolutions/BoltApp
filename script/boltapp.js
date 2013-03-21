@@ -150,15 +150,16 @@ define([
   }
 
   /* Nuts and Washers */
-  var fixNW = function() {
-    var headerHeight = $.mobile.activePage.find('[data-role="header"]').height()
-    var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height()
-    var windowHeight = $(this).height()
-    var contentPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
-    var pagePadding = parseInt($.mobile.activePage.css("padding-top"), 10)
-    var height = windowHeight - headerHeight - footerHeight - pagePadding - contentPadding*2
-    console.log('fixNW', height)
+  var fixNW = function(e) {
+    var headerHeight = parseInt($.mobile.activePage.css("padding-top"), 10)
+    var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height() + 2
+    var windowHeight = $('body').height()
+    var topPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
+    var bottomPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
+    var height = windowHeight - headerHeight - footerHeight - topPadding - bottomPadding;
+    console.log('fixNW', e.type, height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding)
     $('#nuts-and-washers .split').css('height', height)
+    //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
   }
 
   /* Grade Select */
@@ -206,7 +207,8 @@ define([
       setupBoltId()
       $('#bolt-id').on('pagebeforeshow', setupBoltId)
       $('#dimensions').on('pageshow', setupDimensions)
-      $('#nuts-and-washers').on('pagebeforeshow', fixNW)
+      $('#nuts-and-washers').on('pageshow', fixNW)
+      $(window).on('navigate', fixNW)
       $('#grade').on('pagebeforeshow', wireGrade)
       $('#finish').on('pagebeforeshow', wireFinish)
       $('#manufacturer').on('pagebeforeshow', wireManufacturer)
