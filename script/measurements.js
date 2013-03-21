@@ -29,8 +29,7 @@ define(['csv'], function(csv) {
     parse: parseMeasurements,
     load: function(callback) {
       csv.load('data/measurements.csv', function(data) {
-        window.measurements = parseMeasurements(data)
-        callback(window.measurements)
+        callback(parseMeasurments(data))
       })
     }
   }

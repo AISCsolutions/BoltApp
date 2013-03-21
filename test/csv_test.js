@@ -1,5 +1,7 @@
 define(['csv'], function(csv) {
   QUnit.config.testTimeout = 1000;
+
+  module('csv')
   test('parse a line', function() {
     deepEqual(csv.parse('one,two'), [['one', 'two']])
   })
@@ -23,16 +25,16 @@ define(['csv'], function(csv) {
   asyncTest('ajax loading measurements',  function() {
     expect(1)
     csv.load('../data/measurements.csv', function(data) {
-      console.log(data)
+      //console.log(data)
       ok(data)
       start()
     })
   })
 
-  asyncTest('ajax loading measurements', function() {
+  asyncTest('ajax loading grade-type-finish', function() {
     expect(1)
-    csv.load('../data/nuts-washers-table-2-1.csv', function(data) {
-      console.log(data)
+    csv.load('../data/grade-type-finish-table-2-1.csv', function(data) {
+      //console.log(data)
       ok(data)
       start()
     })
