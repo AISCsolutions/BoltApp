@@ -4,14 +4,16 @@ define([
   'measurements',
   'grade_type_finish',
   'diagram',
-  'nuts_and_washers'
+  'nuts_and_washers',
+  'finish'
 ], function(
   $,
   appstate,
   ments,
   gradeTypeFinish,
   Diagram,
-  NutsAndWashers
+  NutsAndWashers,
+  Finish
 ) {
   /* Global */
 
@@ -150,33 +152,38 @@ define([
   }
 
   /* Nuts and Washers */
-  var gtv = []
+  var gtf = []
 
-  var receiveGTV = function(data) {
-    gtv = data
-    updateGTV()
+  var receiveGTF = function(data) {
+    gtf = data
+    finish = Finish.clone(data).render()
+    updateGTF()
   }
 
-  var currentGTV = function() {
+  gradeTypeFinish.load(receiveGTF)
+
+  var currentGTF = function() {
     var current = []
-    for (var i in gtv) {
-      if (gtv[i]['ASTM Desig.'] == state.bolt.grade
-       && gtv[i]['Bolt Type'] == state.bolt.type
-       && gtv[i]['Bolt Finish'] == state.bolt.finish) {
-         return gtv[i]
+    for (var i in gtf) {
+      if (gtf[i]['ASTM Desig.'] == state.bolt.grade
+       && gtf[i]['Bolt Type'] == state.bolt.type
+       && gtf[i]['Bolt Finish'] == state.bolt.finish) {
+         return gtf[i]
        }
      }
 
      throw "Bolt grade/type/finish combination not found " + state.bolt.grade + " " + state.bolt.type + " " + state.bolt.finish
   }
 
-  var updateGTV = function() {
-    var nw = currentGTV()
-    NutsAndWashers.update(nw)
+  var updateGTF = function() {
+    if (gtf.length > 0) {
+      var nw = currentGTF()
+      NutsAndWashers.update(nw)
+    }
   }
 
   var setupNutsAndWashers = function() {
-    gradeTypeFinish.load(receiveGTV)
+    updateGTF()
   }
 
   /* Grade Select */
@@ -194,11 +201,10 @@ define([
   }
 
   /* Finish Select */
+  var finish = Finish
+
   var wireFinish = function() {
-    $('#finish li a').on('click', function() {
-      state.bolt.finish = $(this).find('h2').text()
-      appstate.save()
-    })
+    finish.wire()
   }
 
   /* Manufacturer Select */

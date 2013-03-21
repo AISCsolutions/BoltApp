@@ -4,11 +4,11 @@ define(['csv'], function(csv) {
 
     var headers = table[1]
     table.slice(2).forEach(function(row) {
-      var gtv = {}
+      var gtf = {}
       row.forEach(function(d, i) {
-        gtv[headers[i]] = d
+        gtf[headers[i]] = d
       })
-      records.push(gtv)
+      records.push(gtf)
     })
 
     return records
