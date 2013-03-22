@@ -34,19 +34,10 @@ define([
   }
 
   /* Nuts and Washers */
-  var updateGTF = function() {
-    BoltId.wire()
-
+  var setupNutsAndWashers = function(event) {
+    NutsAndWashers.setContentHeight(event)
     var nw = rules.gradeTypeFinish()
-    if (nw) {
-      NutsAndWashers.update(nw)
-
-      finish.update()
-    }
-  }
-
-  var setupNutsAndWashers = function() {
-    updateGTF()
+    if (nw) { NutsAndWashers.update(nw) }
   }
 
   /* Grade Select */
@@ -77,7 +68,7 @@ define([
       $('#bolt-id').on('pagebeforeshow', setupBoltId)
       $('#dimensions').on('pageshow', setupDimensions)
       $('#nuts-and-washers').on('pagebeforeshow', setupNutsAndWashers)
-      $('#nuts-and-washers').on('pageshow', NutsAndWashers.setContentHeight)
+      $('#nuts-and-washers').on('pageshow', setupNutsAndWashers)
       $(window).on('navigate', NutsAndWashers.setContentHeight)
       $('#grade').on('pagebeforeshow', wireGrade)
       $('#finish').on('pagebeforeshow', wireFinish)
