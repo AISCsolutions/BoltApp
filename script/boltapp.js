@@ -60,9 +60,7 @@ define([
   }
 
   return {
-    boltDiagram: Dimensions.boltDiagram,
-    nutDiagram: Dimensions.nutDiagram,
-    washerDiagram: Dimensions.washerDiagram,
+    dimensions: Dimensions,
     ready: function() {
       setupBoltId()
       $('#bolt-id').on('pagebeforeshow', setupBoltId)
