@@ -1,4 +1,6 @@
 define(['jquery'], function($) {
+  "use strict"
+
   return {
     $: function(selector) {
       return $('#nuts-and-washers').find(selector)

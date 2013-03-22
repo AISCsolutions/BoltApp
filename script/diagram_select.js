@@ -1,4 +1,6 @@
 define(['jquery', 'appstate'], function($, appstate) {
+  "use strict"
+
   return {
     wire: function(boltDiagram, nutDiagram, washerDiagram) {
       $('#bolt-select').on('change', function() {

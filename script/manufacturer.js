@@ -1,4 +1,6 @@
 define(['jquery', 'appstate'], function($, appstate) {
+  "use strict"
+
   var wireManufacturer = function() {
     $('#manufacturer').on('click',  'li a[href="#bolt-id"]', function() {
       appstate.data.bolt.manufacturer = {

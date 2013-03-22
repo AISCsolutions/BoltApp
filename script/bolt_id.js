@@ -1,4 +1,6 @@
 define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
+  "use strict"
+
   var setupGrade = function() {
     $('.current-grade .ui-btn-text').html(appstate.data.bolt.grade)
     $('.ui-btn-text .current-grade').html(appstate.data.bolt.grade)
@@ -28,8 +30,8 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
   }
 
   var setupManufacturer = function() {
-    mfg = appstate.data.bolt.manufacturer
-    $mfg = $('#manufacturer-select')
+    var mfg = appstate.data.bolt.manufacturer
+    var $mfg = $('#manufacturer-select')
     $mfg.find('.name').html(mfg.name)
     $mfg.find('.location').html(mfg.location)
     $mfg.find('.website').attr('href', mfg.website)

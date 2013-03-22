@@ -1,4 +1,6 @@
 define(['jquery'], function($) {
+  "use strict"
+
   // Schrotie http://schrotie.de/
   // https://purbayubudi.wordpress.com/2008/11/09/csv-parser-using-javascript/#comment-67
   var parseCsv = function(txt) {

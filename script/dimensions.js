@@ -13,6 +13,8 @@ define([
   Diagram,
   Diameter
 ) {
+  "use strict"
+
   /* Dimensions - diagram */
   var boltDiagram = Diagram.clone('#bolt-diagram')
   var nutDiagram = Diagram.clone('#nut-diagram')
@@ -30,7 +32,7 @@ define([
 
   var updateMeasurements = function() {
     if (measurements.length < 1) { return }
-    measures = currentMeasures()
+    var measures = currentMeasures()
     diameterDisplay(measures.Bolt.Diameter)
     boltDiagram.update({Grade: appstate.data.bolt.grade})
     boltDiagram.update(measures['Bolt'])

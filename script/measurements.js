@@ -1,4 +1,6 @@
 define(['csv', 'text!../data/measurements.csv'], function(csv, string) {
+  "use strict"
+
   var parseMeasurements = function(table) {
     var dims = []
     var kind = ''

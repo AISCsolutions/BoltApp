@@ -19,6 +19,8 @@ define([
   Finish,
   Manufacturer
 ) {
+  "use strict"
+
   appstate.load()
 
   /* Bolt Id */

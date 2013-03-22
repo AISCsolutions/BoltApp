@@ -1,4 +1,6 @@
 define(['jquery'], function($) {
+  "use strict"
+
   return {
     clone: function(selector) {
       var my = Object.create(this)

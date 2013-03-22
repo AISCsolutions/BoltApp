@@ -1,4 +1,6 @@
 define(function() {
+  "use strict"
+
   var LocalStore = function(key) {
     var emptyValue = localStorage.getItem('does not exist');
 

@@ -1,4 +1,6 @@
 define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
+  "use strict"
+
   var project = function(objects, property) {
     return objects.map(function(x) {return x[property]})
   }

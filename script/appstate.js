@@ -1,4 +1,6 @@
 define(['store'], function(Store) {
+  "use strict"
+
   var defaultState = {
     bolt: {
       grade: 'A325',

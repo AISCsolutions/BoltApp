@@ -1,4 +1,6 @@
 define(['jquery', 'appstate'], function($, appstate) {
+  "use strict"
+
   var wireDiameter = function(callback) {
     $('#diameter').on('change', function() {
       var value = $(this).val()

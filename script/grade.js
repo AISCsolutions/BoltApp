@@ -1,4 +1,6 @@
 define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
+  "use strict"
+
   var project = function(objects, property) {
     return objects.map(function(x) {return x[property]})
   }
