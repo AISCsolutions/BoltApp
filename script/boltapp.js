@@ -34,8 +34,10 @@ define([
   }
 
   /* Nuts and Washers */
+  var nw = NutsAndWashers.clone(rules)
+
   var setupNutsAndWashers = function(event) {
-    NutsAndWashers.wire(event, rules)
+    nw.wire(event)
   }
 
   /* Grade Select */

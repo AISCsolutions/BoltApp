@@ -2,15 +2,20 @@ define(['jquery'], function($) {
   "use strict"
 
   return {
+    clone: function(rules) {
+      var dup = Object.create(this)
+      dup.rules = rules
+      return dup
+    },
     $: function(selector) {
       return $('#nuts-and-washers').find(selector)
     },
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
     },
-    wire: function(event, rules) {
+    wire: function(event) {
       this.setContentHeight(event)
-      var nw = rules.gradeTypeFinish()
+      var nw = this.rules.gradeTypeFinish()
       if (nw) { this.update(nw) }
     },
     update: function(data) {
