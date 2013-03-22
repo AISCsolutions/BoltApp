@@ -2,42 +2,17 @@ define([
   'jquery',
   'appstate',
   'measurements',
+  'diagram_select',
   'diagram',
   'diameter'
 ], function(
   $,
   appstate,
   ments,
+  DiagramSelect,
   Diagram,
   Diameter
 ) {
-  /* Dimensions - diagram select */
-  var wireDiagramSelect = function() {
-    $('#bolt-select').on('change', function() {
-      appstate.data.diagram = 'bolt'
-      appstate.save()
-      boltDiagram.show()
-      nutDiagram.hide()
-      washerDiagram.hide()
-    })
-    $('#nut-select').on('change', function() {
-      appstate.data.diagram = 'nut'
-      appstate.save()
-      boltDiagram.hide()
-      nutDiagram.show()
-      washerDiagram.hide()
-    })
-    $('#washer-select').on('change', function() {
-      appstate.data.diagram = 'washer'
-      appstate.save()
-      boltDiagram.hide()
-      nutDiagram.hide()
-      washerDiagram.show()
-    })
-
-    $('label[for="'+appstate.data.diagram+'-select"]').click()
-  }
-
   /* Dimensions - diagram */
   var boltDiagram = Diagram.clone('#bolt-diagram')
   var nutDiagram = Diagram.clone('#nut-diagram')
@@ -93,7 +68,7 @@ define([
   /* Dimensions */
   var setupDimensions = function() {
     updateMeasurements()
-    wireDiagramSelect()
+    DiagramSelect.wire(boltDiagram, nutDiagram, washerDiagram)
     Diameter.wire(updateMeasurements)
   }
 
