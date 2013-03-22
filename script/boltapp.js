@@ -1,20 +1,16 @@
 define([
   'jquery',
   'appstate',
-  'measurements',
-  'grade_type_finish',
   'rules',
-  'diagram',
+  'dimensions',
   'nuts_and_washers',
   'grade',
   'finish'
 ], function(
   $,
   appstate,
-  ments,
-  gradeTypeFinish,
   rules,
-  Diagram,
+  Dimensions,
   NutsAndWashers,
   Grade,
   Finish
@@ -59,100 +55,9 @@ define([
     })
   }
 
-  /* Dimensions - diagram select */
-  var wireDiagramSelect = function() {
-    $('#bolt-select').on('change', function() {
-      state.diagram = 'bolt'
-      appstate.save()
-      boltDiagram.show()
-      nutDiagram.hide()
-      washerDiagram.hide()
-    })
-    $('#nut-select').on('change', function() {
-      state.diagram = 'nut'
-      appstate.save()
-      boltDiagram.hide()
-      nutDiagram.show()
-      washerDiagram.hide()
-    })
-    $('#washer-select').on('change', function() {
-      state.diagram = 'washer'
-      appstate.save()
-      boltDiagram.hide()
-      nutDiagram.hide()
-      washerDiagram.show()
-    })
-
-    $('label[for="'+state.diagram+'-select"]').click()
-  }
-
-  /* Dimensions - diagram */
-  var boltDiagram = Diagram.clone('#bolt-diagram')
-  var nutDiagram = Diagram.clone('#nut-diagram')
-  var washerDiagram = Diagram.clone('#washer-diagram')
-
-  var measurements = []
-
-  var receiveMeasurements = function(data) {
-    measurements = data
-    updateMeasurements()
-  }
-
-  var currentMeasures = function() {
-    var fraction = diameterInches[state.bolt.diameter.toString()]
-    for (var i in measurements) {
-      if (measurements[i].Bolt.Diameter == fraction) {
-        return measurements[i]
-      }
-    }
-    throw "Measurement not found for "+state.bolt.diameter
-  }
-
-  var updateMeasurements = function() {
-    measures = currentMeasures()
-    boltDiagram.update({Grade: state.bolt.grade})
-    boltDiagram.update(measures['Bolt'])
-    nutDiagram.update(measures['Nut'])
-    washerDiagram.update(measures['Circular Washer'])
-    washerDiagram.update(measures['Square Washer'])
-  }
-
-  /* Dimensions - diameter */
-  var diameterInches = {
-    '0.5': '1/2',
-    '0.625': '5/8',
-    '0.75': '3/4',
-    '0.875': '7/8',
-    '1': '1',
-    '1.125': '1 1/8',
-    '1.25': '1 2/4',
-    '1.375': '1 3/8',
-    '1.5': '1 1/2',
-  }
-
-  var diameterDisplay = function() {
-    $('#diameter-inches span').html(diameterInches[state.bolt.diameter.toString()])
-  }
-
-  var wireDiameter = function() {
-    $('#diameter').on('change', function() {
-      var value = $(this).val()
-      if (state.bolt.diameter != value) {
-        state.bolt.diameter = value
-        appstate.save()
-        diameterDisplay()
-        updateMeasurements()
-      }
-    })
-    $('#diameter').val(state.bolt.diameter).change()
-    diameterDisplay()
-  }
-
   /* Dimensions */
   var setupDimensions = function() {
-    ments.load(receiveMeasurements)
-    wireDiagramSelect()
-    wireDiameter()
+    Dimensions.wire()
   }
 
   /* Nuts and Washers */
@@ -202,9 +107,9 @@ define([
   }
 
   return {
-    boltDiagram: boltDiagram,
-    nutDiagram: nutDiagram,
-    washerDiagram: washerDiagram,
+    boltDiagram: Dimensions.boltDiagram,
+    nutDiagram: Dimensions.nutDiagram,
+    washerDiagram: Dimensions.washerDiagram,
     ready: function() {
       setGlobalClasses()
       setupBoltId()

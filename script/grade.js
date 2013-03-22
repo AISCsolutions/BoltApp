@@ -29,7 +29,7 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
       })
 
       this.$('li a').on('click', function() {
-        appstate.state.bolt.grade = $(this).find('h2').text()
+        appstate.data.bolt.grade = $(this).find('h2').text()
         appstate.save()
       })
     },
