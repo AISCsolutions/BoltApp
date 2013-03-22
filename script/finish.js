@@ -58,7 +58,7 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
         $('<h2></h2>').html(finish.name).appendTo($container)
         $('<p></p>').html(finish.note).appendTo($container)
       })
-      this.$('.finishes').empty().append($doc.children()).listview('refresh')
+      this.$('.finishes').empty().append($doc.children()).trigger('create')//.listview('refresh')
       return this
     }
   }

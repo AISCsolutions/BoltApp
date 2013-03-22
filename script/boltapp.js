@@ -6,6 +6,7 @@ define([
   'rules',
   'diagram',
   'nuts_and_washers',
+  'grade',
   'finish'
 ], function(
   $,
@@ -15,6 +16,7 @@ define([
   rules,
   Diagram,
   NutsAndWashers,
+  Grade,
   Finish
 ) {
   /* Global */
@@ -174,16 +176,8 @@ define([
 
   /* Grade Select */
   var wireGrade = function() {
-    $('#grade li h2').each(function() {
-      var $el = $(this)
-      var name = $el.html()
-      $('<p class="on-bolt grade-designator">'+name+'</p>').insertBefore($el)
-    })
-
-    $('#grade li a').on('click', function() {
-      state.bolt.grade = $(this).find('h2').text()
-      appstate.save()
-    })
+    Grade.wire()
+    Grade.update()
   }
 
   /* Finish Select */
