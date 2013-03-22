@@ -1,16 +1,18 @@
-define(['jquery', 'appstate'], function($, appstate) {
+define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
   var setupGrade = function() {
     $('.current-grade .ui-btn-text').html(appstate.data.bolt.grade)
     $('.ui-btn-text .current-grade').html(appstate.data.bolt.grade)
+
+    $('#grade-select').toggleClass('illegal', !rules.isGradeLegal(appstate.data.bolt.grade))
   }
 
   var setGlobalClasses = function() {
-    $body = $('body')
-    if (appstate.data.bolt.type == '3') {
-      $body.addClass('type-3')
-    } else {
-      $body.removeClass('type-3')
-    }
+    $('body').toggleClass('type-3', appstate.data.bolt.type == '3')
+
+    setupGrade()
+    $('label[for="type-1"]').toggleClass('illegal', !rules.isTypeLegal('1'))
+    $('label[for="type-3"]').toggleClass('illegal', !rules.isTypeLegal('3'))
+    setupFinish()
   }
 
   var setupType = function() {
@@ -20,10 +22,13 @@ define(['jquery', 'appstate'], function($, appstate) {
       appstate.save()
       setGlobalClasses()
     })
+    setGlobalClasses()
   }
 
   var setupFinish = function() {
-    $('#finish-select .ui-btn-text').html(appstate.data.bolt.finish)
+    $('#finish-select .ui-btn-text').
+      html(appstate.data.bolt.finish).
+      toggleClass('illegal', !rules.isFinishLegal(appstate.data.bolt.finish))
   }
 
   var setupManufacturer = function() {

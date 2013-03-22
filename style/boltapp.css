@@ -2,6 +2,8 @@
 .type-3 .grade-designator {text-decoration: underline;}
 
 /* Bolt ID */
+#bolt-id .illegal {color: red; text-decoration: line-through;}
+
 .type-code {font-size: 75%;}
 .type .ui-controlgroup-controls {display: block; width: 100%;}
 .type .ui-radio {display: block; width: 50%;}

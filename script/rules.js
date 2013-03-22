@@ -1,6 +1,10 @@
 define(['grade_type_finish', 'appstate'], function(gradeTypeFinish, appstate) {
   var gtf = []
 
+  var project = function(objects, property) {
+    return objects.map(function(x) {return x[property]})
+  }
+
   return {
     load: function(callback) {
       gradeTypeFinish.load(function(data) {
@@ -52,6 +56,15 @@ define(['grade_type_finish', 'appstate'], function(gradeTypeFinish, appstate) {
          }
        }
        return current
+    },
+    isGradeLegal: function(grade) {
+      return project(this.typeFinish(), 'ASTM Desig.').indexOf(grade) >= 0
+    },
+    isTypeLegal: function(type) {
+      return project(this.gradeFinish(), 'Bolt Type').indexOf(type) >= 0
+    },
+    isFinishLegal: function(finish) {
+      return project(this.gradeType(), 'Bolt Finish').indexOf(finish) >= 0
     }
   }
 })
