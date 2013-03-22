@@ -8,6 +8,11 @@ define(['jquery'], function($) {
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
     },
+    wire: function(event, rules) {
+      this.setContentHeight(event)
+      var nw = rules.gradeTypeFinish()
+      if (nw) { this.update(nw) }
+    },
     update: function(data) {
       for (var name in data) {
         this.$datum(name).html(data[name])

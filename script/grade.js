@@ -34,6 +34,8 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
         appstate.data.bolt.grade = $(this).find('h2').text()
         appstate.save()
       })
+
+      this.update()
     },
   }
 })

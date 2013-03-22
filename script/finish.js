@@ -50,7 +50,7 @@ define(['jquery', 'appstate'], function($, appstate) {
         appstate.data.bolt.finish = $(this).find('h2').text()
         appstate.save()
       })
-      return this
+      return this.render().update()
     },
     render: function() {
       var $doc = $(document.createDocumentFragment())

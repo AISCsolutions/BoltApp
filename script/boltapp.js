@@ -35,22 +35,19 @@ define([
 
   /* Nuts and Washers */
   var setupNutsAndWashers = function(event) {
-    NutsAndWashers.setContentHeight(event)
-    var nw = rules.gradeTypeFinish()
-    if (nw) { NutsAndWashers.update(nw) }
+    NutsAndWashers.wire(event, rules)
   }
 
   /* Grade Select */
   var wireGrade = function() {
     Grade.wire()
-    Grade.update()
   }
 
   /* Finish Select */
   var finish = Finish.clone(rules)
 
   var wireFinish = function() {
-    finish.render().wire().update()
+    finish.wire()
   }
 
   /* Manufacturer Select */
