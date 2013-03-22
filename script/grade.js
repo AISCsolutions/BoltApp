@@ -5,7 +5,7 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
 
   return {
     current: function() {
-      return project(rules.typeFinish(), 'ASTM Desig.')
+      return project(rules.typeFinish(), 'Bolt Grade')
     },
     update: function() {
       var current = this.current()

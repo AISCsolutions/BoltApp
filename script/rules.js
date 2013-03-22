@@ -13,7 +13,7 @@ define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
     gradeTypeFinish: function() {
       var bolt = appstate.data.bolt
       for (var i in gtf) {
-        if (gtf[i]['ASTM Desig.'] == bolt.grade
+        if (gtf[i]['Bolt Grade'] == bolt.grade
          && gtf[i]['Bolt Type'] == bolt.type
          && gtf[i]['Bolt Finish'] == bolt.finish) {
            return gtf[i]
@@ -26,7 +26,7 @@ define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
       var bolt = appstate.data.bolt
       var current = []
       for (var i in gtf) {
-        if (gtf[i]['ASTM Desig.'] == bolt.grade
+        if (gtf[i]['Bolt Grade'] == bolt.grade
          && gtf[i]['Bolt Type'] == bolt.type) {
            current.push(gtf[i])
          }
@@ -37,7 +37,7 @@ define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
       var bolt = appstate.data.bolt
       var current = []
       for (var i in gtf) {
-        if (gtf[i]['ASTM Desig.'] == bolt.grade
+        if (gtf[i]['Bolt Grade'] == bolt.grade
          && gtf[i]['Bolt Finish'] == bolt.finish) {
            current.push(gtf[i])
          }
@@ -56,7 +56,7 @@ define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
        return current
     },
     isGradeLegal: function(grade) {
-      return project(this.typeFinish(), 'ASTM Desig.').indexOf(grade) >= 0
+      return project(this.typeFinish(), 'Bolt Grade').indexOf(grade) >= 0
     },
     isTypeLegal: function(type) {
       return project(this.gradeFinish(), 'Bolt Type').indexOf(type) >= 0
