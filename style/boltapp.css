@@ -1,5 +1,7 @@
 /* Global */
 .type-3 .grade-designator {text-decoration: underline;}
+.current-finish {background-image: url(../images/finishes/mock.png);}
+.current-finish.ui-btn-active {color: rgb(111, 172, 213);}
 
 /* Bolt ID */
 #bolt-id .illegal {color: red; text-decoration: line-through;}
@@ -44,6 +46,7 @@
 .allowed .info label {display: block; font-size: 80%; color: #888; border-bottom: solid 1px; margin-top: 1%; margin-bottom: -0.5em; text-align: left;}
 .allowed .info .grade, .allowed .info .type {margin-top: 10%; margin-bottom: 5%;}
 .allowed .info .finish {font-size: 80%; font-weight: bold;}
+.allowed .info .finish.note {font-size: 60%; font-weight: normal;}
 
 .xsplit .half * {display: none;}
 .xssplit .half {border: dashed red 1px; margin: -1px;}
