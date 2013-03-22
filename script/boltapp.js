@@ -3,6 +3,7 @@ define([
   'appstate',
   'measurements',
   'grade_type_finish',
+  'rules',
   'diagram',
   'nuts_and_washers',
   'finish'
@@ -11,6 +12,7 @@ define([
   appstate,
   ments,
   gradeTypeFinish,
+  rules,
   Diagram,
   NutsAndWashers,
   Finish
@@ -152,33 +154,17 @@ define([
   }
 
   /* Nuts and Washers */
-  var gtf = []
-
-  var receiveGTF = function(data) {
-    gtf = data
+  rules.load(function(data) {
     finish = Finish.clone(data).render()
     updateGTF()
-  }
-
-  gradeTypeFinish.load(receiveGTF)
-
-  var currentGTF = function() {
-    var current = []
-    for (var i in gtf) {
-      if (gtf[i]['ASTM Desig.'] == state.bolt.grade
-       && gtf[i]['Bolt Type'] == state.bolt.type
-       && gtf[i]['Bolt Finish'] == state.bolt.finish) {
-         return gtf[i]
-       }
-     }
-
-     throw "Bolt grade/type/finish combination not found " + state.bolt.grade + " " + state.bolt.type + " " + state.bolt.finish
-  }
+  })
 
   var updateGTF = function() {
-    if (gtf.length > 0) {
-      var nw = currentGTF()
+    var nw = rules.gradeTypeFinish()
+    if (nw) {
       NutsAndWashers.update(nw)
+
+      finish.update()
     }
   }
 
@@ -205,6 +191,7 @@ define([
 
   var wireFinish = function() {
     finish.wire()
+    finish.update()
   }
 
   /* Manufacturer Select */

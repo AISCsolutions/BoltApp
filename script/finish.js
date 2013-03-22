@@ -1,4 +1,8 @@
-define(['jquery', 'appstate'], function($, appstate) {
+define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
+  var project = function(objects, property) {
+    return objects.map(function(x) {return x[property]})
+  }
+
   var finishes = function(combinations) {
     var kinds = {}
     combinations.forEach(function(c) {
@@ -17,6 +21,20 @@ define(['jquery', 'appstate'], function($, appstate) {
       dup.finishes = finishes(combinations)
       return dup
     },
+    current: function() {
+      return project(rules.gradeType(), 'Bolt Finish')
+    },
+    update: function() {
+      var current = this.current()
+      this.$('li').each(function() {
+        var $el = $(this)
+        if (current.indexOf($el.attr('title')) >= 0) {
+          $el.removeClass('illegal')
+        } else {
+          $el.addClass('illegal')
+        }
+      })
+    },
     $: function(selector) {
       return $('#finish').find(selector)
     },
@@ -25,7 +43,6 @@ define(['jquery', 'appstate'], function($, appstate) {
     },
     wire: function() {
       this.$el().on('click', 'li a', function() {
-        console.log(this)
         appstate.data.bolt.finish = $(this).find('h2').text()
         appstate.save()
       })
