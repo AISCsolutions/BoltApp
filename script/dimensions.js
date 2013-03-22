@@ -2,12 +2,14 @@ define([
   'jquery',
   'appstate',
   'measurements',
-  'diagram'
+  'diagram',
+  'diameter'
 ], function(
   $,
   appstate,
   ments,
-  Diagram
+  Diagram,
+  Diameter
 ) {
   /* Dimensions - diagram select */
   var wireDiagramSelect = function() {
@@ -63,6 +65,7 @@ define([
   var updateMeasurements = function() {
     if (measurements.length < 1) { return }
     measures = currentMeasures()
+    diameterDisplay(measures.Bolt.Diameter)
     boltDiagram.update({Grade: appstate.data.bolt.grade})
     boltDiagram.update(measures['Bolt'])
     nutDiagram.update(measures['Nut'])
@@ -83,29 +86,15 @@ define([
     '1.5': '1 1/2',
   }
 
-  var diameterDisplay = function() {
-    $('#diameter-inches span').html(diameterInches[appstate.data.bolt.diameter.toString()])
-  }
-
-  var wireDiameter = function() {
-    $('#diameter').on('change', function() {
-      var value = $(this).val()
-      if (appstate.data.bolt.diameter != value) {
-        appstate.data.bolt.diameter = value
-        appstate.save()
-        diameterDisplay()
-        updateMeasurements()
-      }
-    })
-    $('#diameter').val(appstate.data.bolt.diameter).change()
-    diameterDisplay()
+  var diameterDisplay = function(fraction) {
+    $('#diameter-inches span').html(fraction)
   }
 
   /* Dimensions */
   var setupDimensions = function() {
     updateMeasurements()
     wireDiagramSelect()
-    wireDiameter()
+    Diameter.wire(updateMeasurements)
   }
 
   return {
