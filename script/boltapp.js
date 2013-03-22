@@ -23,53 +23,27 @@ define([
 
   appstate.load()
 
-  /* Bolt Id */
-  var setupBoltId = function() {
-    BoltId.wire()
-  }
-
-  /* Dimensions */
-  var setupDimensions = function() {
-    Dimensions.wire()
-  }
-
-  /* Nuts and Washers */
-  var nw = NutsAndWashers.clone(rules)
-
-  var setupNutsAndWashers = function(event) {
-    nw.wire(event)
-  }
-
-  /* Grade Select */
-  var wireGrade = function() {
-    Grade.wire()
-  }
-
-  /* Finish Select */
-  var finish = Finish.clone(rules)
-
-  var wireFinish = function() {
-    finish.wire()
-  }
-
-  /* Manufacturer Select */
-  var wireManufacturer = function() {
-    Manufacturer.wire()
-  }
-
   return {
     dimensions: Dimensions,
     ready: function() {
-      setupBoltId()
-      setupDimensions()
-      $('#bolt-id').on('pagebeforeshow', setupBoltId)
-      $('#dimensions').on('pageshow', setupDimensions)
+      BoltId.wire()
+      $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
+
+      Dimensions.wire()
+      $('#dimensions').on('pageshow', Dimensions.wire.bind(Dimensions))
+
+      var nw = NutsAndWashers.clone(rules)
+      var setupNutsAndWashers = nw.wire.bind(nw)
       $('#nuts-and-washers').on('pagebeforeshow', setupNutsAndWashers)
       $('#nuts-and-washers').on('pageshow', setupNutsAndWashers)
-      $(window).on('navigate', NutsAndWashers.setContentHeight)
-      $('#grade').on('pagebeforeshow', wireGrade)
-      $('#finish').on('pageshow', wireFinish)
-      $('#manufacturer').on('pagebeforeshow', wireManufacturer)
+      $(window).on('navigate', nw.setContentHeight)
+
+      $('#grade').on('pagebeforeshow', Grade.wire.bind(Grade))
+
+      var finish = Finish.clone(rules)
+      $('#finish').on('pageshow', finish.wire.bind(finish))
+
+      $('#manufacturer').on('pagebeforeshow', Manufacturer.wire.bind(Manufacturer))
     }
   }
 })
