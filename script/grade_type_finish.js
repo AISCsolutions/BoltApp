@@ -1,4 +1,4 @@
-define(['csv'], function(csv) {
+define(['csv', 'text!../data/grade-type-finish-table-2-1.csv'], function(csv, string) {
   var parseCSV = function(table) {
     var records = []
 
@@ -32,16 +32,5 @@ define(['csv'], function(csv) {
     return records
   }
 
-  var parse = function(data) {
-    return fixup(parseCSV(data))
-  }
-
-  return {
-    parse: parse,
-    load: function(callback) {
-      csv.load('data/grade-type-finish-table-2-1.csv', function(data) {
-        callback(parse(data))
-      })
-    }
-  }
+  return fixup(parseCSV(csv.parse(string)))
 })

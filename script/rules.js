@@ -1,19 +1,14 @@
-define(['grade_type_finish', 'appstate'], function(gradeTypeFinish, appstate) {
-  var gtf = []
-
+define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
   var project = function(objects, property) {
     return objects.map(function(x) {return x[property]})
   }
 
   return {
-    any: function() {
-      return gtf.length > 0
-    },
     load: function(callback) {
-      gradeTypeFinish.load(function(data) {
-        gtf = data
-        callback(data)
-      })
+      callback(gtf)
+    },
+    forEach: function(f) {
+      gtf.forEach(f)
     },
     gradeTypeFinish: function() {
       var bolt = appstate.data.bolt

@@ -7,12 +7,10 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
   var setGlobalClasses = function() {
     $('body').toggleClass('type-3', appstate.data.bolt.type == '3')
 
-    if (rules.any()) {
-      $('#grade-select').toggleClass('illegal', !rules.isGradeLegal(appstate.data.bolt.grade))
-      $('label[for="type-1"]').toggleClass('illegal', !rules.isTypeLegal('1'))
-      $('label[for="type-3"]').toggleClass('illegal', !rules.isTypeLegal('3'))
-      $('#finish-select .ui-btn-text').toggleClass('illegal', !rules.isFinishLegal(appstate.data.bolt.finish))
-    }
+    $('#grade-select').toggleClass('illegal', !rules.isGradeLegal(appstate.data.bolt.grade))
+    $('label[for="type-1"]').toggleClass('illegal', !rules.isTypeLegal('1'))
+    $('label[for="type-3"]').toggleClass('illegal', !rules.isTypeLegal('3'))
+    $('#finish-select .ui-btn-text').toggleClass('illegal', !rules.isFinishLegal(appstate.data.bolt.finish))
   }
 
   var setupType = function() {

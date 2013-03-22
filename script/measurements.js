@@ -1,4 +1,4 @@
-define(['csv'], function(csv) {
+define(['csv', 'text!../data/measurements.csv'], function(csv, string) {
   var parseMeasurements = function(table) {
     var dims = []
     var kind = ''
@@ -25,12 +25,5 @@ define(['csv'], function(csv) {
     return dims
   }
 
-  return {
-    parse: parseMeasurements,
-    load: function(callback) {
-      csv.load('data/measurements.csv', function(data) {
-        callback(parseMeasurements(data))
-      })
-    }
-  }
+  return parseMeasurements(csv.parse(string))
 })

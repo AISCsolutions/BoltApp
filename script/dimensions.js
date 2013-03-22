@@ -8,7 +8,7 @@ define([
 ], function(
   $,
   appstate,
-  ments,
+  measurements,
   DiagramSelect,
   Diagram,
   Diameter
@@ -17,15 +17,6 @@ define([
   var boltDiagram = Diagram.clone('#bolt-diagram')
   var nutDiagram = Diagram.clone('#nut-diagram')
   var washerDiagram = Diagram.clone('#washer-diagram')
-
-  var measurements = []
-
-  var receiveMeasurements = function(data) {
-    measurements = data
-    updateMeasurements()
-  }
-
-  ments.load(receiveMeasurements)
 
   var currentMeasures = function() {
     var fraction = diameterInches[appstate.data.bolt.diameter.toString()]

@@ -32,11 +32,6 @@ define([
   }
 
   /* Nuts and Washers */
-  rules.load(function(data) {
-    finish = Finish.clone(data).render()
-    updateGTF()
-  })
-
   var updateGTF = function() {
     BoltId.wire()
 
@@ -59,7 +54,7 @@ define([
   }
 
   /* Finish Select */
-  var finish = Finish
+  var finish = Finish.clone(rules).render()
 
   var wireFinish = function() {
     finish.wire()

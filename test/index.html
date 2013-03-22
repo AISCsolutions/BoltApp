@@ -11,6 +11,8 @@
   <script src="qunit/qunit-1.11.0.js"></script>
   <script src="../script/require.js"></script>
   <script>
+    QUnit.config.testTimeout = 1000;
+
     require.config({
       baseUrl: "../script"
     })

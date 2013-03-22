@@ -1,6 +1,4 @@
 define(['csv'], function(csv) {
-  QUnit.config.testTimeout = 1000;
-
   module('csv')
   test('parse a line', function() {
     deepEqual(csv.parse('one,two'), [['one', 'two']])

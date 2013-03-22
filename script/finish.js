@@ -1,11 +1,11 @@
-define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
+define(['jquery', 'appstate'], function($, appstate) {
   var project = function(objects, property) {
     return objects.map(function(x) {return x[property]})
   }
 
-  var finishes = function(combinations) {
+  var finishes = function(rules) {
     var kinds = {}
-    combinations.forEach(function(c) {
+    rules.forEach(function(c) {
       kinds[c['Bolt Finish']] = {
         name: c['Bolt Finish'],
         note: c['Bolt Finish Note']
@@ -16,13 +16,14 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
 
   return {
     finishes: [],
-    clone: function(combinations) {
+    clone: function(rules) {
       var dup = Object.create(this)
-      dup.finishes = finishes(combinations)
+      dup.rules = rules
+      dup.finishes = finishes(rules)
       return dup
     },
     current: function() {
-      return project(rules.gradeType(), 'Bolt Finish')
+      return project(this.rules.gradeType(), 'Bolt Finish')
     },
     update: function() {
       var current = this.current()
@@ -58,7 +59,12 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
         $('<h2></h2>').html(finish.name).appendTo($container)
         $('<p></p>').html(finish.note).appendTo($container)
       })
-      this.$('.finishes').empty().append($doc.children()).trigger('create')//.listview('refresh')
+      var $finishes = this.$('.finishes').empty().append($doc.children())
+      try {
+        $finishes.listview('refresh')
+      } catch(e) {
+        console.log(e)
+      }
       return this
     }
   }
