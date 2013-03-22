@@ -62,6 +62,7 @@ define([
     dimensions: Dimensions,
     ready: function() {
       setupBoltId()
+      setupDimensions()
       $('#bolt-id').on('pagebeforeshow', setupBoltId)
       $('#dimensions').on('pageshow', setupDimensions)
       $('#nuts-and-washers').on('pagebeforeshow', setupNutsAndWashers)
