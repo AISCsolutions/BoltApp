@@ -28,7 +28,7 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
         $('<p class="on-bolt grade-designator">'+name+'</p>').insertBefore($el)
       })
 
-      this.$('li a').on('click', function() {
+      $(this).on('click', 'li a', function() {
         appstate.data.bolt.grade = $(this).find('h2').text()
         appstate.save()
       })

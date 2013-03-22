@@ -1,6 +1,6 @@
 define(['jquery', 'appstate'], function($, appstate) {
   var wireManufacturer = function() {
-    $('#manufacturer li a[href="#bolt-id"]').on('click', function() {
+    $('#manufacturer').on('click',  'li a[href="#bolt-id"]', function() {
       appstate.data.bolt.manufacturer = {
         name: $(this).find('.name').html(),
         location: $(this).find('.location').html(),
