@@ -2,6 +2,7 @@ define([
   'jquery',
   'appstate',
   'rules',
+  'shared_ui',
   'bolt_id',
   'dimensions',
   'nuts_and_washers',
@@ -12,6 +13,7 @@ define([
   $,
   appstate,
   rules,
+  ui,
   BoltId,
   Dimensions,
   NutsAndWashers,
@@ -26,6 +28,8 @@ define([
   return {
     dimensions: Dimensions,
     ready: function() {
+      ui.setup(appstate.data)
+
       BoltId.wire()
       $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
 
