@@ -6,6 +6,9 @@ define(['grade_type_finish', 'appstate'], function(gradeTypeFinish, appstate) {
   }
 
   return {
+    any: function() {
+      return gtf.length > 0
+    },
     load: function(callback) {
       gradeTypeFinish.load(function(data) {
         gtf = data

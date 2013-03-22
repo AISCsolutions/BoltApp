@@ -19,6 +19,8 @@ define([
   Finish,
   Manufacturer
 ) {
+  appstate.load()
+
   /* Bolt Id */
   var setupBoltId = function() {
     BoltId.wire()
@@ -36,6 +38,8 @@ define([
   })
 
   var updateGTF = function() {
+    BoltId.wire()
+
     var nw = rules.gradeTypeFinish()
     if (nw) {
       NutsAndWashers.update(nw)

@@ -2,8 +2,8 @@ define(['store'], function(Store) {
   var defaultState = {
     bolt: {
       grade: 'A325',
-      type: '3',
-      finish: 'Plain',
+      type: '1',
+      finish: 'Plain (uncoated)',
       manufacturer: {
         name: 'Unytite, Inc',
         location: 'Peru IL',
