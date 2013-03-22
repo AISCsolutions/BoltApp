@@ -47,11 +47,10 @@ define([
   }
 
   /* Finish Select */
-  var finish = Finish.clone(rules).render()
+  var finish = Finish.clone(rules)
 
   var wireFinish = function() {
-    finish.wire()
-    finish.update()
+    finish.render().wire().update()
   }
 
   /* Manufacturer Select */
@@ -69,7 +68,7 @@ define([
       $('#nuts-and-washers').on('pageshow', setupNutsAndWashers)
       $(window).on('navigate', NutsAndWashers.setContentHeight)
       $('#grade').on('pagebeforeshow', wireGrade)
-      $('#finish').on('pagebeforeshow', wireFinish)
+      $('#finish').on('pageshow', wireFinish)
       $('#manufacturer').on('pagebeforeshow', wireManufacturer)
     }
   }

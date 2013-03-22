@@ -37,6 +37,7 @@ define(['jquery', 'appstate'], function($, appstate) {
           $el.addClass('illegal')
         }
       })
+      return this
     },
     $: function(selector) {
       return $('#finish').find(selector)
@@ -49,6 +50,7 @@ define(['jquery', 'appstate'], function($, appstate) {
         appstate.data.bolt.finish = $(this).find('h2').text()
         appstate.save()
       })
+      return this
     },
     render: function() {
       var $doc = $(document.createDocumentFragment())
