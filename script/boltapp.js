@@ -37,11 +37,18 @@ define([
       Dimensions.wire()
       $('#dimensions').on('pageshow', Dimensions.wire.bind(Dimensions))
 
-      var nw = NutsAndWashers.clone(rules)
+      var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
       var setupNutsAndWashers = nw.wire.bind(nw)
       $('#nuts-and-washers').on('pagebeforeshow', setupNutsAndWashers)
       $('#nuts-and-washers').on('pageshow', setupNutsAndWashers)
-      $(window).on('navigate', nw.setContentHeight)
+      var resizeNW = ui.setContentHeight.bind(ui, '#nuts-and-washers .split')
+      $('#nuts-and-washers').on('pageshow', resizeNW)
+      $(window).on('navigate', resizeNW)
+
+      var nwl = NutsAndWashers.clone('#nuts-and-washers-list', rules)
+      var setupNutsAndWashersList = nwl.wire.bind(nwl)
+      $('#nuts-and-washers-list').on('pagebeforeshow', setupNutsAndWashersList)
+      $('#nuts-and-washers-list').on('pageshow', setupNutsAndWashersList)
 
       $('#grade').on('pagebeforeshow', Grade.wire.bind(Grade))
 
