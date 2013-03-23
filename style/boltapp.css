@@ -52,12 +52,14 @@
 .xssplit .half {border: dashed red 1px; margin: -1px;}
 .xssplit {border: dashed blue 1px; margin: -1px;}
 
+#nuts-and-washers-list .illegal {display: none;}
+
 /* Manfufacturer */
 .ui-content { overflow: hidden; }
 
 /* Finish */
 .ui-li-desc, .ui-li-heading {overflow: visible;}
-.illegal .ui-li-desc, .illegal .ui-li-heading{color: #888; text-decoration: line-through;}
+.illegal .ui-li-desc, .illegal .ui-li-heading {color: #888; text-decoration: line-through;}
 
 /* Grade */
 .on-bolt {position: absolute; font-size: 11px; left: 25px; top: 0px;}
