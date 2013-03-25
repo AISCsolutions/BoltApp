@@ -1,6 +1,32 @@
 define(['jquery', 'appstate'], function($, appstate) {
   "use strict"
 
+  var indexPositions = function() {
+    var index = {}
+    $('#manufacturer .index li').each(function() {
+      index[$(this).html()] = 0
+    })
+
+    $('#manufacturer .name').each(function() {
+      var name = $(this).html()
+      var y = $(this).offsetParent().offset().top
+      if (index[name[0]] == 0) {
+        index[name[0]] = y
+      }
+    })
+
+    var last = 0
+    for (var l in index) {
+      if (index[l] == 0) {
+        index[l] = last
+      } else {
+        last = index[l]
+      }
+    }
+
+    return index
+  }
+
   var wireManufacturer = function() {
     $('#manufacturer').on('click',  'li a[href="#bolt-id"]', function() {
       appstate.data.bolt.manufacturer = {
@@ -12,20 +38,11 @@ define(['jquery', 'appstate'], function($, appstate) {
       appstate.save()
     })
 
-    console.log($('#manufacturer .index'))
     $('#manufacturer .index').on('click', 'li', function(event) {
       event.stopPropagation()
-      var letter = $(this).html()
-      console.log(letter)
-      $('#manufacturer .name').each(function() {
-        var name = $(this).html()
-        if (name[0] == letter) {
-          console.log(name)
-
-          $(window).scrollTop($(this).parent().parent().parent().parent()[0].offsetTop)
-          return false
-        }
-      })
+      var index = indexPositions()
+      var letter = $(this).html()[0]
+      $(window).scrollTop(index[letter])
     })
   }
 
