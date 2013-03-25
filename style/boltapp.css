@@ -26,6 +26,14 @@
 .diagrams li { display: inline-block; position: relative; text-align: center; width: 30%; margin: 1.4%; padding: 0px;}
 .diagrams img { max-width: 100%; max-height: 9em; }
 .diagrams .measurement {position: absolute; margin: 0px; padding: 0.2em; background-color: #ffd; border: solid #ddd 1px;}
+.diagrams .measurement {
+  opacity: 0;
+  -moz-transition: opacity 2s;
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+}
+.diagrams .measurement.data {opacity: 1;}
 .diagrams .measurement[title="Length Extras"] {font-size: 0.75em; border: none;}
 .diagrams .vertical.measurement {
      -moz-transform: rotate(90deg);  /* FF3.5+ */

@@ -82,6 +82,7 @@ define(['jquery'], function($) {
       var mh = $m.outerHeight() / 2
       $m.css('left', px(x - mw))
       $m.css('top', px(y - mh))
+      $m.addClass('data')
     },
     interactivePlace: function(measurement) {
       var diagram = this
