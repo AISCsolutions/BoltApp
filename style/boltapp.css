@@ -33,7 +33,7 @@
 
 #diameter-inches {position: absolute; width: 100%; text-align: center; margin-top: -0.5em; font-size: 200%;}
 
-/* Nuts Washers */
+/* Nuts Washers - Split */
 /* NW top/bottom split */
 .split .half {height: 48%; width: 100%; margin: 0px; clear: left;}
 .split hr {clear: both;}
@@ -52,7 +52,9 @@
 .xssplit .half {border: dashed red 1px; margin: -1px;}
 .xssplit {border: dashed blue 1px; margin: -1px;}
 
+/* Nuts Washers - List */
 #nuts-and-washers-list .illegal {display: none;}
+#nuts-and-washers-list label {font-size: 80%; font-weight: bold; color: #888; margin-right: 0.5em;}
 
 /* Manfufacturer */
 .ui-content { overflow: hidden; }
