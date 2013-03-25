@@ -36,27 +36,24 @@ define([
       $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
 
       Dimensions.wire()
-      $('#dimensions').on('pageshow', Dimensions.wire.bind(Dimensions))
+      $('#dimensions').on('pagebeforeshow', Dimensions.wire.bind(Dimensions))
 
       var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
-      var setupNutsAndWashers = nw.wire.bind(nw)
-      $('#nuts-and-washers').on('pagebeforeshow', setupNutsAndWashers)
-      $('#nuts-and-washers').on('pageshow', setupNutsAndWashers)
+      $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))
       var resizeNW = ui.setContentHeight.bind(ui, '#nuts-and-washers .split')
-      $('#nuts-and-washers').on('pageshow', resizeNW)
-      $(window).on('navigate', resizeNW)
+      $('#nuts-and-washers').on('pagebeforeshow', resizeNW)
 
       var nwl = NutsAndWashers.clone('#nuts-and-washers-list', rules)
-      var setupNutsAndWashersList = nwl.wire.bind(nwl)
-      $('#nuts-and-washers-list').on('pagebeforeshow', setupNutsAndWashersList)
-      $('#nuts-and-washers-list').on('pageshow', setupNutsAndWashersList)
+      $('#nuts-and-washers-list').on('pagebeforeshow', nwl.wire.bind(nwl))
 
       $('#grade').on('pagebeforeshow', Grade.wire.bind(Grade))
 
       var finish = Finish.clone(rules)
-      $('#finish').on('pageshow', finish.wire.bind(finish))
+      $('#finish').on('pagebeforeshow', finish.wire.bind(finish))
 
       $('#manufacturer').on('pagebeforeshow', Manufacturer.wire.bind(Manufacturer))
+
+      $.mobile.activePage.trigger('pagebeforeshow') // sometimes it beats us
     }
   }
 })
