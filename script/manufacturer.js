@@ -7,7 +7,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       index[$(this).html()] = 0
     })
 
-    $('#manufacturer .name').each(function() {
+    $('#manufacturer .manufacturers .name').each(function() {
       var name = $(this).html()
       var y = $(this).offsetParent().offset().top
       if (index[name[0]] == 0) {
