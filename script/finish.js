@@ -55,7 +55,7 @@ define(['jquery', 'appstate'], function($, appstate) {
     render: function() {
       var $doc = $(document.createDocumentFragment())
       this.finishes.forEach(function(finish) {
-        var $item = $('<li><a href="#bolt-id"></a></li>').
+        var $item = $('<li><a href="#bolt-id" data-transition="pop" data-direction="reverse"></a></li>').
           attr('title', finish.name).
           appendTo($doc)
         var $container = $item.find('a')

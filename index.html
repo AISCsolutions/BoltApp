@@ -20,7 +20,7 @@
   <div data-role="content">
     <form>
       <label>Select Grade</label>
-      <a href="#grade" data-role="button" id="grade-select" class="current-grade grade-designator">grade</a>
+      <a href="#grade" data-role="button" data-transition="pop" id="grade-select" class="current-grade grade-designator">grade</a>
       <fieldset data-role="controlgroup" data-type="horizontal" class="type">
         <legend>Is it Underlined?</legend>
 
@@ -31,10 +31,10 @@
         <label for="type-3"><u><span class="type-3 current-grade">grade</span><br><span class="type-code">Type 3<span></u></label>
       </fieldset>
       <label>Select Finish</label>
-      <a href="#finish" data-role="button" id="finish-select">finish</a>
+      <a href="#finish" data-role="button" data-transition="pop" id="finish-select">finish</a>
       <label>Select Manufacturer</label>
       <ul data-role="listview" data-inset="true" id="manufacturer-select">
-        <li><a href="#manufacturer">
+        <li><a href="#manufacturer" data-transition="pop">
           <img class="bolt">
           <h2 class="name">name</h2>
           <p class="location">location</p>
@@ -78,37 +78,39 @@
         <label for="washer-select"><img src="images/icons/washer.png" height="30" alt="Washers"><br>Washer</label>
       </fieldset>
     </form>
-    <ul class="diagrams">
-      <li id="bolt-diagram">
-        <img src="images/dimensions/bolt-320.png">
-        <p class="measurement grade-designator current-grade" data-x="15%" data-y="43%" title="Grade">Grade</p>
-        <p class="measurement" data-x="15%" data-y="88%" title="Width Across Flats">F</p>
-        <p class="measurement" data-x="36%" data-y="88%" title="Height">H</p>
-        <p class="measurement" data-x="82%" data-y="19%" title="Thread Length">Thread Length</p>
-        <p class="measurement" data-x="69%" data-y="88%" title="Length Extras">+ Grip + Washers</p>
-        <p class="measurement" data-x="69%" data-y="78%" title="Base Length">Bolt Length</p>
-      </li>
-      <li id="nut-diagram">
-        <img src="images/dimensions/nut-186.png">
-        <p class="measurement" data-x="21%" data-y="77%" title="Width Across Flats">W</p>
-        <p class="measurement" data-x="72%" data-y="77%" title="Height">H</p>
-      </li>
-      <li id="washer-diagram">
-        <img src="images/dimensions/washer-wide-147.png">
-        <p class="vertical measurement" data-x="39%" data-y="51%" title="Outside Diameter">O.D.</p>
-        <p class="vertical measurement" data-x="5%" data-y="51%" title="Inside Diameter">I.D.</p>
-        <p class="measurement" data-x="35%" data-y="95%" title="Min Thickness">T</p>
-        <p class="measurement" data-x="51%" data-y="95%" title="Max Thickness">T</p>
-        <p class="measurement" data-x="18%" data-y="10%" title="Min Edge Distance">E</p>
+    <div class="diagrams">
+      <ul>
+        <li id="bolt-diagram">
+          <img src="images/dimensions/bolt-320.png">
+          <p class="measurement grade-designator current-grade" data-x="15%" data-y="43%" title="Grade">Grade</p>
+          <p class="measurement" data-x="15%" data-y="88%" title="Width Across Flats">F</p>
+          <p class="measurement" data-x="36%" data-y="88%" title="Height">H</p>
+          <p class="measurement" data-x="82%" data-y="19%" title="Thread Length">Thread Length</p>
+          <p class="measurement" data-x="69%" data-y="88%" title="Length Extras">+ Grip + Washers</p>
+          <p class="measurement" data-x="69%" data-y="78%" title="Base Length">Bolt Length</p>
+        </li>
+        <li id="nut-diagram">
+          <img src="images/dimensions/nut-186.png">
+          <p class="measurement" data-x="21%" data-y="77%" title="Width Across Flats">W</p>
+          <p class="measurement" data-x="72%" data-y="77%" title="Height">H</p>
+        </li>
+        <li id="washer-diagram">
+          <img src="images/dimensions/washer-wide-147.png">
+          <p class="vertical measurement" data-x="39%" data-y="51%" title="Outside Diameter">O.D.</p>
+          <p class="vertical measurement" data-x="5%" data-y="51%" title="Inside Diameter">I.D.</p>
+          <p class="measurement" data-x="35%" data-y="95%" title="Min Thickness">T</p>
+          <p class="measurement" data-x="51%" data-y="95%" title="Max Thickness">T</p>
+          <p class="measurement" data-x="18%" data-y="10%" title="Min Edge Distance">E</p>
 
-        <p class="measurement" data-x="72%" data-y="95%" title="Min Side Dimension">A</p>
-        <p class="vertical measurement" data-x="87%" data-y="51%" title="Min Side Dimension">A</p>
-        <p class="measurement" data-x="94%" data-y="95%" title="Mean Thickness">T</p>
-        <p class="measurement" data-x="93%" data-y="10%" title="Taper In Thickness"></p>
-        <p class="vertical measurement" data-x="79%" data-y="63%" title="Min Edge Distance">E</p>
-        <p class="vertical measurement" data-x="53%" data-y="51%" title="Inside Diameter">I.D.</p>
-      </li>
-    </ul>
+          <p class="measurement" data-x="72%" data-y="95%" title="Min Side Dimension">A</p>
+          <p class="vertical measurement" data-x="87%" data-y="51%" title="Min Side Dimension">A</p>
+          <p class="measurement" data-x="94%" data-y="95%" title="Mean Thickness">T</p>
+          <p class="measurement" data-x="93%" data-y="10%" title="Taper In Thickness"></p>
+          <p class="vertical measurement" data-x="79%" data-y="63%" title="Min Edge Distance">E</p>
+          <p class="vertical measurement" data-x="53%" data-y="51%" title="Inside Diameter">I.D.</p>
+        </li>
+      </ul>
+    </div>
     <form>
       <p id="diameter-inches"><span>1</span>"</p>
       <label for="diameter">Diameter:</label>
@@ -180,7 +182,7 @@
 <div data-role="page" id="nuts-and-washers-list">
 
   <div data-role="header" data-position="fixed" data-id="main-header">
-    <a href="#nuts-and-washers" data-role="button" data-icon="grid" data-iconpos="left" data-inline="true">Back</a>
+    <a href="#nuts-and-washers" data-role="button" data-rel="back" data-icon="grid" data-iconpos="left" data-inline="true">Back</a>
     <h1>Nuts &amp; Washers</h1>
   </div><!-- header -->
 
@@ -293,29 +295,29 @@
 <div data-role="page" id="grade">
 
   <div data-role="header" data-position="fixed" data-id="main-header">
-    <a href="#bolt-id" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true">Back</a>
+    <a href="#bolt-id" data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="left" data-inline="true">Back</a>
     <h1>Select Grade</h1>
   </div><!-- header -->
 
   <div data-role="content">
     <ul data-role="listview" class="grades">
-      <li title="A325"><a href="#bolt-id">
+      <li title="A325"><a href="#bolt-id" data-rel="back">
         <img src="images/bolts/blank.png">
         <h2 class="grade-designator">A325</h2>
         <p class="ui-li-aside">Group A</p>
       </a></li>
-      <li title="F1852"><a href="#bolt-id">
+      <li title="F1852"><a href="#bolt-id" data-rel="back">
         <img src="images/bolts/blank.png">
         <h2 class="grade-designator">F1852</h2>
         <p>aka A325TC</p>
         <p class="ui-li-aside">Group A</p>
       </a></li>
-      <li title="A490"><a href="#bolt-id">
+      <li title="A490"><a href="#bolt-id" data-rel="back">
         <img src="images/bolts/blank.png">
         <h2 class="grade-designator">A490</h2>
         <p class="ui-li-aside">Group B</p>
       </a></li>
-      <li title="F2280"><a href="#bolt-id">
+      <li title="F2280"><a href="#bolt-id" data-rel="back">
         <img src="images/bolts/blank.png">
         <h2 class="grade-designator">F2280</h2>
         <p class="ui-li-aside">Group B</p>
@@ -339,7 +341,7 @@
 <div data-role="page" id="finish">
 
   <div data-role="header" data-position="fixed" data-id="main-header">
-    <a href="#bolt-id" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true">Back</a>
+    <a href="#bolt-id" data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="left" data-inline="true">Back</a>
     <h1>Select Bolt Finish</h1>
   </div><!-- header -->
 

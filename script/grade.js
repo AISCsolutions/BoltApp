@@ -27,7 +27,6 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
       return this.$el().find(selector)
     },
     wire: function() {
-      console.log('wire')
       this.$('li h2').each(function() {
         var $el = $(this)
         var name = $el.html()
@@ -35,9 +34,7 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
       })
 
       this.$el().on('click', 'li a', function() {
-        console.log('grade before', appstate.data.bolt.grade)
         appstate.data.bolt.grade = $(this).find('h2').text()
-        console.log('grade after', appstate.data.bolt.grade)
         appstate.save()
       })
 

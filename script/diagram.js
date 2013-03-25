@@ -17,12 +17,10 @@ define(['jquery'], function($) {
       return this.$('[title="'+name+'"]')
     },
     show: function() {
-      $(this.selector).show()
       var my = this
       setTimeout(function() {my.ready()}, 0)
     },
     hide: function() {
-      $(this.selector).hide()
     },
     ready: function(debugx, debugy) {
       var $diagram = $(this.selector)
