@@ -11,6 +11,22 @@ define(['jquery', 'appstate'], function($, appstate) {
       }
       appstate.save()
     })
+
+    console.log($('#manufacturer .index'))
+    $('#manufacturer .index').on('click', 'li', function(event) {
+      event.stopPropagation()
+      var letter = $(this).html()
+      console.log(letter)
+      $('#manufacturer .name').each(function() {
+        var name = $(this).html()
+        if (name[0] == letter) {
+          console.log(name)
+
+          $(window).scrollTop($(this).parent().parent().parent().parent()[0].offsetTop)
+          return false
+        }
+      })
+    })
   }
 
   return {

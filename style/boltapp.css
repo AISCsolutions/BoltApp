@@ -76,6 +76,22 @@
 /* Manfufacturer */
 .ui-content { overflow: hidden; }
 
+#manufacturerx [data-role="content"] {width: 75%;}
+.index {
+  background-color: rgba(255, 255, 255, 0.4);
+  text-shadow: 0em 0em 0.2em white, 0 0 0.1em white, 0 0 0.05em white;
+  position: fixed;
+  z-index: 3;
+  left: 0px;
+  text-align: center;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 0.5em;
+  font-size: 90%;
+}
+.index li {padding: 0em 1em;}
+
 /* Finish */
 .ui-li-desc, .ui-li-heading {overflow: visible;}
 .illegal .ui-li-desc, .illegal .ui-li-heading {color: #888; text-decoration: line-through;}
