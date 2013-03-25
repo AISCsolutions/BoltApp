@@ -21,6 +21,13 @@ define(['jquery'], function($) {
     wire: function() {
       var nw = this.rules.gradeTypeFinish()
       if (nw) { this.update(nw) }
+      this.$('li a').click(function() {
+        $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
+        $(this).find('[title]').each(function() {
+          var title = $(this).attr('title')
+          $('.zoom [title="'+title+'"]').html($(this).html())
+        })
+      })
     },
     update: function(data) {
       this.updateFields(data)
