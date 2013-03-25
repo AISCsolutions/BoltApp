@@ -8,7 +8,8 @@ define([
   'nuts_and_washers',
   'grade',
   'finish',
-  'manufacturer'
+  'manufacturer',
+  'es5-shim'
 ], function(
   $,
   appstate,
