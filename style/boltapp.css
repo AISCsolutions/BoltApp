@@ -6,6 +6,8 @@
 .current-finish.ui-btn-active {color: rgb(111, 172, 213);}
 .ui-header a[href="#disclaimer"].ui-btn-right {right: 3em;}
 
+.inline-help {margin-bottom: 2em;}
+
 /* Disclaimer */
 #disclaimer {text-align: justify; }
 
