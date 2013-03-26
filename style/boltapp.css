@@ -5,6 +5,9 @@
 .current-finish {background-image: url(../images/finishes/mock.png);}
 .current-finish.ui-btn-active {color: rgb(111, 172, 213);}
 
+/* Disclaimer */
+#disclaimer {text-align: justify; }
+
 /* Bolt ID */
 #bolt-id .illegal {color: red; text-decoration: line-through;}
 
