@@ -4,6 +4,7 @@
 .type-3 .grade-designator {text-decoration: underline;}
 .current-finish {background-image: url(../images/finishes/mock.png);}
 .current-finish.ui-btn-active {color: rgb(111, 172, 213);}
+.ui-header a[href="#disclaimer"].ui-btn-right {right: 3em;}
 
 /* Disclaimer */
 #disclaimer {text-align: justify; }
