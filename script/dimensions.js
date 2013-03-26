@@ -27,7 +27,7 @@ define([
         return measurements[i]
       }
     }
-    throw "Measurement not found for "+appstate.data.bolt.diameter
+    console.error("Measurement not found for "+appstate.data.bolt.diameter)
   }
 
   var updateMeasurements = function() {

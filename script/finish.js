@@ -67,7 +67,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       try {
         $finishes.listview('refresh')
       } catch(e) {
-        console.log(e)
+        console.error(e)
       }
       return this
     }
