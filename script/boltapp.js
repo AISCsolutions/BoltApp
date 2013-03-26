@@ -30,12 +30,8 @@ define([
   return {
     dimensions: Dimensions,
     ready: function() {
-      ui.setup(appstate.data)
-      $(window).on('pagebeforeshow', function() {ui.gradeChanged(appstate.data.bolt.grade)})
-
       if (! $.support.fixedPosition) { ui.softwareScroll() }
 
-      BoltId.wire()
       $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
 
       Dimensions.wire()
