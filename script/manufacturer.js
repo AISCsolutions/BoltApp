@@ -1,4 +1,4 @@
-define(['jquery', 'appstate'], function($, appstate) {
+define(['jquery', 'appstate', 'shared_ui'], function($, appstate, ui) {
   "use strict"
 
   var indexPositions = function() {
@@ -42,7 +42,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       event.stopPropagation()
       var index = indexPositions()
       var letter = $(this).html()[0]
-      $(window).scrollTop(index[letter])
+      ui.scrollTop(index[letter])
     })
   }
 

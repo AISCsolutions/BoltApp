@@ -25,6 +25,7 @@ define(['jquery', 'iscroll-lite'], function($) {
       //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
     },
     softwareScroll: function() {
+      console.info('patching scroll for no fixed position')
       var ui = this
       $(document).on('pageshow', '[data-role="page"]', function(event) {
         ui.setContentHeight('.ui-content', event)
@@ -36,6 +37,14 @@ define(['jquery', 'iscroll-lite'], function($) {
           scrollers[this.id] = new iScroll($el[0])
         }
       })
+    },
+    scrollTop: function(y) {
+      var target = scrollers[$.mobile.activePage[0].id]
+      if (target) {
+        target.scrollTo(0, -y)
+      } else {
+        $(window).scrollTop(y)
+      }
     }
   }
 })
