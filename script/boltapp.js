@@ -9,7 +9,8 @@ define([
   'grade',
   'finish',
   'manufacturer',
-  'es5-shim'
+  'es5-shim',
+  'jquery.mobile-1.3.0'
 ], function(
   $,
   appstate,
@@ -32,6 +33,8 @@ define([
       ui.setup(appstate.data)
       $(window).on('pagebeforeshow', function() {ui.gradeChanged(appstate.data.bolt.grade)})
 
+      if (! $.support.fixedPosition) { ui.softwareScroll() }
+
       BoltId.wire()
       $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
 
@@ -53,7 +56,7 @@ define([
 
       $('#manufacturer').on('pagebeforeshow', Manufacturer.wire.bind(Manufacturer))
 
-      $.mobile.activePage.trigger('pagebeforeshow') // sometimes it beats us
+      $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow') // sometimes it beats us
     }
   }
 })

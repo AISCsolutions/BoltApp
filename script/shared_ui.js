@@ -1,4 +1,6 @@
-define(['jquery'], function($) {
+define(['jquery', 'iscroll-lite'], function($) {
+  var scrollers = {}
+
   return {
     setup: function(state) {
       this.gradeChanged(state.bolt.grade)
@@ -21,6 +23,19 @@ define(['jquery'], function($) {
       console.log('setContentHeight', el, event.type, height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding)
       $(el).css('height', height)
       //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
+    },
+    softwareScroll: function() {
+      var ui = this
+      $(document).on('pageshow', '[data-role="page"]', function(event) {
+        ui.setContentHeight('.ui-content', event)
+        if (scrollers[this.id]) {
+          scrollers[this.id].refresh()
+        } else {
+          var $el = $(this).find('[data-role="content"]')
+          $el.wrapInner('<div class="scrolling-region">')
+          scrollers[this.id] = new iScroll($el[0])
+        }
+      })
     }
   }
 })
