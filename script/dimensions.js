@@ -58,17 +58,15 @@ define([
     $('#diameter-inches span').html(fraction)
   }
 
-  /* Dimensions */
-  var setupDimensions = function() {
-    updateMeasurements()
-    DiagramSelect.wire(boltDiagram, nutDiagram, washerDiagram)
-    Diameter.wire(updateMeasurements)
-  }
-
   return {
     boltDiagram: boltDiagram,
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
-    wire: setupDimensions
+    show: DiagramSelect.show.bind(DiagramSelect),
+    wire: function() {
+      updateMeasurements()
+      DiagramSelect.wire(boltDiagram, nutDiagram, washerDiagram)
+      Diameter.wire(updateMeasurements)
+    }
   }
 })

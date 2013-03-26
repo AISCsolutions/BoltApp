@@ -1,13 +1,14 @@
 define(['jquery', 'appstate'], function($, appstate) {
   "use strict"
 
-  var speed = 400
-
   var scrollTo = function(x) {
-    $('.diagrams ul').animate({'margin-left': x}, speed)
+    $('.diagrams ul').animate({'margin-left': x}, 400)
   }
 
   return {
+    show: function() {
+      $('label[for="'+appstate.data.diagram+'-select"]').click()
+    },
     wire: function(boltDiagram, nutDiagram, washerDiagram) {
       $('#bolt-select').on('change', function() {
         scrollTo(0)
@@ -33,8 +34,6 @@ define(['jquery', 'appstate'], function($, appstate) {
         nutDiagram.hide()
         washerDiagram.show()
       })
-
-      $('label[for="'+appstate.data.diagram+'-select"]').click()
     }
   }
 })
