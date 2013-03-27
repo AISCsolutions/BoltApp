@@ -50,7 +50,10 @@ define([
     boltDiagram: boltDiagram,
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
-    show: DiagramSelect.show.bind(DiagramSelect),
+    show: function() {
+      DiagramSelect.show()
+      Diameter.show()
+    },
     wire: function() {
       updateMeasurements()
       DiagramSelect.wire(boltDiagram, nutDiagram, washerDiagram)

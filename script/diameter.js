@@ -1,19 +1,43 @@
 define(['jquery', 'appstate'], function($, appstate) {
   "use strict"
 
-  var wireDiameter = function(callback) {
-    $('#diameter').on('change', function() {
-      var value = $(this).val()
-      if (appstate.data.bolt.diameter != value) {
-        appstate.data.bolt.diameter = value
-        appstate.save()
-        callback()
-      }
-    })
-    $('#diameter').val(appstate.data.bolt.diameter).change()
-  }
-
   return {
-    wire: wireDiameter
+    $el: function() {
+      return $('#diameter')
+    },
+    wire: function(callback) {
+      this.$el().on('change', function() {
+        var value = $(this).val()
+        if (appstate.data.bolt.diameter != value) {
+          appstate.data.bolt.diameter = value
+          appstate.save()
+          callback()
+        }
+      })
+      this.$el().val(appstate.data.bolt.diameter).change()
+      this.render()
+    },
+    render: function() {
+      var $el = this.$el().parent()
+      var $slider = $el.find('.ui-slider-track')
+      var points = appstate.diameterInches
+      var settings = (Object.keys(points).length - 1)
+      for (var i = 1; i < settings; i++) {
+        $('<div class="slider-mark">').appendTo($slider)
+      }
+    },
+    show: function() {
+      var $el = this.$el().parent()
+      var $slider = $el.find('.ui-slider-track')
+      var width = $slider.width()
+      var points = appstate.diameterInches
+      var settings = (Object.keys(points).length - 1)
+      var step = width / settings
+      var left = step
+      $slider.find('.slider-mark').each(function() {
+        $(this).css('left', left)
+        left += step
+      })
+    },
   }
 })

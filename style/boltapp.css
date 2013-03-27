@@ -52,8 +52,11 @@
          -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)"; /* IE8 */
 }
 
+/* Diameters slider */
 #diameter-inches {position: absolute; width: 100%; text-align: center; margin-top: 0em; font-size: 200%;}
 #diameter-label {margin-top: 1em;}
+
+.slider-mark {position: absolute; background-color: #aaa; margin-left: -0.1em; width: 0.2em; height: 1em;}
 
 /* Nuts Washers */
 #nuts-and-washers .illegal {display: none;}
