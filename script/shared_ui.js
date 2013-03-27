@@ -4,7 +4,7 @@ define(['jquery', 'iscroll-lite'], function($) {
   return {
     gradeChanged: function(grade) {
       $('.current-grade .ui-btn-text').html(grade)
-      $('.ui-btn-text .current-grade').html(grade)
+      $('.current-grade').not('.current-grade:has(.ui-btn-text)').html(grade)
     },
     typeChanged: function(type) {
       $('body').toggleClass('type-3', type == '3')
