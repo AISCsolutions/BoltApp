@@ -40,10 +40,10 @@ define(['jquery', 'appstate'], function($, appstate) {
       return this
     },
     $: function(selector) {
-      return $('#finish').find(selector)
+      return $('#finish [data-role="content"]').find(selector)
     },
     $el: function() {
-      return $('#finish')
+      return $('#finish [data-role="content"]')
     },
     wire: function() {
       this.$el().on('click', 'li a', function() {

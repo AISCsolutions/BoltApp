@@ -21,7 +21,7 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
       })
     },
     $el: function() {
-      return $('#grade')
+      return $('#grade [data-role="content"]')
     },
     $: function(selector) {
       return this.$el().find(selector)
