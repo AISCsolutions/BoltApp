@@ -21,7 +21,7 @@ define([
   var washerDiagram = Diagram.clone('#washer-diagram')
 
   var currentMeasures = function() {
-    var fraction = diameterInches[appstate.data.bolt.diameter.toString()]
+    var fraction = appstate.diameterFraction()
     for (var i in measurements) {
       if (measurements[i].Bolt.Diameter == fraction) {
         return measurements[i]
@@ -42,18 +42,6 @@ define([
   }
 
   /* Dimensions - diameter */
-  var diameterInches = {
-    '0.5': '1/2',
-    '0.625': '5/8',
-    '0.75': '3/4',
-    '0.875': '7/8',
-    '1': '1',
-    '1.125': '1 1/8',
-    '1.25': '1 1/4',
-    '1.375': '1 3/8',
-    '1.5': '1 1/2',
-  }
-
   var diameterDisplay = function(fraction) {
     $('#diameter-inches span').html(fraction)
   }
