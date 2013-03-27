@@ -93,9 +93,9 @@
 #finish .ui-li-desc {white-space: normal;}
 
 [title~="Plain"] {background: #888;}
+.type-3 [title~="Plain"] {background: #c75;}
 [title~="Galvanized"] {background: #ccc;}
 [title~="Zn/Al"] {background: #99e;}
-.finish-weathering #finish li {background: #c75;}
 
 /* Grade */
 .on-bolt {position: absolute; font-size: 11px; left: 25px; top: 0px;}

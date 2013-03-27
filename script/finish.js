@@ -15,7 +15,7 @@ define([], function() {
       return this.finishColors.Plain
     },
     colorFor: function(bolt) {
-      if (bolt.type == '3') {
+      if (bolt.type == '3' && bolt.finish.match('Plain')) {
         return this.finishColors.Weathering
       } else {
         return this.colorForFinish(bolt.finish)
