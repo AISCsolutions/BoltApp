@@ -27,10 +27,20 @@ define(['jquery', 'manufacturer', 'appstate', 'shared_ui'], function($, Mfg, app
     return index
   }
 
+  var li = function(el) {
+    return $(el).parents('li')[0]
+  }
+
   var wireManufacturer = function() {
     $('#manufacturer').on('click',  'li a[href="#bolt-id"]', function() {
-      appstate.data.bolt.manufacturer = Mfg.clone(this).read()
+      appstate.data.bolt.manufacturer = Mfg.clone(li(this)).read()
       appstate.save()
+    })
+
+    $('#manufacturer').on('click',  'li a[href="#mfg-zoom"]', function() {
+      $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
+      var mfg = Mfg.clone(li(this)).read()
+      Mfg.clone('.zoom').write(mfg)
     })
 
     $('#manufacturer .index').on('click', 'li', function(event) {

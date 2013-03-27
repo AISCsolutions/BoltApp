@@ -15,7 +15,7 @@ define(['jquery'], function($) {
         name: $el.find('.name').html(),
         location: $el.find('.location').html(),
         bolt: $el.find('.bolt').attr('src'),
-        website: $el.parent().parent().parent().find('.website').attr('href')
+        website: $el.find('.website').attr('href')
       }
     },
     write: function(mfg) {
@@ -23,6 +23,7 @@ define(['jquery'], function($) {
       $el.find('.name').html(mfg.name)
       $el.find('.location').html(mfg.location)
       $el.find('.website').attr('href', mfg.website)
+      $el.find('.website.html').html(mfg.website)
       $el.find('.bolt').attr('src', mfg.bolt)
     }
   }
