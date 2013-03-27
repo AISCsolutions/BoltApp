@@ -3,8 +3,11 @@
 .ui-li-desc, .ui-li-heading {overflow: visible;}
 .ui-li-link-alt {margin-top: -1px;}
 .type-3 .grade-designator {text-decoration: underline;}
-.current-finish {background-image: url(../images/finishes/mock.png);}
-.current-finish.ui-btn-active {color: rgb(111, 172, 213);}
+.finish-plain .current-finish {background: #888;}
+.finish-galvanized .current-finish {background: #aaa;}
+.finish-zn-al .current-finish {background: #88a;}
+.finish-weathering .current-finish {background: #c75;}
+.current-finish.ui-btn-active {color: black;}
 
 .ui-header a[href="#disclaimer"].ui-btn-right {right: 3em;}
 .ui-header a.help.ui-btn-right {right: 5em;}

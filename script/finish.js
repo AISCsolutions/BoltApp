@@ -1,10 +1,10 @@
 define([], function() {
   return {
     finishColors: {
-      'Plain': '#888',
-      'Galvanized': '#aaa',
-      'Zn/Al': '#aaf',
-      'Weathering': '#c75'
+      'Plain': 'plain',
+      'Galvanized': 'galvanized',
+      'Zn/Al': 'zn-al',
+      'Weathering': 'weathering'
     },
     colorForFinish: function(finish) {
       for (var string in this.finishColors) {

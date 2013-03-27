@@ -1,4 +1,4 @@
-define(['jquery', 'appstate'], function($, appstate) {
+define(['jquery', 'appstate', 'shared_ui'], function($, appstate, ui) {
   "use strict"
 
   var project = function(objects, property) {
@@ -49,6 +49,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       this.$el().on('click', 'li a', function() {
         appstate.data.bolt.finish = $(this).find('h2').text()
         appstate.save()
+        ui.finishChanged(appstate.data.bolt.finish)
       })
       return this.render().update()
     },

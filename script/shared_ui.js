@@ -1,4 +1,4 @@
-define(['jquery', 'iscroll-lite'], function($) {
+define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
   var scrollers = {}
 
   return {
@@ -8,6 +8,13 @@ define(['jquery', 'iscroll-lite'], function($) {
     },
     typeChanged: function(type) {
       $('body').toggleClass('type-3', type == '3')
+    },
+    finishChanged: function(finish) {
+      var finish_class = Finish.colorForFinish(finish)
+      $('body').toggleClass('finish-plain', finish_class == 'plain')
+      $('body').toggleClass('finish-galvanized', finish_class == 'galvanized')
+      $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')
+      $('body').toggleClass('finish-weathering', finish_class == 'weathering')
     },
     setContentHeight: function(el, event) {
       var headerHeight = parseInt($.mobile.activePage.css("padding-top"), 10)

@@ -26,6 +26,7 @@ define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($,
 
   var setupFinish = function() {
     $('#finish-select .ui-btn-text').html(appstate.data.bolt.finish)
+    ui.finishChanged(appstate.data.bolt.finish)
   }
 
   var setupManufacturer = function() {
