@@ -56,28 +56,9 @@
 #diameter-inches {position: absolute; width: 100%; text-align: center; margin-top: 0em; font-size: 200%;}
 #diameter-label {margin-top: 1em;}
 
-/* Nuts Washers - Split */
-/* NW top/bottom split */
-.split .half {height: 48%; width: 100%; margin: 0px; clear: left;}
-.split hr {clear: both;}
-
-/* NW formatting */
-.allowed .astm {margin-top: 0px; margin-bottom: 3%; text-align: center; color: #666;}
-.allowed img {float: left; max-height: 80%; max-width: 45%; }
-.allowed .info {display: block; float:right; clear: right; width: 50%;}
-
-.allowed .info label {display: block; font-size: 80%; color: #888; border-bottom: solid 1px; margin-top: 1%; margin-bottom: -0.5em; text-align: left;}
-.allowed .info .grade, .allowed .info .type {margin-top: 10%; margin-bottom: 5%;}
-.allowed .info .finish {font-size: 80%; font-weight: bold;}
-.allowed .info .finish.note {font-size: 60%; font-weight: normal;}
-
-.xsplit .half * {display: none;}
-.xssplit .half {border: dashed red 1px; margin: -1px;}
-.xssplit {border: dashed blue 1px; margin: -1px;}
-
-/* Nuts Washers - List */
-#nuts-and-washers-list .illegal {display: none;}
-#nuts-and-washers-list label {font-size: 80%; font-weight: bold; color: #888; margin-right: 0.5em;}
+/* Nuts Washers */
+#nuts-and-washers .illegal {display: none;}
+#nuts-and-washers label {font-size: 80%; font-weight: bold; color: #888; margin-right: 0.5em;}
 
 /* Zoom */
 .zoom {position: relative;}

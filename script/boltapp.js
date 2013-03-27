@@ -40,11 +40,6 @@ define([
 
       var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
       $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))
-      var resizeNW = ui.setContentHeight.bind(ui, '#nuts-and-washers .split')
-      $('#nuts-and-washers').on('pagebeforeshow', resizeNW)
-
-      var nwl = NutsAndWashers.clone('#nuts-and-washers-list', rules)
-      $('#nuts-and-washers-list').on('pagebeforeshow', nwl.wire.bind(nwl))
 
       $('#grade').on('pagebeforeshow', Grade.wire.bind(Grade))
 
