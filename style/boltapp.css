@@ -4,8 +4,8 @@
 .ui-li-link-alt {margin-top: -1px;}
 .type-3 .grade-designator {text-decoration: underline;}
 .finish-plain .current-finish {background: #888;}
-.finish-galvanized .current-finish {background: #aaa;}
-.finish-zn-al .current-finish {background: #88a;}
+.finish-galvanized .current-finish {background: #ccc;}
+.finish-zn-al .current-finish {background: #99e;}
 .finish-weathering .current-finish {background: #c75;}
 .current-finish.ui-btn-active {color: black;}
 
@@ -91,6 +91,11 @@
 /* Finish */
 .illegal .ui-li-desc, .illegal .ui-li-heading {color: #888; text-decoration: line-through;}
 #finish .ui-li-desc {white-space: normal;}
+
+[title~="Plain"] {background: #888;}
+[title~="Galvanized"] {background: #ccc;}
+[title~="Zn/Al"] {background: #99e;}
+.finish-weathering #finish li {background: #c75;}
 
 /* Grade */
 .on-bolt {position: absolute; font-size: 11px; left: 25px; top: 0px;}

@@ -18,15 +18,15 @@ define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($,
       appstate.data.bolt.type = $(this).val()
       appstate.save()
       markIllegal()
-      ui.typeChanged(appstate.data.bolt.type)
+      ui.typeChanged(appstate.data.bolt)
     })
     markIllegal()
-    ui.typeChanged(appstate.data.bolt.type)
+    ui.typeChanged(appstate.data.bolt)
   }
 
   var setupFinish = function() {
     $('#finish-select .ui-btn-text').html(appstate.data.bolt.finish)
-    ui.finishChanged(appstate.data.bolt.finish)
+    ui.finishChanged(appstate.data.bolt)
   }
 
   var setupManufacturer = function() {

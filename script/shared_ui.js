@@ -6,11 +6,12 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
       $('.current-grade .ui-btn-text').html(grade)
       $('.current-grade').not('.current-grade:has(.ui-btn-text)').html(grade)
     },
-    typeChanged: function(type) {
-      $('body').toggleClass('type-3', type == '3')
+    typeChanged: function(bolt) {
+      $('body').toggleClass('type-3', bolt.type == '3')
+      this.finishChanged(bolt)
     },
-    finishChanged: function(finish) {
-      var finish_class = Finish.colorForFinish(finish)
+    finishChanged: function(bolt) {
+      var finish_class = Finish.colorFor(bolt)
       $('body').toggleClass('finish-plain', finish_class == 'plain')
       $('body').toggleClass('finish-galvanized', finish_class == 'galvanized')
       $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')

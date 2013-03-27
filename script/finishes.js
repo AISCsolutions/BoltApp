@@ -49,7 +49,7 @@ define(['jquery', 'appstate', 'shared_ui'], function($, appstate, ui) {
       this.$el().on('click', 'li a', function() {
         appstate.data.bolt.finish = $(this).find('h2').text()
         appstate.save()
-        ui.finishChanged(appstate.data.bolt.finish)
+        ui.finishChanged(appstate.data.bolt)
       })
       return this.render().update()
     },
