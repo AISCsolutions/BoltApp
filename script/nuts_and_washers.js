@@ -12,8 +12,11 @@ define(['jquery'], function($) {
       dup.rules = rules
       return dup
     },
+    $el: function() {
+      return $(this.selector)
+    },
     $: function(selector) {
-      return $(this.selector).find(selector)
+      return this.$el().find(selector)
     },
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
@@ -21,7 +24,7 @@ define(['jquery'], function($) {
     wire: function() {
       var nw = this.rules.gradeTypeFinish()
       if (nw) { this.update(nw) }
-      this.$('li a').click(function() {
+      this.$el().on('click', 'li a', function() {
         $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
         $(this).find('[title]').each(function() {
           var title = $(this).attr('title')
