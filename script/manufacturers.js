@@ -32,12 +32,12 @@ define(['jquery', 'manufacturer', 'appstate', 'shared_ui'], function($, Mfg, app
   }
 
   var wireManufacturer = function() {
-    $('#manufacturer').on('click',  'li a[href="#bolt-id"]', function() {
+    $('#manufacturer [data-role="content"]').on('click',  'li a[href="#bolt-id"]', function() {
       appstate.data.bolt.manufacturer = Mfg.clone(li(this)).read()
       appstate.save()
     })
 
-    $('#manufacturer').on('click',  'li a[href="#mfg-zoom"]', function() {
+    $('#manufacturer [data-role="content"]').on('click',  'li a[href="#mfg-zoom"]', function() {
       $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
       var mfg = Mfg.clone(li(this)).read()
       Mfg.clone('.zoom').write(mfg)
