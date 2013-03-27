@@ -1,52 +1,29 @@
-define(['jquery', 'appstate', 'shared_ui'], function($, appstate, ui) {
+define(['jquery'], function($) {
   "use strict"
 
-  var indexPositions = function() {
-    var index = {}
-    $('#manufacturer .index li').each(function() {
-      index[$(this).html()] = 0
-    })
-
-    $('#manufacturer .manufacturers .name').each(function() {
-      var name = $(this).html()
-      var y = $(this).offsetParent().offset().top
-      if (index[name[0]] == 0) {
-        index[name[0]] = y
-      }
-    })
-
-    var last = 0
-    for (var l in index) {
-      if (index[l] == 0) {
-        index[l] = last
-      } else {
-        last = index[l]
-      }
-    }
-
-    return index
-  }
-
-  var wireManufacturer = function() {
-    $('#manufacturer').on('click',  'li a[href="#bolt-id"]', function() {
-      appstate.data.bolt.manufacturer = {
-        name: $(this).find('.name').html(),
-        location: $(this).find('.location').html(),
-        bolt: $(this).find('.bolt').attr('src'),
-        website: $(this).parent().parent().parent().find('.website').attr('href')
-      }
-      appstate.save()
-    })
-
-    $('#manufacturer .index').on('click', 'li', function(event) {
-      event.stopPropagation()
-      var index = indexPositions()
-      var letter = $(this).html()[0]
-      ui.scrollTop(index[letter])
-    })
-  }
-
   return {
-    wire: wireManufacturer
+    clone: function(selector) {
+      this.selector = selector
+      return this
+    },
+    $el: function() {
+      return $(this.selector)
+    },
+    read: function() {
+      var $el = this.$el()
+      return {
+        name: $el.find('.name').html(),
+        location: $el.find('.location').html(),
+        bolt: $el.find('.bolt').attr('src'),
+        website: $el.parent().parent().parent().find('.website').attr('href')
+      }
+    },
+    write: function(mfg) {
+      var $el = this.$el()
+      $el.find('.name').html(mfg.name)
+      $el.find('.location').html(mfg.location)
+      $el.find('.website').attr('href', mfg.website)
+      $el.find('.bolt').attr('src', mfg.bolt)
+    }
   }
 })

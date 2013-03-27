@@ -8,7 +8,7 @@ define([
   'nuts_and_washers',
   'grade',
   'finish',
-  'manufacturer',
+  'manufacturers',
   'es5-shim',
   'jquery.mobile-1.3.0'
 ], function(
@@ -21,7 +21,7 @@ define([
   NutsAndWashers,
   Grade,
   Finish,
-  Manufacturer
+  Manufacturers
 ) {
   "use strict"
 
@@ -51,7 +51,7 @@ define([
       var finish = Finish.clone(rules)
       $('#finish').on('pagebeforeshow', finish.wire.bind(finish))
 
-      $('#manufacturer').on('pagebeforeshow', Manufacturer.wire.bind(Manufacturer))
+      $('#manufacturer').on('pagebeforeshow', Manufacturers.wire.bind(Manufacturers))
 
       $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow') // sometimes it beats us
     }

@@ -1,4 +1,4 @@
-define(['jquery', 'appstate', 'rules', 'shared_ui'], function($, appstate, rules, ui) {
+define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($, Mfg, appstate, rules, ui) {
   "use strict"
 
   var markIllegal = function() {
@@ -30,11 +30,7 @@ define(['jquery', 'appstate', 'rules', 'shared_ui'], function($, appstate, rules
 
   var setupManufacturer = function() {
     var mfg = appstate.data.bolt.manufacturer
-    var $mfg = $('#manufacturer-select')
-    $mfg.find('.name').html(mfg.name)
-    $mfg.find('.location').html(mfg.location)
-    $mfg.find('.website').attr('href', mfg.website)
-    $mfg.find('.bolt').attr('src', mfg.bolt)
+    Mfg.clone('#manufacturer-select').write(appstate.data.bolt.manufacturer)
   }
 
   var setupBoltId = function() {
