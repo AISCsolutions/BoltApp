@@ -6,8 +6,8 @@ define([
   'bolt_id',
   'dimensions',
   'nuts_and_washers',
-  'grade',
-  'finish',
+  'grades',
+  'finishes',
   'manufacturers',
   'es5-shim',
   'jquery.mobile-1.3.0'
@@ -19,8 +19,8 @@ define([
   BoltId,
   Dimensions,
   NutsAndWashers,
-  Grade,
-  Finish,
+  Grades,
+  Finishes,
   Manufacturers
 ) {
   "use strict"
@@ -41,10 +41,10 @@ define([
       var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
       $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))
 
-      $('#grade').on('pagebeforeshow', Grade.wire.bind(Grade))
+      $('#grade').on('pagebeforeshow', Grades.wire.bind(Grades))
 
-      var finish = Finish.clone(rules)
-      $('#finish').on('pagebeforeshow', finish.wire.bind(finish))
+      var finishes = Finishes.clone(rules)
+      $('#finish').on('pagebeforeshow', finishes.wire.bind(finishes))
 
       $('#manufacturer').on('pagebeforeshow', Manufacturers.wire.bind(Manufacturers))
 
