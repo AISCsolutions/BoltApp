@@ -19,8 +19,7 @@
 
 /* Bolt ID */
 .choice-illegal > label:after, .choice-illegal legend:after {content: " Change"; color: red;}
-xj.error-help {visibility: hidden; color: red;}
-x.choice-illegal .error-help {visibility: visible;}
+.no-choices > label:after, .no-choices legend:after {content: " No Options"; color: red;}
 
 .grade.choice-illegal .ui-btn-text,
 .finish.choice-illegal .ui-btn-text,

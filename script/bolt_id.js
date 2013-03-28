@@ -2,11 +2,17 @@ define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($,
   "use strict"
 
   var markIllegal = function() {
-    $('.grade').toggleClass('choice-illegal', !rules.isGradeLegal(appstate.data.bolt.grade))
-    $('.type').toggleClass('choice-illegal', !rules.isTypeLegal(appstate.data.bolt.type))
+    $('.grade').
+      toggleClass('choice-illegal', !rules.isGradeLegal(appstate.data.bolt.grade)).
+      toggleClass('no-choices', rules.typeFinish().length == 0)
+    $('.type').
+      toggleClass('choice-illegal', !rules.isTypeLegal(appstate.data.bolt.type)).
+      toggleClass('no-choices', rules.gradeFinish().length == 0)
     $('.type label[for="type-1"]').toggleClass('illegal', !rules.isTypeLegal('1'))
     $('.type label[for="type-3"]').toggleClass('illegal', !rules.isTypeLegal('3'))
-    $('.finish').toggleClass('choice-illegal', !rules.isFinishLegal(appstate.data.bolt.finish))
+    $('.finish').
+      toggleClass('choice-illegal', !rules.isFinishLegal(appstate.data.bolt.finish)).
+      toggleClass('no-choices', rules.gradeType().length == 0)
   }
 
   var setupGrade = function() {
