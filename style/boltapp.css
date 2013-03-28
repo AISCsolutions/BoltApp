@@ -90,6 +90,8 @@ a[href="#2-1-b"] {display: none;}
 .type-3 a[href="#2-1-a"] {display: none;}
 a[href="#2-1-d"] {display: none;}
 .hot-dip a[href="#2-1-d"] {display: inline-block;}
+a[href="#2-1-e"] {display: none;}
+.finish-zn-al a[href="#2-1-e"] {display: inline-block;}
 
 .note-in-li {
   position: absolute;
