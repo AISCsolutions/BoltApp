@@ -41,6 +41,7 @@ define([
 
       var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
       $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))
+      $('#nuts-and-washers').on('pageshow', function() {ui.finishChanged(appstate.data.bolt)})
 
       $('#grade').on('pagebeforeshow', Grades.wire.bind(Grades))
 
