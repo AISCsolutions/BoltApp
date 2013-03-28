@@ -4,7 +4,7 @@ define(['finish'], function(finish) {
     equal(finish.colorForFinish('Plain (uncoated)'), 'plain')
   })
   test('Galvanized', function() {
-    equal(finish.colorForFinish('Mechanically Galvanized'), 'galvanized')
+    equal(finish.colorForFinish('Galvanized (Mechanical)'), 'galvanized-mechanical')
   })
 
   test('type 1', function() {

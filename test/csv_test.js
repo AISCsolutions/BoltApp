@@ -35,7 +35,17 @@ define(['csv'], function(csv) {
     csv.load('../data/grade-type-finish-table-2-1.csv', function(data) {
       //console.log(data)
       ok(data)
-      equal(data.length, 15)
+      equal(data.length, 16)
+      start()
+    })
+  })
+
+  asyncTest('ajax loading manufacturers', function() {
+    expect(2)
+    csv.load('../data/manufacturers.csv', function(data) {
+      //console.log(data)
+      ok(data)
+      equal(data.length, 13)
       start()
     })
   })
