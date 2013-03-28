@@ -31,27 +31,36 @@ define(['jquery', 'manufacturer', 'appstate', 'shared_ui'], function($, Mfg, app
     return $(el).parents('li')[0]
   }
 
-  var wireManufacturer = function() {
-    $('#manufacturer [data-role="content"]').on('click',  'li a[href="#bolt-id"]', function() {
-      appstate.data.bolt.manufacturer = Mfg.clone(li(this)).read()
-      appstate.save()
-    })
-
-    $('#manufacturer [data-role="content"]').on('click',  'li a[href="#mfg-zoom"]', function() {
-      $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
-      var mfg = Mfg.clone(li(this)).read()
-      Mfg.clone('.zoom').write(mfg)
-    })
-
-    $('#manufacturer .index').on('click', 'li', function(event) {
-      event.stopPropagation()
-      var index = indexPositions()
-      var letter = $(this).html()[0]
-      ui.scrollTop(index[letter])
-    })
-  }
-
   return {
-    wire: wireManufacturer
+    wire: function() {
+      this.wireList()
+      this.wireIndex()
+    },
+    $content: function() {
+      return $('#manufacturer [data-role="content"]')
+    },
+    $index: function() {
+      return $('#manufacturer .index')
+    },
+    wireList: function() {
+      this.$content().on('click',  'li a[href="#bolt-id"]', function() {
+        appstate.data.bolt.manufacturer = Mfg.clone(li(this)).read()
+        appstate.save()
+      })
+
+      this.$content().on('click',  'li a[href="#mfg-zoom"]', function() {
+        $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
+        var mfg = Mfg.clone(li(this)).read()
+        Mfg.clone('.zoom').write(mfg)
+      })
+    },
+    wireIndex: function() {
+      this.$index().on('click', 'li', function(event) {
+        event.stopPropagation()
+        var index = indexPositions()
+        var letter = $(this).html()[0]
+        ui.scrollTop(index[letter])
+      })
+    }
   }
 })
