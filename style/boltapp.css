@@ -88,6 +88,8 @@
 a[href="#2-1-b"] {display: none;}
 .type-3 a[href="#2-1-b"] {display: inline-block;}
 .type-3 a[href="#2-1-a"] {display: none;}
+a[href="#2-1-d"] {display: none;}
+.hot-dip a[href="#2-1-d"] {display: inline-block;}
 
 .note-in-li {
   position: absolute;

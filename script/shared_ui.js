@@ -39,6 +39,7 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
       $('body').toggleClass('finish-galvanized', finish_class == 'galvanized')
       $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')
       $('body').toggleClass('finish-weathering', finish_class == 'weathering')
+      $('body').toggleClass('hot-dip', bolt.finish == 'Galvanized')
     },
     setContentHeight: setContentHeight,
     softwareScroll: function() {
