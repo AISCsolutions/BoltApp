@@ -86,21 +86,17 @@
 #nuts-and-washers .illegal {display: none;}
 #nuts-and-washers label {font-size: 80%; font-weight: bold; color: #888; margin-right: 0.5em;}
 
-.type-3 a[href="#2-1-a"] {display: none;}
-a[href="#2-1-b"] {display: none;}
-.type-3 a[href="#2-1-b"] {display: inline-block;}
-a[href="#2-1-HDG"] {display: none;}
-a[href="#2-1-MG"] {display: none;}
-.finish-galvanized-hot-dip a[href="#2-1-HDG"] {display: inline-block;}
-.finish-galvanized-mechanical a[href="#2-1-MG"] {display: inline-block;}
-a[href="#2-1-e"] {display: none;}
-.finish-zn-al a[href="#2-1-e"] {display: inline-block;}
+a[href^="#2-1"] {display: none;}
 
-.note-in-li {
-  position: absolute;
-  right: 3em;
-  top: 0.5em;
+.type-1 a[href="#2-1-a"],
+.type-3 a[href="#2-1-b"],
+.finish-galvanized-hot-dip a[href="#2-1-HDG"],
+.finish-galvanized-mechanical a[href="#2-1-MG"],
+.finish-zn-al a[href="#2-1-e"] {
+  display: inline-block;
 }
+
+.note-in-li { position: absolute; right: 3em; top: 0.5em; }
 .note-in-li .ui-btn-inner {padding: 0.5em;}
 
 /* Zoom */

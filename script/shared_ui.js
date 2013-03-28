@@ -30,6 +30,7 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
       $('.current-grade').not('.current-grade:has(.ui-btn-text)').html(grade)
     },
     typeChanged: function(bolt) {
+      $('body').toggleClass('type-1', bolt.type == '1')
       $('body').toggleClass('type-3', bolt.type == '3')
       this.finishChanged(bolt)
     },
