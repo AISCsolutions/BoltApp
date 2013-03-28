@@ -2,7 +2,8 @@ define([], function() {
   return {
     finishColors: {
       'Plain': 'plain',
-      'Galvanized': 'galvanized',
+      'Galvanized \\(Hot': 'galvanized-hot-dip',
+      'Galvanized \\(Mech': 'galvanized-mechanical',
       'Zn/Al': 'zn-al',
       'Weathering': 'weathering'
     },

@@ -1,11 +1,12 @@
 "Bolt",,,,"ASTM A563 Nut",,,"ASTM F436 Washer",,
 "Bolt Grade","Bolt Type","Bolt Finish","Bolt Finish Note","Nut Grade","Nut Finish","Nut Finish Note","Washer Type","Washer Finish","Washer Finish Note"
 "A325",1,"Plain (uncoated)",,"C, C3, D, DH, DH3","plain",,1,"plain",
-"A325",1,"Galvanized","Hot-dip (F2329) or Mechanical (B695)","DH","galvanized and lubricated","Hot-dip (F2329) or Mechanical (B695)",1,"galvanized","Hot-dip (F2329) or Mechanical (B695)"
+"A325",1,"Galvanized (Hot-Dip)","per ASTM F2329","DH","galvanized and lubricated","Hot-dip (F2329) or Mechanical (B695)",1,"galvanized","Hot-dip (F2329) or Mechanical (B695)"
+"A325",1,"Galvanized (Mechanical)","per ASTM B695","DH","galvanized and lubricated","Hot-dip (F2329) or Mechanical (B695)",1,"galvanized","Hot-dip (F2329) or Mechanical (B695)"
 "A325",1,"Zn/Al Inorganic","per ASTM F1136 Grade 3","DH","Zn/Al Inorganic","per ASTM F1136 Grade 5",1,"Zn/Al Inorganic","per ASTM F1136 Grade 3"
 "A325",3,"Plain",,"C3, DH3","plain",,3,"plain",
 "F1852",1,"Plain (uncoated)",,"C, C3, DH, DH3","plain",,1,"plain",
-"F1852",1,"Mechanically Galvanized",,"DH","mechanically galvanized and lubricated",,1,"mechanically galvanized",
+"F1852",1,"Galvanized (Mechanical)","per ASTM B695","DH","mechanically galvanized and lubricated",,1,"mechanically galvanized",
 "F1852",1,"Zn/Al Inorganic","per ASTM F1136 Grade 3","DH","Zn/Al Inorganic","per ASTM F1136 Grade 5",1,"Zn/Al Inorganic","per ASTM F1136 Grade 3"
 "F1852",3,"Plain",,"C3, DH3","plain",,3,"plain",
 "A490",1,"Plain",,"DH, DH3","plain",,1,"plain",

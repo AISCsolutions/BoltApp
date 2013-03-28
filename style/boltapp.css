@@ -4,7 +4,8 @@
 .ui-li-link-alt {margin-top: -1px;}
 .type-3 .grade-designator {text-decoration: underline;}
 .finish-plain .current-finish {background: #888;}
-.finish-galvanized .current-finish {background: #ccc;}
+.finish-galvanized-hot-dip .current-finish {background: #ddd;}
+.finish-galvanized-mechanical .current-finish {background: #ccc;}
 .finish-zn-al .current-finish {background: #99e;}
 .finish-weathering .current-finish {background: #c75;}
 .current-finish.ui-btn-active {color: black;}
@@ -128,7 +129,8 @@ a[href="#2-1-e"] {display: none;}
 
 [title~="Plain"] {background: #888;}
 .type-3 [title~="Plain"] {background: #c75;}
-[title~="Galvanized"] {background: #ccc;}
+[title="Galvanized (Hot-Dip)"] {background: #ddd;}
+[title="Galvanized (Mechanical)"] {background: #ccc;}
 [title~="Zn/Al"] {background: #99e;}
 
 /* Grade */

@@ -36,10 +36,10 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
     finishChanged: function(bolt) {
       var finish_class = Finish.colorFor(bolt)
       $('body').toggleClass('finish-plain', finish_class == 'plain')
-      $('body').toggleClass('finish-galvanized', finish_class == 'galvanized')
+      $('body').toggleClass('finish-galvanized-hot-dip', finish_class == 'galvanized-hot-dip')
+      $('body').toggleClass('finish-galvanized-mechanical', finish_class == 'galvanized-mechanical')
       $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')
       $('body').toggleClass('finish-weathering', finish_class == 'weathering')
-      $('body').toggleClass('hot-dip', bolt.finish == 'Galvanized')
     },
     setContentHeight: setContentHeight,
     softwareScroll: function() {
