@@ -13,6 +13,7 @@ define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($,
     $('.finish').
       toggleClass('choice-illegal', !rules.isFinishLegal(appstate.data.bolt.finish)).
       toggleClass('no-choices', rules.gradeType().length == 0)
+    $('body').toggleClass('bolt-illegal', !rules.gradeTypeFinish())
   }
 
   var setupGrade = function() {

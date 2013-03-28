@@ -18,9 +18,21 @@
 #disclaimer {text-align: justify; }
 
 /* Bolt ID */
+.bolt-illegal-warning p {margin: 0.5em;}
+.bolt-illegal-warning {position: fixed; z-index: 2000; opacity: 0.9;}
+.bolt-illegal-warning {
+  top: -5em;
+  -moz-transition: top 1s;
+  -webkit-transition: top 1s;
+  -o-transition: top 1s;
+  transition: top 1s;
+}
+.bolt-illegal .bolt-illegal-warning {top: 0px;}
+
 .choice-illegal > label:after, .choice-illegal legend:after {content: " Change"; color: red;}
 .no-choices > label:after, .no-choices legend:after {content: " No Options"; color: red;}
 
+.bolt-illegal .current-grade.grade-designator,
 .grade.choice-illegal .ui-btn-text,
 .finish.choice-illegal .ui-btn-text,
 #bolt-id .illegal .ui-btn-text {
