@@ -1,4 +1,4 @@
-define(['jquery', 'manufacturer', 'appstate', 'shared_ui'], function($, Mfg, appstate, ui) {
+define(['jquery', 'manufacturer', 'manufacturers_table', 'appstate', 'shared_ui'], function($, Mfg, manufacturers, appstate, ui) {
   "use strict"
 
   var indexPositions = function() {
@@ -33,22 +33,23 @@ define(['jquery', 'manufacturer', 'appstate', 'shared_ui'], function($, Mfg, app
 
   return {
     wire: function() {
+      this.render()
       this.wireList()
       this.wireIndex()
     },
-    $content: function() {
-      return $('#manufacturer [data-role="content"]')
+    $list: function() {
+      return $('#manufacturer .manufacturers')
     },
     $index: function() {
       return $('#manufacturer .index')
     },
     wireList: function() {
-      this.$content().on('click',  'li a[href="#bolt-id"]', function() {
+      this.$list().on('click',  'li a[href="#bolt-id"]', function() {
         appstate.data.bolt.manufacturer = Mfg.clone(li(this)).read()
         appstate.save()
       })
 
-      this.$content().on('click',  'li a[href="#mfg-zoom"]', function() {
+      this.$list().on('click',  'li a[href="#mfg-zoom"]', function() {
         $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
         var mfg = Mfg.clone(li(this)).read()
         Mfg.clone('.zoom').write(mfg)
@@ -61,6 +62,19 @@ define(['jquery', 'manufacturer', 'appstate', 'shared_ui'], function($, Mfg, app
         var letter = $(this).html()[0]
         ui.scrollTop(index[letter])
       })
+    },
+    render: function () {
+      var $doc = $(document.createDocumentFragment())
+      manufacturers.forEach(function(mfg) {
+        Mfg.render().write(mfg).$el().appendTo($doc)
+      })
+      var $list = this.$list().empty().append($doc.children())
+      try {
+        $list.listview('refresh')
+      } catch(e) {
+        console.error(e)
+      }
+      return this
     }
   }
 })

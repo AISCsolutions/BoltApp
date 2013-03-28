@@ -25,6 +25,17 @@ define(['jquery'], function($) {
       $el.find('.website').attr('href', mfg.website)
       $el.find('.website.html').html(mfg.website)
       $el.find('.bolt').attr('src', mfg.bolt)
+      return this
+    },
+    render: function() {
+      var template = '<li><a href="#bolt-id">\
+        <img class="bolt" src="">\
+        <h2 class="name">Name</h2>\
+        <p class="location">Location</p>\
+        <a class="website" href="">Webpage</a>\
+        <a href="#mfg-zoom" data-rel="dialog" data-icon="search">Show</a>\
+      </a></li>'
+      return this.clone($(template))
     }
   }
 })
