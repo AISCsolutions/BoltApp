@@ -37,6 +37,7 @@ define([
       Dimensions.wire()
       $('#dimensions').on('pagebeforeshow', Dimensions.show.bind(Dimensions))
       $('#dimensions').on('pageshow', Dimensions.show.bind(Dimensions))
+      $(window).on('resize', Dimensions.show.bind(Dimensions))
 
       var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
       $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))

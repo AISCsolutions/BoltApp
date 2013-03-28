@@ -42,8 +42,11 @@
 
   <div data-role="content">
     <form>
-      <label>Select Grade</label>
-      <a href="#grade" data-role="button" data-transition="pop" id="grade-select" class="current-grade grade-designator">grade</a>
+      <fieldset class="grade">
+        <label>Select Grade</label>
+        <a href="#grade" data-role="button" data-transition="pop" id="grade-select" class="current-grade grade-designator">grade</a>
+      </fieldset>
+
 
       <fieldset data-role="controlgroup" data-type="horizontal" class="type">
         <legend>Is it Underlined?</legend>
@@ -55,8 +58,10 @@
         <label for="type-3"><u><span class="type-3 current-grade">grade</span><br><span class="type-code">Type 3<span></u></label>
       </fieldset>
 
-      <label>Select Finish</label>
-      <a href="#finish" data-role="button" data-transition="pop" id="finish-select" class="current-finish">finish</a>
+      <fieldset class="finish">
+        <label>Select Finish</label>
+        <a href="#finish" data-role="button" data-transition="pop" id="finish-select" class="current-finish">finish</a>
+      </fieldset>
 
       <label>Select Manufacturer</label>
       <ul data-role="listview" data-inset="true" id="manufacturer-select">
