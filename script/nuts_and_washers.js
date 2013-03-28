@@ -30,6 +30,7 @@ define(['jquery'], function($) {
           var title = $(this).attr('title')
           $('.zoom [title="'+title+'"]').html($(this).html())
         })
+        $('.zoom img').attr('src', $(this).find('img').attr('src'))
       })
     },
     update: function(data) {
