@@ -10,13 +10,17 @@
 .finish-weathering .current-finish {background: #c75;}
 .current-finish.ui-btn-active {color: black;}
 
-.ui-header a[href="#disclaimer"].ui-btn-right {right: 3em;}
-.ui-header a.help.ui-btn-right {right: 5em;}
+.ui-header a[href="#disclaimer"].ui-btn-right {right: 2.2em;}
+.ui-header a.help.ui-btn-right {right: 4em;}
 
 .inline-help {margin-bottom: 2em;}
 
 /* Disclaimer */
 #disclaimer {text-align: justify; }
+
+/* About */
+#about {text-align: justify;}
+#about .ui-content img {max-width: 100%;}
 
 /* Bolt ID */
 .bolt-illegal-warning p {margin: 0.5em;}
