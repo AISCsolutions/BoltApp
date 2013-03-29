@@ -22,7 +22,7 @@ define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
          }
        }
 
-       console.warn("Bolt grade/type/finish combination not found " + bolt.grade + " " + bolt.type + " " + bolt.finish)
+       //console.warn("Bolt grade/type/finish combination not found " + bolt.grade + " " + bolt.type + " " + bolt.finish)
     },
     gradeType: function() {
       var bolt = appstate.data.bolt

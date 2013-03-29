@@ -15,7 +15,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       var topMargin = parseInt($el.find('fieldset').css('margin-top'), 10)
       var bottomMargin = parseInt($el.find('fieldset').css('margin-bottom'), 10)
       var height = base + topMargin + bottomMargin + 2
-      console.log(height, base, topMargin, bottomMargin)
+      //console.log(height, base, topMargin, bottomMargin)
       return height
     },
     wire: function(boltDiagram, nutDiagram, washerDiagram) {

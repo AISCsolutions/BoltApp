@@ -9,7 +9,7 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
     var bottomPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
     var height = windowHeight - headerHeight - footerHeight - topPadding - bottomPadding;
     var cause = event ? event.type : ''
-    console.log(height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding, 'contentHeight', cause)
+    //console.log(height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding, 'contentHeight', cause)
     return height
   }
 

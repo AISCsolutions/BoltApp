@@ -59,7 +59,7 @@ define([
       var selectHeight = DiagramSelect.height()
       var diameterHeight = Diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
-      console.log(height, contentHeight, selectHeight, diameterHeight)
+      //console.log(height, contentHeight, selectHeight, diameterHeight)
       $('.diagrams img').height(height)
     },
     show: function() {
