@@ -55,6 +55,6 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
       } else {
         $(window).scrollTop(y)
       }
-    }
+    },
   }
 })

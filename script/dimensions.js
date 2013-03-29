@@ -1,6 +1,7 @@
 define([
   'jquery',
   'appstate',
+  'fraction',
   'measurements',
   'diagram_select',
   'diagram',
@@ -8,6 +9,7 @@ define([
 ], function(
   $,
   appstate,
+  Fraction,
   measurements,
   DiagramSelect,
   Diagram,
@@ -43,7 +45,7 @@ define([
 
   /* Dimensions - diameter */
   var diameterDisplay = function(fraction) {
-    $('#diameter-inches span').html(fraction)
+    $('#diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
   return {

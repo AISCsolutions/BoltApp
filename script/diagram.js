@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery', 'fraction'], function($, Fraction) {
   "use strict"
 
   return {
@@ -38,7 +38,7 @@ define(['jquery'], function($) {
     },
     update: function(measures) {
       for (var name in measures) {
-        this.$measure(name).html(measures[name])
+        this.$measure(name).html(Fraction.clone(measures[name]).toString())
       }
       this.placements()
     },
