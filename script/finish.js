@@ -21,6 +21,6 @@ define([], function() {
       } else {
         return this.colorForFinish(bolt.finish)
       }
-    }
+    },
   }
 })

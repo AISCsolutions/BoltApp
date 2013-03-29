@@ -1,4 +1,4 @@
-define(['jquery', 'appstate', 'shared_ui'], function($, appstate, ui) {
+define(['jquery', 'finish', 'appstate', 'shared_ui'], function($, colors, appstate, ui) {
   "use strict"
 
   var project = function(objects, property) {
@@ -60,7 +60,7 @@ define(['jquery', 'appstate', 'shared_ui'], function($, appstate, ui) {
           attr('title', finish.name).
           appendTo($doc)
         var $container = $item.find('a')
-        $('<img>').attr('src', 'images/finishes/mock.png').appendTo($container)
+        $('<img>').attr('src', 'images/finishes/'+colors.colorFor({finish: finish.name, type: appstate.data.bolt.type})+'.png').appendTo($container)
         $('<h2></h2>').html(finish.name).appendTo($container)
         $('<p></p>').html(finish.note).appendTo($container)
       })
