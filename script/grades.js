@@ -27,10 +27,10 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, rules) {
       return this.$el().find(selector)
     },
     wire: function() {
-      this.$('li h2').each(function() {
+      this.$('li').each(function() {
         var $el = $(this)
-        var name = $el.html()
-        $('<p class="on-bolt grade-designator">'+name+'</p>').insertBefore($el)
+        var name = $el.find('h2').html()
+        $el.find('img').attr('src', 'images/bolts/'+name+'-'+appstate.data.bolt.type+'.png')
       })
 
       this.$el().on('click', 'li a', function() {
