@@ -9,6 +9,13 @@ define(['jquery', 'appstate'], function($, appstate) {
     show: function() {
       $('label[for="'+appstate.data.diagram+'-select"]').click()
     },
+    height: function() {
+      var $el = $('.diagram-select')
+      var height = $el.height()
+      var topMargin = parseInt($el.find('fieldset').css('margin-top'), 10)
+      var bottomMargin = parseInt($el.find('fieldset').css('margin-bottom'), 10)
+      return height + topMargin + bottomMargin + 2
+    },
     wire: function(boltDiagram, nutDiagram, washerDiagram) {
       $('#bolt-select').on('change', function() {
         scrollTo(0)

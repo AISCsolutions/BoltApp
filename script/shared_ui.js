@@ -1,15 +1,20 @@
 define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
   var scrollers = {}
 
-  var setContentHeight = function(el, event) {
+  var contentHeight = function(event) {
     var headerHeight = parseInt($.mobile.activePage.css("padding-top"), 10)
     var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height() + 2
     var windowHeight = $('body').height()
     var topPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
     var bottomPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
     var height = windowHeight - headerHeight - footerHeight - topPadding - bottomPadding;
-    console.log('setContentHeight', el, event.type, height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding)
-    $(el).css('height', height)
+    var cause = event ? event.type : ''
+    console.log(height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding, 'contentHeight', cause)
+    return height
+  }
+
+  var setContentHeight = function(el, event) {
+    $(el).css('height', contentHeight(event))
     //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
   }
 
@@ -42,6 +47,7 @@ define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
       $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')
       $('body').toggleClass('finish-weathering', finish_class == 'weathering')
     },
+    contentHeight: contentHeight,
     setContentHeight: setContentHeight,
     softwareScroll: function() {
       console.info('patching scroll for no fixed position')

@@ -5,6 +5,15 @@ define(['jquery', 'appstate'], function($, appstate) {
     $el: function() {
       return $('#diameter')
     },
+    height: function() {
+      var $el = $('.diameter')
+      var base = $el.height()
+      var topMargin = parseInt($el.css('margin-top'), 10)
+      var bottomMargin = parseInt($el.css('margin-bottom'), 10)
+      var sliderMargin = 8
+      var height = base + topMargin + bottomMargin + sliderMargin + 2
+      console.log(height, base, topMargin, bottomMargin, sliderMargin)
+    },
     wire: function(callback) {
       this.$el().on('change', function() {
         var value = $(this).val()

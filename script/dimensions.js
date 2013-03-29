@@ -3,6 +3,7 @@ define([
   'appstate',
   'fraction',
   'measurements',
+  'shared_ui',
   'diagram_select',
   'diagram',
   'diameter'
@@ -11,6 +12,7 @@ define([
   appstate,
   Fraction,
   measurements,
+  ui,
   DiagramSelect,
   Diagram,
   Diameter
@@ -52,8 +54,17 @@ define([
     boltDiagram: boltDiagram,
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
+    setDiagramSize: function() {
+      var contentHeight = ui.contentHeight()
+      var selectHeight = DiagramSelect.height()
+      var diameterHeight = Diameter.height()
+      var height = contentHeight - selectHeight - diameterHeight
+      console.log(contentHeight, selectHeight, diameterHeight, height)
+      $('.diagrams img').height(height)
+    },
     show: function() {
       DiagramSelect.show()
+      this.setDiagramSize()
       Diameter.show()
     },
     wire: function() {
