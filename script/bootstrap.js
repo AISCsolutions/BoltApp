@@ -3,6 +3,6 @@ require(['boltapp', 'jquery', 'jquery.mobile-1.3.0', 'es5-shim'], function(BoltA
 
   $(function() {
     BoltApp.ready()
-    //BoltApp.dimensions.boltDiagram.interactivePlace('Grade')
+    //BoltApp.dimensions.washerDiagram.interactivePlace('Taper In Thickness')
   })
 })
