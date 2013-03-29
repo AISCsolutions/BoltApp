@@ -11,10 +11,12 @@ define(['jquery', 'appstate'], function($, appstate) {
     },
     height: function() {
       var $el = $('.diagram-select')
-      var height = $el.height()
+      var base = $el.height()
       var topMargin = parseInt($el.find('fieldset').css('margin-top'), 10)
       var bottomMargin = parseInt($el.find('fieldset').css('margin-bottom'), 10)
-      return height + topMargin + bottomMargin + 2
+      var height = base + topMargin + bottomMargin + 2
+      console.log(height, base, topMargin, bottomMargin)
+      return height
     },
     wire: function(boltDiagram, nutDiagram, washerDiagram) {
       $('#bolt-select').on('change', function() {

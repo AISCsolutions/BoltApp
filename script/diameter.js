@@ -13,6 +13,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       var sliderMargin = 8
       var height = base + topMargin + bottomMargin + sliderMargin + 2
       console.log(height, base, topMargin, bottomMargin, sliderMargin)
+      return height
     },
     wire: function(callback) {
       this.$el().on('change', function() {
