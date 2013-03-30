@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
           name: 'lib/almond',
           include: 'bootstrap',
-          out: '../built/script/require.js',
+          out: '../build/script/require.js',
         }
       }
     },
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         src: '../built/joined.css',
-        dest: '../built/style/style.css'
+        dest: '../build/style/style.css'
       }
     },
     htmlmin: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {
-          '../built/index.html': './index.html',
+          '../build/index.html': './index.html',
         }
       }
     },
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      images: ['../built/images'],
+      images: ['../build/images'],
     },
     imagemin: {
       target: {
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
             expand: true,
             src: ['images/**/*'],
             filter: 'isFile',
-            dest: '../built/'
+            dest: '../build/'
           }
         ]
       }
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
         files: [
           {
             src: ['data/**'],
-            dest: '../built/'
+            dest: '../build/'
           },
         ]
       }
@@ -92,6 +92,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.registerTask('default', ['csslint'])
-  grunt.registerTask('build', ['requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'imagemin', 'copy'])
+  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
