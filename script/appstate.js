@@ -1,4 +1,4 @@
-define(['store'], function(Store) {
+define(['lib/store'], function(Store) {
   "use strict"
 
   var defaultState = {

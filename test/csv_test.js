@@ -1,4 +1,4 @@
-define(['csv'], function(csv) {
+define(['lib/csv'], function(csv) {
   module('csv')
   test('parse a line', function() {
     deepEqual(csv.parse('one,two'), [['one', 'two']])
