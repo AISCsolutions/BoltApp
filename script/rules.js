@@ -7,35 +7,40 @@ define(['grade_type_finish'], function(gtf) {
 
   var constrain = function(attr) {
     return function(value) {
-      var rules = this.clone()
-      rules['_'+attr] = value
-      return rules
+      return this.clone(function() { this['_'+attr] = value })
     }
   }
   var loosen = constrain
 
   var allowed = function(field) {
     return function() {
-      return project(this.legal(), field)
+      return project(this.set, field)
     }
   }
 
   var allows = function(field) {
     return function(value) {
-      return project(this.legal(), field).indexOf(value) >= 0
+      return project(this.set, field).indexOf(value) >= 0
     }
   }
 
   return {
-    clone: function() {
-      return Object.create(this)
+    set: gtf,
+    length: gtf.length,
+    clone: function(init) {
+      var rules = Object.create(this)
+      if (init) {
+        init.call(rules)
+        rules.refresh()
+      }
+      return rules
     },
     bolt: function(bolt) {
-      var rules = this.clone()
-      rules._grade = bolt.grade
-      rules._type = bolt.type
-      rules._finish = bolt.finish
-      return rules
+      return this.clone(function() {
+        this._grade = bolt.grade
+        this._type = bolt.type
+        this._finish = bolt.finish
+      })
     },
     forEach: function(f) {
       for (var i in gtf) {
@@ -45,14 +50,17 @@ define(['grade_type_finish'], function(gtf) {
         f(gtf[i], i, gtf)
        }
     },
+    refresh: function() {
+      this.set = this.legal()
+      this.length = this.set.length
+    },
     legal: function() {
       var set = []
       this.forEach(function(item) {set.push(item)})
       return set
     },
     perfect: function() {
-      var legal = this.legal()
-      if (legal.length == 1) { return legal[0] }
+      if (this.set.length == 1) { return this.set[0] }
     },
     grade: constrain('grade'),
     type: constrain('type'),

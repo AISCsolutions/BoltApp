@@ -8,9 +8,9 @@ define(['rules'], function(Rules) {
     Rules.forEach(function() {ok(true)})
   })
 
-  test('legal', function() {
-    equal(Rules.legal().length, 14)
-    equal(rules.legal().length, 1)
+  test('length', function() {
+    equal(Rules.length, 14)
+    equal(rules.length, 1)
   })
 
   test('perfect', function() {
@@ -19,19 +19,19 @@ define(['rules'], function(Rules) {
   })
 
   test('grade', function() {
-    equal(Rules.grade('A325').legal().length, 5)
+    equal(Rules.grade('A325').length, 5)
   })
 
   test('type', function() {
-    equal(Rules.type('3').legal().length, 4)
+    equal(Rules.type('3').length, 4)
   })
 
   test('finish', function() {
-    equal(Rules.finish('Galvanized (Mechanical)').legal().length, 2)
+    equal(Rules.finish('Galvanized (Mechanical)').length, 2)
   })
 
   test('loosen', function() {
-    equal(rules.anyGrade().legal().length, 2)
+    equal(rules.anyGrade().length, 2)
   })
 
   test('allowsGrade', function() {
