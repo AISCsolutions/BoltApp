@@ -14,7 +14,7 @@ define([
 ], function(
   $,
   appstate,
-  rules,
+  Rules,
   ui,
   BoltId,
   Dimensions,
@@ -39,13 +39,13 @@ define([
       $('#dimensions').on('pageshow', Dimensions.show.bind(Dimensions))
       $(window).on('resize', Dimensions.show.bind(Dimensions))
 
-      var nw = NutsAndWashers.clone('#nuts-and-washers', rules)
+      var nw = NutsAndWashers.clone('#nuts-and-washers', appstate, Rules)
       $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))
       $('#nuts-and-washers').on('pageshow', function() {ui.finishChanged(appstate.data.bolt)})
 
       $('#grade').on('pagebeforeshow', Grades.wire.bind(Grades))
 
-      var finishes = Finishes.clone(rules)
+      var finishes = Finishes.clone(Rules)
       $('#finish').on('pagebeforeshow', finishes.wire.bind(finishes))
 
       $('#manufacturer').on('pagebeforeshow', Manufacturers.wire.bind(Manufacturers))

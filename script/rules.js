@@ -1,67 +1,67 @@
-define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
+define(['grade_type_finish'], function(gtf) {
   "use strict"
 
   var project = function(objects, property) {
     return objects.map(function(x) {return x[property]})
   }
 
-  return {
-    forEach: function(f) {
-      gtf.forEach(f)
-    },
-    gradeTypeFinish: function() {
-      var bolt = appstate.data.bolt
-      for (var i in gtf) {
-        if (gtf[i]['Bolt Grade'] == bolt.grade
-         && gtf[i]['Bolt Type'] == bolt.type
-         && gtf[i]['Bolt Finish'] == bolt.finish) {
-           return gtf[i]
-         }
-       }
+  var filters = [
+    'Bolt Grade',
+    'Bolt Type',
+    'Bolt Finish'
+  ]
 
-       //console.warn("Bolt grade/type/finish combination not found " + bolt.grade + " " + bolt.type + " " + bolt.finish)
-    },
-    gradeType: function() {
-      var bolt = appstate.data.bolt
-      var current = []
-      for (var i in gtf) {
-        if (gtf[i]['Bolt Grade'] == bolt.grade
-         && gtf[i]['Bolt Type'] == bolt.type) {
-           current.push(gtf[i])
-         }
-       }
-       return current
-    },
-    gradeFinish: function() {
-      var bolt = appstate.data.bolt
-      var current = []
-      for (var i in gtf) {
-        if (gtf[i]['Bolt Grade'] == bolt.grade
-         && gtf[i]['Bolt Finish'] == bolt.finish) {
-           current.push(gtf[i])
-         }
-       }
-       return current
-    },
-    typeFinish: function() {
-      var bolt = appstate.data.bolt
-      var current = []
-      for (var i in gtf) {
-        if (gtf[i]['Bolt Type'] == bolt.type
-         && gtf[i]['Bolt Finish'] == bolt.finish) {
-           current.push(gtf[i])
-         }
-       }
-       return current
-    },
-    isGradeLegal: function(grade) {
-      return project(this.typeFinish(), 'Bolt Grade').indexOf(grade) >= 0
-    },
-    isTypeLegal: function(type) {
-      return project(this.gradeFinish(), 'Bolt Type').indexOf(type) >= 0
-    },
-    isFinishLegal: function(finish) {
-      return project(this.gradeType(), 'Bolt Finish').indexOf(finish) >= 0
+  var constrain = function(attr) {
+    return function(value) {
+      var rules = this.clone()
+      rules['_'+attr] = value
+      return rules
     }
+  }
+  var loosen = constrain
+
+  var allows = function(field) {
+    return function(value) {
+      return project(this.legal(), field).indexOf(value) >= 0
+    }
+  }
+
+  return {
+    clone: function() {
+      return Object.create(this)
+    },
+    bolt: function(bolt) {
+      var rules = this.clone()
+      rules._grade = bolt.grade
+      rules._type = bolt.type
+      rules._finish = bolt.finish
+      return rules
+    },
+    forEach: function(f) {
+      for (var i in gtf) {
+        if (this._grade && gtf[i]['Bolt Grade'] != this._grade) {continue}
+        if (this._type && gtf[i]['Bolt Type'] != this._type) {continue}
+        if (this._finish && gtf[i]['Bolt Finish'] != this._finish) {continue}
+        f(gtf[i], i, gtf)
+       }
+    },
+    legal: function() {
+      var set = []
+      this.forEach(function(item) {set.push(item)})
+      return set
+    },
+    perfect: function() {
+      var legal = this.legal()
+      if (legal.length == 1) { return legal[0] }
+    },
+    grade: constrain('grade'),
+    type: constrain('type'),
+    finish: constrain('finish'),
+    anyGrade: loosen('grade'),
+    anyType: loosen('type'),
+    anyFinish: loosen('finish'),
+    allowsGrade: allows('Bolt Grade'),
+    allowsType: allows('Bolt Type'),
+    allowsFinish: allows('Bolt Finish')
   }
 })

@@ -6,9 +6,10 @@ define(['jquery'], function($) {
   }
 
   return {
-    clone: function(selector, rules) {
+    clone: function(selector, appstate, rules) {
       var dup = Object.create(this)
       dup.selector = selector
+      dup.appstate = appstate
       dup.rules = rules
       return dup
     },
@@ -22,7 +23,7 @@ define(['jquery'], function($) {
       return this.$('[title="'+name+'"]')
     },
     wire: function() {
-      var nw = this.rules.gradeTypeFinish()
+      var nw = this.rules.bolt(this.appstate.data.bolt).perfect()
       if (nw) {
         this.update(nw)
       } else {

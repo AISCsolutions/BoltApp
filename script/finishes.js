@@ -25,7 +25,7 @@ define(['jquery', 'finish', 'appstate', 'shared_ui'], function($, colors, appsta
       return dup
     },
     current: function() {
-      return project(this.rules.gradeType(), 'Bolt Finish')
+      return project(this.rules.bolt(appstate.data.bolt).anyFinish().legal(), 'Bolt Finish')
     },
     update: function() {
       var current = this.current()
