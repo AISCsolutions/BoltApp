@@ -25,10 +25,12 @@ module.exports = function(grunt) {
     },
     cssjoin: {
       target: {
-        files: {
-          src: 'style/style.css',
-          dest: '../built/joined.css'
-        }
+        files: [
+          {
+            src: 'style/style.css',
+            dest: '../built/joined.css'
+          }
+        ]
       }
     },
     cssmin: {
