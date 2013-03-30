@@ -10,7 +10,7 @@ define([
   'pages/finishes',
   'pages/manufacturers',
   'lib/es5-shim',
-  'lib/jquery.mobile-1.3.0'
+  'jquerymobile'
 ], function(
   $,
   appstate,
