@@ -59,6 +59,7 @@ define([
       var selectHeight = DiagramSelect.height()
       var diameterHeight = Diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
+      if (height < 150) { height = 150 }
       //console.log(height, contentHeight, selectHeight, diameterHeight)
       $('.diagrams img').height(height)
     },
