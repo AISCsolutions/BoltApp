@@ -9,8 +9,8 @@ define([
   'grades',
   'finishes',
   'manufacturers',
-  'es5-shim',
-  'jquery.mobile-1.3.0'
+  'lib/es5-shim',
+  'lib/jquery.mobile-1.3.0'
 ], function(
   $,
   appstate,

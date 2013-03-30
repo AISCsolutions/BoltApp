@@ -1,4 +1,4 @@
-define(['jquery', 'finish', 'iscroll-lite'], function($, Finish) {
+define(['jquery', 'finish', 'lib/iscroll-lite'], function($, Finish) {
   var scrollers = {}
 
   var contentHeight = function(event) {
