@@ -5,12 +5,6 @@ define(['grade_type_finish'], function(gtf) {
     return objects.map(function(x) {return x[property]})
   }
 
-  var filters = [
-    'Bolt Grade',
-    'Bolt Type',
-    'Bolt Finish'
-  ]
-
   var constrain = function(attr) {
     return function(value) {
       var rules = this.clone()
@@ -19,6 +13,12 @@ define(['grade_type_finish'], function(gtf) {
     }
   }
   var loosen = constrain
+
+  var allowed = function(field) {
+    return function() {
+      return project(this.legal(), field)
+    }
+  }
 
   var allows = function(field) {
     return function(value) {
@@ -62,6 +62,9 @@ define(['grade_type_finish'], function(gtf) {
     anyFinish: loosen('finish'),
     allowsGrade: allows('Bolt Grade'),
     allowsType: allows('Bolt Type'),
-    allowsFinish: allows('Bolt Finish')
+    allowsFinish: allows('Bolt Finish'),
+    allowedGrades: allowed('Bolt Grade'),
+    allowedTypes: allowed('Bolt Type'),
+    allowedFinishes: allowed('Bolt Finish')
   }
 })

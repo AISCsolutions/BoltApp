@@ -51,4 +51,16 @@ define(['rules'], function(Rules) {
     ok(Rules.allowsFinish('Plain'))
     ok(!rules.allowsFinish('Plain'))
   })
+
+  test('allowedGrades', function() {
+    deepEqual(rules.allowedGrades(), ['A325'])
+  })
+
+  test('allowedTypes', function() {
+    deepEqual(rules.allowedTypes(), ['1'])
+  })
+
+  test('allowedFinishes', function() {
+    deepEqual(rules.allowedFinishes(), ['Plain (uncoated)'])
+  })
 })

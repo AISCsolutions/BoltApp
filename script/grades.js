@@ -1,13 +1,9 @@
 define(['jquery', 'appstate', 'rules'], function($, appstate, Rules) {
   "use strict"
 
-  var project = function(objects, property) {
-    return objects.map(function(x) {return x[property]})
-  }
-
   return {
     current: function() {
-      return project(Rules.bolt(appstate.data.bolt).anyGrade().legal(), 'Bolt Grade')
+      return Rules.bolt(appstate.data.bolt).anyGrade().allowedGrades()
     },
     update: function() {
       var current = this.current()

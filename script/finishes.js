@@ -1,10 +1,6 @@
 define(['jquery', 'finish', 'appstate', 'shared_ui'], function($, colors, appstate, ui) {
   "use strict"
 
-  var project = function(objects, property) {
-    return objects.map(function(x) {return x[property]})
-  }
-
   var finishes = function(rules) {
     var kinds = {}
     rules.forEach(function(c) {
@@ -25,7 +21,7 @@ define(['jquery', 'finish', 'appstate', 'shared_ui'], function($, colors, appsta
       return dup
     },
     current: function() {
-      return project(this.rules.bolt(appstate.data.bolt).anyFinish().legal(), 'Bolt Finish')
+      return this.rules.bolt(appstate.data.bolt).anyFinish().allowedFinishes()
     },
     update: function() {
       var current = this.current()

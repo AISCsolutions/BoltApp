@@ -19,7 +19,7 @@ define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($,
 
     $('.finish').
       toggleClass('choice-illegal', choice_illegal).
-      toggleClass('no-choices', rules.anyFinish().legal() == 0)
+      toggleClass('no-choices', rules.anyFinish().legal().length == 0)
 
     $('body').toggleClass('bolt-illegal', choice_illegal)
   }
