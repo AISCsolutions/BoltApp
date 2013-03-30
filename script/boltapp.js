@@ -3,12 +3,12 @@ define([
   'appstate',
   'rules',
   'shared_ui',
-  'bolt_id',
-  'dimensions',
-  'nuts_and_washers',
-  'grades',
-  'finishes',
-  'manufacturers',
+  'pages/bolt_id',
+  'pages/dimensions',
+  'pages/nuts_and_washers',
+  'pages/grades',
+  'pages/finishes',
+  'pages/manufacturers',
   'lib/es5-shim',
   'lib/jquery.mobile-1.3.0'
 ], function(
