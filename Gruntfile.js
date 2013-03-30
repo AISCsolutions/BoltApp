@@ -22,12 +22,24 @@ module.exports = function(grunt) {
         src: '../built/joined.css',
         dest: '../built/style.css'
       }
+    },
+    htmlmin: {
+      target: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          '../built/index.html': './index.html',
+        }
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-css')
   grunt.loadNpmTasks('grunt-cssjoin')
+  grunt.loadNpmTasks('grunt-css')
+  grunt.loadNpmTasks('grunt-contrib-htmlmin')
 
   grunt.registerTask('default', ['csslint'])
-  grunt.registerTask('build', ['cssjoin', 'cssmin'])
+  grunt.registerTask('build', ['cssjoin', 'cssmin', 'htmlmin'])
 };
