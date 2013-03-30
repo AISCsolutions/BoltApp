@@ -3,10 +3,10 @@ define([
   'appstate',
   'fraction',
   'tables/measurements',
-  'shared_ui',
-  'diagram_select',
-  'diagram',
-  'diameter'
+  'controls/shared_ui',
+  'controls/diagram_select',
+  'controls/diagram',
+  'controls/diameter'
 ], function(
   $,
   appstate,

@@ -1,4 +1,4 @@
-define(['jquery', 'manufacturer', 'appstate', 'rules', 'shared_ui'], function($, Mfg, appstate, Rules, ui) {
+define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared_ui'], function($, appstate, Rules, Mfg, ui) {
   "use strict"
 
   var markIllegal = function() {

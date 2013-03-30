@@ -2,7 +2,7 @@ define([
   'jquery',
   'appstate',
   'rules',
-  'shared_ui',
+  'controls/shared_ui',
   'pages/bolt_id',
   'pages/dimensions',
   'pages/nuts_and_washers',

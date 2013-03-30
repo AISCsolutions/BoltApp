@@ -1,4 +1,4 @@
-define(['jquery', 'finish', 'appstate', 'shared_ui'], function($, colors, appstate, ui) {
+define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, colors, appstate, ui) {
   "use strict"
 
   var finishes = function(rules) {
