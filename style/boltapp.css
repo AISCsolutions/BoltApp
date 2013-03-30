@@ -1,3 +1,6 @@
+/* jquery mobile builder patch */
+.ui-screen-hidden { display: none; }
+
 /* Global */
 .ui-content { overflow: hidden; }
 .ui-li-desc, .ui-li-heading {overflow: visible;}
