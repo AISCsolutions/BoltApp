@@ -2,7 +2,7 @@ define([
   'jquery',
   'appstate',
   'fraction',
-  'measurements',
+  'tables/measurements',
   'shared_ui',
   'diagram_select',
   'diagram',

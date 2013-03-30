@@ -1,4 +1,4 @@
-define(['csv', 'text!../data/grade-type-finish-table-2-1.csv'], function(csv, string) {
+define(['csv', 'text!../../data/grade-type-finish-table-2-1.csv'], function(csv, string) {
   "use strict"
 
   var parseCSV = function(table) {

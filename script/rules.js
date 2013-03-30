@@ -1,4 +1,4 @@
-define(['grade_type_finish'], function(gtf) {
+define(['tables/grade_type_finish'], function(gtf) {
   "use strict"
 
   var project = function(objects, property) {

@@ -1,4 +1,4 @@
-define(['grade_type_finish'], function(gtf) {
+define(['tables/grade_type_finish'], function(gtf) {
   module('grade-type-finish')
 
   test('parse data', function() {

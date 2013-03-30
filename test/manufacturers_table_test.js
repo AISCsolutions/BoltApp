@@ -1,4 +1,4 @@
-define(['manufacturers_table'], function(manufacturers) {
+define(['tables/manufacturers'], function(manufacturers) {
   module('manufacturers_table')
 
   test('manufacturers', function() {

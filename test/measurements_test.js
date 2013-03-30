@@ -1,4 +1,4 @@
-define(['measurements'], function(measurements) {
+define(['tables/measurements'], function(measurements) {
   module('measurements')
 
   test('parse measurements', function() {

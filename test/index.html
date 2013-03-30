@@ -14,7 +14,8 @@
     QUnit.config.testTimeout = 1000;
 
     require.config({
-      baseUrl: "../script"
+      baseUrl: "../script",
+      paths: {jquery: 'lib/jquery'}
     })
     require([
       'csv_test.js',
