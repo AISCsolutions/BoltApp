@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
           name: 'lib/almond',
           include: 'bootstrap',
-          out: '../built/require.js',
+          out: '../built/script/require.js',
         }
       }
     },
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         src: '../built/joined.css',
-        dest: '../built/style.css'
+        dest: '../built/style/style.css'
       }
     },
     htmlmin: {
@@ -70,6 +70,16 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+    copy: {
+      target: {
+        files: [
+          {
+            src: ['data/**'],
+            dest: '../built/'
+          },
+        ]
+      }
     }
   });
 
@@ -79,8 +89,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-imagemin')
+  grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.registerTask('default', ['csslint'])
-  grunt.registerTask('build', ['requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'imagemin'])
+  grunt.registerTask('build', ['requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'imagemin', 'copy'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
