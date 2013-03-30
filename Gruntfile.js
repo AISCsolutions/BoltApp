@@ -1,6 +1,20 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    requirejs: {
+      target: {
+        options: {
+          baseUrl: 'script',
+          mainConfigFile: 'script/bootstrap.js',
+          skipDirOptimize: true,
+          stubModules: ['text'],
+
+          name: 'lib/almond',
+          include: 'bootstrap',
+          out: '../built/require.js',
+        }
+      }
+    },
     csslint: {
       target: {
         src: "style/boltapp.css",
@@ -57,6 +71,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-requirejs')
   grunt.loadNpmTasks('grunt-cssjoin')
   grunt.loadNpmTasks('grunt-css')
   grunt.loadNpmTasks('grunt-contrib-htmlmin')
@@ -64,6 +79,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin')
 
   grunt.registerTask('default', ['csslint'])
-  grunt.registerTask('build', ['cssjoin', 'cssmin', 'htmlmin'])
+  grunt.registerTask('build', ['requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'imagemin'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
