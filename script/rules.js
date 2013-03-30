@@ -6,9 +6,6 @@ define(['grade_type_finish', 'appstate'], function(gtf, appstate) {
   }
 
   return {
-    load: function(callback) {
-      callback(gtf)
-    },
     forEach: function(f) {
       gtf.forEach(f)
     },
