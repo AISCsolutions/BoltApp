@@ -1,0 +1,9 @@
+{
+  "name": "BoltApp",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-css": "~0.5.4",
+    "grunt-cssjoin": "~0.2.0"
+  },
+}
