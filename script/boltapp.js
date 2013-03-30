@@ -50,7 +50,9 @@ define([
 
       $('#manufacturer').on('pagebeforeshow', Manufacturers.wire.bind(Manufacturers))
 
-      $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow') // sometimes it beats us
+      if ($.mobile.activePage) { // sometimes it beats us
+        $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')
+      }
     }
   }
 })
