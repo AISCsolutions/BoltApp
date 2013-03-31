@@ -71,6 +71,6 @@ define(['jquery'], function($) {
         }
       })
       return this
-    },
+    }
   }
 })

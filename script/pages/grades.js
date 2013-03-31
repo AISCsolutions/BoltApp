@@ -35,6 +35,6 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, Rules) {
       })
 
       this.update()
-    },
+    }
   }
 })

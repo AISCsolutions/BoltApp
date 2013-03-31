@@ -48,6 +48,6 @@ define(['jquery', 'appstate'], function($, appstate) {
         $(this).css('left', left)
         left += step
       })
-    },
+    }
   }
 })

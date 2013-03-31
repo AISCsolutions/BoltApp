@@ -61,7 +61,7 @@ define(['jquery', 'fraction'], function($, Fraction) {
       return (y - this.sy) / this.sh
     },
     place: function($m) {
-      if ($m.length == 0) {
+      if ($m.length === 0) {
         return
       }
       var mx = parseInt($m.data('x'), 10) / 100.0
@@ -70,7 +70,7 @@ define(['jquery', 'fraction'], function($, Fraction) {
       this.placeAt($m, this.x(mx), this.y(my))
     },
     placeAt: function($m, x, y) {
-      if ($m.length == 0) {
+      if ($m.length === 0) {
         return
       }
 

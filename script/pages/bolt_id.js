@@ -8,18 +8,18 @@ define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared
 
     $('.grade').
       toggleClass('choice-illegal', choice_illegal).
-      toggleClass('no-choices', rules.anyGrade().length == 0)
+      toggleClass('no-choices', rules.anyGrade().length === 0)
 
     var type = rules.anyType()
     $('.type').
       toggleClass('choice-illegal', choice_illegal).
-      toggleClass('no-choices', type.length == 0)
+      toggleClass('no-choices', type.length === 0)
     $('.type label[for="type-1"]').toggleClass('illegal', !type.allowsType('1'))
     $('.type label[for="type-3"]').toggleClass('illegal', !type.allowsType('3'))
 
     $('.finish').
       toggleClass('choice-illegal', choice_illegal).
-      toggleClass('no-choices', rules.anyFinish().length == 0)
+      toggleClass('no-choices', rules.anyFinish().length === 0)
 
     $('body').toggleClass('bolt-illegal', choice_illegal)
   }
@@ -59,6 +59,6 @@ define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared
   }
 
   return {
-    wire: setupBoltId,
+    wire: setupBoltId
   }
 })

@@ -61,6 +61,6 @@ define(['jquery', 'finish', 'lib/ext/iscroll-lite'], function($, Finish) {
       } else {
         $(window).scrollTop(y)
       }
-    },
+    }
   }
 })

@@ -20,10 +20,12 @@ module.exports = function(grunt) {
         //trailing: true,
         asi: true,
         eqeqeq: false,
+        sub: true,
+        multistr: true,
       },
       target: {
         files: {
-          src: ['script/**/*.js', '!script/lib/ext/**/*.js'],
+          src: ['script/**/*.js', '!script/lib/ext/**/*.js', '!script/require.js'],
         }
       },
     },

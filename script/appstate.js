@@ -26,10 +26,10 @@ define(['lib/store'], function(Store) {
     '1.125': '1 1/8',
     '1.25': '1 1/4',
     '1.375': '1 3/8',
-    '1.5': '1 1/2',
+    '1.5': '1 1/2'
   }
 
-  var store = Store('boltapp.state')
+  var store = new Store('boltapp.state')
 
   return {
     load: function() {

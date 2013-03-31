@@ -31,6 +31,7 @@ define(['jquery'], function($) {
            value += txt[i];
            continue;
         }
+        break;
         case "'":
         case '"':
           if(txt[i] == mode) {
@@ -45,7 +46,7 @@ define(['jquery'], function($) {
           value += txt[i];
       }
     }
-    if(i && value != '') {
+    if(i && value !== '') {
       line.push(value);
       rows.push(line);
     }

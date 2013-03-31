@@ -43,10 +43,11 @@ define(['tables/grade_type_finish'], function(gtf) {
       })
     },
     forEach: function(f) {
+      loop:
       for (var i in gtf) {
-        if (this._grade && gtf[i]['Bolt Grade'] != this._grade) {continue}
-        if (this._type && gtf[i]['Bolt Type'] != this._type) {continue}
-        if (this._finish && gtf[i]['Bolt Finish'] != this._finish) {continue}
+        if (this._grade && gtf[i]['Bolt Grade'] != this._grade) {continue loop}
+        if (this._type && gtf[i]['Bolt Type'] != this._type) {continue loop}
+        if (this._finish && gtf[i]['Bolt Finish'] != this._finish) {continue loop}
         f(gtf[i], i, gtf)
        }
     },

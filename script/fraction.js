@@ -27,7 +27,7 @@ define([], function() {
       return frac
     },
     toString: function() {
-      if (this.numerator && this.numerator != '') {
+      if (this.numerator && this.numerator !== '') {
         return this.whole + '<sup>'+this.numerator+'</sup>&frasl;<sub>'+this.denominator+'</sub>'
       } else {
         return this.whole

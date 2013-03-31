@@ -10,14 +10,14 @@ define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', '
     $('#manufacturer .manufacturers .name').each(function() {
       var name = $(this).html()
       var y = $(this).offsetParent().offset().top
-      if (index[name[0]] == 0) {
+      if (index[name[0]] === 0) {
         index[name[0]] = y
       }
     })
 
     var last = 0
     for (var l in index) {
-      if (index[l] == 0) {
+      if (index[l] === 0) {
         index[l] = last
       } else {
         last = index[l]
