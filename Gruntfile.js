@@ -1,7 +1,32 @@
+'use strict';
+
+var path = require('path');
+var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+
+var folderMount = function folderMount(connect, point) {
+  return connect.static(path.resolve(point));
+};
+
 module.exports = function(grunt) {
   var jshint_files = ['script/**/*.js', '!script/lib/ext/**/*.js', '!script/require.js', '!script/text.js']
 
   grunt.initConfig({
+    connect: {
+      livereload: {
+        options: {
+          port: 9001,
+          middleware: function(connect, options) {
+            return [lrSnippet, folderMount(connect, options.base)]
+          }
+        }
+      }
+    },
+    regarde: {
+      livereload: {
+        files: ['index.html', 'script/**/*.js', 'style/*.css', 'images/**'],
+        tasks: ['livereload']
+      }
+    },
     csslint: {
       target: {
         src: "style/boltapp.css",
@@ -116,6 +141,9 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-regarde')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-livereload')
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-contrib-requirejs')
   grunt.loadNpmTasks('grunt-cssjoin')
@@ -126,6 +154,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.registerTask('default', ['csslint', 'jshint:default'])
+  grunt.registerTask('live', ['livereload-start', 'connect:livereload', 'regarde:livereload'])
   grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
