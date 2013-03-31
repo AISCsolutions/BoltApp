@@ -56,7 +56,7 @@ define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, color
           attr('title', finish.name).
           appendTo($doc)
         var $container = $item.find('a')
-        $('<img>').attr('src', 'images/finishes/'+colors.colorFor({finish: finish.name, type: appstate.data.bolt.type})+'.png').appendTo($container)
+        $('<img>').attr('src', 'images/finishes/'+colors.colorFor({finish: finish.name, type: appstate.data.bolt.type})+'.jpeg').appendTo($container)
         $('<h2></h2>').html(finish.name).appendTo($container)
         $('<p></p>').html(finish.note).appendTo($container)
       })
