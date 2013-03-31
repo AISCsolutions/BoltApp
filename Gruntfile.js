@@ -20,6 +20,7 @@ module.exports = function(grunt) {
         src: "style/boltapp.css",
         rules: {
           "import": false,
+          "adjoining-classes": false,
         }
       }
     },

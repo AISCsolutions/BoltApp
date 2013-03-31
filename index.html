@@ -16,7 +16,7 @@
     <h1>Disclaimer</h1>
   </div><!-- header -->
 
-  <div data-role="content">
+  <div data-role="content" class="longtext">
     <h3>General Reference</h3>
     <p>The information presented in this app has been prepared in accordance with recognized engineering principles and is for general information only. While it is believed to be accurate, this information should not be used or relied upon for any specific application without competent professional examination and verification of its accuracy, suitability and applicability by a licensed professional engineer, designer or architect.</p>
 
@@ -149,7 +149,7 @@
       </ul>
     </div>
     <form class="diameter">
-      <p id="diameter-inches"><span>1</span>"</p>
+      <p class="diameter-inches"><span>1</span>"</p>
       <label for="diameter">Bolt Diameter:</label>
       <input type="range" name="diameter" id="diameter" min=".5" max="1.5" step="0.125" value="1">
     </form>
@@ -201,16 +201,16 @@
   </div>
 
   <div data-role="content">
-    <ul data-role="listview">
+    <ul data-role="listview" class="nuts-and-washers">
 
       <li data-role="list-divider">
         F463 Washer - 
         <span class="washer finish" title="Washer Finish">Finish</span>
-        <a href="#2-1-HDG" data-role="button" data-rel="popup" data-mini="true" data-inline="true">HDG</a>
-        <a href="#2-1-MG" data-role="button" data-rel="popup" data-mini="true" data-inline="true">MG</a>
-        <a href="#2-1-e" data-role="button" data-rel="popup" data-mini="true" data-inline="true">F1136</a>
-        <a href="#2-1-a" data-role="button" data-rel="popup" data-mini="true" data-inline="true">&sect;6</a>
-        <a href="#2-1-b" data-role="button" data-rel="popup" data-mini="true" data-inline="true">Req</a>
+        <a href="#2-1-HDG" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">HDG</a>
+        <a href="#2-1-MG" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">MG</a>
+        <a href="#2-1-e" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">F1136</a>
+        <a href="#2-1-a" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">&sect;6</a>
+        <a href="#2-1-b" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">Req</a>
       </li>
       <li class="washer" data-icon="search"><a href="#washer-zoom" data-rel="dialog">
         <img src="images/washers/F436-1.png">
@@ -228,9 +228,9 @@
       <li data-role="list-divider">
         A563 Nuts -
         <span class="nut finish" title="Nut Finish">Finish</span>
-        <a href="#2-1-HDG" data-role="button" data-rel="popup" data-mini="true" data-inline="true">HDG</a>
-        <a href="#2-1-MG" data-role="button" data-rel="popup" data-mini="true" data-inline="true">MG</a>
-        <a href="#2-1-e" data-role="button" data-rel="popup" data-mini="true" data-inline="true">F1136</a>
+        <a href="#2-1-HDG" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">HDG</a>
+        <a href="#2-1-MG" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">MG</a>
+        <a href="#2-1-e" data-role="button" data-rel="popup" data-mini="true" data-inline="true" class="t2-1">F1136</a>
       </li>
       </li>
       <li class="nut" data-icon="search"><a href="#nut-zoom" data-rel="dialog">
@@ -463,7 +463,7 @@
     <a href="#disclaimer" data-role="button" data-icon="alert" data-iconpos="notext" data-inline="true" class="ui-btn-right">Disclaimer</a>
   </div><!-- header -->
 
-  <div data-role="content">
+  <div data-role="content" class="longtext">
     <img src="images/ssclogo-640.png">
 
     <a href="tel:+1-866-275-2472" data-role="button">866.ask.aisc</a>
