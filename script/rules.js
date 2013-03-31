@@ -49,7 +49,7 @@ define(['tables/grade_type_finish'], function(gtf) {
         if (this._type && gtf[i]['Bolt Type'] != this._type) {continue loop}
         if (this._finish && gtf[i]['Bolt Finish'] != this._finish) {continue loop}
         f(gtf[i], i, gtf)
-       }
+      }
     },
     refresh: function() {
       this.set = this.legal()

@@ -22,7 +22,7 @@ define(['jquery', 'fraction'], function($, Fraction) {
     },
     hide: function() {
     },
-    ready: function(debugx, debugy) {
+    ready: function() {
       var $diagram = $(this.selector)
       var bo = $diagram.offset()
 

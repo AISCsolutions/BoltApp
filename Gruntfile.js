@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  var jshint_files = ['script/**/*.js', '!script/lib/ext/**/*.js', '!script/require.js', '!script/text.js']
 
   grunt.initConfig({
     csslint: {
@@ -12,21 +13,31 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: {
-        //curly: true,
-        //immed: true,
-        //indent: 2,
-        //undef: true,
-        //unused: true,
-        //trailing: true,
-        asi: true,
-        eqeqeq: false,
-        sub: true,
-        multistr: true,
+        //enforce
+        curly: true, // no unbraced if, while
+        immed: true, // ambiguous syntax with immediatel-invoked fucntion
+        undef: true,
+        browser: true, // treat window, document, etc as defined
+        devel: true, // treat console as defined
+        globals: {
+          require: false,
+          define: false,
+          iScroll: false
+        },
+        indent: 2,
+        trailing: true, // whitespace
+
+        //relax
+        asi: true, // semicolons
+        sub: true, // possible to use dot notation
+        multistr: true, // multiling strings (have 1)
       },
-      target: {
-        files: {
-          src: ['script/**/*.js', '!script/lib/ext/**/*.js', '!script/require.js'],
-        }
+      default: jshint_files,
+      unused: {
+        options: {
+          unused: true,
+        },
+        src: jshint_files,
       },
     },
     requirejs: {
@@ -112,7 +123,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['csslint'])
+  grunt.registerTask('default', ['csslint', 'jshint:default'])
   grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };

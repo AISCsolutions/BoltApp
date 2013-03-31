@@ -1,10 +1,6 @@
 define(['jquery'], function($) {
   "use strict";
 
-  var project = function(objects, property) {
-    return objects.map(function(x) {return x[property]})
-  }
-
   return {
     clone: function(selector, appstate, rules) {
       var dup = Object.create(this)

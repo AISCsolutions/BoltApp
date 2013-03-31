@@ -46,7 +46,6 @@ define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared
   }
 
   var setupManufacturer = function() {
-    var mfg = appstate.data.bolt.manufacturer
     Mfg.clone('#manufacturer-select').write(appstate.data.bolt.manufacturer)
   }
 

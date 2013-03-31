@@ -10,40 +10,40 @@ define(['jquery'], function($) {
     var mode = "std";
     for(var i = 0; i < txt.length; i++) {
       switch(mode) {
-        case "std":
+      case "std":
         switch(txt[i]) {
-          case "'":
-          case '"':
-            mode = txt[i];
-            continue;
-          case ",":
-           line.push(value);
-           value = "";
-           continue;
-          case "\n":
-          case "\r":
-           line.push(value);
-           value = "";
-           rows.push(line);
-           line = [];
-           continue;
-          default:
-           value += txt[i];
-           continue;
-        }
-        break;
         case "'":
         case '"':
-          if(txt[i] == mode) {
-            if(txt[i + 1] == txt[i]) {
-              value += txt[i];
-              i += 1;
-              continue;
-            }
-            mode = "std";
+          mode = txt[i];
+          continue;
+        case ",":
+          line.push(value);
+          value = "";
+          continue;
+        case "\n":
+        case "\r":
+          line.push(value);
+          value = "";
+          rows.push(line);
+          line = [];
+          continue;
+        default:
+          value += txt[i];
+          continue;
+        }
+        break;
+      case "'":
+      case '"':
+        if(txt[i] == mode) {
+          if(txt[i + 1] == txt[i]) {
+            value += txt[i];
+            i += 1;
             continue;
           }
-          value += txt[i];
+          mode = "std";
+          continue;
+        }
+        value += txt[i];
       }
     }
     if(i && value !== '') {
