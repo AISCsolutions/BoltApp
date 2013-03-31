@@ -17,7 +17,7 @@ define([
   Diagram,
   Diameter
 ) {
-  "use strict"
+  "use strict";
 
   /* Dimensions - diagram */
   var boltDiagram = Diagram.clone('#bolt-diagram')

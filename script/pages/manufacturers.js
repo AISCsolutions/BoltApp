@@ -1,5 +1,5 @@
 define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', 'controls/shared_ui'], function($, manufacturers, appstate, Mfg, ui) {
-  "use strict"
+  "use strict";
 
   var indexPositions = function() {
     var index = {}

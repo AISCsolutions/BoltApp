@@ -1,5 +1,5 @@
 define(['jquery', 'appstate'], function($, appstate) {
-  "use strict"
+  "use strict";
 
   var scrollTo = function(x) {
     $('.diagrams ul').animate({'margin-left': x}, 400)

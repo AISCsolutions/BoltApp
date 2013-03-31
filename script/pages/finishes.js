@@ -1,5 +1,5 @@
 define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, colors, appstate, ui) {
-  "use strict"
+  "use strict";
 
   var finishes = function(rules) {
     var kinds = {}

@@ -6,7 +6,7 @@ require.config({
   }
 })
 require(['boltapp', 'jquery', 'jquerymobile', 'lib/es5-shim'], function(BoltApp, $) {
-  "use strict"
+  "use strict";
 
   $(function() {
     BoltApp.ready()

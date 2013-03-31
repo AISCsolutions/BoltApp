@@ -1,5 +1,5 @@
 define(['lib/csv', 'text!../../data/grade-type-finish-table-2-1.csv'], function(csv, string) {
-  "use strict"
+  "use strict";
 
   var parseCSV = function(table) {
     var records = []

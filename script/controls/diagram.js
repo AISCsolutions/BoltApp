@@ -1,5 +1,5 @@
 define(['jquery', 'fraction'], function($, Fraction) {
-  "use strict"
+  "use strict";
 
   return {
     clone: function(selector) {

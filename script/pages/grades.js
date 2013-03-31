@@ -1,5 +1,5 @@
 define(['jquery', 'appstate', 'rules'], function($, appstate, Rules) {
-  "use strict"
+  "use strict";
 
   return {
     current: function() {

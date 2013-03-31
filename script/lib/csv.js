@@ -1,5 +1,5 @@
 define(['jquery'], function($) {
-  "use strict"
+  "use strict";
 
   // Schrotie http://schrotie.de/
   // https://purbayubudi.wordpress.com/2008/11/09/csv-parser-using-javascript/#comment-67

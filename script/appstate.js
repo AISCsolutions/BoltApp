@@ -1,5 +1,5 @@
 define(['lib/store'], function(Store) {
-  "use strict"
+  "use strict";
 
   var defaultState = {
     bolt: {

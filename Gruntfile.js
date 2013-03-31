@@ -1,6 +1,32 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    csslint: {
+      target: {
+        src: "style/boltapp.css",
+        rules: {
+          "import": false,
+          "adjoining-classes": false,
+        }
+      }
+    },
+    jshint: {
+      options: {
+        //curly: true,
+        //immed: true,
+        //indent: 2,
+        //undef: true,
+        //unused: true,
+        //trailing: true,
+        asi: true,
+        eqeqeq: false,
+      },
+      target: {
+        files: {
+          src: ['script/**/*.js'],
+        }
+      },
+    },
     requirejs: {
       target: {
         options: {
@@ -12,15 +38,6 @@ module.exports = function(grunt) {
           name: 'lib/almond',
           include: 'bootstrap',
           out: '../build/script/require.js',
-        }
-      }
-    },
-    csslint: {
-      target: {
-        src: "style/boltapp.css",
-        rules: {
-          "import": false,
-          "adjoining-classes": false,
         }
       }
     },
@@ -84,6 +101,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-contrib-requirejs')
   grunt.loadNpmTasks('grunt-cssjoin')
   grunt.loadNpmTasks('grunt-css')

@@ -1,5 +1,5 @@
 define(['jquery'], function($) {
-  "use strict"
+  "use strict";
 
   return {
     clone: function(selector) {

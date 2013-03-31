@@ -23,7 +23,7 @@ define([
   Finishes,
   Manufacturers
 ) {
-  "use strict"
+  "use strict";
 
   appstate.load()
 

@@ -1,5 +1,5 @@
 define(['lib/csv', 'text!../../data/measurements.csv'], function(csv, string) {
-  "use strict"
+  "use strict";
 
   var parseMeasurements = function(table) {
     var dims = []
@@ -7,7 +7,7 @@ define(['lib/csv', 'text!../../data/measurements.csv'], function(csv, string) {
     var property = ''
 
     table.forEach(function(row) {
-      if (row[0] != '') {
+      if (row[0] !== '') {
         kind = row[0]
       }
 

@@ -1,5 +1,5 @@
 define(['jquery', 'appstate'], function($, appstate) {
-  "use strict"
+  "use strict";
 
   return {
     $el: function() {

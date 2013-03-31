@@ -1,5 +1,5 @@
 define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared_ui'], function($, appstate, Rules, Mfg, ui) {
-  "use strict"
+  "use strict";
 
   var markIllegal = function() {
     var bolt = appstate.data.bolt

@@ -1,5 +1,5 @@
 define(['jquery'], function($) {
-  "use strict"
+  "use strict";
 
   var project = function(objects, property) {
     return objects.map(function(x) {return x[property]})
