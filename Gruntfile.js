@@ -34,9 +34,11 @@ module.exports = function(grunt) {
       },
       default: jshint_files,
       unused: {
-        options: {
-          unused: true,
-        },
+        options: { unused: true, },
+        src: jshint_files,
+      },
+      complexity: {
+        options: { maxcomplexity: 3 },
         src: jshint_files,
       },
     },
