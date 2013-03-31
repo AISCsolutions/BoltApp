@@ -9,7 +9,7 @@ define([
   'pages/grades',
   'pages/finishes',
   'pages/manufacturers',
-  'lib/es5-shim',
+  'lib/ext/es5-shim',
   'jquerymobile'
 ], function(
   $,

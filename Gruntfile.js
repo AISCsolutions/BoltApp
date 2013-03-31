@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          src: ['script/**/*.js'],
+          src: ['script/**/*.js', '!script/lib/ext/**/*.js'],
         }
       },
     },
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           skipDirOptimize: true,
           stubModules: ['text'],
 
-          name: 'lib/almond',
+          name: 'lib/ext/almond',
           include: 'bootstrap',
           out: '../build/script/require.js',
         }
