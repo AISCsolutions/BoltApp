@@ -20,7 +20,8 @@ define([
   "use strict";
 
   /* Dimensions - diagram */
-  var boltDiagram = Diagram.clone('#bolt-diagram')
+  var standardBoltDiagram = Diagram.clone('#standard-bolt-diagram')
+  var tcBoltDiagram = Diagram.clone('#tc-bolt-diagram')
   var nutDiagram = Diagram.clone('#nut-diagram')
   var washerDiagram = Diagram.clone('#washer-diagram')
 
@@ -38,8 +39,10 @@ define([
     if (measurements.length < 1) { return }
     var measures = currentMeasures()
     diameterDisplay(measures.Bolt.Diameter)
-    boltDiagram.update({Grade: appstate.data.bolt.grade})
-    boltDiagram.update(measures['Bolt'])
+    standardBoltDiagram.update({Grade: appstate.data.bolt.grade})
+    standardBoltDiagram.update(measures['Bolt'])
+    tcBoltDiagram.update({Grade: appstate.data.bolt.grade})
+    tcBoltDiagram.update(measures['Bolt'])
     nutDiagram.update(measures['Nut'])
     washerDiagram.update(measures['Circular Washer'])
     washerDiagram.update(measures['Square Washer'])
@@ -51,7 +54,8 @@ define([
   }
 
   return {
-    boltDiagram: boltDiagram,
+    standardBoltDiagram: standardBoltDiagram,
+    tcBoltDiagram: tcBoltDiagram,
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
     setDiagramSize: function() {
@@ -67,10 +71,11 @@ define([
       DiagramSelect.show()
       this.setDiagramSize()
       Diameter.show()
+      updateMeasurements()
     },
     wire: function() {
       updateMeasurements()
-      DiagramSelect.wire(boltDiagram, nutDiagram, washerDiagram)
+      DiagramSelect.wire(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram)
       Diameter.wire(updateMeasurements)
     }
   }

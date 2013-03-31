@@ -18,12 +18,13 @@ define(['jquery', 'appstate'], function($, appstate) {
       //console.log(height, base, topMargin, bottomMargin)
       return height
     },
-    wire: function(boltDiagram, nutDiagram, washerDiagram) {
+    wire: function(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram) {
       $('#bolt-select').on('change', function() {
         scrollTo(0)
         appstate.data.diagram = 'bolt'
         appstate.save()
-        boltDiagram.show()
+        standardBoltDiagram.show()
+        tcBoltDiagram.show()
         nutDiagram.hide()
         washerDiagram.hide()
       })
@@ -31,7 +32,8 @@ define(['jquery', 'appstate'], function($, appstate) {
         scrollTo(-$('.diagrams').width())
         appstate.data.diagram = 'nut'
         appstate.save()
-        boltDiagram.hide()
+        standardBoltDiagram.hide()
+        tcBoltDiagram.hide()
         nutDiagram.show()
         washerDiagram.hide()
       })
@@ -39,7 +41,8 @@ define(['jquery', 'appstate'], function($, appstate) {
         scrollTo(-$('.diagrams').width()*2)
         appstate.data.diagram = 'washer'
         appstate.save()
-        boltDiagram.hide()
+        standardBoltDiagram.hide()
+        tcBoltDiagram.hide()
         nutDiagram.hide()
         washerDiagram.show()
       })

@@ -23,9 +23,10 @@ module.exports = function(grunt) {
     },
     regarde: {
       livereload: {
-        files: ['index.html', 'script/**/*.js', 'style/*.css', 'images/**'],
+        // css is given the wrong path (no style/)
+        files: ['index.html', 'script/**/*.js', 'images/**'],
         tasks: ['livereload']
-      }
+      },
     },
     csslint: {
       target: {

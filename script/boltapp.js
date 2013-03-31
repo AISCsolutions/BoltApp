@@ -32,6 +32,8 @@ define([
     ready: function() {
       if (! $.support.fixedPosition) { ui.softwareScroll() }
 
+      ui.setup(appstate.data.bolt)
+
       $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
 
       Dimensions.wire()

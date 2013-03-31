@@ -10,6 +10,6 @@ require(['boltapp', 'jquery', 'jquerymobile', 'lib/ext/es5-shim'], function(Bolt
 
   $(function() {
     BoltApp.ready()
-    //BoltApp.dimensions.washerDiagram.interactivePlace('Taper In Thickness')
+    //BoltApp.dimensions.standardBoltDiagram.interactivePlace('Thread Length')
   })
 })
