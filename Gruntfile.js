@@ -139,6 +139,28 @@ module.exports = function(grunt) {
           },
         ]
       }
+    },
+    manifest: {
+      target: {
+        options: {
+          basePath: "./",
+          verbose: false,
+          timestamp: true
+        },
+        files: [
+          {
+            src: [
+                "index.html",
+                "style/style.css",
+                "script/require.js",
+                "style/images/**/*.*",
+                "images/**/*.*",
+            ],
+            dest: "../build/cache.manifest",
+            filter: "isFile",
+          }
+        ]
+      }
     }
   });
 
@@ -153,9 +175,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('grunt-contrib-copy')
+  grunt.loadNpmTasks('grunt-manifest')
 
   grunt.registerTask('default', ['csslint', 'jshint:default'])
   grunt.registerTask('live', ['livereload-start', 'connect:livereload', 'regarde:livereload'])
-  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy'])
+  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy', 'manifest'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
