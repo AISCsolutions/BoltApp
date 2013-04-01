@@ -1,7 +1,0 @@
-CACHE MANIFEST
-# Development manifest: don't cache
-# Unfortunately, an html page that references this is included automatically.
-# BoltApp 0.0.0 1921-02-12
-
-NETWORK:
-*
