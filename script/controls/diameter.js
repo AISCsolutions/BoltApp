@@ -25,11 +25,11 @@ define(['jquery', 'appstate'], function($, appstate) {
         }
       })
       this.$el().val(appstate.data.bolt.diameter).change()
-      this.render()
     },
     render: function() {
       var $el = this.$el().parent()
       var $slider = $el.find('.ui-slider-track')
+      if ($slider.find('.slider-mark').length > 0) {return}
       var points = appstate.diameterInches
       var settings = (Object.keys(points).length - 1)
       for (var i = 1; i < settings; i++) {
@@ -37,6 +37,8 @@ define(['jquery', 'appstate'], function($, appstate) {
       }
     },
     show: function() {
+      this.render()
+
       var $el = this.$el().parent()
       var $slider = $el.find('.ui-slider-track')
       var width = $slider.width()
