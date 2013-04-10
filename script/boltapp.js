@@ -53,7 +53,7 @@ define([
       finishes.wire()
       $('#finish').on('pagebeforeshow', finishes.show.bind(finishes))
 
-      $('#manufacturer').on('pagebeforeshow', Manufacturers.wire.bind(Manufacturers))
+      Manufacturers.wire()
 
       if ($.mobile.activePage) { // sometimes it beats us
         $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')
