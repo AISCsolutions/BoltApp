@@ -50,7 +50,7 @@ define([
 
   /* Dimensions - diameter */
   var diameterDisplay = function(fraction) {
-    $('#diameter-inches span').html(Fraction.clone(fraction).toString())
+    $('.diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
   return {
