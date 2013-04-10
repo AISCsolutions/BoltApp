@@ -3,10 +3,10 @@ define(['jquery', 'appstate'], function($, appstate) {
 
   return {
     $el: function() {
-      return $('#diameter')
+      return $('.diameter')
     },
     height: function() {
-      var $el = $('.diameter')
+      var $el = this.$el()
       var base = $el.height()
       var topMargin = parseInt($el.css('margin-top'), 10)
       var bottomMargin = parseInt($el.css('margin-bottom'), 10)
@@ -16,8 +16,8 @@ define(['jquery', 'appstate'], function($, appstate) {
       return height
     },
     wire: function(callback) {
-      this.$el().val(appstate.data.bolt.diameter).change()
-      this.$el().on('change', function() {
+      this.$el().find('input').val(appstate.data.bolt.diameter).change()
+      this.$el().on('change', 'input', function() {
         var value = $(this).val()
         if (appstate.data.bolt.diameter != value) {
           appstate.data.bolt.diameter = value
@@ -27,7 +27,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       })
     },
     render: function() {
-      var $el = this.$el().parent()
+      var $el = this.$el()
       var $slider = $el.find('.ui-slider-track')
       if ($slider.find('.slider-mark').length > 0) {return}
       var points = appstate.diameterInches
@@ -37,7 +37,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       }
     },
     positionMarks: function() {
-      var $el = this.$el().parent()
+      var $el = this.$el()
       var $slider = $el.find('.ui-slider-track')
       var width = $slider.width()
       var points = appstate.diameterInches
