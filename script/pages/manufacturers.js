@@ -69,7 +69,7 @@ define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', '
         Mfg.render().write(mfg).$el().appendTo($doc)
       })
       var $list = this.$list().empty().append($doc.children())
-      if ($list.find('.ui-btn-inner').length > 0) {
+      if ($list.hasClass('ui-listview')) {
         $list.listview('refresh')
       }
       return this

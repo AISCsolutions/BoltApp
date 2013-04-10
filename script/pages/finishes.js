@@ -64,7 +64,7 @@ define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, color
         $('<p></p>').html(finish.note).appendTo($container)
       })
       var $finishes = this.$('.finishes').empty().append($doc.children())
-      if ($finishes.find('.ui-btn-inner').length > 0) {
+      if ($finishes.hasClass('ui-listview')) {
         $finishes.listview('refresh')
       }
       return this
