@@ -19,12 +19,6 @@ define(['jquery'], function($) {
       return this.$('[title="'+name+'"]')
     },
     wire: function() {
-      var nw = this.rules.bolt(this.appstate.data.bolt).perfect()
-      if (nw) {
-        this.update(nw)
-      } else {
-        this.update({})
-      }
       this.$el().on('click', 'li a', function() {
         $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
         $(this).find('[title]').each(function() {
@@ -33,6 +27,14 @@ define(['jquery'], function($) {
         })
         $('.zoom img').attr('src', $(this).find('img').attr('src'))
       })
+    },
+    show: function() {
+      var nw = this.rules.bolt(this.appstate.data.bolt).perfect()
+      if (nw) {
+        this.update(nw)
+      } else {
+        this.update({})
+      }
     },
     update: function(data) {
       this.updateFields(data)
