@@ -47,7 +47,10 @@ define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, color
         appstate.save()
         ui.finishChanged(appstate.data.bolt)
       })
-      return this.render().update()
+      return this.render()
+    },
+    show: function() {
+      return this.update()
     },
     render: function() {
       var $doc = $(document.createDocumentFragment())

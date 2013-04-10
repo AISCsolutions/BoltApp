@@ -50,7 +50,8 @@ define([
       $('#grade').on('pagebeforeshow', Grades.show.bind(Grades))
 
       var finishes = Finishes.clone(Rules)
-      $('#finish').on('pagebeforeshow', finishes.wire.bind(finishes))
+      finishes.wire()
+      $('#finish').on('pagebeforeshow', finishes.show.bind(finishes))
 
       $('#manufacturer').on('pagebeforeshow', Manufacturers.wire.bind(Manufacturers))
 
