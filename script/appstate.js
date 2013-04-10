@@ -5,7 +5,7 @@ define(['lib/store'], function(Store) {
     bolt: {
       grade: 'A325',
       type: '1',
-      finish: 'Plain (uncoated)',
+      finish: 'Plain',
       manufacturer: {
         name: 'Unytite, Inc',
         location: 'Peru IL',

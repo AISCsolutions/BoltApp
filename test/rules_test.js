@@ -1,7 +1,7 @@
 define(['rules'], function(Rules) {
   module('rules')
 
-  var rules = Rules.bolt({grade: 'A325', type: '1', finish: 'Plain (uncoated)'})
+  var rules = Rules.bolt({grade: 'A325', type: '1', finish: 'Plain'})
 
   test('forEach', function() {
     expect(14)
@@ -31,7 +31,7 @@ define(['rules'], function(Rules) {
   })
 
   test('loosen', function() {
-    equal(rules.anyGrade().length, 2)
+    equal(rules.anyGrade().length, 4)
   })
 
   test('allowsGrade', function() {
@@ -47,9 +47,9 @@ define(['rules'], function(Rules) {
   })
 
   test('allowsFinish', function() {
-    ok(rules.allowsFinish('Plain (uncoated)'))
+    ok(rules.allowsFinish('Plain'))
     ok(Rules.allowsFinish('Plain'))
-    ok(!rules.allowsFinish('Plain'))
+    ok(Rules.allowsFinish('Galvanized (Mechanical)'))
   })
 
   test('allowedGrades', function() {
@@ -61,6 +61,6 @@ define(['rules'], function(Rules) {
   })
 
   test('allowedFinishes', function() {
-    deepEqual(rules.allowedFinishes(), ['Plain (uncoated)'])
+    deepEqual(rules.allowedFinishes(), ['Plain'])
   })
 })

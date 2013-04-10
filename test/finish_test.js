@@ -1,7 +1,7 @@
 define(['finish'], function(finish) {
   module('finish')
-  test('plain uncoated', function() {
-    equal(finish.colorForFinish('Plain (uncoated)'), 'plain')
+  test('plain', function() {
+    equal(finish.colorForFinish('Plain'), 'plain')
   })
   test('Galvanized', function() {
     equal(finish.colorForFinish('Galvanized (Mechanical)'), 'galvanized-mechanical')
