@@ -36,9 +36,7 @@ define(['jquery', 'appstate'], function($, appstate) {
         $('<div class="slider-mark">').appendTo($slider)
       }
     },
-    show: function() {
-      this.render()
-
+    positionMarks: function() {
       var $el = this.$el().parent()
       var $slider = $el.find('.ui-slider-track')
       var width = $slider.width()
@@ -50,6 +48,10 @@ define(['jquery', 'appstate'], function($, appstate) {
         $(this).css('left', left)
         left += step
       })
+    },
+    show: function() {
+      this.render()
+      setTimeout(this.positionMarks.bind(this), 0)
     }
   }
 })
