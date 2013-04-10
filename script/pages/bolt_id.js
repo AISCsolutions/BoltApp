@@ -1,6 +1,16 @@
 define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared_ui'], function($, appstate, Rules, Mfg, ui) {
   "use strict";
 
+  var setupType = function() {
+    $('label[for="type-'+appstate.data.bolt.type+'"]').click()
+    $('.type input[type="radio"]').on('change', function() {
+      appstate.data.bolt.type = $(this).val()
+      appstate.save()
+      markIllegal()
+      ui.typeChanged(appstate.data.bolt)
+    })
+  }
+
   var markIllegal = function() {
     var bolt = appstate.data.bolt
     var rules = Rules.bolt(bolt)
@@ -24,40 +34,23 @@ define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared
     $('body').toggleClass('bolt-illegal', choice_illegal)
   }
 
-  var setupGrade = function() {
-    ui.gradeChanged(appstate.data.bolt.grade)
-  }
-
-  var setupType = function() {
-    $('label[for="type-'+appstate.data.bolt.type+'"]').click()
-    $('.type input[type="radio"]').on('change', function() {
-      appstate.data.bolt.type = $(this).val()
-      appstate.save()
-      markIllegal()
-      ui.typeChanged(appstate.data.bolt)
-    })
-    markIllegal()
-    ui.typeChanged(appstate.data.bolt)
-  }
-
-  var setupFinish = function() {
+  var updateFinish = function() {
     $('#finish-select .ui-btn-text').html(appstate.data.bolt.finish)
-    ui.finishChanged(appstate.data.bolt)
   }
 
-  var setupManufacturer = function() {
+  var updateManufacturer = function() {
     Mfg.clone('#manufacturer-select').write(appstate.data.bolt.manufacturer)
   }
 
-  var setupBoltId = function() {
-    markIllegal()
-    setupGrade()
-    setupType()
-    setupFinish()
-    setupManufacturer()
-  }
-
   return {
-    wire: setupBoltId
+    wire: function() {
+      setupType()
+    },
+    show: function() {
+      ui.setup(appstate.data.bolt)
+      markIllegal()
+      updateFinish()
+      updateManufacturer()
+    }
   }
 })

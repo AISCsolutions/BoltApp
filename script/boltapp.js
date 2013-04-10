@@ -34,7 +34,8 @@ define([
 
       ui.setup(appstate.data.bolt)
 
-      $('#bolt-id').on('pagebeforeshow', BoltId.wire.bind(BoltId))
+      BoltId.wire()
+      $('#bolt-id').on('pagebeforeshow', BoltId.show.bind(BoltId))
 
       Dimensions.wire()
       $('#dimensions').on('pagebeforeshow', Dimensions.show.bind(Dimensions))
@@ -45,7 +46,8 @@ define([
       $('#nuts-and-washers').on('pagebeforeshow', nw.wire.bind(nw))
       $('#nuts-and-washers').on('pageshow', function() {ui.finishChanged(appstate.data.bolt)})
 
-      $('#grade').on('pagebeforeshow', Grades.wire.bind(Grades))
+      Grades.wire()
+      $('#grade').on('pagebeforeshow', Grades.show.bind(Grades))
 
       var finishes = Finishes.clone(Rules)
       $('#finish').on('pagebeforeshow', finishes.wire.bind(finishes))
