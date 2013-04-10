@@ -63,18 +63,17 @@ define([
       var selectHeight = DiagramSelect.height()
       var diameterHeight = Diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
-      if (height < 150) { height = 150 }
       //console.log(height, contentHeight, selectHeight, diameterHeight)
+      if (height < 150) { height = 150 }
       $('.diagrams img').height(height)
+      updateMeasurements()
     },
     show: function() {
       DiagramSelect.show()
-      this.setDiagramSize()
       Diameter.show()
-      updateMeasurements()
+      setTimeout(this.setDiagramSize.bind(this), 0)
     },
     wire: function() {
-      updateMeasurements()
       DiagramSelect.wire(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram)
       Diameter.wire(updateMeasurements)
     }

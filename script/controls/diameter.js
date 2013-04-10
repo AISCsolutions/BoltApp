@@ -16,6 +16,7 @@ define(['jquery', 'appstate'], function($, appstate) {
       return height
     },
     wire: function(callback) {
+      this.$el().val(appstate.data.bolt.diameter).change()
       this.$el().on('change', function() {
         var value = $(this).val()
         if (appstate.data.bolt.diameter != value) {
@@ -24,7 +25,6 @@ define(['jquery', 'appstate'], function($, appstate) {
           callback()
         }
       })
-      this.$el().val(appstate.data.bolt.diameter).change()
     },
     render: function() {
       var $el = this.$el().parent()

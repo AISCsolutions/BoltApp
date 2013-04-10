@@ -38,7 +38,6 @@ define([
       $('#bolt-id').on('pagebeforeshow', BoltId.show.bind(BoltId))
 
       Dimensions.wire()
-      $('#dimensions').on('pagebeforeshow', Dimensions.show.bind(Dimensions))
       $('#dimensions').on('pageshow', Dimensions.show.bind(Dimensions))
       $(window).on('resize', Dimensions.show.bind(Dimensions))
 
