@@ -30,7 +30,7 @@ define([
   return {
     dimensions: Dimensions,
     ready: function() {
-      if (! $.support.fixedPosition) { ui.softwareScroll() }
+      //if (! $.support.fixedPosition) { ui.softwareScroll() }
 
       ui.setup(appstate.data.bolt)
 
