@@ -123,7 +123,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['images/**/*'],
+            src: ['images/**/*.png', 'images/**/*.jpeg'],
             filter: 'isFile',
             dest: '../build/'
           }
@@ -134,10 +134,15 @@ module.exports = function(grunt) {
       target: {
         files: [
           {
-            src: ['data/**', 'style/images/**'],
+            src: ['data/**', 'style/images/**', 'images/**/*.svg'],
             dest: '../build/'
           },
         ]
+      }
+    },
+    svgo: {
+      target: {
+        files: '../build/images/**/*.svg'
       }
     },
     manifest: {
@@ -174,11 +179,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-imagemin')
+  grunt.loadNpmTasks('svgo-grunt')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-manifest')
 
   grunt.registerTask('default', ['csslint', 'jshint:default'])
   grunt.registerTask('live', ['livereload-start', 'connect:livereload', 'regarde:livereload'])
-  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy', 'manifest'])
+  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy', 'svgo', 'manifest'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
