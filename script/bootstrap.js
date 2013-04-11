@@ -5,11 +5,12 @@ require.config({
     jquery: 'lib/ext/jquery'
   }
 })
-require(['boltapp', 'jquery', 'jquerymobile', 'lib/ext/es5-shim'], function(BoltApp, $) {
+require(['boltapp', 'jquery', 'lib/ext/svgeezy', 'jquerymobile', 'lib/ext/es5-shim'], function(BoltApp, $, svgeezy) {
   "use strict";
 
   $(function() {
     BoltApp.ready()
     //BoltApp.dimensions.standardBoltDiagram.interactivePlace('Thread Length')
+    svgeezy.init(false, 'png')
   })
 })
