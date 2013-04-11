@@ -10,7 +10,6 @@ define(['lib/csv', 'text!../../data/manufacturers.csv'], function(csv, string) {
       row.forEach(function(d, i) {
         mfg[headers[i]] = d
       })
-      mfg.bolt = 'images/bolts/'+mfg.bolt+'.png'
       records.push(mfg)
     })
 

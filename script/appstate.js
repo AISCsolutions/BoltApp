@@ -10,7 +10,7 @@ define(['lib/store'], function(Store) {
         name: 'Unytite, Inc',
         location: 'Peru IL',
         website: 'http://www.unytiteusa.com/',
-        bolt: 'images/bolts/mfg-unytite-a.png'
+        bolt: 'mfg-unytite-a'
       },
       diameter: 1
     },
