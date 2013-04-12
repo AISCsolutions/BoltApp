@@ -30,10 +30,7 @@ define([
   return {
     dimensions: Dimensions,
     ready: function() {
-      if (! $.support.fixedPosition) {
-        //ui.softwareScroll()
-        $('.zoom img').css('max-height', ui.contentHeight() * 0.7)
-      }
+      //if (! $.support.fixedPosition) { ui.softwareScroll() }
 
       ui.setup(appstate.data.bolt)
 
