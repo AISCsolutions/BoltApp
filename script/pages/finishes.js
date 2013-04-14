@@ -1,4 +1,16 @@
-define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], function($, classy, colors, appstate, ui) {
+define([
+  'jquery',
+  'can/control',
+  'finish',
+  'appstate',
+  'controls/shared_ui'
+], function(
+  $,
+  Control,
+  colors,
+  appstate,
+  ui
+) {
   "use strict";
 
   var finishes = function(rules) {
@@ -12,13 +24,12 @@ define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], fun
     return Object.keys(kinds).sort().map(function(x) {return kinds[x]})
   }
 
-  return classy({
+  return Control({
     finishes: [],
     init: function(element, options) {
-      this.element = $(element)
       this.rules = options.rules
       this.finishes = finishes(this.rules)
-      this.wire()
+      this.render()
       return this
     },
     current: function() {
@@ -39,13 +50,10 @@ define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], fun
     $: function(selector) {
       return this.element.find(selector)
     },
-    wire: function() {
-      this.element.on('click', 'li a', function() {
-        appstate.data.bolt.finish = $(this).find('h2').text()
-        appstate.save()
-        ui.finishChanged(appstate.data.bolt)
-      })
-      return this.render()
+    'li a click': function(a) {
+      appstate.data.bolt.finish = $(a).find('h2').text()
+      appstate.save()
+      ui.finishChanged(appstate.data.bolt)
     },
     show: function() {
       return this.update()

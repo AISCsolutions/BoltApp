@@ -1,4 +1,4 @@
-define(['jquery', 'lib/classy', 'controls/shared_ui'], function($, classy, ui) {
+define(['jquery', 'can/control', 'controls/shared_ui'], function($, Control, ui) {
   "use strict";
 
   var indexPositions = function(element, list) {
@@ -27,22 +27,16 @@ define(['jquery', 'lib/classy', 'controls/shared_ui'], function($, classy, ui) {
     return index
   }
 
-  return classy({
+  return Control({
     init: function(element, options) {
-      this.element = $(element)
       this.list = options.list
-      this.wire()
       return this
     },
-    wire: function() {
-      var element = this.element
-      var list = this.list.element
-      this.element.on('click', 'li', function(event) {
-        event.stopPropagation()
-        var index = indexPositions(element, list)
-        var letter = $(this).html()[0]
-        ui.scrollTop(index[letter])
-      })
-    },
+    'li click': function(li, event) {
+      event.stopPropagation()
+      var index = indexPositions(this.element, this.list.element)
+      var letter = $(li).html()[0]
+      ui.scrollTop(index[letter])
+    }
   })
 })

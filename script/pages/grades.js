@@ -1,12 +1,7 @@
-define(['jquery', 'lib/classy', 'appstate', 'rules'], function($, classy, appstate, Rules) {
+define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, appstate, Rules) {
   "use strict";
 
-  return classy({
-    init: function(element) {
-      this.element = $(element)
-      this.wire()
-      return this
-    },
+  return Control({
     current: function() {
       return Rules.bolt(appstate.data.bolt).anyGrade().allowedGrades()
     },
@@ -28,11 +23,9 @@ define(['jquery', 'lib/classy', 'appstate', 'rules'], function($, classy, appsta
     $: function(selector) {
       return this.element.find(selector)
     },
-    wire: function() {
-      this.element.on('click', 'li a', function() {
-        appstate.data.bolt.grade = $(this).find('h2').text()
-        appstate.save()
-      })
+    'li a click': function(a) {
+      appstate.data.bolt.grade = $(a).find('h2').text()
+      appstate.save()
     },
     show: function() {
       this.update()

@@ -1,18 +1,16 @@
-define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
+define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
   "use strict";
 
   var scrollTo = function(x) {
     $('.diagrams ul').animate({'margin-left': x}, 400)
   }
 
-  return classy({
+  return Control({
     init: function(element, options) {
-      this.element = $(element)
       this.standardBoltDiagram = options.standardBoltDiagram
       this.tcBoltDiagram = options.tcBoltDiagram
       this.nutDiagram = options.nutDiagram
       this.washerDiagram = options.washerDiagram
-      this.wire()
       return this
     },
     show: function() {
@@ -27,35 +25,32 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       //console.log(height, base, topMargin, bottomMargin)
       return height
     },
-    wire: function() {
-      var o = this
-      $('#bolt-select').on('change', function() {
-        scrollTo(0)
-        appstate.data.diagram = 'bolt'
-        appstate.save()
-        o.standardBoltDiagram.show()
-        o.tcBoltDiagram.show()
-        o.nutDiagram.hide()
-        o.washerDiagram.hide()
-      })
-      $('#nut-select').on('change', function() {
-        scrollTo(-$('.diagrams').width())
-        appstate.data.diagram = 'nut'
-        appstate.save()
-        o.standardBoltDiagram.hide()
-        o.tcBoltDiagram.hide()
-        o.nutDiagram.show()
-        o.washerDiagram.hide()
-      })
-      $('#washer-select').on('change', function() {
-        scrollTo(-$('.diagrams').width()*2)
-        appstate.data.diagram = 'washer'
-        appstate.save()
-        o.standardBoltDiagram.hide()
-        o.tcBoltDiagram.hide()
-        o.nutDiagram.hide()
-        o.washerDiagram.show()
-      })
+    '#bolt-select change': function() {
+      scrollTo(0)
+      appstate.data.diagram = 'bolt'
+      appstate.save()
+      this.standardBoltDiagram.show()
+      this.tcBoltDiagram.show()
+      this.nutDiagram.hide()
+      this.washerDiagram.hide()
+    },
+    '#nut-select change': function() {
+      scrollTo(-$('.diagrams').width())
+      appstate.data.diagram = 'nut'
+      appstate.save()
+      this.standardBoltDiagram.hide()
+      this.tcBoltDiagram.hide()
+      this.nutDiagram.show()
+      this.washerDiagram.hide()
+    },
+    '#washer-select change': function() {
+      scrollTo(-$('.diagrams').width()*2)
+      appstate.data.diagram = 'washer'
+      appstate.save()
+      this.standardBoltDiagram.hide()
+      this.tcBoltDiagram.hide()
+      this.nutDiagram.hide()
+      this.washerDiagram.show()
     }
   })
 })

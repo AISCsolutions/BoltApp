@@ -1,11 +1,10 @@
-define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
+define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
   "use strict";
 
-  return classy({
+  return Control({
     init: function(element, options) {
-      this.element = $(element)
       this.callback = options.callback
-      this.wire()
+      this.element.find('input').val(appstate.data.bolt.diameter).change()
       return this
     },
     height: function() {
@@ -18,17 +17,13 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       //console.log(height, base, topMargin, bottomMargin, sliderMargin)
       return height
     },
-    wire: function() {
-      var callback = this.callback
-      this.element.find('input').val(appstate.data.bolt.diameter).change()
-      this.element.on('change', 'input', function() {
-        var value = $(this).val()
-        if (appstate.data.bolt.diameter != value) {
-          appstate.data.bolt.diameter = value
-          appstate.save()
-          callback()
-        }
-      })
+    'input change': function(input) {
+      var value = $(input).val()
+      if (appstate.data.bolt.diameter != value) {
+        appstate.data.bolt.diameter = value
+        appstate.save()
+        this.callback()
+      }
     },
     render: function() {
       var $el = this.element

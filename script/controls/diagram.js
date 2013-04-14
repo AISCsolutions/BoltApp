@@ -1,11 +1,7 @@
-define(['jquery', 'lib/classy', 'fraction'], function($, classy, Fraction) {
+define(['jquery', 'can/control', 'fraction'], function($, Control, Fraction) {
   "use strict";
 
-  return classy({
-    init: function(element) {
-      this.element = $(element)
-      return this
-    },
+  return Control({
     $: function(selector) {
       return this.element.find(selector)
     },

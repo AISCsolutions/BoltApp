@@ -1,4 +1,18 @@
-define(['jquery', 'lib/classy', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared_ui', 'lib/classy'], function($, classy, appstate, Rules, Mfg, ui) {
+define([
+  'jquery',
+  'can/control',
+  'appstate',
+  'rules',
+  'controls/manufacturer',
+  'controls/shared_ui'
+], function(
+  $,
+  Control,
+  appstate,
+  Rules,
+  Mfg,
+  ui
+) {
   "use strict";
 
   var setupType = function() {
@@ -42,7 +56,7 @@ define(['jquery', 'lib/classy', 'appstate', 'rules', 'controls/manufacturer', 'c
     new Mfg('#manufacturer-select').write(appstate.data.bolt.manufacturer)
   }
 
-  return classy({
+  return Control({
     init: function() {
       setupType()
     },

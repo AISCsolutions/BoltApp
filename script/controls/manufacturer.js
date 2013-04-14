@@ -1,11 +1,7 @@
-define(['jquery', 'lib/classy'], function($, classy) {
+define(['jquery', 'can/control'], function($, Control) {
   "use strict";
 
-  var Mfg = classy({
-    init: function(element) {
-      this.element = $(element)
-      return this
-    },
+  var Mfg = Control({
     read: function() {
       var $el = this.element
       return {

@@ -1,21 +1,20 @@
 define([
   'jquery',
-  'lib/classy',
+  'can/control',
   'controls/index',
   'controls/manufacturer_list'
 ], function(
   $,
-  classy,
+  Control,
   Index,
   List
 ) {
   "use strict";
 
-  return classy({
+  return Control({
     init: function(element) {
-      this.element = $(element)
-      this.list = new List(this.element.find('.manufacturers'))
-      this.index = new Index(this.element.find('.index'), {list: this.list})
+      this.list = new List(element.find('.manufacturers'))
+      this.index = new Index(element.find('.index'), {list: this.list})
       return this
     }
   })

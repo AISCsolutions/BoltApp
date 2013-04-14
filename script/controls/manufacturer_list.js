@@ -1,12 +1,13 @@
 define([
   'jquery',
-  'lib/classy',
+  'can/control',
   'tables/manufacturers',
   'appstate',
   'controls/manufacturer',
   'lib/ext/jquery.ae.image.resize'],
-function($,
-  classy,
+function(
+  $,
+  Control,
   manufacturers,
   appstate,
   Mfg
@@ -17,25 +18,20 @@ function($,
     return $(el).parents('li')[0]
   }
 
-  return classy({
+  return Control({
     init: function(element) {
-      this.element = $(element)
       this.render()
-      this.wire()
       return this
     },
-    wire: function() {
-      this.element.on('click',  'li a[href="#bolt-id"]', function() {
-        appstate.data.bolt.manufacturer = new Mfg(li(this)).read()
-        appstate.save()
-      })
-
-      this.element.on('click',  'li a[href="#mfg-zoom"]', function() {
-        $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
-        var mfg = new Mfg(li(this)).read()
-        new Mfg('.zoom').write(mfg)
-        $('.zoom img').aeImageResize({width: 150})
-      })
+    'li a[href="#bolt-id"] click': function(a) {
+      appstate.data.bolt.manufacturer = new Mfg(li(a)).read()
+      appstate.save()
+    },
+    'li a[href="#mfg-zoom"] click': function(a) {
+      $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
+      var mfg = new Mfg(li(a)).read()
+      new Mfg('.zoom').write(mfg)
+      $('.zoom img').aeImageResize({width: 150})
     },
     render: function () {
       var $doc = $(document.createDocumentFragment())

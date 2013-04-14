@@ -1,12 +1,10 @@
-define(['jquery', 'lib/classy', 'lib/ext/jquery.ae.image.resize'], function($, classy) {
+define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, Control) {
   "use strict";
 
-  return classy({
+  return Control({
     init: function(element, options) {
-      this.element = $(element)
       this.appstate = options.appstate
       this.rules = options.rules
-      this.wire()
       return this
     },
     $: function(selector) {
@@ -15,17 +13,15 @@ define(['jquery', 'lib/classy', 'lib/ext/jquery.ae.image.resize'], function($, c
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
     },
-    wire: function() {
-      this.element.on('click', 'li a', function() {
-        $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
-        $(this).find('[title]').each(function() {
-          var title = $(this).attr('title')
-          $('.zoom [title="'+title+'"]').html($(this).html())
-        })
-        $('.zoom img')
-          .attr('src', $(this).find('img').attr('src'))
-          .aeImageResize({width: 150})
+    'li a click': function(a) {
+      $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
+      $(a).find('[title]').each(function() {
+        var title = $(this).attr('title')
+        $('.zoom [title="'+title+'"]').html($(this).html())
       })
+      $('.zoom img')
+        .attr('src', $(a).find('img').attr('src'))
+        .aeImageResize({width: 150})
     },
     show: function() {
       var nw = this.rules.bolt(this.appstate.data.bolt).perfect()
