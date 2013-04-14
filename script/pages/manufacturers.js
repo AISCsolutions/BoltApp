@@ -5,38 +5,15 @@ define(['jquery', 'lib/classy', 'tables/manufacturers', 'appstate', 'controls/ma
     return $(el).parents('li')[0]
   }
 
-  return classy({
-    init: function(element) {
+  var Index = classy({
+    init: function(element, options) {
       this.element = $(element)
+      this.list = options.list
       return this
     },
     wire: function() {
-      this.render()
-      this.wireList()
-      this.wireIndex()
-    },
-    $list: function() {
-      return this.element.find('.manufacturers')
-    },
-    $index: function() {
-      return this.element.find('.index')
-    },
-    wireList: function() {
-      this.$list().on('click',  'li a[href="#bolt-id"]', function() {
-        appstate.data.bolt.manufacturer = new Mfg(li(this)).read()
-        appstate.save()
-      })
-
-      this.$list().on('click',  'li a[href="#mfg-zoom"]', function() {
-        $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
-        var mfg = new Mfg(li(this)).read()
-        new Mfg('.zoom').write(mfg)
-        $('.zoom img').aeImageResize({width: 150})
-      })
-    },
-    wireIndex: function() {
       var list = this
-      this.$index().on('click', 'li', function(event) {
+      this.element.on('click', 'li', function(event) {
         event.stopPropagation()
         var index = list.indexPositions()
         var letter = $(this).html()[0]
@@ -45,11 +22,11 @@ define(['jquery', 'lib/classy', 'tables/manufacturers', 'appstate', 'controls/ma
     },
     indexPositions: function() {
       var index = {}
-      this.$index().find('li').each(function() {
+      this.element.find('li').each(function() {
         index[$(this).html()] = 0
       })
 
-      this.$list().find('.name').each(function() {
+      this.list.element.find('.name').each(function() {
         var name = $(this).html()
         var y = $(this).offsetParent().offset().top
         if (index[name[0]] === 0) {
@@ -68,16 +45,50 @@ define(['jquery', 'lib/classy', 'tables/manufacturers', 'appstate', 'controls/ma
 
       return index
     },
+  })
+
+  var List = classy({
+    init: function(element) {
+      this.element = $(element)
+      this.render()
+      return this
+    },
+    wire: function() {
+      this.element.on('click',  'li a[href="#bolt-id"]', function() {
+        appstate.data.bolt.manufacturer = new Mfg(li(this)).read()
+        appstate.save()
+      })
+
+      this.element.on('click',  'li a[href="#mfg-zoom"]', function() {
+        $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
+        var mfg = new Mfg(li(this)).read()
+        new Mfg('.zoom').write(mfg)
+        $('.zoom img').aeImageResize({width: 150})
+      })
+    },
     render: function () {
       var $doc = $(document.createDocumentFragment())
       manufacturers.forEach(function(mfg) {
         Mfg.render().write(mfg).element.appendTo($doc)
       })
-      var $list = this.$list().empty().append($doc.children())
+      var $list = this.element.empty().append($doc.children())
       if ($list.hasClass('ui-listview')) {
         $list.listview('refresh')
       }
       return this
     }
+  })
+
+  return classy({
+    init: function(element) {
+      this.element = $(element)
+      this.list = new List(this.element.find('.manufacturers'))
+      this.index = new Index(this.element.find('index'), {list: this.list})
+      return this
+    },
+    wire: function() {
+      this.list.wire()
+      this.index.wire()
+    },
   })
 })
