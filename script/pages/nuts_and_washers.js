@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery', 'lib/ext/jquery.ae.image.resize'], function($) {
   "use strict";
 
   return {
@@ -25,7 +25,9 @@ define(['jquery'], function($) {
           var title = $(this).attr('title')
           $('.zoom [title="'+title+'"]').html($(this).html())
         })
-        $('.zoom img').attr('src', $(this).find('img').attr('src'))
+        $('.zoom img')
+          .attr('src', $(this).find('img').attr('src'))
+          .aeImageResize({width: 150})
       })
     },
     show: function() {

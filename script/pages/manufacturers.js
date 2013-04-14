@@ -1,4 +1,4 @@
-define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', 'controls/shared_ui'], function($, manufacturers, appstate, Mfg, ui) {
+define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', 'controls/shared_ui', 'lib/ext/jquery.ae.image.resize'], function($, manufacturers, appstate, Mfg, ui) {
   "use strict";
 
   var indexPositions = function() {
@@ -53,6 +53,7 @@ define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', '
         $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
         var mfg = Mfg.clone(li(this)).read()
         Mfg.clone('.zoom').write(mfg)
+        $('.zoom img').aeImageResize({width: 150})
       })
     },
     wireIndex: function() {
