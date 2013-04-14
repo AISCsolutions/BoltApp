@@ -1,11 +1,11 @@
-define(['jquery', 'appstate'], function($, appstate) {
+define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   "use strict";
 
   var scrollTo = function(x) {
     $('.diagrams ul').animate({'margin-left': x}, 400)
   }
 
-  return {
+  return classy({
     show: function() {
       $('label[for="'+appstate.data.diagram+'-select"]').click()
     },
@@ -47,5 +47,5 @@ define(['jquery', 'appstate'], function($, appstate) {
         washerDiagram.show()
       })
     }
-  }
+  })
 })

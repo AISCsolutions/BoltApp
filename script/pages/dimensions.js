@@ -22,10 +22,10 @@ define([
   "use strict";
 
   /* Dimensions - diagram */
-  var standardBoltDiagram = Diagram.clone('#standard-bolt-diagram')
-  var tcBoltDiagram = Diagram.clone('#tc-bolt-diagram')
-  var nutDiagram = Diagram.clone('#nut-diagram')
-  var washerDiagram = Diagram.clone('#washer-diagram')
+  var standardBoltDiagram = new Diagram().init('#standard-bolt-diagram')
+  var tcBoltDiagram = new Diagram().init('#tc-bolt-diagram')
+  var nutDiagram = new Diagram().init('#nut-diagram')
+  var washerDiagram = new Diagram().init('#washer-diagram')
 
   var currentMeasures = function() {
     var fraction = appstate.diameterFraction()
@@ -55,6 +55,9 @@ define([
     $('.diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
+  var select = new DiagramSelect()
+  var diameter = new Diameter()
+
   return classy({
     standardBoltDiagram: standardBoltDiagram,
     tcBoltDiagram: tcBoltDiagram,
@@ -62,8 +65,8 @@ define([
     washerDiagram: washerDiagram,
     setDiagramSize: function() {
       var contentHeight = ui.contentHeight()
-      var selectHeight = DiagramSelect.height()
-      var diameterHeight = Diameter.height()
+      var selectHeight = select.height()
+      var diameterHeight = diameter().height()
       var height = contentHeight - selectHeight - diameterHeight
       var debug = [height, contentHeight, selectHeight, diameterHeight]
       if (height < 150) { height = 150 }
@@ -72,13 +75,13 @@ define([
       updateMeasurements()
     },
     show: function() {
-      DiagramSelect.show()
-      Diameter.show()
+      select.show()
+      diameter.show()
       setTimeout(this.setDiagramSize.bind(this), 0)
     },
     wire: function() {
-      DiagramSelect.wire(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram)
-      Diameter.wire(updateMeasurements)
+      select.wire(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram)
+      diameter.wire(updateMeasurements)
     }
   })
 })

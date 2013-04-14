@@ -1,7 +1,7 @@
-define(['jquery', 'appstate'], function($, appstate) {
+define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   "use strict";
 
-  return {
+  return classy({
     $el: function() {
       return $('.diameter')
     },
@@ -53,5 +53,5 @@ define(['jquery', 'appstate'], function($, appstate) {
       this.render()
       setTimeout(this.positionMarks.bind(this), 0)
     }
-  }
+  })
 })

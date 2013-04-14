@@ -1,8 +1,8 @@
-define(['jquery'], function($) {
+define(['jquery', 'lib/classy'], function($, classy) {
   "use strict";
 
-  return {
-    clone: function(selector) {
+  var Mfg = classy({
+    init: function(selector) {
       this.selector = selector
       return this
     },
@@ -26,16 +26,19 @@ define(['jquery'], function($) {
       $el.find('.website.html').html(mfg.website)
       $el.find('.bolt').attr('src', 'images/bolts/'+mfg.bolt+'.png')
       return this
-    },
-    render: function() {
-      var template = '<li><a href="#bolt-id">\
-        <img class="bolt" src="">\
-        <h2 class="name">Name</h2>\
-        <p class="location">Location</p>\
-        <a class="website" href="">Webpage</a>\
-        <a href="#mfg-zoom" data-rel="dialog" data-icon="search">Show</a>\
-      </a></li>'
-      return this.clone($(template))
     }
+  })
+
+  Mfg.render = function() {
+    var template = '<li><a href="#bolt-id">\
+      <img class="bolt" src="">\
+      <h2 class="name">Name</h2>\
+      <p class="location">Location</p>\
+      <a class="website" href="">Webpage</a>\
+      <a href="#mfg-zoom" data-rel="dialog" data-icon="search">Show</a>\
+    </a></li>'
+    return new Mfg().init($(template))
   }
+
+  return Mfg
 })

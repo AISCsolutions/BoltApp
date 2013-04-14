@@ -1,11 +1,10 @@
-define(['jquery', 'fraction'], function($, Fraction) {
+define(['jquery', 'lib/classy', 'fraction'], function($, classy, Fraction) {
   "use strict";
 
-  return {
-    clone: function(selector) {
-      var my = Object.create(this)
-      my.selector = selector
-      return my
+  return classy({
+    init: function(selector) {
+      this.selector = selector
+      return this
     },
     $: function(selector) {
       return $(this.selector).find(selector)
@@ -94,5 +93,5 @@ define(['jquery', 'fraction'], function($, Fraction) {
         console.log(diagram.ux(mousex), diagram.uy(mousey))
       })
     }
-  }
+  })
 })
