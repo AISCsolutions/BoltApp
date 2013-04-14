@@ -44,20 +44,20 @@ define([
       $('#dimensions').on('pageshow', dimensions.show.bind(dimensions))
       $(window).on('resize', dimensions.show.bind(dimensions))
 
-      var nw = new NutsAndWashers().init('#nuts-and-washers', appstate, Rules)
+      var nw = new NutsAndWashers().init('#nuts-and-washers', {appstate: appstate, rules: Rules})
       nw.wire()
       $('#nuts-and-washers').on('pagebeforeshow', nw.show.bind(nw))
       $('#nuts-and-washers').on('pageshow', function() {ui.finishChanged(appstate.data.bolt)})
 
-      var grades = new Grades()
+      var grades = new Grades().init('#grade [data-role="content"]')
       grades.wire()
       $('#grade').on('pagebeforeshow', grades.show.bind(grades))
 
-      var finishes = new Finishes().init(Rules)
+      var finishes = new Finishes().init('#finish [data-role="content"]', {rules: Rules})
       finishes.wire()
       $('#finish').on('pagebeforeshow', finishes.show.bind(finishes))
 
-      var manufacturers = new Manufacturers().wire()
+      var manufacturers = new Manufacturers().init('#manufacturer').wire()
 
       if ($.mobile.activePage) { // sometimes it beats us
         $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')

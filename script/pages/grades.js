@@ -2,6 +2,10 @@ define(['jquery', 'lib/classy', 'appstate', 'rules'], function($, classy, appsta
   "use strict";
 
   return classy({
+    init: function(element) {
+      this.element = $(element)
+      return this
+    },
     current: function() {
       return Rules.bolt(appstate.data.bolt).anyGrade().allowedGrades()
     },
@@ -20,14 +24,11 @@ define(['jquery', 'lib/classy', 'appstate', 'rules'], function($, classy, appsta
         $el.find('img').attr('src', 'images/bolts/'+name+'-'+appstate.data.bolt.type+'.png')
       })
     },
-    $el: function() {
-      return $('#grade [data-role="content"]')
-    },
     $: function(selector) {
-      return this.$el().find(selector)
+      return this.element.find(selector)
     },
     wire: function() {
-      this.$el().on('click', 'li a', function() {
+      this.element.on('click', 'li a', function() {
         appstate.data.bolt.grade = $(this).find('h2').text()
         appstate.save()
       })

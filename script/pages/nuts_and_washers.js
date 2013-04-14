@@ -2,23 +2,20 @@ define(['jquery', 'lib/classy', 'lib/ext/jquery.ae.image.resize'], function($, c
   "use strict";
 
   return classy({
-    init: function(selector, appstate, rules) {
-      this.selector = selector
-      this.appstate = appstate
-      this.rules = rules
+    init: function(element, options) {
+      this.element = $(element)
+      this.appstate = options.appstate
+      this.rules = options.rules
       return this
     },
-    $el: function() {
-      return $(this.selector)
-    },
     $: function(selector) {
-      return this.$el().find(selector)
+      return this.element.find(selector)
     },
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
     },
     wire: function() {
-      this.$el().on('click', 'li a', function() {
+      this.element.on('click', 'li a', function() {
         $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
         $(this).find('[title]').each(function() {
           var title = $(this).attr('title')

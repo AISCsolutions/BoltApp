@@ -14,9 +14,10 @@ define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], fun
 
   return classy({
     finishes: [],
-    init: function(rules) {
-      this.rules = rules
-      this.finishes = finishes(rules)
+    init: function(element, options) {
+      this.element = $(element)
+      this.rules = options.rules
+      this.finishes = finishes(this.rules)
       return this
     },
     current: function() {
@@ -35,13 +36,10 @@ define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], fun
       return this
     },
     $: function(selector) {
-      return $('#finish [data-role="content"]').find(selector)
-    },
-    $el: function() {
-      return $('#finish [data-role="content"]')
+      return this.element.find(selector)
     },
     wire: function() {
-      this.$el().on('click', 'li a', function() {
+      this.element.on('click', 'li a', function() {
         appstate.data.bolt.finish = $(this).find('h2').text()
         appstate.save()
         ui.finishChanged(appstate.data.bolt)
