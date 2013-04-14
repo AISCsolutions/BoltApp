@@ -4,7 +4,8 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   return classy({
     init: function(element, options) {
       this.element = $(element)
-      this.wire(options.callback)
+      this.callback = options.callback
+      this.wire()
       return this
     },
     height: function() {
@@ -17,7 +18,8 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       //console.log(height, base, topMargin, bottomMargin, sliderMargin)
       return height
     },
-    wire: function(callback) {
+    wire: function() {
+      var callback = this.callback
       this.element.find('input').val(appstate.data.bolt.diameter).change()
       this.element.on('change', 'input', function() {
         var value = $(this).val()

@@ -8,7 +8,11 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   return classy({
     init: function(element, options) {
       this.element = $(element)
-      this.wire(options)
+      this.standardBoltDiagram = options.standardBoltDiagram
+      this.tcBoltDiagram = options.tcBoltDiagram
+      this.nutDiagram = options.nutDiagram
+      this.washerDiagram = options.washerDiagram
+      this.wire()
       return this
     },
     show: function() {
@@ -23,7 +27,8 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       //console.log(height, base, topMargin, bottomMargin)
       return height
     },
-    wire: function(o) {
+    wire: function() {
+      var o = this
       $('#bolt-select').on('change', function() {
         scrollTo(0)
         appstate.data.diagram = 'bolt'
