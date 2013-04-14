@@ -1,5 +1,6 @@
 define([
   'jquery',
+  'lib/classy',
   'appstate',
   'fraction',
   'tables/measurements',
@@ -9,6 +10,7 @@ define([
   'controls/diameter'
 ], function(
   $,
+  classy,
   appstate,
   Fraction,
   measurements,
@@ -53,7 +55,7 @@ define([
     $('.diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
-  return {
+  return classy({
     standardBoltDiagram: standardBoltDiagram,
     tcBoltDiagram: tcBoltDiagram,
     nutDiagram: nutDiagram,
@@ -78,5 +80,5 @@ define([
       DiagramSelect.wire(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram)
       Diameter.wire(updateMeasurements)
     }
-  }
+  })
 })

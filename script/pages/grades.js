@@ -1,7 +1,7 @@
-define(['jquery', 'appstate', 'rules'], function($, appstate, Rules) {
+define(['jquery', 'lib/classy', 'appstate', 'rules'], function($, classy, appstate, Rules) {
   "use strict";
 
-  return {
+  return classy({
     current: function() {
       return Rules.bolt(appstate.data.bolt).anyGrade().allowedGrades()
     },
@@ -35,5 +35,5 @@ define(['jquery', 'appstate', 'rules'], function($, appstate, Rules) {
     show: function() {
       this.update()
     }
-  }
+  })
 })

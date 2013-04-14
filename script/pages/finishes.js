@@ -1,4 +1,4 @@
-define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, colors, appstate, ui) {
+define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], function($, classy, colors, appstate, ui) {
   "use strict";
 
   var finishes = function(rules) {
@@ -12,13 +12,12 @@ define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, color
     return Object.keys(kinds).sort().map(function(x) {return kinds[x]})
   }
 
-  return {
+  return classy({
     finishes: [],
-    clone: function(rules) {
-      var dup = Object.create(this)
-      dup.rules = rules
-      dup.finishes = finishes(rules)
-      return dup
+    init: function(rules) {
+      this.rules = rules
+      this.finishes = finishes(rules)
+      return this
     },
     current: function() {
       return this.rules.bolt(appstate.data.bolt).anyFinish().allowedFinishes()
@@ -69,5 +68,5 @@ define(['jquery', 'finish', 'appstate', 'controls/shared_ui'], function($, color
       }
       return this
     }
-  }
+  })
 })

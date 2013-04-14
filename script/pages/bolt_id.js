@@ -1,4 +1,4 @@
-define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared_ui'], function($, appstate, Rules, Mfg, ui) {
+define(['jquery', 'lib/classy', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared_ui', 'lib/classy'], function($, classy, appstate, Rules, Mfg, ui) {
   "use strict";
 
   var setupType = function() {
@@ -42,7 +42,7 @@ define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared
     Mfg.clone('#manufacturer-select').write(appstate.data.bolt.manufacturer)
   }
 
-  return {
+  return classy({
     wire: function() {
       setupType()
     },
@@ -52,5 +52,5 @@ define(['jquery', 'appstate', 'rules', 'controls/manufacturer', 'controls/shared
       updateFinish()
       updateManufacturer()
     }
-  }
+  })
 })

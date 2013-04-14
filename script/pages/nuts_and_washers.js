@@ -1,13 +1,12 @@
-define(['jquery', 'lib/ext/jquery.ae.image.resize'], function($) {
+define(['jquery', 'lib/classy', 'lib/ext/jquery.ae.image.resize'], function($, classy) {
   "use strict";
 
-  return {
-    clone: function(selector, appstate, rules) {
-      var dup = Object.create(this)
-      dup.selector = selector
-      dup.appstate = appstate
-      dup.rules = rules
-      return dup
+  return classy({
+    init: function(selector, appstate, rules) {
+      this.selector = selector
+      this.appstate = appstate
+      this.rules = rules
+      return this
     },
     $el: function() {
       return $(this.selector)
@@ -72,5 +71,5 @@ define(['jquery', 'lib/ext/jquery.ae.image.resize'], function($) {
       })
       return this
     }
-  }
+  })
 })

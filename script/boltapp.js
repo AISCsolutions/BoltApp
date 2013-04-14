@@ -27,33 +27,37 @@ define([
 
   appstate.load()
 
+  var dimensions = new Dimensions
+
   return {
-    dimensions: Dimensions,
+    dimensions: dimensions,
     ready: function() {
       //if (! $.support.fixedPosition) { ui.softwareScroll() }
 
       ui.setup(appstate.data.bolt)
 
-      BoltId.wire()
-      $('#bolt-id').on('pagebeforeshow', BoltId.show.bind(BoltId))
+      var boltid = new BoltId()
+      boltid.wire()
+      $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))
 
-      Dimensions.wire()
-      $('#dimensions').on('pageshow', Dimensions.show.bind(Dimensions))
-      $(window).on('resize', Dimensions.show.bind(Dimensions))
+      dimensions.wire()
+      $('#dimensions').on('pageshow', dimensions.show.bind(dimensions))
+      $(window).on('resize', dimensions.show.bind(dimensions))
 
-      var nw = NutsAndWashers.clone('#nuts-and-washers', appstate, Rules)
+      var nw = new NutsAndWashers().init('#nuts-and-washers', appstate, Rules)
       nw.wire()
       $('#nuts-and-washers').on('pagebeforeshow', nw.show.bind(nw))
       $('#nuts-and-washers').on('pageshow', function() {ui.finishChanged(appstate.data.bolt)})
 
-      Grades.wire()
-      $('#grade').on('pagebeforeshow', Grades.show.bind(Grades))
+      var grades = new Grades()
+      grades.wire()
+      $('#grade').on('pagebeforeshow', grades.show.bind(grades))
 
-      var finishes = Finishes.clone(Rules)
+      var finishes = new Finishes().init(Rules)
       finishes.wire()
       $('#finish').on('pagebeforeshow', finishes.show.bind(finishes))
 
-      Manufacturers.wire()
+      var manufacturers = new Manufacturers().wire()
 
       if ($.mobile.activePage) { // sometimes it beats us
         $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')

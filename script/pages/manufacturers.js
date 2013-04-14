@@ -1,4 +1,4 @@
-define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', 'controls/shared_ui', 'lib/ext/jquery.ae.image.resize'], function($, manufacturers, appstate, Mfg, ui) {
+define(['jquery', 'lib/classy', 'tables/manufacturers', 'appstate', 'controls/manufacturer', 'controls/shared_ui', 'lib/ext/jquery.ae.image.resize'], function($, classy, manufacturers, appstate, Mfg, ui) {
   "use strict";
 
   var indexPositions = function() {
@@ -31,7 +31,7 @@ define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', '
     return $(el).parents('li')[0]
   }
 
-  return {
+  return classy({
     wire: function() {
       this.render()
       this.wireList()
@@ -75,5 +75,5 @@ define(['jquery', 'tables/manufacturers', 'appstate', 'controls/manufacturer', '
       }
       return this
     }
-  }
+  })
 })
