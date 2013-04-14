@@ -2,8 +2,9 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   "use strict";
 
   return classy({
-    init: function(element) {
+    init: function(element, options) {
       this.element = $(element)
+      this.wire(options.callback)
       return this
     },
     height: function() {

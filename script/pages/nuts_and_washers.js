@@ -6,6 +6,7 @@ define(['jquery', 'lib/classy', 'lib/ext/jquery.ae.image.resize'], function($, c
       this.element = $(element)
       this.appstate = options.appstate
       this.rules = options.rules
+      this.wire()
       return this
     },
     $: function(selector) {

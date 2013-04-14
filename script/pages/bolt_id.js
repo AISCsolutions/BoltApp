@@ -43,7 +43,7 @@ define(['jquery', 'lib/classy', 'appstate', 'rules', 'controls/manufacturer', 'c
   }
 
   return classy({
-    wire: function() {
+    init: function() {
       setupType()
     },
     show: function() {

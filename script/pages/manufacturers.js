@@ -17,10 +17,6 @@ define([
       this.list = new List(this.element.find('.manufacturers'))
       this.index = new Index(this.element.find('.index'), {list: this.list})
       return this
-    },
-    wire: function() {
-      this.list.wire()
-      this.index.wire()
     }
   })
 })

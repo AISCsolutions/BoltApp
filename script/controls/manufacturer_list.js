@@ -21,6 +21,7 @@ function($,
     init: function(element) {
       this.element = $(element)
       this.render()
+      this.wire()
       return this
     },
     wire: function() {

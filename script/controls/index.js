@@ -31,6 +31,7 @@ define(['jquery', 'lib/classy', 'controls/shared_ui'], function($, classy, ui) {
     init: function(element, options) {
       this.element = $(element)
       this.list = options.list
+      this.wire()
       return this
     },
     wire: function() {

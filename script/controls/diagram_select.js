@@ -6,8 +6,9 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   }
 
   return classy({
-    init: function(element) {
+    init: function(element, options) {
       this.element = $(element)
+      this.wire(options)
       return this
     },
     show: function() {
@@ -22,33 +23,33 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       //console.log(height, base, topMargin, bottomMargin)
       return height
     },
-    wire: function(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram) {
+    wire: function(o) {
       $('#bolt-select').on('change', function() {
         scrollTo(0)
         appstate.data.diagram = 'bolt'
         appstate.save()
-        standardBoltDiagram.show()
-        tcBoltDiagram.show()
-        nutDiagram.hide()
-        washerDiagram.hide()
+        o.standardBoltDiagram.show()
+        o.tcBoltDiagram.show()
+        o.nutDiagram.hide()
+        o.washerDiagram.hide()
       })
       $('#nut-select').on('change', function() {
         scrollTo(-$('.diagrams').width())
         appstate.data.diagram = 'nut'
         appstate.save()
-        standardBoltDiagram.hide()
-        tcBoltDiagram.hide()
-        nutDiagram.show()
-        washerDiagram.hide()
+        o.standardBoltDiagram.hide()
+        o.tcBoltDiagram.hide()
+        o.nutDiagram.show()
+        o.washerDiagram.hide()
       })
       $('#washer-select').on('change', function() {
         scrollTo(-$('.diagrams').width()*2)
         appstate.data.diagram = 'washer'
         appstate.save()
-        standardBoltDiagram.hide()
-        tcBoltDiagram.hide()
-        nutDiagram.hide()
-        washerDiagram.show()
+        o.standardBoltDiagram.hide()
+        o.tcBoltDiagram.hide()
+        o.nutDiagram.hide()
+        o.washerDiagram.show()
       })
     }
   })

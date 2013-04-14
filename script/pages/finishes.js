@@ -18,6 +18,7 @@ define(['jquery', 'lib/classy', 'finish', 'appstate', 'controls/shared_ui'], fun
       this.element = $(element)
       this.rules = options.rules
       this.finishes = finishes(this.rules)
+      this.wire()
       return this
     },
     current: function() {

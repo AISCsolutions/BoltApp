@@ -55,9 +55,6 @@ define([
     $('.diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
-  var select = new DiagramSelect('.diagram-select')
-  var diameter = new Diameter('.diameter')
-
   return classy({
     standardBoltDiagram: standardBoltDiagram,
     tcBoltDiagram: tcBoltDiagram,
@@ -65,8 +62,8 @@ define([
     washerDiagram: washerDiagram,
     setDiagramSize: function() {
       var contentHeight = ui.contentHeight()
-      var selectHeight = select.height()
-      var diameterHeight = diameter.height()
+      var selectHeight = this.select.height()
+      var diameterHeight = this.diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
       var debug = [height, contentHeight, selectHeight, diameterHeight]
       if (height < 150) { height = 150 }
@@ -74,14 +71,14 @@ define([
       //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
       updateMeasurements()
     },
-    show: function() {
-      select.show()
-      diameter.show()
-      setTimeout(this.setDiagramSize.bind(this), 0)
+    init: function() {
+      this.select = new DiagramSelect('.diagram-select', this)
+      this.diameter = new Diameter('.diameter', {callback: updateMeasurements})
     },
-    wire: function() {
-      select.wire(standardBoltDiagram, tcBoltDiagram, nutDiagram, washerDiagram)
-      diameter.wire(updateMeasurements)
+    show: function() {
+      this.select.show()
+      this.diameter.show()
+      setTimeout(this.setDiagramSize.bind(this), 0)
     }
   })
 })

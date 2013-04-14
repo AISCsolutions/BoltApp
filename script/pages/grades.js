@@ -4,6 +4,7 @@ define(['jquery', 'lib/classy', 'appstate', 'rules'], function($, classy, appsta
   return classy({
     init: function(element) {
       this.element = $(element)
+      this.wire()
       return this
     },
     current: function() {
