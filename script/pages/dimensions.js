@@ -55,8 +55,8 @@ define([
     $('.diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
-  var select = new DiagramSelect()
-  var diameter = new Diameter()
+  var select = new DiagramSelect().init('.diagram-select')
+  var diameter = new Diameter().init('.diameter')
 
   return classy({
     standardBoltDiagram: standardBoltDiagram,
@@ -66,7 +66,7 @@ define([
     setDiagramSize: function() {
       var contentHeight = ui.contentHeight()
       var selectHeight = select.height()
-      var diameterHeight = diameter().height()
+      var diameterHeight = diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
       var debug = [height, contentHeight, selectHeight, diameterHeight]
       if (height < 150) { height = 150 }

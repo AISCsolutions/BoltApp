@@ -6,11 +6,15 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   }
 
   return classy({
+    init: function(element) {
+      this.element = $(element)
+      return this
+    },
     show: function() {
       $('label[for="'+appstate.data.diagram+'-select"]').click()
     },
     height: function() {
-      var $el = $('.diagram-select')
+      var $el = this.element
       var base = $el.height()
       var topMargin = parseInt($el.find('fieldset').css('margin-top'), 10)
       var bottomMargin = parseInt($el.find('fieldset').css('margin-bottom'), 10)

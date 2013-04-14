@@ -2,11 +2,12 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
   "use strict";
 
   return classy({
-    $el: function() {
-      return $('.diameter')
+    init: function(element) {
+      this.element = $(element)
+      return this
     },
     height: function() {
-      var $el = this.$el()
+      var $el = this.element
       var base = $el.height()
       var topMargin = parseInt($el.css('margin-top'), 10)
       var bottomMargin = parseInt($el.css('margin-bottom'), 10)
@@ -16,8 +17,8 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       return height
     },
     wire: function(callback) {
-      this.$el().find('input').val(appstate.data.bolt.diameter).change()
-      this.$el().on('change', 'input', function() {
+      this.element.find('input').val(appstate.data.bolt.diameter).change()
+      this.element.on('change', 'input', function() {
         var value = $(this).val()
         if (appstate.data.bolt.diameter != value) {
           appstate.data.bolt.diameter = value
@@ -27,7 +28,7 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       })
     },
     render: function() {
-      var $el = this.$el()
+      var $el = this.element
       var $slider = $el.find('.ui-slider-track')
       if ($slider.find('.slider-mark').length > 0) {return}
       var points = appstate.diameterInches
@@ -37,7 +38,7 @@ define(['jquery', 'lib/classy', 'appstate'], function($, classy, appstate) {
       }
     },
     positionMarks: function() {
-      var $el = this.$el()
+      var $el = this.element
       var $slider = $el.find('.ui-slider-track')
       var width = $slider.width()
       var points = appstate.diameterInches

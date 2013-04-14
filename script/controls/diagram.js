@@ -2,15 +2,12 @@ define(['jquery', 'lib/classy', 'fraction'], function($, classy, Fraction) {
   "use strict";
 
   return classy({
-    init: function(selector) {
-      this.selector = selector
+    init: function(element) {
+      this.element = $(element)
       return this
     },
     $: function(selector) {
-      return $(this.selector).find(selector)
-    },
-    $el: function() {
-      return $(this.selector)
+      return this.element.find(selector)
     },
     $measure: function(name) {
       return this.$('[title="'+name+'"]')
@@ -22,7 +19,7 @@ define(['jquery', 'lib/classy', 'fraction'], function($, classy, Fraction) {
     hide: function() {
     },
     ready: function() {
-      var $diagram = $(this.selector)
+      var $diagram = this.element
       var bo = $diagram.offset()
 
       var image = $diagram.find('img')
@@ -86,7 +83,7 @@ define(['jquery', 'lib/classy', 'fraction'], function($, classy, Fraction) {
     interactivePlace: function(measurement) {
       var diagram = this
       $(document).on('mousemove', function(e) {
-        var offset = diagram.$el().offset()
+        var offset = diagram.element.offset()
         var mousex = e.pageX - offset.left
         var mousey = e.pageY - offset.top
         diagram.placeAt(diagram.$measure(measurement), mousex, mousey)

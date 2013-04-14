@@ -71,7 +71,7 @@ define(['jquery', 'lib/classy', 'tables/manufacturers', 'appstate', 'controls/ma
     render: function () {
       var $doc = $(document.createDocumentFragment())
       manufacturers.forEach(function(mfg) {
-        Mfg.render().write(mfg).$el().appendTo($doc)
+        Mfg.render().write(mfg).element.appendTo($doc)
       })
       var $list = this.$list().empty().append($doc.children())
       if ($list.hasClass('ui-listview')) {

@@ -2,15 +2,12 @@ define(['jquery', 'lib/classy'], function($, classy) {
   "use strict";
 
   var Mfg = classy({
-    init: function(selector) {
-      this.selector = selector
+    init: function(element) {
+      this.element = $(element)
       return this
     },
-    $el: function() {
-      return $(this.selector)
-    },
     read: function() {
-      var $el = this.$el()
+      var $el = this.element
       return {
         name: $el.find('.name').html(),
         location: $el.find('.location').html(),
@@ -19,7 +16,7 @@ define(['jquery', 'lib/classy'], function($, classy) {
       }
     },
     write: function(mfg) {
-      var $el = this.$el()
+      var $el = this.element
       $el.find('.name').html(mfg.name)
       $el.find('.location').html(mfg.location)
       $el.find('.website').attr('href', mfg.website)
