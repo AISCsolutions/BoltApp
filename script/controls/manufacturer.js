@@ -34,7 +34,7 @@ define(['jquery', 'lib/classy'], function($, classy) {
       <a class="website" href="">Webpage</a>\
       <a href="#mfg-zoom" data-rel="dialog" data-icon="search">Show</a>\
     </a></li>'
-    return new Mfg().init($(template))
+    return new Mfg($(template))
   }
 
   return Mfg

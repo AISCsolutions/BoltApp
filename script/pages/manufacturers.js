@@ -23,14 +23,14 @@ define(['jquery', 'lib/classy', 'tables/manufacturers', 'appstate', 'controls/ma
     },
     wireList: function() {
       this.$list().on('click',  'li a[href="#bolt-id"]', function() {
-        appstate.data.bolt.manufacturer = new Mfg().init(li(this)).read()
+        appstate.data.bolt.manufacturer = new Mfg(li(this)).read()
         appstate.save()
       })
 
       this.$list().on('click',  'li a[href="#mfg-zoom"]', function() {
         $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
-        var mfg = new Mfg().init(li(this)).read()
-        new Mfg.init('.zoom').write(mfg)
+        var mfg = new Mfg(li(this)).read()
+        new Mfg('.zoom').write(mfg)
         $('.zoom img').aeImageResize({width: 150})
       })
     },

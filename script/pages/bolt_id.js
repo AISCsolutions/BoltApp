@@ -39,7 +39,7 @@ define(['jquery', 'lib/classy', 'appstate', 'rules', 'controls/manufacturer', 'c
   }
 
   var updateManufacturer = function() {
-    new Mfg().init('#manufacturer-select').write(appstate.data.bolt.manufacturer)
+    new Mfg('#manufacturer-select').write(appstate.data.bolt.manufacturer)
   }
 
   return classy({

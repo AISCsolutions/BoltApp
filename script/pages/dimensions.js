@@ -22,10 +22,10 @@ define([
   "use strict";
 
   /* Dimensions - diagram */
-  var standardBoltDiagram = new Diagram().init('#standard-bolt-diagram')
-  var tcBoltDiagram = new Diagram().init('#tc-bolt-diagram')
-  var nutDiagram = new Diagram().init('#nut-diagram')
-  var washerDiagram = new Diagram().init('#washer-diagram')
+  var standardBoltDiagram = new Diagram('#standard-bolt-diagram')
+  var tcBoltDiagram = new Diagram('#tc-bolt-diagram')
+  var nutDiagram = new Diagram('#nut-diagram')
+  var washerDiagram = new Diagram('#washer-diagram')
 
   var currentMeasures = function() {
     var fraction = appstate.diameterFraction()
@@ -55,8 +55,8 @@ define([
     $('.diameter-inches span').html(Fraction.clone(fraction).toString())
   }
 
-  var select = new DiagramSelect().init('.diagram-select')
-  var diameter = new Diameter().init('.diameter')
+  var select = new DiagramSelect('.diagram-select')
+  var diameter = new Diameter('.diameter')
 
   return classy({
     standardBoltDiagram: standardBoltDiagram,
