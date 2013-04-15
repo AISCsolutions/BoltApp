@@ -1,5 +1,6 @@
 define([
   'jquery',
+  'jquerymobile',
   'appstate',
   'rules',
   'controls/shared_ui',
@@ -13,6 +14,7 @@ define([
   'jquerymobile'
 ], function(
   $,
+  mobile,
   appstate,
   Rules,
   ui,
@@ -51,8 +53,8 @@ define([
 
       var manufacturers = new Manufacturers('#manufacturer')
 
-      if ($.mobile.activePage) { // sometimes it beats us
-        $.mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')
+      if (mobile.activePage) { // sometimes it beats us
+        mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')
       }
     }
   }

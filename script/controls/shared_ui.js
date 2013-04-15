@@ -1,14 +1,14 @@
-define(['jquery', 'finish'], function($, Finish) {
+define(['jquery', 'jquerymobile', 'finish'], function($, mobile, Finish) {
   var contentHeight = function(event) {
-    var headerHeight = $.mobile.activePage.find('[data-role="header"]').height() + 4
-    var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height() + 2
+    var headerHeight = mobile.activePage.find('[data-role="header"]').height() + 4
+    var footerHeight = mobile.activePage.find('[data-role="footer"]').height() + 2
     var windowHeight = $('body').height()
-    var topPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
-    var bottomPadding = parseInt($.mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
+    var topPadding = parseInt(mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
+    var bottomPadding = parseInt(mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
     var height = windowHeight - headerHeight - footerHeight - topPadding - bottomPadding;
     var cause = event ? event.type : ''
     var debug = [height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding, 'contentHeight', cause]
-    //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
+    //console.log(debug); mobile.activePage.append('<p>'+debug.toString()+'</p>')
     return height
   }
 
