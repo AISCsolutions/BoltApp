@@ -1,4 +1,4 @@
-define(['jquery', 'can/control', 'controls/shared_ui'], function($, Control, ui) {
+define(['jquery', 'can/control'], function($, Control) {
   "use strict";
 
   var indexPositions = function(element, list) {
@@ -36,7 +36,7 @@ define(['jquery', 'can/control', 'controls/shared_ui'], function($, Control, ui)
       event.stopPropagation()
       var index = indexPositions(this.element, this.list.element)
       var letter = $(li).html()[0]
-      ui.scrollTop(index[letter])
+      $(window).scrollTop(index[letter])
     }
   })
 })

@@ -1,6 +1,4 @@
-define(['jquery', 'finish', 'lib/ext/iscroll-lite'], function($, Finish) {
-  var scrollers = {}
-
+define(['jquery', 'finish'], function($, Finish) {
   var contentHeight = function(event) {
     var headerHeight = $.mobile.activePage.find('[data-role="header"]').height() + 4
     var footerHeight = $.mobile.activePage.find('[data-role="footer"]').height() + 2
@@ -17,17 +15,6 @@ define(['jquery', 'finish', 'lib/ext/iscroll-lite'], function($, Finish) {
   var setContentHeight = function(el, event) {
     $(el).css('height', contentHeight(event))
     //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
-  }
-
-  var softwareResize = function(event) {
-    setContentHeight('.ui-content', event)
-    if (scrollers[this.id]) {
-      scrollers[this.id].refresh()
-    } else {
-      var $el = $(this).find('[data-role="content"]')
-      $el.wrapInner('<div class="scrolling-region">')
-      scrollers[this.id] = new iScroll($el[0])
-    }
   }
 
   var gradeChanged = function(grade) {
@@ -58,19 +45,6 @@ define(['jquery', 'finish', 'lib/ext/iscroll-lite'], function($, Finish) {
       finishChanged(bolt)
     },
     contentHeight: contentHeight,
-    setContentHeight: setContentHeight,
-    softwareScroll: function() {
-      console.info('patching scroll for no fixed position')
-      $(document).on('pageshow', '[data-role="page"]', softwareResize)
-      $(document).on('resize', function(event) {softwareResize.call($.mobile.activePage, event)})
-    },
-    scrollTop: function(y) {
-      var target = scrollers[$.mobile.activePage[0].id]
-      if (target) {
-        target.scrollTo(0, -y)
-      } else {
-        $(window).scrollTop(y)
-      }
-    }
+    setContentHeight: setContentHeight
   }
 })

@@ -32,8 +32,6 @@ define([
   return {
     dimensions: dimensions,
     ready: function() {
-      //if (! $.support.fixedPosition) { ui.softwareScroll() }
-
       ui.setup(appstate.data.bolt)
 
       var boltid = new BoltId()
