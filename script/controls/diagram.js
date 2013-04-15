@@ -12,8 +12,6 @@ define(['jquery', 'can/control', 'fraction'], function($, Control, Fraction) {
       var my = this
       setTimeout(function() {my.ready()}, 0)
     },
-    hide: function() {
-    },
     ready: function() {
       var $diagram = this.element
       var bo = $diagram.offset()

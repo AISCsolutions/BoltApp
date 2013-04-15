@@ -6,6 +6,7 @@ define([
   'tables/measurements',
   'controls/shared_ui',
   'controls/diagram_select',
+  'controls/diagram_slider',
   'controls/diagram',
   'controls/diameter'
 ], function(
@@ -16,6 +17,7 @@ define([
   measurements,
   ui,
   DiagramSelect,
+  DiagramSlider,
   Diagram,
   Diameter
 ) {
@@ -80,11 +82,20 @@ define([
       updateGrade()
     },
     init: function() {
+      this.slider = new DiagramSlider('.diagrams', {
+        appstate: appstate,
+        parts: {
+          bolt: {index: 0, controls: [standardBoltDiagram, tcBoltDiagram]},
+          nut: {index: 1, controls: [nutDiagram]},
+          washer: {index: 2, controls: [washerDiagram]}
+        }
+      })
       this.select = new DiagramSelect('.diagram-select', this)
       this.diameter = new Diameter('.diameter')
     },
     show: function() {
       this.select.show()
+      this.slider.show()
       this.diameter.show()
       setTimeout(this.setDiagramSize.bind(this), 0)
     }
