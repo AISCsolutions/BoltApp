@@ -48,14 +48,10 @@ define([
     washerDiagram.update(measures['Square Washer'])
   }
 
-  appstate.bind('bolt.diameter', updateMeasurements)
-
   var updateGrade = function() {
     standardBoltDiagram.update({Grade: appstate.get('bolt.grade')})
     tcBoltDiagram.update({Grade: appstate.get('bolt.grade')})
   }
-
-  appstate.bind('bolt.grade', updateGrade)
 
   /* Dimensions - diameter */
   var diameterDisplay = function(fraction) {
@@ -89,20 +85,27 @@ define([
           washer: {index: 2, controls: [washerDiagram]}
         }
       })
-      this.select = new Select('.diagram-select', this)
-      this.diameter = new Diameter('.diameter')
+      this.select = new Select('.diagram-select')
+      this.diameter = new Diameter('.diameter', {
+        settings: (Object.keys(appstate.diameterInches).length - 1)
+      })
 
       $('.diagram-select').bind('selected', function(ev, diagram) {
         appstate.set('diagram', diagram)
       })
-      appstate.bind('diagram', function(ev, value) {
-        slider.select(value)
+      appstate.bind('diagram', function(ev, value) { slider.select(value) })
+
+      $('.diameter').bind('selected', function(ev, diameter) {
+        appstate.set('bolt.diameter', diameter)
       })
+      appstate.bind('bolt.diameter', updateMeasurements)
+
+      appstate.bind('bolt.grade', updateGrade)
     },
     show: function() {
       this.select.select(appstate.get('diagram'))
       this.slider.select(appstate.get('diagram'))
-      this.diameter.show()
+      this.diameter.show().select(appstate.get('bolt.diameter'))
       setTimeout(this.setDiagramSize.bind(this), 0)
     }
   })

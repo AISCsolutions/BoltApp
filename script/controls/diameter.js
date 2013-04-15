@@ -1,10 +1,12 @@
-define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
+define(['jquery', 'can/control'], function($, Control) {
   "use strict";
 
   return Control({
     init: function(element, options) {
-      this.element.find('input').val(appstate.get('bolt.diameter')).change()
-      return this
+      this.settings = options.settings
+    },
+    select: function(value) {
+      this.element.find('input').val(value).change()
     },
     height: function() {
       var $el = this.element
@@ -17,15 +19,13 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
       return height
     },
     'input change': function(input) {
-      appstate.set('bolt.diameter', $(input).val())
+      input.trigger('selected', $(input).val())
     },
     render: function() {
       var $el = this.element
       var $slider = $el.find('.ui-slider-track')
       if ($slider.find('.slider-mark').length > 0) {return}
-      var points = appstate.diameterInches
-      var settings = (Object.keys(points).length - 1)
-      for (var i = 1; i < settings; i++) {
+      for (var i = 1; i < this.settings; i++) {
         $('<div class="slider-mark">').appendTo($slider)
       }
     },
@@ -33,9 +33,7 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
       var $el = this.element
       var $slider = $el.find('.ui-slider-track')
       var width = $slider.width()
-      var points = appstate.diameterInches
-      var settings = (Object.keys(points).length - 1)
-      var step = width / settings
+      var step = width / this.settings
       var left = step
       $slider.find('.slider-mark').each(function() {
         $(this).css('left', left)
@@ -44,7 +42,8 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
     },
     show: function() {
       this.render()
-      setTimeout(this.positionMarks.bind(this), 0)
+      setTimeout(this.positionMarks.bind(this), 10)
+      return this
     }
   })
 })
