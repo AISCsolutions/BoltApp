@@ -4,7 +4,6 @@ define([
   'appstate',
   'fraction',
   'tables/measurements',
-  'controls/shared_ui',
   'controls/select',
   'controls/slider',
   'controls/diagram',
@@ -15,7 +14,6 @@ define([
   appstate,
   Fraction,
   measurements,
-  ui,
   Select,
   Slider,
   Diagram,
@@ -70,7 +68,7 @@ define([
     nutDiagram: nutDiagram,
     washerDiagram: washerDiagram,
     setDiagramSize: function() {
-      var contentHeight = ui.contentHeight()
+      var contentHeight = this.body.contentHeight()
       var selectHeight = this.select.height()
       var diameterHeight = this.diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
@@ -81,7 +79,9 @@ define([
       updateMeasurements()
       updateGrade()
     },
-    init: function() {
+    init: function(element, options) {
+      this.body = options.body
+
       var slider = this.slider = new Slider('.diagrams', {
         parts: {
           bolt: {index: 0, controls: [standardBoltDiagram, tcBoltDiagram]},

@@ -3,7 +3,7 @@ define([
   'jquerymobile',
   'appstate',
   'rules',
-  'controls/shared_ui',
+  'controls/body',
   'pages/bolt_id',
   'pages/dimensions',
   'pages/nuts_and_washers',
@@ -17,7 +17,7 @@ define([
   mobile,
   appstate,
   Rules,
-  ui,
+  Body,
   BoltId,
   Dimensions,
   NutsAndWashers,
@@ -29,12 +29,13 @@ define([
 
   appstate.load()
 
-  var dimensions = new Dimensions
+  var body = new Body('body', {bolt: appstate.get('bolt')})
+  var dimensions = new Dimensions('#dimensions', {body: body})
 
   return {
     dimensions: dimensions,
     ready: function() {
-      ui.setup(appstate.data.bolt)
+      body.show()
 
       var boltid = new BoltId()
       $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))
