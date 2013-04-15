@@ -4,16 +4,14 @@ define([
   'appstate',
   'rules',
   'controls/type',
-  'controls/manufacturer',
-  'controls/shared_ui'
+  'controls/manufacturer'
 ], function(
   $,
   Control,
   appstate,
   Rules,
   Type,
-  Mfg,
-  ui
+  Mfg
 ) {
   "use strict";
 
