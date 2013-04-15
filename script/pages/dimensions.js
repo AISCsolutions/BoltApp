@@ -41,9 +41,7 @@ define([
     if (measurements.length < 1) { return }
     var measures = currentMeasures()
     diameterDisplay(measures.Bolt.Diameter)
-    standardBoltDiagram.update({Grade: appstate.get('bolt.grade')})
     standardBoltDiagram.update(measures['Bolt'])
-    tcBoltDiagram.update({Grade: appstate.get('bolt.grade')})
     tcBoltDiagram.update(measures['Bolt'])
     nutDiagram.update(measures['Nut'])
     washerDiagram.update(measures['Circular Washer'])
@@ -51,6 +49,13 @@ define([
   }
 
   appstate.bind('bolt.diameter', updateMeasurements)
+
+  var updateGrade = function() {
+    standardBoltDiagram.update({Grade: appstate.get('bolt.grade')})
+    tcBoltDiagram.update({Grade: appstate.get('bolt.grade')})
+  }
+
+  appstate.bind('bolt.grade', updateGrade)
 
   /* Dimensions - diameter */
   var diameterDisplay = function(fraction) {
@@ -72,6 +77,7 @@ define([
       $('.diagrams img').height(height)
       //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
       updateMeasurements()
+      updateGrade()
     },
     init: function() {
       this.select = new DiagramSelect('.diagram-select', this)
