@@ -16,12 +16,11 @@ define([
   "use strict";
 
   var setupType = function() {
-    $('label[for="type-'+appstate.data.bolt.type+'"]').click()
+    $('label[for="type-'+appstate.get('bolt.type')+'"]').click()
     $('.type input[type="radio"]').on('change', function() {
-      appstate.data.bolt.type = $(this).val()
-      appstate.save()
+      appstate.set('bolt.type', $(this).val())
       markIllegal()
-      ui.typeChanged(appstate.data.bolt)
+      ui.typeChanged(appstate.get('bolt'))
     })
   }
 
@@ -49,11 +48,11 @@ define([
   }
 
   var updateFinish = function() {
-    $('#finish-select .ui-btn-text').html(appstate.data.bolt.finish)
+    $('#finish-select .ui-btn-text').html(appstate.get('bolt.finish'))
   }
 
   var updateManufacturer = function() {
-    new Mfg('#manufacturer-select').write(appstate.data.bolt.manufacturer)
+    new Mfg('#manufacturer-select').write(appstate.get('bolt.manufacturer'))
   }
 
   return Control({

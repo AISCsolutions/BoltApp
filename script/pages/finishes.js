@@ -33,7 +33,7 @@ define([
       return this
     },
     current: function() {
-      return this.rules.bolt(appstate.data.bolt).anyFinish().allowedFinishes()
+      return this.rules.bolt(appstate.get('bolt')).anyFinish().allowedFinishes()
     },
     update: function() {
       var current = this.current()
@@ -51,8 +51,7 @@ define([
       return this.element.find(selector)
     },
     'li a click': function(a) {
-      appstate.data.bolt.finish = $(a).find('h2').text()
-      appstate.save()
+      appstate.set('bolt.finish', $(a).find('h2').text())
       ui.finishChanged(appstate.data.bolt)
     },
     show: function() {
@@ -65,7 +64,11 @@ define([
           attr('title', finish.name).
           appendTo($doc)
         var $container = $item.find('a')
-        $('<img>').attr('src', 'images/finishes/'+colors.colorFor({finish: finish.name, type: appstate.data.bolt.type})+'.jpeg').appendTo($container)
+        var color = colors.colorFor({
+          finish: finish.name,
+          type: appstate.get('bolt.type')
+        })
+        $('<img>').attr('src', 'images/finishes/'+color+'.jpeg').appendTo($container)
         $('<h2></h2>').html(finish.name).appendTo($container)
         $('<p></p>').html(finish.note).appendTo($container)
       })

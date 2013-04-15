@@ -27,8 +27,7 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
     },
     '#bolt-select change': function() {
       scrollTo(0)
-      appstate.data.diagram = 'bolt'
-      appstate.save()
+      appstate.set('diagram', 'bolt')
       this.standardBoltDiagram.show()
       this.tcBoltDiagram.show()
       this.nutDiagram.hide()
@@ -36,8 +35,7 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
     },
     '#nut-select change': function() {
       scrollTo(-$('.diagrams').width())
-      appstate.data.diagram = 'nut'
-      appstate.save()
+      appstate.set('diagram', 'nut')
       this.standardBoltDiagram.hide()
       this.tcBoltDiagram.hide()
       this.nutDiagram.show()
@@ -45,8 +43,7 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
     },
     '#washer-select change': function() {
       scrollTo(-$('.diagrams').width()*2)
-      appstate.data.diagram = 'washer'
-      appstate.save()
+      appstate.set('diagram', 'washer')
       this.standardBoltDiagram.hide()
       this.tcBoltDiagram.hide()
       this.nutDiagram.hide()

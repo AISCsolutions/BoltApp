@@ -24,7 +24,7 @@ define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, 
         .aeImageResize({width: 150})
     },
     show: function() {
-      var nw = this.rules.bolt(this.appstate.data.bolt).perfect()
+      var nw = this.rules.bolt(this.appstate.get('bolt')).perfect()
       if (nw) {
         this.update(nw)
       } else {

@@ -3,7 +3,7 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
 
   return Control({
     current: function() {
-      return Rules.bolt(appstate.data.bolt).anyGrade().allowedGrades()
+      return Rules.bolt(appstate.get('bolt')).anyGrade().allowedGrades()
     },
     update: function() {
       var current = this.current()
@@ -17,15 +17,14 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
         }
 
         var name = $el.find('h2').html()
-        $el.find('img').attr('src', 'images/bolts/'+name+'-'+appstate.data.bolt.type+'.png')
+        $el.find('img').attr('src', 'images/bolts/'+name+'-'+appstate.get('bolt.type')+'.png')
       })
     },
     $: function(selector) {
       return this.element.find(selector)
     },
     'li a click': function(a) {
-      appstate.data.bolt.grade = $(a).find('h2').text()
-      appstate.save()
+      appstate.set('bolt.grade', $(a).find('h2').text())
     },
     show: function() {
       this.update()

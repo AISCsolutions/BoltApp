@@ -1,4 +1,4 @@
-define(['lib/store'], function(Store) {
+define(['lib/store', 'can/observe'], function(Store, Observe) {
   "use strict";
 
   var defaultState = {
@@ -36,18 +36,32 @@ define(['lib/store'], function(Store) {
       var state = store.load()
 
       if (typeof(state['bolt']) != 'undefined') {
-        this.data = state
+        this.data.attr(state)
       }
+
+      var appstate = this
+      this.data.bind('change', function(){
+        appstate.save()
+      })
 
       return this.data
     },
     save: function() {
-      store.save(this.data)
+      store.save(this.data.attr())
+    },
+    get: function(prop) {
+      return this.data.attr(prop)
+    },
+    set: function(prop, value) {
+      this.data.attr(prop, value)
+    },
+    bind: function(prop, f) {
+      this.data.bind(prop, f)
     },
     diameterInches: diameterInches,
     diameterFraction: function() {
       return diameterInches[this.data.bolt.diameter.toString()]
     },
-    data: defaultState
+    data: new Observe(defaultState)
   }
 })

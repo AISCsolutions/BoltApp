@@ -24,8 +24,7 @@ function(
       return this
     },
     'li a[href="#bolt-id"] click': function(a) {
-      appstate.data.bolt.manufacturer = new Mfg(li(a)).read()
-      appstate.save()
+      appstate.set('bolt.manufacturer', new Mfg(li(a)).read())
     },
     'li a[href="#mfg-zoom"] click': function(a) {
       $('.zoom').click(function() {$('.ui-dialog').dialog('close')})

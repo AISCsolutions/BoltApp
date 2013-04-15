@@ -34,16 +34,16 @@ define([
         return measurements[i]
       }
     }
-    console.error("Measurement not found for "+appstate.data.bolt.diameter)
+    console.error("Measurement not found for "+appstate.get('bolt.diameter'))
   }
 
   var updateMeasurements = function() {
     if (measurements.length < 1) { return }
     var measures = currentMeasures()
     diameterDisplay(measures.Bolt.Diameter)
-    standardBoltDiagram.update({Grade: appstate.data.bolt.grade})
+    standardBoltDiagram.update({Grade: appstate.get('bolt.grade')})
     standardBoltDiagram.update(measures['Bolt'])
-    tcBoltDiagram.update({Grade: appstate.data.bolt.grade})
+    tcBoltDiagram.update({Grade: appstate.get('bolt.grade')})
     tcBoltDiagram.update(measures['Bolt'])
     nutDiagram.update(measures['Nut'])
     washerDiagram.update(measures['Circular Washer'])

@@ -4,7 +4,7 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
   return Control({
     init: function(element, options) {
       this.callback = options.callback
-      this.element.find('input').val(appstate.data.bolt.diameter).change()
+      this.element.find('input').val(appstate.get('bolt.diameter')).change()
       return this
     },
     height: function() {
@@ -19,9 +19,8 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
     },
     'input change': function(input) {
       var value = $(input).val()
-      if (appstate.data.bolt.diameter != value) {
-        appstate.data.bolt.diameter = value
-        appstate.save()
+      if (appstate.get('bolt.diameter') != value) {
+        appstate.set('bolt.diameter', value)
         this.callback()
       }
     },
