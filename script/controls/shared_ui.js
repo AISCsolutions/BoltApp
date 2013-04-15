@@ -30,29 +30,32 @@ define(['jquery', 'finish', 'lib/ext/iscroll-lite'], function($, Finish) {
     }
   }
 
+  var gradeChanged = function(grade) {
+    $('body').toggleClass('tc-bolt', grade[0] == 'F')
+    $('.current-grade .ui-btn-text').html(grade)
+    $('.current-grade').not('.current-grade:has(.ui-btn-text)').html(grade)
+  }
+  var typeChanged = function(type) {
+    $('body').toggleClass('type-1', type == '1')
+    $('body').toggleClass('type-3', type == '3')
+  }
+  var finishChanged = function(bolt) {
+    var finish_class = Finish.colorFor(bolt)
+    $('body').toggleClass('finish-plain', finish_class == 'plain')
+    $('body').toggleClass('finish-galvanized-hot-dip', finish_class == 'galvanized-hot-dip')
+    $('body').toggleClass('finish-galvanized-mechanical', finish_class == 'galvanized-mechanical')
+    $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')
+    $('body').toggleClass('finish-weathering', finish_class == 'weathering')
+  }
+
   return {
     setup: function(bolt) {
-      this.gradeChanged(bolt.grade)
-      this.typeChanged(bolt)
-      this.finishChanged(bolt)
-    },
-    gradeChanged: function(grade) {
-      $('body').toggleClass('tc-bolt', grade[0] == 'F')
-      $('.current-grade .ui-btn-text').html(grade)
-      $('.current-grade').not('.current-grade:has(.ui-btn-text)').html(grade)
-    },
-    typeChanged: function(bolt) {
-      $('body').toggleClass('type-1', bolt.type == '1')
-      $('body').toggleClass('type-3', bolt.type == '3')
-      this.finishChanged(bolt)
-    },
-    finishChanged: function(bolt) {
-      var finish_class = Finish.colorFor(bolt)
-      $('body').toggleClass('finish-plain', finish_class == 'plain')
-      $('body').toggleClass('finish-galvanized-hot-dip', finish_class == 'galvanized-hot-dip')
-      $('body').toggleClass('finish-galvanized-mechanical', finish_class == 'galvanized-mechanical')
-      $('body').toggleClass('finish-zn-al', finish_class == 'zn-al')
-      $('body').toggleClass('finish-weathering', finish_class == 'weathering')
+      bolt.bind('grade', function(ev, grade) {gradeChanged(grade)})
+      bolt.bind('type', function(ev, type) {typeChanged(type)})
+      bolt.bind('change', function() {finishChanged(this)})
+      gradeChanged(bolt.grade)
+      typeChanged(bolt.type)
+      finishChanged(bolt)
     },
     contentHeight: contentHeight,
     setContentHeight: setContentHeight,

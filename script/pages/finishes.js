@@ -2,14 +2,12 @@ define([
   'jquery',
   'can/control',
   'finish',
-  'appstate',
-  'controls/shared_ui'
+  'appstate'
 ], function(
   $,
   Control,
   colors,
-  appstate,
-  ui
+  appstate
 ) {
   "use strict";
 
@@ -52,7 +50,6 @@ define([
     },
     'li a click': function(a) {
       appstate.set('bolt.finish', $(a).find('h2').text())
-      ui.finishChanged(appstate.data.bolt)
     },
     show: function() {
       return this.update()

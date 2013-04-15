@@ -44,7 +44,6 @@ define([
 
       var nw = new NutsAndWashers('#nuts-and-washers', {appstate: appstate, rules: Rules})
       $('#nuts-and-washers').on('pagebeforeshow', nw.show.bind(nw))
-      $('#nuts-and-washers').on('pageshow', function() {ui.finishChanged(appstate.data.bolt)})
 
       var grades = new Grades('#grade [data-role="content"]')
       $('#grade').on('pagebeforeshow', grades.show.bind(grades))

@@ -19,8 +19,6 @@ define([
     $('label[for="type-'+appstate.get('bolt.type')+'"]').click()
     $('.type input[type="radio"]').on('change', function() {
       appstate.set('bolt.type', $(this).val())
-      markIllegal()
-      ui.typeChanged(appstate.get('bolt'))
     })
   }
 
@@ -55,13 +53,15 @@ define([
     new Mfg('#manufacturer-select').write(appstate.get('bolt.manufacturer'))
   }
 
+  appstate.bind('bolt.grade', markIllegal)
+  appstate.bind('bolt.type', markIllegal)
+  appstate.bind('bolt.finish', markIllegal)
+
   return Control({
     init: function() {
       setupType()
     },
     show: function() {
-      ui.setup(appstate.data.bolt)
-      markIllegal()
       updateFinish()
       updateManufacturer()
     }
