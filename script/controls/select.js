@@ -1,9 +1,9 @@
-define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
+define(['jquery', 'can/control'], function($, Control) {
   "use strict";
 
   return Control({
-    show: function() {
-      $('label[for="'+appstate.data.diagram+'-select"]').click()
+    select: function(item) {
+      $('label[for="'+item+'-select"]').click()
     },
     height: function() {
       var $el = this.element
@@ -15,7 +15,7 @@ define(['jquery', 'can/control', 'appstate'], function($, Control, appstate) {
       return height
     },
     'input change': function(input) {
-      appstate.set('diagram', $(input).val())
+      input.trigger('selected', $(input).val())
     }
   })
 })

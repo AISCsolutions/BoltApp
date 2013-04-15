@@ -5,7 +5,7 @@ define([
   'fraction',
   'tables/measurements',
   'controls/shared_ui',
-  'controls/diagram_select',
+  'controls/select',
   'controls/diagram_slider',
   'controls/diagram',
   'controls/diameter'
@@ -16,7 +16,7 @@ define([
   Fraction,
   measurements,
   ui,
-  DiagramSelect,
+  Select,
   DiagramSlider,
   Diagram,
   Diameter
@@ -90,11 +90,15 @@ define([
           washer: {index: 2, controls: [washerDiagram]}
         }
       })
-      this.select = new DiagramSelect('.diagram-select', this)
+      this.select = new Select('.diagram-select', this)
       this.diameter = new Diameter('.diameter')
+
+      $('.diagram-select').bind('selected', function(ev, diagram) {
+        appstate.set('diagram', diagram)
+      })
     },
     show: function() {
-      this.select.show()
+      this.select.select(appstate.get('bolt.diagram'))
       this.slider.show()
       this.diameter.show()
       setTimeout(this.setDiagramSize.bind(this), 0)
