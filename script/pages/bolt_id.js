@@ -3,6 +3,7 @@ define([
   'can/control',
   'appstate',
   'rules',
+  'controls/type',
   'controls/manufacturer',
   'controls/shared_ui'
 ], function(
@@ -10,17 +11,11 @@ define([
   Control,
   appstate,
   Rules,
+  Type,
   Mfg,
   ui
 ) {
   "use strict";
-
-  var setupType = function() {
-    $('label[for="type-'+appstate.get('bolt.type')+'"]').click()
-    $('.type input[type="radio"]').on('change', function() {
-      appstate.set('bolt.type', $(this).val())
-    })
-  }
 
   var markIllegal = function() {
     var bolt = appstate.data.bolt
@@ -59,7 +54,7 @@ define([
 
   return Control({
     init: function() {
-      setupType()
+      this.type = new Type('.type', {appstate: appstate})
     },
     show: function() {
       updateFinish()
