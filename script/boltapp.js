@@ -30,7 +30,7 @@ define([
   appstate.load()
 
   var body = new Body('body', {bolt: appstate.get('bolt')})
-  var dimensions = new Dimensions('#dimensions', {body: body})
+  var dimensions = new Dimensions('#dimensions', {appstate: appstate, body: body})
 
   return {
     dimensions: dimensions,

@@ -77,6 +77,7 @@ define([
     },
     init: function(element, options) {
       this.body = options.body
+      this.appstate = options.appstate
 
       var slider = this.slider = new Slider('.diagrams', {
         parts: {
@@ -87,24 +88,23 @@ define([
       })
       this.select = new Select('.diagram-select')
       this.diameter = new Diameter('.diameter', {
-        settings: (Object.keys(appstate.diameterInches).length - 1)
+        settings: (Object.keys(this.appstate.diameterInches).length - 1)
       })
-
-      appstate.bind('diagram', function(ev, value) { slider.select(value) })
-      appstate.bind('bolt.diameter', updateMeasurements)
-      appstate.bind('bolt.grade', updateGrade)
     },
     show: function() {
-      this.select.select(appstate.get('diagram'))
-      this.slider.select(appstate.get('diagram'))
-      this.diameter.show().select(appstate.get('bolt.diameter'))
+      this.select.select(this.appstate.get('diagram'))
+      this.slider.select(this.appstate.get('diagram'))
+      this.diameter.show().select(this.appstate.get('bolt.diameter'))
       setTimeout(this.setDiagramSize.bind(this), 0)
     },
     '.diagram-select selected': function(el, ev, diagram) {
-      appstate.set('diagram', diagram)
+      this.appstate.set('diagram', diagram)
     },
     '.diameter selected': function(el, ev, diameter) {
-      appstate.set('bolt.diameter', diameter)
-    }
+      this.appstate.set('bolt.diameter', diameter)
+    },
+    "{appstate} diagram": function(st, ev, value) { this.slider.select(value) },
+    "{appstate} bolt.diameter": updateMeasurements,
+    "{appstate} bolt.grade": updateGrade
   })
 })
