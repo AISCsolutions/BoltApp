@@ -53,15 +53,14 @@ define([
   return Control({
     init: function() {
       this.type = new Type('.type')
-
-      $('.type').bind('selected', function(ev, type) {
-        appstate.set('bolt.type', type)
-      })
     },
     show: function() {
       this.type.select(appstate.get('bolt.type'))
       updateFinish()
       updateManufacturer()
+    },
+    ".type selected": function(el, ev, type) {
+      appstate.set('bolt.type', type)
     }
   })
 })
