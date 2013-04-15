@@ -50,6 +50,8 @@ define([
     washerDiagram.update(measures['Square Washer'])
   }
 
+  appstate.bind('bolt.diameter', updateMeasurements)
+
   /* Dimensions - diameter */
   var diameterDisplay = function(fraction) {
     $('.diameter-inches span').html(Fraction.clone(fraction).toString())
@@ -73,7 +75,7 @@ define([
     },
     init: function() {
       this.select = new DiagramSelect('.diagram-select', this)
-      this.diameter = new Diameter('.diameter', {callback: updateMeasurements})
+      this.diameter = new Diameter('.diameter')
     },
     show: function() {
       this.select.show()
