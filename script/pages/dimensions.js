@@ -6,7 +6,7 @@ define([
   'tables/measurements',
   'controls/shared_ui',
   'controls/select',
-  'controls/diagram_slider',
+  'controls/slider',
   'controls/diagram',
   'controls/diameter'
 ], function(
@@ -17,7 +17,7 @@ define([
   measurements,
   ui,
   Select,
-  DiagramSlider,
+  Slider,
   Diagram,
   Diameter
 ) {
@@ -82,8 +82,7 @@ define([
       updateGrade()
     },
     init: function() {
-      this.slider = new DiagramSlider('.diagrams', {
-        appstate: appstate,
+      var slider = this.slider = new Slider('.diagrams', {
         parts: {
           bolt: {index: 0, controls: [standardBoltDiagram, tcBoltDiagram]},
           nut: {index: 1, controls: [nutDiagram]},
@@ -96,10 +95,13 @@ define([
       $('.diagram-select').bind('selected', function(ev, diagram) {
         appstate.set('diagram', diagram)
       })
+      appstate.bind('diagram', function(ev, value) {
+        slider.select(value)
+      })
     },
     show: function() {
-      this.select.select(appstate.get('bolt.diagram'))
-      this.slider.show()
+      this.select.select(appstate.get('diagram'))
+      this.slider.select(appstate.get('diagram'))
       this.diameter.show()
       setTimeout(this.setDiagramSize.bind(this), 0)
     }
