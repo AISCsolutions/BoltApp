@@ -90,16 +90,8 @@ define([
         settings: (Object.keys(appstate.diameterInches).length - 1)
       })
 
-      $('.diagram-select').bind('selected', function(ev, diagram) {
-        appstate.set('diagram', diagram)
-      })
       appstate.bind('diagram', function(ev, value) { slider.select(value) })
-
-      $('.diameter').bind('selected', function(ev, diameter) {
-        appstate.set('bolt.diameter', diameter)
-      })
       appstate.bind('bolt.diameter', updateMeasurements)
-
       appstate.bind('bolt.grade', updateGrade)
     },
     show: function() {
@@ -107,6 +99,12 @@ define([
       this.slider.select(appstate.get('diagram'))
       this.diameter.show().select(appstate.get('bolt.diameter'))
       setTimeout(this.setDiagramSize.bind(this), 0)
+    },
+    '.diagram-select selected': function(el, ev, diagram) {
+      appstate.set('diagram', diagram)
+    },
+    '.diameter selected': function(el, ev, diameter) {
+      appstate.set('bolt.diameter', diameter)
     }
   })
 })
