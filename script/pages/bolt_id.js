@@ -46,21 +46,22 @@ define([
     new Mfg('#manufacturer-select').write(appstate.get('bolt.manufacturer'))
   }
 
-  appstate.bind('bolt.grade', markIllegal)
-  appstate.bind('bolt.type', markIllegal)
-  appstate.bind('bolt.finish', markIllegal)
-
   return Control({
-    init: function() {
+    init: function(element, options) {
       this.type = new Type('.type')
+      this.appstate = options.appstate
+      markIllegal()
     },
     show: function() {
-      this.type.select(appstate.get('bolt.type'))
+      this.type.select(this.appstate.get('bolt.type'))
       updateFinish()
       updateManufacturer()
     },
     ".type selected": function(el, ev, type) {
-      appstate.set('bolt.type', type)
-    }
+      this.appstate.set('bolt.type', type)
+    },
+    "{appstate} bolt.grade": markIllegal,
+    "{appstate} bolt.type": markIllegal,
+    "{appstate} bolt.finish": markIllegal
   })
 })

@@ -37,7 +37,7 @@ define([
     ready: function() {
       body.show()
 
-      var boltid = new BoltId('#bolt-id')
+      var boltid = new BoltId('#bolt-id', {appstate: appstate})
       $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))
 
       $('#dimensions').on('pageshow', dimensions.show.bind(dimensions))
