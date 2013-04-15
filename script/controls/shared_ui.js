@@ -12,11 +12,6 @@ define(['jquery', 'finish'], function($, Finish) {
     return height
   }
 
-  var setContentHeight = function(el, event) {
-    $(el).css('height', contentHeight(event))
-    //$.mobile.activePage.append('<p>'+windowHeight.toString()+'</p>')
-  }
-
   var gradeChanged = function(grade) {
     $('body').toggleClass('tc-bolt', grade[0] == 'F')
     $('.current-grade .ui-btn-text').html(grade)
@@ -44,7 +39,6 @@ define(['jquery', 'finish'], function($, Finish) {
       typeChanged(bolt.type)
       finishChanged(bolt)
     },
-    contentHeight: contentHeight,
-    setContentHeight: setContentHeight
+    contentHeight: contentHeight
   }
 })
