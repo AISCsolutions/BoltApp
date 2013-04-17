@@ -35,8 +35,8 @@ define([
       this.boltid = new BoltId('#bolt-id', {appstate: appstate})
       this.dimensions = new Dimensions('#dimensions', {appstate: appstate, body: this.body})
       this.nw = new NutsAndWashers('#nuts-and-washers', {bolt: appstate.get('bolt'), rules: Rules})
-      this.grades = new Grades('#grade [data-role="content"]')
-      this.finishes = new Finishes('#finish [data-role="content"]', {rules: Rules})
+      this.grades = new Grades('#grade')
+      this.finishes = new Finishes('#finish', {rules: Rules})
       this.manufacturers = new Manufacturers('#manufacturer')
 
       if (mobile.activePage) { // sometimes it beats us

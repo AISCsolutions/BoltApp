@@ -43,10 +43,18 @@ define([
           $el.addClass('illegal')
         }
       })
+
+      var color = colors.colorFor({
+        finish: 'Plain',
+        type: appstate.get('bolt.type')
+      })
+      this.$('li[title="Plain"] img')
+        .attr('src', 'images/finishes/'+color+'.jpeg')
+
       return this
     },
     $: function(selector) {
-      return this.element.find(selector)
+      return this.element.find('[data-role="content"] ' + selector)
     },
     'li a click': function(a) {
       appstate.set('bolt.finish', $(a).find('h2').text())
