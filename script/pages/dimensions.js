@@ -7,7 +7,8 @@ define([
   'controls/select',
   'controls/slider',
   'controls/diagram',
-  'controls/diameter'
+  'controls/diameter',
+  'lib/ext/jquery.ae.image.resize'
 ], function(
   $,
   Control,
@@ -68,9 +69,10 @@ define([
       var selectHeight = this.select.height()
       var diameterHeight = this.diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
-      var debug = [height, contentHeight, selectHeight, diameterHeight]
+      var width = $('.diagrams li').width()
+      var debug = [width, height, contentHeight, selectHeight, diameterHeight]
       if (height < 150) { height = 150 }
-      $('.diagrams img').height(height)
+      $('.diagrams img').aeImageResize({height: height, width: width})
       //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
       updateMeasurements()
       updateGrade()
