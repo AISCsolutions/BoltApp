@@ -2,14 +2,12 @@ define([
   'jquery',
   'can/control',
   'tables/manufacturers',
-  'appstate',
   'controls/manufacturer',
   'lib/ext/jquery.ae.image.resize'],
 function(
   $,
   Control,
   manufacturers,
-  appstate,
   Mfg
 ) {
   "use strict";
@@ -24,7 +22,7 @@ function(
       return this
     },
     'li a[href="#bolt-id"] click': function(a) {
-      appstate.set('bolt.manufacturer', new Mfg(li(a)).read())
+      a.trigger('selected', new Mfg(li(a)).read())
     },
     'li a[href="#mfg-zoom"] click': function(a) {
       $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
