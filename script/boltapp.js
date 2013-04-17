@@ -41,7 +41,6 @@ define([
       $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))
 
       $('#dimensions').on('pageshow', dimensions.show.bind(dimensions))
-      $(window).on('resize', dimensions.show.bind(dimensions))
 
       var nw = new NutsAndWashers('#nuts-and-washers', {appstate: appstate, rules: Rules})
       $('#nuts-and-washers').on('pagebeforeshow', nw.show.bind(nw))

@@ -74,6 +74,7 @@ define([
       //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
       updateMeasurements()
       updateGrade()
+      this.slider.select(this.appstate.get('diagram'))
     },
     init: function(element, options) {
       this.body = options.body
@@ -93,9 +94,12 @@ define([
     },
     show: function() {
       this.select.select(this.appstate.get('diagram'))
-      this.slider.select(this.appstate.get('diagram'))
       this.diameter.show().select(this.appstate.get('bolt.diameter'))
       setTimeout(this.setDiagramSize.bind(this), 0)
+    },
+    '{window} resize': function() {
+      this.setDiagramSize()
+      this.diameter.show()
     },
     '.diagram-select selected': function(el, ev, diagram) {
       this.appstate.set('diagram', diagram)

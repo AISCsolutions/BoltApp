@@ -78,6 +78,13 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
 #tc-bolt-diagram {display: none;}
 .tc-bolt #standard-bolt-diagram {display: none;}
 .tc-bolt #tc-bolt-diagram {display: block;}
+.diagrams ul {
+  margin-left: 0;
+  -moz-transition: margin-left 0.4s;
+  -webkit-transition: margin-left 0.4s;
+  -o-transition: margin-left 0.4s;
+  transition: margin-left 0.4s;
+}
 .diagrams img { max-width: 100%;}
 .diagrams .measurement {
   position: absolute;

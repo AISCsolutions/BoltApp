@@ -6,7 +6,7 @@ define(['jquery', 'can/control'], function($, Control) {
       this.parts = options.parts
     },
     scrollTo: function(x) {
-      this.element.find('ul').animate({'margin-left': x}, 400)
+      this.element.find('ul').css('margin-left', x)
     },
     pane: function(n) {
       this.scrollTo(-this.element.width()*n)
