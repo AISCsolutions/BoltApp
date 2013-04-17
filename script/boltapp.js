@@ -29,17 +29,16 @@ define([
 
   appstate.load()
 
-  var body = new Body('body', {bolt: appstate.get('bolt')})
-  var dimensions = new Dimensions('#dimensions', {appstate: appstate, body: body})
-
   return {
-    dimensions: dimensions,
     ready: function() {
+      var body = new Body('body', {bolt: appstate.get('bolt')})
       body.show()
 
       var boltid = new BoltId('#bolt-id', {appstate: appstate})
       $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))
 
+      var dimensions = new Dimensions('#dimensions', {appstate: appstate, body: body})
+      this.dimensions = dimensions
       $('#dimensions').on('pageshow', dimensions.show.bind(dimensions))
 
       var nw = new NutsAndWashers('#nuts-and-washers', {appstate: appstate, rules: Rules})
