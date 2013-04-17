@@ -1,10 +1,12 @@
-define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, Control) {
+define(['jquery', 'can/control', 'controls/zoom'], function($, Control, Zoom) {
   "use strict";
 
   return Control({
     init: function(element, options) {
       this.bolt = options.bolt
       this.rules = options.rules
+      this.washerZoom = new Zoom('#washer-zoom .zoom')
+      this.nutZoom = new Zoom('#nut-zoom .zoom')
       return this
     },
     $: function(selector) {
@@ -14,14 +16,14 @@ define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, 
       return this.$('[title="'+name+'"]')
     },
     'li a click': function(a) {
-      $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
-      $(a).find('[title]').each(function() {
+      var $zoom = $(a.attr('href') + ' .zoom')
+      a.find('[title]').each(function() {
         var title = $(this).attr('title')
-        $('.zoom [title="'+title+'"]').html($(this).html())
+        $zoom.find('[title="'+title+'"]').html($(this).html())
       })
-      $('.zoom img')
+      $zoom.find('img')
         .attr('src', $(a).find('img').attr('src'))
-        .aeImageResize({width: 150})
+        .trigger('open')
     },
     ' pagebeforeshow': function() {
       var nw = this.rules.bolt(this.bolt).perfect()

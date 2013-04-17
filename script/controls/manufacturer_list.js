@@ -3,12 +3,13 @@ define([
   'can/control',
   'tables/manufacturers',
   'controls/manufacturer',
-  'lib/ext/jquery.ae.image.resize'],
+  'controls/zoom'],
 function(
   $,
   Control,
   manufacturers,
-  Mfg
+  Mfg,
+  Zoom
 ) {
   "use strict";
 
@@ -19,16 +20,16 @@ function(
   return Control({
     init: function(element) {
       this.render()
+      this.zoom = new Zoom('#mfg-zoom .zoom')
       return this
     },
     'li a[href="#bolt-id"] click': function(a) {
       a.trigger('selected', new Mfg(li(a)).read())
     },
     'li a[href="#mfg-zoom"] click': function(a) {
-      $('.zoom').click(function() {$('.ui-dialog').dialog('close')})
       var mfg = new Mfg(li(a)).read()
-      new Mfg('.zoom').write(mfg)
-      $('.zoom img').aeImageResize({width: 150})
+      new Mfg('#mfg-zoom .zoom').write(mfg)
+      $('#mfg-zoom .zoom').trigger('open')
     },
     render: function () {
       var $doc = $(document.createDocumentFragment())
