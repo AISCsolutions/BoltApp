@@ -32,7 +32,6 @@ define([
   return {
     ready: function() {
       var body = new Body('body', {bolt: appstate.get('bolt')})
-      body.show()
 
       var boltid = new BoltId('#bolt-id', {appstate: appstate})
       $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))

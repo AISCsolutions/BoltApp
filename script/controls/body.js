@@ -15,8 +15,6 @@ define(['jquery', 'jquerymobile', 'can/control', 'finish'], function($, mobile, 
   return Control({
     init: function(element, options) {
       this.bolt = options.bolt
-    },
-    show: function() {
       this.gradeChanged(this.bolt.grade)
       this.typeChanged(this.bolt.type)
       this.finishChanged(this.bolt)
