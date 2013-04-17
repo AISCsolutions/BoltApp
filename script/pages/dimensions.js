@@ -92,7 +92,7 @@ define([
         settings: (Object.keys(this.appstate.diameterInches).length - 1)
       })
     },
-    show: function() {
+    ' pageshow': function() {
       this.select.select(this.appstate.get('diagram'))
       this.diameter.show().select(this.appstate.get('bolt.diameter'))
       setTimeout(this.setDiagramSize.bind(this), 0)

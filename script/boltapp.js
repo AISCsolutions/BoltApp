@@ -31,25 +31,13 @@ define([
 
   return {
     ready: function() {
-      var body = new Body('body', {bolt: appstate.get('bolt')})
-
-      var boltid = new BoltId('#bolt-id', {appstate: appstate})
-      $('#bolt-id').on('pagebeforeshow', boltid.show.bind(boltid))
-
-      var dimensions = new Dimensions('#dimensions', {appstate: appstate, body: body})
-      this.dimensions = dimensions
-      $('#dimensions').on('pageshow', dimensions.show.bind(dimensions))
-
-      var nw = new NutsAndWashers('#nuts-and-washers', {appstate: appstate, rules: Rules})
-      $('#nuts-and-washers').on('pagebeforeshow', nw.show.bind(nw))
-
-      var grades = new Grades('#grade [data-role="content"]')
-      $('#grade').on('pagebeforeshow', grades.show.bind(grades))
-
-      var finishes = new Finishes('#finish [data-role="content"]', {rules: Rules})
-      $('#finish').on('pagebeforeshow', finishes.show.bind(finishes))
-
-      var manufacturers = new Manufacturers('#manufacturer')
+      this.body = new Body('body', {bolt: appstate.get('bolt')})
+      this.boltid = new BoltId('#bolt-id', {appstate: appstate})
+      this.dimensions = new Dimensions('#dimensions', {appstate: appstate, body: this.body})
+      this.nw = new NutsAndWashers('#nuts-and-washers', {appstate: appstate, rules: Rules})
+      this.grades = new Grades('#grade [data-role="content"]')
+      this.finishes = new Finishes('#finish [data-role="content"]', {rules: Rules})
+      this.manufacturers = new Manufacturers('#manufacturer')
 
       if (mobile.activePage) { // sometimes it beats us
         mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')

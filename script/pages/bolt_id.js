@@ -52,12 +52,12 @@ define([
       this.appstate = options.appstate
       markIllegal()
     },
-    show: function() {
+    ' pagebeforeshow': function() {
       this.type.select(this.appstate.get('bolt.type'))
       updateFinish()
       updateManufacturer()
     },
-    ".type selected": function(el, ev, type) {
+    '.type selected': function(el, ev, type) {
       this.appstate.set('bolt.type', type)
     },
     "{appstate} bolt.grade": markIllegal,

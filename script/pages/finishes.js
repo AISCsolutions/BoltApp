@@ -51,7 +51,7 @@ define([
     'li a click': function(a) {
       appstate.set('bolt.finish', $(a).find('h2').text())
     },
-    show: function() {
+    ' pagebeforeshow': function() {
       return this.update()
     },
     render: function() {

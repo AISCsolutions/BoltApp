@@ -23,7 +23,7 @@ define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, 
         .attr('src', $(a).find('img').attr('src'))
         .aeImageResize({width: 150})
     },
-    show: function() {
+    ' pagebeforeshow': function() {
       var nw = this.rules.bolt(this.appstate.get('bolt')).perfect()
       if (nw) {
         this.update(nw)

@@ -26,7 +26,7 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
     'li a click': function(a) {
       appstate.set('bolt.grade', $(a).find('h2').text())
     },
-    show: function() {
+    ' pagebeforeshow': function() {
       this.update()
     }
   })
