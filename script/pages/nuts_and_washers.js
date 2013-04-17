@@ -3,7 +3,7 @@ define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, 
 
   return Control({
     init: function(element, options) {
-      this.appstate = options.appstate
+      this.bolt = options.bolt
       this.rules = options.rules
       return this
     },
@@ -24,7 +24,7 @@ define(['jquery', 'can/control', 'lib/ext/jquery.ae.image.resize'], function($, 
         .aeImageResize({width: 150})
     },
     ' pagebeforeshow': function() {
-      var nw = this.rules.bolt(this.appstate.get('bolt')).perfect()
+      var nw = this.rules.bolt(this.bolt).perfect()
       if (nw) {
         this.update(nw)
       } else {
