@@ -32,7 +32,7 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
 }
 
 .ui-navbar a[href="#bolt-id"] .ui-btn-inner {
-  background-image: url("../images/icons/bolt.svg");
+  background-image: url("../images/icons/bolt-id.svg");
 }
 
 .ui-navbar a[href="#dimensions"] .ui-btn-inner {
@@ -84,13 +84,30 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
 
 /* Dimmensions */
 .diagram-select .ui-radio .ui-btn-inner {
-  padding-top: 0.3em;
+  padding: 2.5em;
+  padding-top: 2.5em;
   padding-bottom: 0.3em;
   font-size: 75%;
 }
-.diagram-select .ui-radio .ui-btn-inner img {
-  height: 2em;
+
+.diagram-select .ui-radio .ui-btn-inner {
+  background-size: 2em;
+  background-repeat: no-repeat;
+  background-position: center 0.3em;
 }
+
+label[for="bolt-select"] .ui-btn-inner {
+  background-image: url("../images/icons/bolt-outline.svg");
+}
+
+label[for="nut-select"] .ui-btn-inner {
+  background-image: url("../images/icons/nut-outline.svg");
+}
+
+label[for="washer-select"] .ui-btn-inner {
+  background-image: url("../images/icons/washer-outline.svg");
+}
+
 
 .diagrams {
   position: relative;
