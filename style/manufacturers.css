@@ -3,7 +3,7 @@
 .index {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.4);
-  text-shadow: em em 0.2em white, 0 0 0.1em white, 0 0 0.05em white;
+  text-shadow: 0 0 0.2em white, 0 0 0.1em white, 0 0 0.05em white;
   position: fixed;
   z-index: 3;
   left: 0;

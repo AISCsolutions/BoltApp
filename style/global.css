@@ -9,12 +9,6 @@
 .ui-li-link-alt {margin-top: -1px;}
 
 .type-3 .grade-designator {text-decoration: underline;}
-.finish-plain .current-finish {background: #888;}
-.finish-galvanized-hot-dip .current-finish {background: #ddd;}
-.finish-galvanized-mechanical .current-finish {background: #ccc;}
-.finish-zn-al .current-finish {background: #99e;}
-.finish-weathering .current-finish {background: #c75;}
-.current-finish.ui-btn-active {color: black;}
 
 .ui-header a[href="#disclaimer"] {right: 2.2em;}
 .ui-header .help {right: 4em;}
