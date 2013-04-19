@@ -107,14 +107,14 @@ module.exports = function(grunt) {
         dest: '../build/style/style.css'
       }
     },
-    htmlmin: {
+    htmlcompressor: {
       target: {
-        options: {
-          removeComments: true,
-          collapseWhitespace: true
-        },
         files: {
           '../build/index.html': './index.html',
+        },
+        options: {
+          type: 'html',
+          preserveServerScript: true
         }
       }
     },
@@ -186,7 +186,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs')
   grunt.loadNpmTasks('grunt-cssjoin')
   grunt.loadNpmTasks('grunt-css')
-  grunt.loadNpmTasks('grunt-contrib-htmlmin')
+  grunt.loadNpmTasks('grunt-htmlcompressor')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('svgo-grunt')
@@ -195,6 +195,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['csslint', 'jshint:default'])
   grunt.registerTask('live', ['livereload-start', 'connect:livereload', 'regarde:livereload'])
-  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlmin', 'copy', 'svgo', 'manifest'])
+  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlcompressor', 'copy', 'svgo', 'manifest'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
