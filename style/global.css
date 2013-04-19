@@ -5,7 +5,7 @@
 .ui-content { overflow: hidden; padding-top: 0.5em; padding-bottom: 0.5em;}
 .ui-li-desc, .ui-li-heading {overflow: visible;}
 .ui-btn {margin-top: 0.3em; margin-bottom: 0.3em;}
-fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bottom: 0.3em;}
+.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bottom: 0.3em;}
 .ui-li-link-alt {margin-top: -1px;}
 
 .type-3 .grade-designator {text-decoration: underline;}

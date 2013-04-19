@@ -43,7 +43,7 @@ define([
   }
 
   var updateManufacturer = function() {
-    new Mfg('#manufacturer-select').write(appstate.get('bolt.manufacturer'))
+    new Mfg('.manufacturer-select').write(appstate.get('bolt.manufacturer'))
   }
 
   return Control({
