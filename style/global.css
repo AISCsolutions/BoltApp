@@ -66,6 +66,7 @@
 
 .ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {
   content: "\e000";
+  text-shadow: 0 0 0.2em black, 0 0 0.1em black, 0 0 0.05em black;
 }
 
 .ui-navbar a[href="#dimensions"] .ui-btn-inner:before {

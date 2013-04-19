@@ -13,12 +13,8 @@ li[title="Zn/Al Inorganic"] {background: #99e;}
 .finish-zn-al .finish a {background: #99e;}
 .finish-weathering .finish a {background: #c75;}
 
-.finish-plain .current-finish {color: #888;}
-.finish-galvanized-hot-dip .current-finish {color: #ddd;}
-.finish-galvanized-mechanical .current-finish {color: #ccc;}
-.finish-zn-al .current-finish {color: #99e;}
-.finish-weathering .current-finish {color: #c75;}
-.current-finish.ui-btn {
-  text-shadow: 0 0 0.2em black, 0 0 0.1em black, 0 0 0.05em black;
-}
-
+.finish-plain .ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {color: #888}
+.finish-galvanized-hot-dip .ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {color: #ddd}
+.finish-galvanized-mechanical .ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {color: #ccc}
+.finish-zn-al .ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {color: #99e}
+.finish-weathering .ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {color: #c75}
