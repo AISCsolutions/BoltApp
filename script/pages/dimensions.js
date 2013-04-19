@@ -76,7 +76,11 @@ define([
       $('.diagrams img').aeImageResize({height: height, width: width})
       updateMeasurements()
       updateGrade()
+    },
+    deferShow: function() {
       this.slider.select(this.appstate.get('diagram'))
+      this.diameter.show()
+      this.setDiagramSize()
     },
     init: function(element, options) {
       this.body = options.body
@@ -96,8 +100,8 @@ define([
     },
     ' pageshow': function() {
       this.select.select(this.appstate.get('diagram'))
-      this.diameter.show().select(this.appstate.get('bolt.diameter'))
-      setTimeout(this.setDiagramSize.bind(this), 0)
+      this.diameter.select(this.appstate.get('bolt.diameter'))
+      setTimeout(this.deferShow.bind(this), 0)
     },
     '{window} resize': function() {
       this.setDiagramSize()
