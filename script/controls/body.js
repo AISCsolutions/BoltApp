@@ -6,8 +6,8 @@ define(['jquery', 'jquerymobile', 'can/control', 'finish'], function($, mobile, 
     var topPadding = parseInt(mobile.activePage.find('[data-role="content"]').css("padding-top"), 10)
     var bottomPadding = parseInt(mobile.activePage.find('[data-role="content"]').css("padding-bottom"), 10)
     var height = windowHeight - headerHeight - footerHeight - topPadding - bottomPadding;
-    var cause = event ? event.type : ''
-    var debug = [height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding, 'contentHeight', cause]
+    //var cause = event ? event.type : ''
+    //var debug = [height, windowHeight, headerHeight, footerHeight, topPadding, bottomPadding, 'contentHeight', cause]
     //console.log(debug); mobile.activePage.append('<p>'+debug.toString()+'</p>')
     return height
   }

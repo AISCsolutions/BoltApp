@@ -15,6 +15,6 @@ define(['jquery', 'can/control'], function($, Control) {
       var part = this.parts[name]
       this.pane(part.index)
       part.controls.forEach(function(control) {control.show()})
-    },
+    }
   })
 })

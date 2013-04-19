@@ -70,10 +70,10 @@ define([
       var diameterHeight = this.diameter.height()
       var height = contentHeight - selectHeight - diameterHeight
       var width = $('.diagrams li').width()
-      var debug = [width, height, contentHeight, selectHeight, diameterHeight]
+      //var debug = [width, height, contentHeight, selectHeight, diameterHeight]
+      //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
       if (height < 150) { height = 150 }
       $('.diagrams img').aeImageResize({height: height, width: width})
-      //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
       updateMeasurements()
       updateGrade()
       this.slider.select(this.appstate.get('diagram'))
@@ -82,7 +82,7 @@ define([
       this.body = options.body
       this.appstate = options.appstate
 
-      var slider = this.slider = new Slider('.diagrams', {
+      this.slider = new Slider('.diagrams', {
         parts: {
           bolt: {index: 0, controls: [standardBoltDiagram, tcBoltDiagram]},
           nut: {index: 1, controls: [nutDiagram]},

@@ -60,6 +60,7 @@ module.exports = function(grunt) {
         },
         indent: 2,
         trailing: true, // whitespace
+        newcap: false, // constructor syntax
 
         //relax
         asi: true, // semicolons

@@ -3,8 +3,8 @@ define([
   'can/control',
   'tables/manufacturers',
   'controls/manufacturer',
-  'controls/zoom'],
-function(
+  'controls/zoom'
+], function(
   $,
   Control,
   manufacturers,
@@ -18,7 +18,7 @@ function(
   }
 
   return Control({
-    init: function(element) {
+    init: function() {
       this.render()
       this.zoom = new Zoom('#mfg-zoom .zoom')
       return this
@@ -28,7 +28,7 @@ function(
     },
     'li a[href="#mfg-zoom"] click': function(a) {
       var mfg = new Mfg(li(a)).read()
-      new Mfg('#mfg-zoom .zoom').write(mfg)
+      (new Mfg('#mfg-zoom .zoom')).write(mfg)
       $('#mfg-zoom .zoom').trigger('open')
     },
     render: function () {
