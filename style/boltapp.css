@@ -19,12 +19,42 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
 .ui-header a[href="#disclaimer"] {right: 2.2em;}
 .ui-header .help {right: 4em;}
 
+@font-face {
+  font-family: 'BoltApp';
+  src:url('fonts/BoltApp.eot');
+  src:url('fonts/BoltApp.eot?#iefix') format('embedded-opentype'),
+    url('fonts/BoltApp.woff') format('woff'),
+    url('fonts/BoltApp.ttf') format('truetype'),
+    url('fonts/BoltApp.svg#BoltApp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.diagram-select .ui-radio .ui-btn-inner:before,
+.ui-navbar li .ui-btn .ui-btn-inner:before {
+  font-family: 'BoltApp';
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+
+  font-size: 2em;
+  position: absolute;
+  top: 0.2em;
+  left: 50%;
+  margin-left: -0.5em;
+}
+
 .ui-navbar li .ui-btn .ui-btn-inner {
   padding-top: 2.5em;
   padding-bottom: 0.3em;
   font-size: 75%;
 }
 
+/* art test fallback
+.diagram-select .ui-radio .ui-btn-inner,
 .ui-navbar .ui-btn-inner {
   background-size: 2em;
   background-repeat: no-repeat;
@@ -33,18 +63,22 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
 
 .ui-navbar a[href="#bolt-id"] .ui-btn-inner {
   background-image: url("../images/icons/bolt-id.svg");
+}*/
+
+.ui-navbar a[href="#bolt-id"] .ui-btn-inner:before {
+  content: "\e000";
 }
 
-.ui-navbar a[href="#dimensions"] .ui-btn-inner {
-  background-image: url("../images/icons/dimensions.svg");
+.ui-navbar a[href="#dimensions"] .ui-btn-inner:before {
+  content: "\e002";
 }
 
-.ui-navbar a[href="#nuts-and-washers"] .ui-btn-inner {
-  background-image: url("../images/icons/nuts-and-washers.svg");
+.ui-navbar a[href="#nuts-and-washers"] .ui-btn-inner:before {
+  content: "\e001";
 }
 
-.ui-navbar a[href="#manufacturer"] .ui-btn-inner {
-  background-image: url("../images/icons/list.svg");
+.ui-navbar a[href="#manufacturer"] .ui-btn-inner:before {
+  content: "\2630";
 }
 
 .inline-help {margin-bottom: 2em;}
@@ -83,6 +117,8 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
 #manufacturer-select {margin-top: 0.3em; margin-bottom: 0.3em;}
 
 /* Dimmensions */
+/* See also: font icon declaration under global */
+
 .diagram-select .ui-radio .ui-btn-inner {
   padding: 2.5em;
   padding-top: 2.5em;
@@ -90,22 +126,16 @@ fieldset.ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bott
   font-size: 75%;
 }
 
-.diagram-select .ui-radio .ui-btn-inner {
-  background-size: 2em;
-  background-repeat: no-repeat;
-  background-position: center 0.3em;
+label[for="bolt-select"] .ui-btn-inner:before {
+  content: "\e005";
 }
 
-label[for="bolt-select"] .ui-btn-inner {
-  background-image: url("../images/icons/bolt-outline.svg");
+label[for="nut-select"] .ui-btn-inner:before {
+  content: "\e004";
 }
 
-label[for="nut-select"] .ui-btn-inner {
-  background-image: url("../images/icons/nut-outline.svg");
-}
-
-label[for="washer-select"] .ui-btn-inner {
-  background-image: url("../images/icons/washer-outline.svg");
+label[for="washer-select"] .ui-btn-inner:before {
+  content: "\e003";
 }
 
 
