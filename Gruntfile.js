@@ -134,7 +134,7 @@ module.exports = function(grunt) {
       target: {
         files: [
           {
-            src: ['data/**', 'style/images/**', 'images/**/*.svg'],
+            src: ['data/**', 'style/images/**', 'style/fonts/**', 'images/**/*.svg'],
             dest: '../build/'
           },
         ]
@@ -158,6 +158,7 @@ module.exports = function(grunt) {
                 "index.html",
                 "style/style.css",
                 "script/require.js",
+                "style/fonts/**/*.*",
                 "style/images/**/*.*",
                 "images/**/*.*",
             ],
