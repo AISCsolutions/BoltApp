@@ -30,7 +30,15 @@ module.exports = function(grunt) {
     },
     csslint: {
       target: {
-        src: "style/boltapp.css",
+        src: [
+          "style/global.css",
+          "style/bolt-id.css",
+          "style/nuts-and-washers.css",
+          "style/manufacturers.css",
+          "style/grade.css",
+          "style/finish.css",
+          "style/zoom.css"
+        ],
         rules: {
           "import": false,
           "adjoining-classes": false,
@@ -134,7 +142,7 @@ module.exports = function(grunt) {
       target: {
         files: [
           {
-            src: ['data/**', 'style/images/**', 'style/fonts/**', 'images/**/*.svg'],
+            src: ['.htaccess', 'data/**', 'style/images/**', 'style/fonts/**', 'images/**/*.svg'],
             dest: '../build/'
           },
         ]

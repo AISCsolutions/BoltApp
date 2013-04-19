@@ -1,0 +1,16 @@
+.nuts-and-washers .illegal {display: none;}
+.nuts-and-washers label {font-size: 80%; font-weight: bold; color: #888; margin-right: 0.5em;}
+
+.t2-1 {display: none;}
+
+.type-1 a[href="#2-1-a"],
+.type-3 a[href="#2-1-b"],
+.finish-galvanized-hot-dip a[href="#2-1-HDG"],
+.finish-galvanized-mechanical a[href="#2-1-MG"],
+.finish-zn-al a[href="#2-1-e"] {
+  display: inline-block;
+}
+
+.note-in-li { position: absolute; right: 3em; top: 0.5em; }
+.note-in-li .ui-btn-inner {padding: 0.5em;}
+

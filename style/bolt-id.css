@@ -1,0 +1,28 @@
+.bolt-illegal-warning p {margin: 0.5em;}
+.bolt-illegal-warning {position: fixed; z-index: 2000; opacity: 0.9;}
+.bolt-illegal-warning {
+  top: -5em;
+  -moz-transition: top 1s;
+  -webkit-transition: top 1s;
+  -o-transition: top 1s;
+  transition: top 1s;
+}
+.bolt-illegal .bolt-illegal-warning {top: 0;}
+
+.choice-illegal > label:after, .choice-illegal legend:after {content: " Change"; color: red;}
+.no-choices > label:after, .no-choices legend:after {content: " No Options"; color: red;}
+
+.bolt-illegal .current-grade,
+.grade.choice-illegal .ui-btn-text,
+.finish.choice-illegal .ui-btn-text,
+.grade .illegal .ui-btn-text,
+.type .illegal .ui-btn-text,
+.finish .illegal .ui-btn-text {
+  color: red; text-decoration: line-through;
+}
+
+.type-code {font-size: 75%;}
+.type .ui-controlgroup-controls {display: block; width: 100%;}
+.type .ui-radio {display: block; width: 50%;}
+
+#manufacturer-select {margin-top: 0.3em; margin-bottom: 0.3em;}

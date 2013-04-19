@@ -1,0 +1,8 @@
+.illegal .ui-li-desc, .illegal .ui-li-heading {color: #888; text-decoration: line-through;}
+.finishes .ui-li-desc {white-space: normal;}
+
+li[title="Plain"] {background: #888;}
+.type-3 li[title="Plain"] {background: #c75;}
+li[title="Galvanized (Hot-Dip)"] {background: #ddd;}
+li[title="Galvanized (Mechanical)"] {background: #ccc;}
+li[title="Zn/Al Inorganic"] {background: #99e;}
