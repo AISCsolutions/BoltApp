@@ -56,7 +56,7 @@ define([
     $: function(selector) {
       return this.element.find('[data-role="content"] ' + selector)
     },
-    'li a click': function(a) {
+    '[data-role="content"] li a click': function(a) {
       appstate.set('bolt.finish', $(a).find('h2').text())
     },
     ' pagebeforeshow': function() {

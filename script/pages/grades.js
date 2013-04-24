@@ -23,7 +23,7 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
     $: function(selector) {
       return this.element.find('[data-role="content"] ' + selector)
     },
-    'li a click': function(a) {
+    '[data-role="content"] li a click': function(a) {
       appstate.set('bolt.grade', $(a).find('h2').text())
     },
     ' pagebeforeshow': function() {
