@@ -20,7 +20,7 @@ define([
   return Control({
     init: function() {
       this.render()
-      this.zoom = new Zoom('#mfg-zoom .zoom')
+      this.zoom = new Zoom('#mfg-zoom')
       return this
     },
     'li a[href="#bolt-id"] click': function(a) {
@@ -29,7 +29,7 @@ define([
     'li a[href="#mfg-zoom"] click': function(a) {
       var mfg = new Mfg(li(a)).read()
       new Mfg('#mfg-zoom .zoom').write(mfg)
-      $('#mfg-zoom .zoom').trigger('open')
+      $('#mfg-zoom').trigger('open')
     },
     render: function () {
       var $doc = $(document.createDocumentFragment())

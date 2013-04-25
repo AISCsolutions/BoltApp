@@ -5,8 +5,8 @@ define(['jquery', 'can/control', 'controls/zoom'], function($, Control, Zoom) {
     init: function(element, options) {
       this.bolt = options.bolt
       this.rules = options.rules
-      this.washerZoom = new Zoom('#washer-zoom .zoom')
-      this.nutZoom = new Zoom('#nut-zoom .zoom')
+      this.washerZoom = new Zoom('#washer-zoom')
+      this.nutZoom = new Zoom('#nut-zoom')
       return this
     },
     $: function(selector) {
