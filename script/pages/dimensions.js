@@ -72,7 +72,7 @@ define([
       var width = $('.diagrams li').width()
       //var debug = [width, height, contentHeight, selectHeight, diameterHeight]
       //console.log(debug); $.mobile.activePage.append('<p>'+debug.toString()+'</p>')
-      if (height < 150) { height = 150 }
+      if (height < 100) { height = contentHeight }
       $('.diagrams img').aeImageResize({height: height, width: width})
       updateMeasurements()
       updateGrade()
