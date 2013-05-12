@@ -15,7 +15,7 @@
 
 .inline-help {margin-bottom: 2em;}
 
-.longtext {text-align: justify; }
+.longtext {text-align: justify; padding-left: 2em; padding-right: 2em;}
 .longtext img {max-width: 100%;}
 
 @font-face {
