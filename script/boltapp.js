@@ -10,6 +10,7 @@ define([
   'pages/grades',
   'pages/finishes',
   'pages/manufacturers',
+  'pages/disclaimer',
   'lib/ext/es5-shim',
   'jquerymobile'
 ], function(
@@ -23,7 +24,8 @@ define([
   NutsAndWashers,
   Grades,
   Finishes,
-  Manufacturers
+  Manufacturers,
+  Disclaimer
 ) {
   "use strict";
 
@@ -38,9 +40,14 @@ define([
       this.grades = new Grades('#grade')
       this.finishes = new Finishes('#finish', {rules: Rules})
       this.manufacturers = new Manufacturers('#manufacturer')
+      this.disclaimer = new Disclaimer('#disclaimer', {appstate: appstate})
 
       if (mobile.activePage) { // sometimes it beats us
         mobile.activePage.trigger('pagebeforeshow').trigger('pageshow')
+      }
+
+      if (!appstate.get('agreedToDisclaimer')) {
+       this.disclaimer.open()
       }
     }
   }

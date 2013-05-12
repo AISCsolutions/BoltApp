@@ -12,7 +12,8 @@ define(['lib/store', 'can/observe'], function(Store, Observe) {
         website: 'http://www.unytiteusa.com/',
         bolt: 'mfg-unytite-a'
       },
-      diameter: 1
+      diameter: 1,
+      agreedToDisclaimer: false
     },
     diagram: 'bolt'
   }
