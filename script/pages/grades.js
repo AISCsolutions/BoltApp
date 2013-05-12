@@ -16,7 +16,7 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
           $el.addClass('illegal')
         }
 
-        var name = $el.find('h2').html()
+        var name = $el.attr('title')
         $el.find('img').attr('src', 'images/bolts/'+name+'-'+appstate.get('bolt.type')+'.png')
       })
     },
@@ -24,7 +24,7 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
       return this.element.find('[data-role="content"] ' + selector)
     },
     '[data-role="content"] li a click': function(a) {
-      appstate.set('bolt.grade', $(a).find('h2').text())
+      appstate.set('bolt.grade', $(a).parents('li').attr('title'))
     },
     ' pagebeforeshow': function() {
       this.update()
