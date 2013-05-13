@@ -11,6 +11,7 @@
 
 .choice-illegal > label:after, .choice-illegal legend:after {content: " Change"; color: red;}
 .no-choices > label:after, .no-choices legend:after {content: " No Options"; color: red;}
+.choice-illegal .title-note, .no-choices .title-note {display: none;}
 
 .bolt-illegal .current-grade,
 .grade.choice-illegal .ui-btn-text,
@@ -18,6 +19,12 @@
 .grade .illegal .ui-btn-text,
 .type .illegal .ui-btn-text,
 .finish .illegal .ui-btn-text {
+  color: red; text-decoration: line-through;
+}
+.bolt-illegal .type .current-grade {
+  color: inherit; text-decoration: none;
+}
+.bolt-illegal .type .illegal .current-grade {
   color: red; text-decoration: line-through;
 }
 
