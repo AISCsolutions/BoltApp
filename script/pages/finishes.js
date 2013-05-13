@@ -33,15 +33,17 @@ define([
     current: function() {
       return this.rules.bolt(appstate.get('bolt')).anyFinish().allowedFinishes()
     },
+    selected: function() {
+      return appstate.get('bolt.finish')
+    },
     update: function() {
       var current = this.current()
+      var selected = this.selected()
       this.$('li').each(function() {
         var $el = $(this)
-        if (current.indexOf($el.attr('title')) >= 0) {
-          $el.removeClass('illegal')
-        } else {
-          $el.addClass('illegal')
-        }
+        var title = $el.attr('title')
+        $el.toggleClass('illegal', current.indexOf(title) < 0)
+        $el.toggleClass('selected', selected == title)
       })
 
       var color = colors.colorFor({
@@ -65,7 +67,7 @@ define([
     render: function() {
       var $doc = $(document.createDocumentFragment())
       this.finishes.forEach(function(finish) {
-        var $item = $('<li><a href="#bolt-id" data-rel="back"></a></li>').
+        var $item = $('<li data-icon="check"><a href="#bolt-id" data-rel="back"></a></li>').
           attr('title', finish.name).
           appendTo($doc)
         var $container = $item.find('a')
