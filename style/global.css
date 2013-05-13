@@ -7,10 +7,12 @@
 .ui-btn {margin-top: 0.3em; margin-bottom: 0.3em;}
 .ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bottom: 0.3em;}
 .ui-li-link-alt {margin-top: -1px;}
+.ui-header .ui-title  {line-height: 1.6em;}
+.ui-header a.ui-btn-icon-notext {border-radius: 1.5em; padding: 0.5em;} 
 
 .type-3 .grade-designator {text-decoration: underline;}
 
-.ui-header a[href="#disclaimer"] {right: 2.2em;}
+.ui-header a[href="#disclaimer"] {right: 3em;}
 .ui-header .help {right: 4em;}
 
 .inline-help {margin-bottom: 2em;}
