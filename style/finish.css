@@ -1,5 +1,6 @@
 .illegal .ui-li-desc, .illegal .ui-li-heading {color: #888; text-decoration: line-through;}
 .finishes .ui-li-desc {white-space: normal;}
+.finishes .ui-icon {display: none;}
 
 li[title="Plain"] {background: #888;}
 .type-3 li[title="Plain"] {background: #c75;}
