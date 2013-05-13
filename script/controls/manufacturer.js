@@ -7,6 +7,7 @@ define(['jquery', 'can/control', 'manufacturer'], function($, Control, manufactu
     },
     write: function(id) {
       var mfg = manufacturer[id]
+      if (!mfg) {return this}
       var $el = this.element
       $el.attr('id', id)
       $el.find('.name').html(mfg.name)

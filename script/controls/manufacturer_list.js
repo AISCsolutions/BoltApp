@@ -33,7 +33,7 @@ define([
     },
     select: function (mfg) {
       this.element.find('.selected').removeClass('selected')
-      this.element.find('#'+mfg).addClass('selected')
+      if (mfg) {this.element.find('#'+mfg).addClass('selected')}
     },
     render: function () {
       var $doc = $(document.createDocumentFragment())
