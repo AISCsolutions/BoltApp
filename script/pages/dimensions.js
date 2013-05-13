@@ -104,7 +104,6 @@ define([
       setTimeout(this.deferShow.bind(this), 0)
     },
     '{window} resize': function() {
-      console.log('resize')
       setTimeout(this.deferShow.bind(this), 0)
     },
     '.diagram-select selected': function(el, ev, diagram) {
