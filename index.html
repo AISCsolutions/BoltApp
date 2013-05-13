@@ -79,6 +79,11 @@
     <a href="#about" data-role="button" data-transition="slidedown" data-icon="info" data-iconpos="notext" data-inline="true" class="ui-btn-right">About</a>
   </div><!-- header -->
 
+  <div data-role="popup" id="bolt-length">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <p>To calculate the bolt length, refer to AISC Engineering Journal paper Specifying Bolt Length for High-Strength Bolts (Carter, 2nd QTR/1996) available for download at <a href="http://www.aisc.org/ej" data-role="button" data-mini="true">www.aisc.org/ej</a></p>
+  </div>
+
   <div data-role="content">
     <form class="diagram-select">
       <fieldset data-role="controlgroup" data-type="horizontal">
@@ -103,7 +108,7 @@
             <p class="measurement" data-x="15%" data-y="88%" title="Width Across Flats">F</p>
             <p class="measurement" data-x="36%" data-y="88%" title="Height">H</p>
             <p class="measurement" data-x="83%" data-y="19%" title="Thread Length">Thread Length</p>
-            <p class="measurement" data-x="69%" data-y="92%" title="Length Extras">+ Grip + Washers</p>
+            <p class="measurement" data-x="69%" data-y="92%" title="Length Extras"><a href="#bolt-length" data-rel="popup">+ Grip + Washers</a></p>
             <p class="measurement" data-x="69%" data-y="75%" title="Base Length">Bolt Length</p>
           </div>
           <div id="tc-bolt-diagram">
@@ -112,7 +117,7 @@
             <p class="measurement" data-x="14%" data-y="88%" title="Width Across Flats">F</p>
             <p class="measurement" data-x="32%" data-y="88%" title="Height">H</p>
             <p class="measurement" data-x="74%" data-y="19%" title="Thread Length">Thread Length</p>
-            <p class="measurement" data-x="61%" data-y="92%" title="Length Extras">+ Grip + Washers</p>
+            <p class="measurement" data-x="61%" data-y="92%" title="Length Extras"><a href="#bolt-length" data-rel="popup">+ Grip + Washers</a></p>
             <p class="measurement" data-x="61%" data-y="75%" title="Base Length">Bolt Length</p>
             <p class="measurement" data-x="93%" data-y="88%" title="Spline Length">Spline Length</p>
           </div>
