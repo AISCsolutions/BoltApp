@@ -32,21 +32,13 @@ define([
       $('#mfg-zoom').trigger('open')
     },
     select: function (mfg) {
-      var previous = this.element.find('.selected')
-      previous.removeClass('selected')
-      this.element.find('li').each(function(i, el) {
-        if ($(el).find('.name').html() == mfg.name) {
-          $(el).addClass('selected')
-        }
-      })
-      if (this.element.hasClass('ui-listview')) {
-        this.element.listview('refresh')
-      }
+      this.element.find('.selected').removeClass('selected')
+      this.element.find('#'+mfg).addClass('selected')
     },
     render: function () {
       var $doc = $(document.createDocumentFragment())
       manufacturers.forEach(function(mfg) {
-        Mfg.render().write(mfg).element.appendTo($doc)
+        Mfg.render().write(mfg.bolt).element.appendTo($doc)
       })
       var $list = this.element.empty().append($doc.children())
       if ($list.hasClass('ui-listview')) {

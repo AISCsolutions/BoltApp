@@ -1,18 +1,14 @@
-define(['jquery', 'can/control'], function($, Control) {
+define(['jquery', 'can/control', 'manufacturer'], function($, Control, manufacturer) {
   "use strict";
 
   var Mfg = Control({
     read: function() {
-      var $el = this.element
-      return {
-        name: $el.find('.name').html(),
-        location: $el.find('.location').html(),
-        bolt: $el.find('.bolt').attr('src').replace(/images\/bolts\/(.+)\.(png|svg)/, "$1"),
-        website: $el.find('.website').attr('href')
-      }
+      return this.element.attr('id')
     },
-    write: function(mfg) {
+    write: function(id) {
+      var mfg = manufacturer[id]
       var $el = this.element
+      $el.attr('id', id)
       $el.find('.name').html(mfg.name)
       $el.find('.location').html(mfg.location)
       $el.find('.website').attr('href', mfg.website)

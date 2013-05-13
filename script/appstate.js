@@ -6,12 +6,7 @@ define(['lib/store', 'can/observe'], function(Store, Observe) {
       grade: 'A325',
       type: '1',
       finish: 'Plain',
-      manufacturer: {
-        name: 'Unytite, Inc',
-        location: 'Peru IL',
-        website: 'http://www.unytiteusa.com/',
-        bolt: 'mfg-unytite-a'
-      },
+      manufacturer: 'mfg-unytite-a',
       diameter: 1,
       agreedToDisclaimer: false
     },
