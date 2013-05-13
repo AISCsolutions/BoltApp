@@ -1,5 +1,7 @@
 define(['tables/manufacturers'], function(manufacturers) {
-  mfgs = {}
+  "use strict";
+
+  var mfgs = {}
   manufacturers.forEach(function(mfg) {
     mfgs[mfg.bolt] = mfg
   })

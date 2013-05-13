@@ -47,7 +47,7 @@ define([
       }
 
       if (!appstate.get('agreedToDisclaimer')) {
-       this.disclaimer.open()
+        this.disclaimer.open()
       }
     }
   }

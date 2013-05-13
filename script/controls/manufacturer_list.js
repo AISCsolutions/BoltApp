@@ -27,8 +27,8 @@ define([
       a.trigger('selected', new Mfg(li(a)).read())
     },
     'li a[href="#mfg-zoom"] click': function(a) {
-      var mfg = new Mfg(li(a)).read()
-      new Mfg('#mfg-zoom .zoom').write(mfg)
+      var mfg = (new Mfg(li(a))).read()
+      (new Mfg('#mfg-zoom .zoom')).write(mfg)
       $('#mfg-zoom').trigger('open')
     },
     select: function (mfg) {
