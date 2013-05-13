@@ -3,11 +3,11 @@
 .finishes .ui-icon {display: none;}
 .finishes .selected .ui-icon {display: inherit;}
 
-li[title="Plain"] {background: #888;}
-.type-3 li[title="Plain"] {background: #c75;}
-li[title="Galvanized (Hot-Dip)"] {background: #ddd;}
-li[title="Galvanized (Mechanical)"] {background: #ccc;}
-li[title="Zn/Al Inorganic"] {background: #99e;}
+.finishes li[title="Plain"] {background: #888;}
+.type-3 .finishes li[title="Plain"] {background: #c75;}
+.finishes li[title="Galvanized (Hot-Dip)"] {background: #ddd;}
+.finishes li[title="Galvanized (Mechanical)"] {background: #ccc;}
+.finishes li[title="Zn/Al Inorganic"] {background: #99e;}
 
 .finish-plain .finish a {background: #888;}
 .finish-galvanized-hot-dip .finish a {background: #ddd;}

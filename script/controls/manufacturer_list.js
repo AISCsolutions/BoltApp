@@ -31,6 +31,18 @@ define([
       new Mfg('#mfg-zoom .zoom').write(mfg)
       $('#mfg-zoom').trigger('open')
     },
+    select: function (mfg) {
+      var previous = this.element.find('.selected')
+      previous.removeClass('selected')
+      this.element.find('li').each(function(i, el) {
+        if ($(el).find('.name').html() == mfg.name) {
+          $(el).addClass('selected')
+        }
+      })
+      if (this.element.hasClass('ui-listview')) {
+        this.element.listview('refresh')
+      }
+    },
     render: function () {
       var $doc = $(document.createDocumentFragment())
       manufacturers.forEach(function(mfg) {

@@ -87,3 +87,66 @@
 .ui-navbar a[href="#manufacturer"] .ui-btn-inner:before {
   content: "\2630";
 }
+
+
+
+/* Override style c as e for selected item */
+
+.selected.ui-btn-up-c,
+.selected .ui-btn-up-c {
+	border: 1px solid 		#f4c63f /*{e-bup-border}*/;
+	background: 			#fadb4e /*{e-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#222 /*{e-bup-color}*/;
+	text-shadow: 0 /*{e-bup-shadow-x}*/ 1px /*{e-bup-shadow-y}*/ 0 /*{e-bup-shadow-radius}*/ 	#fff /*{e-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #ffefaa /*{e-bup-background-start}*/), to( #ffe155 /*{e-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #ffefaa /*{e-bup-background-start}*/, #ffe155 /*{e-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #ffefaa /*{e-bup-background-start}*/, #ffe155 /*{e-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #ffefaa /*{e-bup-background-start}*/, #ffe155 /*{e-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #ffefaa /*{e-bup-background-start}*/, #ffe155 /*{e-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #ffefaa /*{e-bup-background-start}*/, #ffe155 /*{e-bup-background-end}*/);
+}
+.selected .ui-btn-up-c:visited,
+.selected .ui-btn-up-c a.ui-link-inherit {
+	color: 					#222 /*{e-bup-color}*/;
+}
+.selected.ui-btn-hover-c,
+.selected .ui-btn-hover-c {
+	border: 1px solid 		#f2c43d /*{e-bhover-border}*/;
+	background: 			#fbe26f /*{e-bhover-background-color}*/;
+	font-weight: bold;
+	color: 					#111 /*{e-bhover-color}*/;
+	text-shadow: 0 /*{e-bhover-shadow-x}*/ 1px /*{e-bhover-shadow-y}*/ 0 /*{e-bhover-shadow-radius}*/ 	#fff /*{e-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff5ba /*{e-bhover-background-start}*/), to( #fbdd52 /*{e-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #fff5ba /*{e-bhover-background-start}*/, #fbdd52 /*{e-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #fff5ba /*{e-bhover-background-start}*/, #fbdd52 /*{e-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #fff5ba /*{e-bhover-background-start}*/, #fbdd52 /*{e-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #fff5ba /*{e-bhover-background-start}*/, #fbdd52 /*{e-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #fff5ba /*{e-bhover-background-start}*/, #fbdd52 /*{e-bhover-background-end}*/);
+}
+.selected.ui-btn-hover-c:visited,
+.selected .ui-btn-hover-c:visited,
+.selected.ui-btn-hover-c:hover,
+.selected .ui-btn-hover-c:hover,
+.selected.ui-btn-hover-c a.ui-link-inherit,
+.selected .ui-btn-hover-c a.ui-link-inherit {
+	color: 					#333 /*{e-bhover-color}*/;
+}
+.selected .ui-btn-down-c {
+	border: 1px solid 		#f2c43d /*{e-bdown-border}*/;
+	background: 			#fceda7 /*{e-bdown-background-color}*/;
+	font-weight: bold;
+	color: 					#111 /*{e-bdown-color}*/;
+	text-shadow: 0 /*{e-bdown-shadow-x}*/ 1px /*{e-bdown-shadow-y}*/ 0 /*{e-bdown-shadow-radius}*/ 	#fff /*{e-bdown-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f8d94c /*{e-bdown-background-start}*/), to( #fadb4e /*{e-bdown-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #f8d94c /*{e-bdown-background-start}*/, #fadb4e /*{e-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #f8d94c /*{e-bdown-background-start}*/, #fadb4e /*{e-bdown-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #f8d94c /*{e-bdown-background-start}*/, #fadb4e /*{e-bdown-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #f8d94c /*{e-bdown-background-start}*/, #fadb4e /*{e-bdown-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #f8d94c /*{e-bdown-background-start}*/, #fadb4e /*{e-bdown-background-end}*/);
+}
+.selected .ui-btn-down-c:visited,
+.selected .ui-btn-down-c:hover,
+.selected .ui-btn-down-c a.ui-link-inherit {
+	color: 					#333 /*{e-bdown-color}*/;
+}

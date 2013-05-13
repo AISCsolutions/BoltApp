@@ -16,6 +16,9 @@ define([
       this.list = new List(element.find('.manufacturers'))
       return this
     },
+    ' pageshow': function() {
+      this.list.select(appstate.get('bolt.manufacturer'))
+    },
     '.manufacturers selected': function(el, ev, mfg) {
       appstate.set('bolt.manufacturer', mfg)
     }
