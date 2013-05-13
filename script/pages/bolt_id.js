@@ -60,6 +60,10 @@ define([
     '.type selected': function(el, ev, type) {
       this.appstate.set('bolt.type', type)
     },
+    'a[href="#mfg-zoom"] click': function(a) {
+      new Mfg('#mfg-zoom .zoom').write(this.appstate.get('bolt.manufacturer'))
+      $('#mfg-zoom').trigger('open')
+    },
     "{appstate} bolt.grade": markIllegal,
     "{appstate} bolt.type": markIllegal,
     "{appstate} bolt.finish": markIllegal
