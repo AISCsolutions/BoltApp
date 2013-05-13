@@ -21,6 +21,10 @@ define(['jquery', 'can/control'], function($, Control) {
     'input change': function(input) {
       input.trigger('selected', $(input).val())
     },
+    ' submit': function(form, e) {
+      e.preventDefault()
+      return false
+    },
     render: function() {
       var $el = this.element
       var $slider = $el.find('.ui-slider-track')
