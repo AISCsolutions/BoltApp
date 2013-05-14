@@ -32,6 +32,10 @@ define(['lib/store', 'can/observe'], function(Store, Observe) {
       var state = store.load()
 
       if (typeof(state['bolt']) != 'undefined') {
+        if (typeof(state['manufacturer']) != 'string') {
+          state.manufacturer = defaultState.manufacturer
+        }
+
         this.data.attr(state)
       }
 

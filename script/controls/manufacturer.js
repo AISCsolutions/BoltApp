@@ -6,10 +6,13 @@ define(['jquery', 'can/control', 'manufacturer'], function($, Control, manufactu
       return this.element.attr('id')
     },
     write: function(id) {
+      if (typeof(id) != 'string') {return this}
       var mfg = manufacturer[id]
       if (!mfg) {return this}
       var $el = this.element
-      $el.attr('id', id)
+      if ($el.is('li')) {
+        $el.attr('id', id)
+      }
       $el.find('.name').html(mfg.name)
       $el.find('.location').html(mfg.location)
       $el.find('.website').attr('href', mfg.website)
