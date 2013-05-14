@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
           name: 'lib/ext/almond',
           include: 'bootstrap',
-          out: '../build/script/require.js',
+          out: 'dist/script/require.js',
         }
       }
     },
@@ -96,21 +96,21 @@ module.exports = function(grunt) {
         files: [
           {
             src: 'style/style.css',
-            dest: '../built/joined.css'
+            dest: 'tmp/joined.css'
           }
         ]
       }
     },
     cssmin: {
       target: {
-        src: '../built/joined.css',
-        dest: '../build/style/style.css'
+        src: 'tmp/joined.css',
+        dest: 'dist/style/style.css'
       }
     },
     htmlcompressor: {
       target: {
         files: {
-          '../build/index.html': './index.html',
+          'dist/index.html': './index.html',
         },
         options: {
           type: 'html',
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      images: ['../build/images'],
+      images: ['dist/images'],
     },
     imagemin: {
       target: {
@@ -134,7 +134,7 @@ module.exports = function(grunt) {
             expand: true,
             src: ['images/**/*.png', 'images/**/*.jpeg'],
             filter: 'isFile',
-            dest: '../build/'
+            dest: 'dist/'
           }
         ]
       }
@@ -144,14 +144,14 @@ module.exports = function(grunt) {
         files: [
           {
             src: ['.htaccess', 'data/**', 'style/images/**', 'style/fonts/**', 'images/**/*.svg'],
-            dest: '../build/'
+            dest: 'dist/'
           },
         ]
       }
     },
     svgo: {
       target: {
-        files: '../build/images/**/*.svg'
+        files: 'dist/images/**/*.svg'
       }
     },
     manifest: {
@@ -171,7 +171,7 @@ module.exports = function(grunt) {
                 "style/images/**/*.*",
                 "images/**/*.*",
             ],
-            dest: "../build/cache.manifest",
+            dest: "dist/cache.manifest",
             filter: "isFile",
           }
         ]
