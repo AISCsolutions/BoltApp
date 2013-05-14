@@ -8,9 +8,9 @@ define(['lib/store', 'can/observe'], function(Store, Observe) {
       finish: 'Plain',
       manufacturer: 'mfg-unytite-a',
       diameter: 1,
-      agreedToDisclaimer: false
     },
-    diagram: 'bolt'
+    diagram: 'bolt',
+    agreedToDisclaimer: false
   }
 
   var diameterInches = {
