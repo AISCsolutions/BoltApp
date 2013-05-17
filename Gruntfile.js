@@ -196,5 +196,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['csslint', 'jshint:default'])
   grunt.registerTask('live', ['livereload-start', 'connect:livereload', 'regarde:livereload'])
   grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlcompressor', 'copy', 'svgo', 'manifest'])
+  grunt.registerTask('code', ['requirejs', 'cssjoin', 'cssmin', 'htmlcompressor', 'manifest'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
