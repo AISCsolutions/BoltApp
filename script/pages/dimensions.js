@@ -26,7 +26,8 @@ define([
   var standardBoltDiagram = new Diagram('#standard-bolt-diagram')
   var tcBoltDiagram = new Diagram('#tc-bolt-diagram')
   var nutDiagram = new Diagram('#nut-diagram')
-  var washerDiagram = new Diagram('#washer-diagram')
+  var roundWasherDiagram = new Diagram('#round-washer-diagram')
+  var squareWasherDiagram = new Diagram('#square-washer-diagram')
 
   var currentMeasures = function() {
     var fraction = appstate.diameterFraction()
@@ -45,8 +46,8 @@ define([
     standardBoltDiagram.update(measures['Bolt'])
     tcBoltDiagram.update(measures['Bolt'])
     nutDiagram.update(measures['Nut'])
-    washerDiagram.update(measures['Circular Washer'])
-    washerDiagram.update(measures['Square Washer'])
+    roundWasherDiagram.update(measures['Circular Washer'])
+    squareWasherDiagram.update(measures['Square Washer'])
   }
 
   var updateGrade = function() {
@@ -63,7 +64,8 @@ define([
     standardBoltDiagram: standardBoltDiagram,
     tcBoltDiagram: tcBoltDiagram,
     nutDiagram: nutDiagram,
-    washerDiagram: washerDiagram,
+    roundWasherDiagram: roundWasherDiagram,
+    squareWasherDiagram: squareWasherDiagram,
     setDiagramSize: function() {
       var contentHeight = this.body.contentHeight()
       var selectHeight = this.select.height()
@@ -90,7 +92,8 @@ define([
         parts: {
           bolt: {index: 0, controls: [standardBoltDiagram, tcBoltDiagram]},
           nut: {index: 1, controls: [nutDiagram]},
-          washer: {index: 2, controls: [washerDiagram]}
+          round: {index: 2, controls: [roundWasherDiagram]},
+          square: {index: 3, controls: [squareWasherDiagram]}
         }
       })
       this.select = new Select('.diagram-select')

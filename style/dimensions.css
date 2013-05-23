@@ -6,17 +6,17 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 300%;
+  width: 400%;
   position: relative;
 }
 .diagrams li {
   display: inline-block;
   position: relative;
   text-align: center;
-  width: 30%;
+  width: 24%;
   margin: 0;
-  margin-left: 1.4%;
-  margin-right: 1.4%;
+  margin-left: 0.3%;
+  margin-right: 0.3%;
   padding: 0;
 }
 #tc-bolt-diagram {display: none;}
@@ -77,7 +77,7 @@
 }
 
 .diagram-select .ui-radio .ui-btn-inner {
-  padding: 2.5em;
+  padding: 1.5em;
   padding-top: 2.5em;
   padding-bottom: 0.3em;
   font-size: 75%;
@@ -91,8 +91,10 @@ label[for="nut-select"] .ui-btn-inner:before {
   content: "\e004";
 }
 
-label[for="washer-select"] .ui-btn-inner:before {
+label[for="round-select"] .ui-btn-inner:before {
   content: "\e003";
 }
 
-
+label[for="square-select"] .ui-btn-inner:before {
+  content: "\e003";
+}
