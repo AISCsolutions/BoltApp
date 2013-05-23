@@ -33,9 +33,10 @@
 .diagrams .measurement {
   position: absolute;
   margin: 0;
-  padding: 0.2em;
-  background-color: #ffd;
-  border: solid #ddd 1px;
+  color: blue;
+}
+.diagrams .measurement.grade-designator {
+  color: black;
 }
 .diagrams .measurement {
   opacity: 0;
