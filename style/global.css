@@ -3,7 +3,7 @@
 
 /* Global */
 .ui-content { overflow: hidden; padding-top: 0.5em; padding-bottom: 0.5em;}
-.ui-li-desc, .ui-li-heading {overflow: visible;}
+.ui-li-desc, .ui-li-heading {overflow: visible; white-space: normal;}
 .ui-btn {margin-top: 0.3em; margin-bottom: 0.3em;}
 .ui-controlgroup, .ui-controlgroup-label {margin-top: 0.3em; margin-bottom: 0.3em;}
 .ui-li-link-alt {margin-top: -1px;}
