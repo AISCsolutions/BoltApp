@@ -14,3 +14,4 @@
 .note-in-li { position: absolute; right: 3em; top: 0.5em; }
 .note-in-li .ui-btn-inner {padding: 0.5em;}
 
+.notes {white-space: nowrap;}
