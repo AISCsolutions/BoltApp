@@ -27,7 +27,6 @@ define(['jquery', 'can/control', 'manufacturer'], function($, Control, manufactu
       <img class="bolt" src="">\
       <h2 class="name">Name</h2>\
       <p class="location">Location</p>\
-      <a class="website" href="">Webpage</a>\
       <a href="#mfg-zoom" data-rel="dialog" data-icon="search">Show</a>\
     </a></li>'
     return new Mfg($(template))
