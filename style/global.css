@@ -77,18 +77,12 @@
 }
 
 .ui-navbar a[href="#dimensions"] .ui-btn-inner:before {
-  content: "\e002";
-}
-
-.ui-navbar a[href="#nuts-and-washers"] .ui-btn-inner:before {
   content: "\e001";
 }
 
-.ui-navbar a[href="#manufacturer"] .ui-btn-inner:before {
-  content: "\2630";
+.ui-navbar a[href="#nuts-and-washers"] .ui-btn-inner:before {
+  content: "\e002";
 }
-
-
 
 /* Override style c as e for selected item */
 
