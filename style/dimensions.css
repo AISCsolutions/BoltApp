@@ -1,20 +1,19 @@
 #dimensions .ui-content {padding-top: 0;}
 
+.diagrams {margin-left: -15px; margin-right: -15px;}
 .diagrams ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 400%;
+  width: 401%;
   position: relative;
 }
 .diagrams li {
   display: inline-block;
   position: relative;
   text-align: center;
-  width: 24%;
+  width: 24.6%;
   margin: 0;
-  margin-left: 0.3%;
-  margin-right: 0.3%;
   padding: 0;
 }
 #tc-bolt-diagram {display: none;}
