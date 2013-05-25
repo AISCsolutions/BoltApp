@@ -1,7 +1,5 @@
-/* See also: font icon declaration under global */
-.diagrams {
-  position: relative;
-}
+#dimensions .ui-content {padding-top: 0;}
+
 .diagrams ul {
   list-style-type: none;
   margin: 0;
@@ -58,13 +56,11 @@
 }
 
 /* Diameters slider */
-.diameter {margin-top: 2em;}
 .diameter-inches {
   position: absolute;
   width: 100%;
   text-align: center;
   margin: 0;
-  margin-top: -0.5em;
   font-size: 200%;
 }
 
@@ -76,6 +72,8 @@
   height: 1em;
 }
 
+/* Diagram Select */
+.diagram-select fieldset {margin: 0;}
 .diagram-select .ui-radio .ui-btn-inner {
   padding: 1.5em;
   padding-top: 2.5em;
@@ -83,6 +81,7 @@
   font-size: 75%;
 }
 
+/* See also: font icon declaration under global */
 label[for="bolt-select"] .ui-btn-inner:before {
   content: "\e003";
 }
