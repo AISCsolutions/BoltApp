@@ -34,6 +34,7 @@
 }
 .diagrams .measurement.grade-designator {
   color: black;
+  font-size: 60%;
 }
 .diagrams .measurement {
   opacity: 0;
