@@ -30,7 +30,7 @@
 .diagrams .measurement {
   position: absolute;
   margin: 0;
-  color: blue;
+  color: #d00;
 }
 .diagrams .measurement.grade-designator {
   color: black;
