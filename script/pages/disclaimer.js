@@ -7,8 +7,12 @@ function($, mobile, Control) {
       this.appstate = options.appstate
       return this
     },
-    open: function() { mobile.changePage( "#disclaimer" ) },
+    open: function() {
+      this.element.addClass('automatic')
+      mobile.changePage( "#disclaimer" )
+    },
     'a click': function() {
+      this.element.removeClass('automatic')
       this.appstate.set('agreedToDisclaimer', true)
     }
   })

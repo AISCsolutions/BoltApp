@@ -1,0 +1,4 @@
+#disclaimer .agree {display: none;}
+#disclaimer .close {display: inherit;}
+#disclaimer.automatic .agree {display: inherit;}
+#disclaimer.automatic .close {display: none;}
