@@ -6,7 +6,7 @@ define(['lib/store', 'can/observe'], function(Store, Observe) {
       grade: 'A325',
       type: '1',
       finish: 'Plain',
-      manufacturer: 'mfg-unytite-a',
+      manufacturer: 'mfg-unytite',
       diameter: 1,
     },
     diagram: 'bolt',
