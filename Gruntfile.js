@@ -122,7 +122,7 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      images: ['dist/images', 'dist/*.png'],
+      images: ['dist/images'],
     },
     imagemin: {
       target: {
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['images/**/*.png', 'images/**/*.jpeg', '*.png'],
+            src: ['images/**/*.png', 'images/**/*.jpeg'],
             filter: 'isFile',
             dest: 'dist/'
           }
@@ -171,7 +171,6 @@ module.exports = function(grunt) {
                 "style/images/**/*.*",
                 "images/**/*.*",
                 "favicon.ico",
-                "*.png"
             ],
             dest: "dist/cache.manifest",
             filter: "isFile",
