@@ -122,7 +122,7 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      images: ['dist/images'],
+      images: ['dist/images', 'dist/*.png'],
     },
     imagemin: {
       target: {
