@@ -143,7 +143,14 @@ module.exports = function(grunt) {
       target: {
         files: [
           {
-            src: ['.htaccess', 'favicon.ico', 'data/**', 'style/images/**', 'style/fonts/**', 'images/**/*.svg'],
+            src: [
+              '.htaccess',
+              'favicon.ico',
+              'LICENSE.txt',
+              'data/**',
+              'style/images/**',
+              'style/fonts/**',
+              'images/**/*.svg'],
             dest: 'dist/'
           },
         ]
@@ -171,6 +178,7 @@ module.exports = function(grunt) {
                 "style/images/**/*.*",
                 "images/**/*.*",
                 "favicon.ico",
+                "LICENSE.txt",
             ],
             dest: "dist/cache.manifest",
             filter: "isFile",
