@@ -1,4 +1,4 @@
-AddType text/cache-manifest .manifest
+AddType text/cache-manifest .appcache
 AddType application/x-web-app-manifest+json .webapp
 AddType application/font-woff .woff
 AddType application/vnd.ms-fontobject .eot

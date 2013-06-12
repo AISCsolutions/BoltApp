@@ -180,7 +180,7 @@ module.exports = function(grunt) {
                 "favicon.ico",
                 "LICENSE.txt",
             ],
-            dest: "dist/cache.manifest",
+            dest: "dist/bolt.appcache",
             filter: "isFile",
           }
         ]

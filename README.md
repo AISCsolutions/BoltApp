@@ -30,6 +30,6 @@ For production builds, this project uses [Grunt](http://gruntjs.com/) to handle 
 
 Once dist is built, the files in dist should be runable directly from the filesystem, although a web server will be required to enable offline support.  Please note the (often hidden) `.htaccess` file, which will configure Apache to serve the cache manifest with correct mime-type.  Other servers will require similar configuration if they don't use .htaccess.
 
-Note dist contains a [cache.manifest](https://en.wikipedia.org/wiki/The_cache_manifest_in_HTML5) file. This is regenerated on each build, but you still may need to take some care to ensure that your browser has loaded updated files once you've run from production build.
+Note dist contains a [bolt.appcache](https://en.wikipedia.org/wiki/The_cache_manifest_in_HTML5) file. This is regenerated on each build, but you still may need to take some care to ensure that your browser has loaded updated files once you've run from production build.
 
 The *About* page within the application contains some high-level information about the libraries used in the application itself.
