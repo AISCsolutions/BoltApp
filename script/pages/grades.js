@@ -17,7 +17,7 @@ define(['jquery', 'can/control', 'appstate', 'rules'], function($, Control, apps
         }
 
         var name = $el.attr('title')
-        $el.find('img').attr('src', 'images/bolts/'+name+'-'+appstate.get('bolt.type')+'.png')
+        $el.find('img').attr('src', 'images/bolts/'+name+'_bolt_type'+appstate.get('bolt.type')+'_80.png')
       })
     },
     $: function(selector) {
