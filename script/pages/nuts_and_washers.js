@@ -15,7 +15,7 @@ define(['jquery', 'can/control', 'controls/zoom'], function($, Control, Zoom) {
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
     },
-    'li a click': function(a) {
+    '.nuts_and_washers li a click': function(a) {
       var $zoom = $(a.attr('href') + ' .zoom')
       a.find('[title]').each(function() {
         var title = $(this).attr('title')
