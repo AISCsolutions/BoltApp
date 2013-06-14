@@ -22,7 +22,7 @@ define(['jquery', 'can/control', 'controls/zoom'], function($, Control, Zoom) {
         $zoom.find('[title="'+title+'"]').html($(this).html())
       })
       $zoom.find('img')
-        .attr('src', $(a).find('img').attr('src'))
+        .attr('src', $(a).find('img').attr('src').replace('80', '264'))
         .trigger('open')
     },
     ' pagebeforeshow': function() {
