@@ -5,7 +5,7 @@ define(['jquery', 'can/control', 'manufacturer'], function($, Control, manufactu
     read: function() {
       return this.element.attr('id')
     },
-    write: function(id) {
+    write: function(id, size) {
       if (typeof(id) != 'string') {return this}
       var mfg = manufacturer[id]
       if (!mfg) {return this}
@@ -17,7 +17,7 @@ define(['jquery', 'can/control', 'manufacturer'], function($, Control, manufactu
       $el.find('.location').html(mfg.location)
       $el.find('.website').attr('href', mfg.website)
       $el.find('.website.html').html(mfg.website)
-      $el.find('.bolt').attr('src', 'images/bolts/'+mfg.bolt+'.png')
+      $el.find('.bolt').attr('src', 'images/bolts/'+mfg.bolt+'_'+size+'.png')
       return this
     }
   })

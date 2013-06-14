@@ -28,7 +28,7 @@ define([
     },
     'li a[href="#mfg-zoom"] click': function(a) {
       var mfg = (new Mfg(li(a))).read()
-      ;(new Mfg('#mfg-zoom .zoom')).write(mfg)
+      ;(new Mfg('#mfg-zoom .zoom')).write(mfg, '264')
       $('#mfg-zoom').trigger('open')
     },
     select: function (mfg) {
@@ -38,7 +38,7 @@ define([
     render: function () {
       var $doc = $(document.createDocumentFragment())
       manufacturers.forEach(function(mfg) {
-        Mfg.render().write(mfg.bolt).element.appendTo($doc)
+        Mfg.render().write(mfg.bolt, '80').element.appendTo($doc)
       })
       var $list = this.element.empty().append($doc.children())
       if ($list.hasClass('ui-listview')) {

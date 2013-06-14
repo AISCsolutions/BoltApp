@@ -43,7 +43,7 @@ define([
   }
 
   var updateManufacturer = function() {
-    new Mfg('.manufacturer-select').write(appstate.get('bolt.manufacturer'))
+    new Mfg('.manufacturer-select').write(appstate.get('bolt.manufacturer'), '80')
   }
 
   return Control({
@@ -61,7 +61,7 @@ define([
       this.appstate.set('bolt.type', type)
     },
     'a[href="#mfg-zoom"] click': function(a) {
-      new Mfg('#mfg-zoom .zoom').write(this.appstate.get('bolt.manufacturer'))
+      new Mfg('#mfg-zoom .zoom').write(this.appstate.get('bolt.manufacturer'), '264')
       $('#mfg-zoom').trigger('open')
     },
     "{appstate} bolt.grade": markIllegal,
