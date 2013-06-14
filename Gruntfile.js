@@ -149,16 +149,10 @@ module.exports = function(grunt) {
               'LICENSE.txt',
               'data/**',
               'style/images/**',
-              'style/fonts/**',
-              'images/**/*.svg'],
+              'style/fonts/**'],
             dest: 'dist/'
           },
         ]
-      }
-    },
-    svgo: {
-      target: {
-        files: 'dist/images/**/*.svg'
       }
     },
     manifest: {
@@ -198,13 +192,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-htmlcompressor')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-imagemin')
-  grunt.loadNpmTasks('svgo-grunt')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-manifest')
 
   grunt.registerTask('default', ['csslint', 'jshint:default'])
   grunt.registerTask('live', ['livereload-start', 'connect:livereload', 'regarde:livereload'])
-  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlcompressor', 'copy', 'svgo', 'manifest'])
+  grunt.registerTask('build', ['imagemin', 'requirejs', 'cssjoin', 'cssmin', 'htmlcompressor', 'copy', 'manifest'])
   grunt.registerTask('code', ['requirejs', 'cssjoin', 'cssmin', 'htmlcompressor', 'manifest'])
   grunt.registerTask('rebuild-images', ['clean:images', 'imagemin'])
 };
