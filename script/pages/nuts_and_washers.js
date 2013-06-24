@@ -1,6 +1,5 @@
 define(['jquery', 'can/control', 'controls/zoom'], function($, Control, Zoom) {
   "use strict";
-
   return Control({
     init: function(element, options) {
       this.bolt = options.bolt
@@ -15,7 +14,7 @@ define(['jquery', 'can/control', 'controls/zoom'], function($, Control, Zoom) {
     $datum: function(name) {
       return this.$('[title="'+name+'"]')
     },
-    '.nuts_and_washers li a click': function(a) {
+    '.nuts-and-washers li a click': function(a) {
       var $zoom = $(a.attr('href') + ' .zoom')
       a.find('[title]').each(function() {
         var title = $(this).attr('title')
