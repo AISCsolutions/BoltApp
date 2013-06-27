@@ -24,6 +24,8 @@ limitations under the License.
 
 ## Developer Notes
 
+Source code available on Github: [https://github.com/AISCsolutions/BoltApp](https://github.com/AISCsolutions/BoltApp)
+
 The project will almost run from the bare directory - however same-origin policy on the data tables requires that the separated development files be run through a web server.
 
 For production builds, this project uses [Grunt](http://gruntjs.com/) to handle packaging and minifying files.  The most notable requirement for Grunt is [Node.js](http://nodejs.org/).  The project includes a `package.json` solely for the Grunt modules needed by the project.  You should be able to `npm install` to get the required packages, and then run `grunt build` to populate the `dist` directory
