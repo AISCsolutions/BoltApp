@@ -45,7 +45,8 @@
   transition: opacity 2s;
 }
 .diagrams .data {opacity: 1;}
-.diagrams p.measurement[title="Length Extras"] {font-size: 0.75em; border: none;}
+.diagrams .double.measurement {padding-bottom: 0.75em;}
+.diagrams .double.measurement a {font-size: 0.75em;}
 .diagrams .vertical {
      -moz-transform: rotate(90deg);  /* FF3.5+ */
        -o-transform: rotate(90deg);  /* Opera 10.5 */
