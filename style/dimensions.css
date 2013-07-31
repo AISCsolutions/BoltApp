@@ -52,8 +52,6 @@
        -o-transform: rotate(90deg);  /* Opera 10.5 */
   -webkit-transform: rotate(90deg);  /* Saf3.1+, Chrome */
       -ms-transform: rotate(90deg);  /* IE ? */
-             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=1);  /* IE6,IE7 */
-         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)"; /* IE8 */
           transform: rotate(90deg);
 }
 
